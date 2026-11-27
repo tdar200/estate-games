@@ -612,8 +612,8 @@ test("invite: the message names the game and table, and the WhatsApp link carrie
   const { inviteLine, inviteText, whatsappUrl, openWhatsApp } = await import("../shared/invite.js");
   assert.equal(inviteLine("ludo", "ABCDE"), "Come and play Ludo with me! Table ABCDE");
   assert.equal(inviteLine("unknown", ""), "Come and play Estate with me!");
-  const text = inviteText("poker", "XY12Z", "https://playestate.vercel.app/j/XY12Z");
-  assert.match(text, /poker.*XY12Z: https:\/\/playestate\.vercel\.app\/j\/XY12Z$/);
+  const text = inviteText("poker", "XY12Z", "https://estate.example.net/j/XY12Z");
+  assert.match(text, /poker.*XY12Z: https:\/\/estate\.example\.net\/j\/XY12Z$/);
   const url = whatsappUrl(text);
   assert.ok(url.startsWith("https://wa.me/?text="));
   assert.equal(decodeURIComponent(url.slice("https://wa.me/?text=".length)), text);

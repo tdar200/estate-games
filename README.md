@@ -88,8 +88,9 @@ Every screen has a demo that needs no game. With the server running:
 - **deploy/aws:** scripts for a small AWS server, see [deploy/aws/README.md](deploy/aws/README.md).
 
 Behind a reverse proxy, run the proxy on the same machine: Estate only trusts `X-Forwarded-For`
-from a loopback address. The server has room limits and per-address rate limits built in (see
-[docs/API.md](docs/API.md), "Limits and overload protection").
+from a loopback address. Keep session tokens and device keys out of its access log (see
+[docs/API.md](docs/API.md), "Behind a reverse proxy"). The server has room limits and per-address
+rate limits built in (see [docs/API.md](docs/API.md), "Limits and overload protection").
 
 ## Documentation
 

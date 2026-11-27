@@ -533,3 +533,39 @@ Static files are embedded in the binary (`embed`). Device/friend data persists i
 same session tokens; games idle for 6 h are dropped), so updating or rebooting the server doesn't end games.
 Every Estate game is also kept as a replayable record in `--data/games/` (`rooms.json` gains `recordId`
 per room); no endpoint serves records. See [GAME-RECORDS.md](GAME-RECORDS.md) and `cmd/estate-replay`.
+
+### Behind a reverse proxy: keep secrets out of the access log
+
+Session tokens travel in the address (`?token=` on `/api/rooms/{code}/state` and `/ws/rooms/{code}`),
+and device keys in the `X-Estate-Device` header or, for WebSockets, `?device=id:secret`. Anyone who
+reads them can play as that seat or that device, so a proxy that writes an access log with full
+addresses or headers stores secrets. Either leave the access log off (Caddy's default) or filter it.
+With Caddy:
+
+```
+estate.example.net {
+	log {
+		output file /var/log/caddy/estate-access.log
+		format filter {
+			wrap json
+			fields {
+				request>remote_ip ip_mask {
+					ipv4 24
+					ipv6 48
+				}
+				request>uri query {
+					delete token
+					delete device
+				}
+				request>headers>X-Estate-Device delete
+				request>headers>Cookie delete
+				request>headers>Authorization delete
+			}
+		}
+	}
+	reverse_proxy 127.0.0.1:3210
+}
+```
+
+Other proxies need the same: drop the `token` and `device` query values and the `X-Estate-Device`
+header before a line is written.
