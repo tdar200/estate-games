@@ -11,21 +11,21 @@
 // Railroads: rent by how many one owner has; utilities: 4× or 10× the dice. Corners, tax, Headlines
 // and Post get a short explanation.
 
-import { GROUP_COLORS, colourWord, escapeHtml, money, playerById, possessive, spacePhoto } from "./format.js";
+import { GROUP_COLORS, GROUP_INK, colourWord, escapeHtml, money, playerById, possessive, spacePhoto } from "./format.js";
 import { groupIndexes, loanSecuredBy, mortgageValue, ownsGroup, propState, rulesOf, unmortgageCost } from "./insights.js";
 import { playerChipHtml } from "./tokens.js";
 
 const e = escapeHtml;
 const RAILROADS = [5, 15, 25, 35];
 const UTILITIES = [12, 28];
-const DARK_HEADS = new Set(["brown", "pink", "red", "green", "darkBlue"]);
+
 
 function shortName(name) {
   return String(name || "").replace(/\bRailroad\b/, "RR").replace(/\bStreet\b/, "St").replace(/\bAvenue\b/, "Ave").replace(/\bRoad\b/, "Rd").replace(/\bCompany\b/, "Co");
 }
 
 function headStyle(space) {
-  if (space.type === "property") return `background:${GROUP_COLORS[space.group]};color:${DARK_HEADS.has(space.group) ? "#FFFFFF" : "#15191E"}`;
+  if (space.type === "property") return `background:${GROUP_COLORS[space.group]};color:${GROUP_INK[space.group] || "#FFFFFF"}`;
   if (space.type === "railroad") return "background:#2B323A;color:#FFFFFF";
   if (space.type === "utility") return "background:#5B6470;color:#FFFFFF";
   return "background:#13294B;color:#FFFFFF";
@@ -84,7 +84,7 @@ export function deedDetailHtml(state, spaceIndex, { viewerId = null, size = "md"
     : "";
   let body = "";
   let foot = "";
-  let eyebrow = "TITLE DEED";
+  let eyebrow = "DEED";
 
   if (space.type === "property") {
     const level = rentLevel(state, spaceIndex);

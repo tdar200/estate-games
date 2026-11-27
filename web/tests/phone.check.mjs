@@ -582,7 +582,7 @@ test("round 2 · trade: two columns side by side, one live effect line, the valu
   const dock = out.main.slice(out.main.indexOf('class="tdock"'));
   assert.equal((dock.match(/class="teffect[ "]/g) || []).length, 1, "one effect line");
   assert.match(dock, /class="tsum[ "]/, "the value line");
-  assert.match(dock, /tset tset--bad[\s\S]*MAYA'S ORANGE SET/, "giving Maya her set is red (review U8)");
+  assert.match(dock, /tset tset--bad[\s\S]*MAYA'S GREEN SET/, "giving Maya her set is red (review U8)");
   assert.match(dock, /data-cmd="trade-send"/);
 });
 
@@ -1035,7 +1035,7 @@ test("impact: cash, net worth and rent before → after for both sides, sets com
   assert.deepEqual(maya.setsGained, ["orange"], "Central Road completes Maya's orange set");
   assert.equal(me.cash[1] - me.cash[0], 200, "you get $200");
   assert.equal(maya.cash[1] - maya.cash[0], -200);
-  assert.match(impact.verdicts[0].text, /^Completes Maya's ORANGE set$/);
+  assert.match(impact.verdicts[0].text, /^Completes Maya's GREEN set$/);
   assert.equal(impact.verdicts[0].tone, "bad", "bad news for you");
   assert.ok(maya.rent[1] > maya.rent[0], "a full set doubles Maya's rents");
   const after = stateAfter(state, state.trade);
@@ -1052,10 +1052,10 @@ test("impact: the phone uses the shared insights.tradeImpact (rent by set, block
   assert.deepEqual(maya.worth, [shared.proposer.worthBefore, shared.proposer.worthAfter], "worth straight from the shared impact");
   assert.equal(maya.rent, null, "rent comes as per-set changes");
   assert.ok(maya.rentChanges.some((change) => change.key === "orange" && change.after > change.before), "ORANGE rent goes up for Maya");
-  assert.deepEqual(impact.verdicts[0], { text: "Completes Maya's ORANGE set", tone: "bad", group: "orange" });
+  assert.deepEqual(impact.verdicts[0], { text: "Completes Maya's GREEN set", tone: "bad", group: "orange" });
   const html = impactHtml(state, impact);
-  assert.ok(html.includes('ORANGE rent</span><span class="imp__val imp__val--up">$14 → <b>$32</b>'));
-  assert.ok(html.includes('RED rent</span><span class="imp__val imp__val--down">$18 → <b>—</b>'), "no rent shows as a dash");
+  assert.ok(html.includes('GREEN rent</span><span class="imp__val imp__val--up">$14 → <b>$32</b>'));
+  assert.ok(html.includes('BROWN rent</span><span class="imp__val imp__val--down">$18 → <b>—</b>'), "no rent shows as a dash");
   // Utilities are dice multiples, not dollars.
   const util = impactHtml(state, { verdicts: [], sides: [{ ...maya, rentChanges: [{ key: "utility", label: "UTILITIES", before: 4, after: 10 }], setsGained: [], setsLost: [] }] });
   assert.ok(util.includes("4× → <b>10×</b>"));
@@ -1079,8 +1079,8 @@ test("trade with all the information: groups with set progress, an i on every de
   const alpha = byName(state, "Alpha");
   const draft = { ...emptyDraft(), targetId: alpha.id, offer: [19], request: [13, 14] };
   const folded = renderPhone(state, ui({ tab: "trade", trade: draft }));
-  assert.match(folded.main, /class="tgroup"[^>]*><i><\/i>ORANGE<b>1\/3<\/b>/, "your holdings by set, with progress");
-  assert.match(folded.main, /class="tgroup"[^>]*><i><\/i>PINK<b>2\/3<\/b>/, "theirs too");
+  assert.match(folded.main, /class="tgroup"[^>]*><i><\/i>GREEN<b>1\/3<\/b>/, "your holdings by set, with progress");
+  assert.match(folded.main, /class="tgroup"[^>]*><i><\/i>YELLOW<b>2\/3<\/b>/, "theirs too");
   assert.equal((folded.main.match(/class="tcard__info" data-sheet="\d+"/g) || []).length, 2 + 5, "an i on every deed in both columns");
   assert.match(folded.main, /class="teffect [^"]*teffect--fold" data-cmd="trade-info" aria-expanded="false">[\s\S]*?WHY ▾/, "folded on the phone: the footer verdict opens it");
   assert.doesNotMatch(folded.main, /class="tinfo/, "no extra row while folded");
@@ -1094,7 +1094,7 @@ test("trade with all the information: groups with set progress, an i on every de
   assert.match(deskEmpty.main, /class="tinfo tinfo--empty"/, "on PC the third column is there before anything is picked (no jump)");
   assert.doesNotMatch(renderPhone(state, ui({ tab: "trade", trade: { ...emptyDraft(), targetId: alpha.id } })).main, /class="tinfo/, "not on the phone");
   const incoming = renderPhone(load("trade").state, ui({ layout: "tablet" }));
-  assert.match(incoming.main, /class="verdicts"[\s\S]*Completes Maya&#039;s ORANGE set/, "verdicts first");
+  assert.match(incoming.main, /class="verdicts"[\s\S]*Completes Maya&#039;s GREEN set/, "verdicts first");
   assert.match(incoming.main, /class="tcard tcard--static" data-sheet="19"/, "cards in the offer open their details");
   assert.match(incoming.main, /class="impact"[\s\S]*class="minimap"/);
 });
@@ -1178,11 +1178,11 @@ test("deed sheet: your mortgaged deed → UNMORTGAGE; built → SELL; theirs →
   const mortgaged = at({ 37: { ownerId: me.id }, 39: { ownerId: me.id, mortgaged: true } });
   const html = deedActionButtons(mortgaged, me.id, 39).join("");
   assert.match(html, /data-act='\{"type":"unmortgage","spaceIndex":39\}' data-deed-action="unmortgage"><span class="btn__label">UNMORTGAGE · −\$220 with interest/);
-  assert.match(html, /data-deed-action="build" disabled>[\s\S]*?<p class="sheet__why" data-why="build">Unmortgage the dark blue set first<\/p>/);
+  assert.match(html, /data-deed-action="build" disabled>[\s\S]*?<p class="sheet__why" data-why="build">Unmortgage the red set first<\/p>/);
   assert.match(html, /data-cmd="deed-trade" data-arg="39" data-deed-action="trade">/);
   const built = deedActionButtons(at({ 37: { ownerId: me.id, houses: 1 }, 39: { ownerId: me.id, houses: 2 } }), me.id, 39).join("");
   assert.match(built, /data-act='\{"type":"sell_building","spaceIndex":39\}'[^>]*>[\s\S]*?SELL A HOUSE · \+\$100/);
-  assert.match(built, /data-why="mortgage">Sell the buildings on the dark blue set first/);
+  assert.match(built, /data-why="mortgage">Sell the buildings on the red set first/);
   const theirs = deedActionButtons(at({}), me.id, 13).join("");
   assert.equal(at({}).properties[13].ownerId, alpha.id);
   assert.match(theirs, /data-cmd="deed-ask" data-arg="13" data-deed-action="ask"><span class="btn__label">ASK TO BUY… · Alpha/);
