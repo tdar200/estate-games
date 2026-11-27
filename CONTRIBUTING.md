@@ -111,3 +111,9 @@ CI (`.github/workflows/ci.yml`) runs these checks on every pull request.
 5. CI must pass. A maintainer will review it, and may ask for changes before merging.
 
 By contributing, you agree that your work is released under the [MIT license](LICENSE).
+
+## Releases (maintainers)
+
+Push a tag `vX.Y.Z` from `main`. The Release workflow builds `estate` for Linux (amd64, arm64),
+Windows (amd64) and macOS (amd64, arm64), stamped with that version, and puts the binaries and
+`SHA256SUMS.txt` on a draft GitHub release. Check the draft, then publish it.

@@ -1,0 +1,74 @@
+name: Release
+
+# Pushing a tag like v1.2.3 builds the estate binaries and puts them, with their
+# checksums, on a DRAFT GitHub release. Nothing is published until someone opens
+# the draft and presses Publish.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and draft the release
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          # The newest 1.27 patch release (go.mod gives the minimum), so the
+          # binaries carry its standard-library fixes. Move with go.mod.
+          go-version: '1.27.x'
+          check-latest: true
+          cache: false
+      - name: Build
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version=${TAG#v}
+          case $version in
+            [0-9]*.[0-9]*.[0-9]*) ;;
+            *) echo "tag $TAG is not v<major>.<minor>.<patch>" >&2; exit 1 ;;
+          esac
+          go version
+          mkdir dist
+          for target in linux/amd64 linux/arm64 windows/amd64 darwin/amd64 darwin/arm64; do
+            goos=${target%/*}
+            goarch=${target#*/}
+            ext=""
+            if [ "$goos" = windows ]; then ext=.exe; fi
+            out="dist/estate-$version-$goos-$goarch$ext"
+            echo "building $out"
+            CGO_ENABLED=0 GOOS=$goos GOARCH=$goarch \
+              go build -trimpath -ldflags "-s -w -X main.version=$version" -o "$out" ./cmd/estate
+          done
+          got=$("./dist/estate-$version-linux-amd64" version)
+          if [ "$got" != "$version" ]; then echo "the binary says $got, the tag $version" >&2; exit 1; fi
+          (cd dist && sha256sum estate-* > SHA256SUMS.txt)
+          cat dist/SHA256SUMS.txt
+      - name: Draft the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          if draft=$(gh release view "$TAG" --json isDraft --jq .isDraft 2>/dev/null); then
+            if [ "$draft" != true ]; then
+              echo "release $TAG is already published; not changing it" >&2
+              exit 1
+            fi
+            gh release upload "$TAG" dist/* --clobber
+          else
+            gh release create "$TAG" dist/* --draft --verify-tag --title "Estate ${TAG#v}" --generate-notes
+          fi

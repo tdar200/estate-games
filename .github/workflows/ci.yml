@@ -31,6 +31,17 @@ jobs:
       - name: go test
         run: go test -count=1 -timeout 40m ./...
 
+  vuln:
+    name: Vulnerabilities (govulncheck)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: golang/govulncheck-action@v1
+        with:
+          # The newest 1.27 patch release, as the release builds use (go.mod
+          # gives the minimum). Move with go.mod.
+          go-version-input: '1.27.x'
+
   web:
     name: Web checks
     runs-on: ubuntu-latest
