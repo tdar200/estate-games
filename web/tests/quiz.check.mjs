@@ -647,9 +647,10 @@ test("table screen: every phase draws its own body; plates mark the chooser and 
   assert.equal(rankings(done)[0].player.id, done.winnerIds[0]);
 });
 
-test("words and colours: the board's category bars use the property-group colours; no TV-show names", async () => {
+test("words and colours: the board's category bars use the property-group colours; names stay original", async () => {
   const seen = new Set([0, 1, 2, 3, 4, 5].map((index) => categoryColor(index).bg));
   assert.equal(seen.size, 6);
+  // Names the screens must not show (CONTRIBUTING: keep names original).
   const banned = /jeopardy|daily double|final jeopardy|who wants|millionaire|this is jeopardy/i;
   for (const name of allNames) {
     const state = await scene(name);

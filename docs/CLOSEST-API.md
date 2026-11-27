@@ -2,13 +2,12 @@
 
 The fifth game type on the Estate party server, after Estate, Texas hold'em, Ludo and the quiz. It is a
 chill, slow-paced party quiz: everyone guesses a number, the guesses become a row of betting slots, and
-everyone bets on whose guess is closest. Its name is **Near Thing** (picked 22 Nov 2026;
-the code and the wire call it `"closest"`). Keep the display name in one constant on each side
-(`closest.Title` in Go, `GAME_NAME` in `web/shared/closest-name.js`) so a rename is one line each.
+everyone bets on whose guess is closest. Its name is **Near Thing** (the code and the wire call it
+`"closest"`). Keep the display name in one constant on each side (`closest.Title` in Go, `GAME_NAME`
+in `web/shared/closest-name.js`) so a rename is one line each.
 
-The mechanic is the one in a published board game. **Never** use that game's name, words such as
-"Wits", "Wager(s)", "mat" or "felt mat", its chip terms, its look or its questions, anywhere, including
-text that reaches a browser.
+Keep names, words and looks original (see [CONTRIBUTING](../CONTRIBUTING.md)), including in text that
+reaches a browser; `web/tests/closest.check.mjs` checks the screens for a short list of words to avoid.
 
 This file is the contract between the rules engine (`internal/closest`), the server
 (`internal/server/closest.go`, `closest_adapter.go`) and the screens (`web/table/closest-table.js`,
@@ -320,8 +319,8 @@ dealt but cut off by END GAME is not), and the room's list is saved with it.
 Designs come first (2–3 options each for the pad, the line, the bet screen and the reveal);
 the screens follow the pick. Fixed either way:
 
-- Estate's look (Oswald and Inter, `web/shared/tokens.*`), the quiz's plates and timer styles; never the
-  original game's look.
+- Estate's look (Oswald and Inter, `web/shared/tokens.*`), the quiz's plates and timer styles; keep it
+  original (see CONTRIBUTING).
 - **Table screen** on the 1600 × 900 stage (×1.2 at 1080p): question text ≥ 44 stage px, slot numbers
   ≥ 36, nothing under 20. Up to 8 slots across, each with its owners' tokens, odds, and later the chips
   (one disc per player in their colour, ×2 badge for both chips, stake shown) and "off by N". Slots are
