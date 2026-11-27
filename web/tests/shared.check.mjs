@@ -211,7 +211,7 @@ test("insights: trade effects", () => {
   assert.deepEqual(ins.tradeable(state, "t"), []); // every Robin street group has houses
 });
 
-test("insights: chance card preview", () => {
+test("insights: Headlines card preview", () => {
   const state = makeState({ 39: ["m"], 37: ["m"] }, [P("t", "Robin", 1240, 22), ...designPlayers.slice(1)], { turn: { dice: [1, 2] } });
   const preview = ins.cardPreview(state, "t", "chance-crown");
   assert.equal(preview.action.label, "MOVE TO CROWN AVENUE");
