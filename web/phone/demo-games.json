@@ -1,5 +1,5 @@
 {
-  "_comment": "GET /api/games as Ben's phone sees it (shape captured from the server, 2 Nov 2026). Used by ?demo=home and web/tests/phone.check.mjs.",
+  "_comment": "GET /api/games as a player's phone sees it (shape captured from the server). Used by ?demo=home and web/tests/phone.check.mjs.",
   "games": [
     {
       "code": "TLUER",

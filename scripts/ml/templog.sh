@@ -1,5 +1,5 @@
 #!/bin/sh
-# Log CPU package temperature, hottest core, NVMe temperature and load every 30 s (evidence if the PC stops again).
+# Log CPU package temperature, hottest core, NVMe temperature and load every 30 s during long training runs.
 while true; do
   pkg=0; hot=0; nv=0
   for h in /sys/class/hwmon/hwmon*; do

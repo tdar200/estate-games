@@ -1,6 +1,6 @@
 #!/bin/sh
-# Grandmaster work queue on the PC (as run there, 3-4 Nov 2026): Phase 1
-# measurements, then the Phase 2 loop. Layout: ~/estate-ml/gm/{bin,arena,
+# Grandmaster work queue for the training machine: Phase 1 measurements,
+# then the Phase 2 loop. Layout: ~/estate-ml/gm/{bin,arena,
 # attack,done,logs} with bin/ holding linux builds of arena, gm-attack and
 # estate-ml, and gm/status, gm/ledger and gm/data/{tune,gen1,gen2} symlinked
 # to ~/estate-ml/status, ledger and data/... . Resumable: every finished step
