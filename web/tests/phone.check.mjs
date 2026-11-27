@@ -215,14 +215,10 @@ test("cues: tax, PAYDAY, rent, auction, trade results and jail reasons become sh
   const go = logCues(withLog(state, ["Robin passed PAYDAY and collected $200"]), me.id).pop();
   assert.equal(go.text, "PAYDAY");
   assert.equal(go.amount, 200);
-  // A game saved before the rename logged the old wording.
-  assert.equal(logCues(withLog(state, ["Robin passed GO and collected $200"]), me.id).pop().text, "PAYDAY", "old wording");
   const jackpot = logCues(withLog(state, ["Robin collected the $140 City Park jackpot"]), me.id).pop();
   assert.equal(jackpot.text, "City Park");
   assert.equal(jackpot.amount, 140);
-  assert.equal(logCues(withLog(state, ["Robin collected the $140 Free Parking jackpot"]), me.id).pop().text, "City Park", "old wording");
   assert.match(logCues(withLog(state, ["Robin used a Jail pass"]), me.id).pop().text, /out of jail/);
-  assert.match(logCues(withLog(state, ["Robin used a Get Out of Jail Free card"]), me.id).pop().text, /out of jail/, "old wording");
   const rent = logCues(withLog(state, ["Robin paid $26 (Golden Leaf Road rent)"]), me.id).pop();
   assert.equal(rent.kind, "rent");
   assert.equal(rent.tone, "neg");
@@ -236,7 +232,6 @@ test("cues: tax, PAYDAY, rent, auction, trade results and jail reasons become sh
   assert.equal(accepted.important, true);
   const jails = [
     [["Maya's turn", "Maya rolled 4 + 4 = 8", "Maya landed on Busted", "Maya was sent to jail"], "Busted"],
-    [["Maya's turn", "Maya rolled 4 + 4 = 8", "Maya landed on Go to Jail", "Maya was sent to jail"], "Busted"], // old wording
     [["Maya's turn", "Maya rolled 2 + 2 = 4", "Maya rolled doubles three times in a row", "Maya was sent to jail"], "3 doubles"],
     [["Maya's turn", "Maya landed on Headlines", "Maya drew: Caught speeding on camera: off to jail", "Maya was sent to jail"], "card"],
   ];

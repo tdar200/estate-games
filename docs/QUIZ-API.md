@@ -1,9 +1,9 @@
 # Quiz: game API
 
 The quiz for the Estate party server: the fourth game type, after Estate, Texas hold'em and Ludo. It is
-a category-board quiz in the style of a TV general-knowledge show, with our own name, look, sound and
-questions. The picker tile says **QUIZ** (a name is still to be chosen; never use the names of real
-shows, their round names or their look anywhere, including text that reaches a browser).
+a category-board quiz with its own name, look, sound and questions. The picker tile says **QUIZ**.
+Keep names, words and looks original (see [CONTRIBUTING](../CONTRIBUTING.md)), including in text that
+reaches a browser; `web/tests/quiz.check.mjs` checks the screens for a short list of names to avoid.
 
 This file is the contract between the rules engine (`internal/quiz`), the server
 (`internal/server/quiz.go`, `quiz_adapter.go`) and the screens (`web/table/quiz-table.js`,

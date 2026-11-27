@@ -497,13 +497,13 @@ Every job records its games in `~/estate-ml/ledger/` (summed into `status/run.js
 | job | games |
 |---|---:|
 | tuning (70 generations × 9,600, validations and the champion check) | 729,685 |
-| dataset gen1 (tuned knobs; includes the 2,702 games of a shard replayed after the PC restarted) | 302,702 |
+| dataset gen1 (tuned knobs; includes 2,702 games of a shard that was run again) | 302,702 |
 | dataset gen2 (EXPERT in the loop) | 20,000 |
 | A/B tests (10 arms × 600) | 6,000 |
 | exam (9 matchups) and production timing | 13,608 |
 | **total** | **1,071,995** |
 
-The PC restarted unexpectedly once, at about 20:17 on 2 November, during dataset generation. The journal shows no shutdown, panic, OOM or thermal event; earlier boots had ended with clean shutdowns. The job resumed from its shard checkpoints. From then on every job ran on 18 of the 24 cores, and the CPU package temperature was logged (`status/temps.jsonl`, `cpuTempC` in `run.json`). It stayed at 50–70 °C under load, with critical at 105 °C.
+Jobs resume from their shard checkpoints after a restart. They ran on 18 of the 24 cores, with the CPU package temperature logged (`status/temps.jsonl`, `cpuTempC` in `run.json`; `scripts/ml/templog.sh`).
 
 ## Reproduce
 
@@ -543,9 +543,9 @@ gives Hard tuned knobs (used for the ablation).
 
 ### Training dashboard
 
-The dashboard (`cmd/mldash`) reads `~/estate-ml/status/*` and serves on port
-3299 (`http://<training machine>:3299` on the LAN). To start it:
+The dashboard (`cmd/mldash`) reads `~/estate-ml/status/*` and serves on
+`127.0.0.1:3299` by default (pass `-addr :3299` to open it to the LAN). To start it:
 
 ```sh
-cd ~/estate-ml && nohup nice -n 15 bin/mldash -addr :3299 -dir ~/estate-ml > logs/mldash.log 2>&1 < /dev/null &
+cd ~/estate-ml && nohup nice -n 15 bin/mldash -addr 127.0.0.1:3299 -dir ~/estate-ml > logs/mldash.log 2>&1 < /dev/null &
 ```

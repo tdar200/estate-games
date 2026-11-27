@@ -176,11 +176,11 @@ func (c *eventContext) parseLog(text string) logItem {
 		return item
 	}
 	switch rest {
-	case " passed PAYDAY and collected $200", " passed GO and collected $200": // the second: games saved before the rename
+	case " passed PAYDAY and collected $200":
 		item.kind, item.amount = "go", 200
 		return item
 	case " was sent to jail", " rolled doubles three times in a row", " rolled doubles and left jail",
-		" used a Jail pass", " used a Get Out of Jail Free card", " paid bail and left jail":
+		" used a Jail pass", " paid bail and left jail":
 		item.kind = "jail"
 		return item
 	case " wins the game":

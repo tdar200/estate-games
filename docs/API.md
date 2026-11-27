@@ -98,7 +98,7 @@ Limits: up to 8 players per game, 24 spectators, 100 rooms in all, rate limits p
 ## 3. Additive state fields
 
 `state.players[]` gains `input` (`"phone"|"controller"|"keyboard"|"ai"|"classic"`), `tokenKind`
-(`rocket|teapot|bicycle|lighthouse|key|umbrella|anchor|kite`; an old `tophat` is still accepted and stored as `kite`), `online` (bool). `state` gains
+(`rocket|teapot|bicycle|lighthouse|key|umbrella|anchor|kite`), `online` (bool). `state` gains
 `viewerRole` `"table"` for the PC and `localSeats:[{seatId,playerId,input,pad}]` for the table viewer.
 Never expose `deviceId`/`deviceSecret` of other players.
 
@@ -112,9 +112,7 @@ Headlines (deck and type `chance`), Post (deck and type `chest`), Stamp Duty and
 `tax`), Jail, City Park (type `parking`, jackpot `freeParking`), Busted (type `goToJail`), Power
 Station and Reservoir (utilities), and the Jail pass (`jailCards`, action `use_jail_card`). Types,
 keys, card ids and actions keep their names. Log lines read "passed PAYDAY and collected $200",
-"used a Jail pass", "confirmed the Headlines card" and "collected the $N City Park jackpot"; games
-saved before the rename hold the old wording in their log, so a client that reads the log accepts
-both.
+"used a Jail pass", "confirmed the Headlines card" and "collected the $N City Park jackpot".
 
 `state.openingOrder` (roll for turn order) gains `rollingIds` (who rolls in the current round; it
 doesn't shrink as they roll, and is `[]` once the order is set) and `ties` (`[{round, total,
@@ -535,3 +533,39 @@ Static files are embedded in the binary (`embed`). Device/friend data persists i
 same session tokens; games idle for 6 h are dropped), so updating or rebooting the server doesn't end games.
 Every Estate game is also kept as a replayable record in `--data/games/` (`rooms.json` gains `recordId`
 per room); no endpoint serves records. See [GAME-RECORDS.md](GAME-RECORDS.md) and `cmd/estate-replay`.
+
+### Behind a reverse proxy: keep secrets out of the access log
+
+Session tokens travel in the address (`?token=` on `/api/rooms/{code}/state` and `/ws/rooms/{code}`),
+and device keys in the `X-Estate-Device` header or, for WebSockets, `?device=id:secret`. Anyone who
+reads them can play as that seat or that device, so a proxy that writes an access log with full
+addresses or headers stores secrets. Either leave the access log off (Caddy's default) or filter it.
+With Caddy:
+
+```
+estate.example.net {
+	log {
+		output file /var/log/caddy/estate-access.log
+		format filter {
+			wrap json
+			fields {
+				request>remote_ip ip_mask {
+					ipv4 24
+					ipv6 48
+				}
+				request>uri query {
+					delete token
+					delete device
+				}
+				request>headers>X-Estate-Device delete
+				request>headers>Cookie delete
+				request>headers>Authorization delete
+			}
+		}
+	}
+	reverse_proxy 127.0.0.1:3210
+}
+```
+
+Other proxies need the same: drop the `token` and `device` query values and the `X-Estate-Device`
+header before a line is written.

@@ -67,12 +67,10 @@ test("format: parseLog turns engine lines into feed items", () => {
   assert.equal(fmt.parseLog({ text: "Maya's turn" }, state).kind, "turn");
   assert.equal(fmt.parseLog({ text: "Robin paid $200 (Stamp Duty)" }, state).amount, -200);
   assert.equal(fmt.parseLog({ text: "Robin landed on Headlines" }, state).kind, "land");
-  // Games saved before the rename logged the old wording; both read the same.
-  for (const text of ["Robin passed PAYDAY and collected $200", "Robin passed GO and collected $200"]) {
-    assert.deepEqual([fmt.parseLog({ text }, state).kind, fmt.parseLog({ text }, state).amount, fmt.parseLog({ text }, state).text], ["go", 200, "Robin passed PAYDAY"]);
-  }
-  for (const text of ["Robin used a Jail pass", "Robin used a Get Out of Jail Free card"]) assert.equal(fmt.parseLog({ text }, state).text, "Robin used a Jail pass");
-  for (const text of ["Robin confirmed the Headlines card", "Robin confirmed the Chance card"]) assert.equal(fmt.parseLog({ text }, state).kind, "confirm");
+  const payday = fmt.parseLog({ text: "Robin passed PAYDAY and collected $200" }, state);
+  assert.deepEqual([payday.kind, payday.amount, payday.text], ["go", 200, "Robin passed PAYDAY"]);
+  assert.equal(fmt.parseLog({ text: "Robin used a Jail pass" }, state).text, "Robin used a Jail pass");
+  assert.equal(fmt.parseLog({ text: "Robin confirmed the Headlines card" }, state).kind, "confirm");
 });
 
 test("format: every log line in the fixtures parses with an actor or a known system kind", () => {
@@ -213,7 +211,7 @@ test("insights: trade effects", () => {
   assert.deepEqual(ins.tradeable(state, "t"), []); // every Robin street group has houses
 });
 
-test("insights: chance card preview", () => {
+test("insights: Headlines card preview", () => {
   const state = makeState({ 39: ["m"], 37: ["m"] }, [P("t", "Robin", 1240, 22), ...designPlayers.slice(1)], { turn: { dice: [1, 2] } });
   const preview = ins.cardPreview(state, "t", "chance-crown");
   assert.equal(preview.action.label, "MOVE TO CROWN AVENUE");
@@ -614,8 +612,8 @@ test("invite: the message names the game and table, and the WhatsApp link carrie
   const { inviteLine, inviteText, whatsappUrl, openWhatsApp } = await import("../shared/invite.js");
   assert.equal(inviteLine("ludo", "ABCDE"), "Come and play Ludo with me! Table ABCDE");
   assert.equal(inviteLine("unknown", ""), "Come and play Estate with me!");
-  const text = inviteText("poker", "XY12Z", "https://playestate.vercel.app/j/XY12Z");
-  assert.match(text, /poker.*XY12Z: https:\/\/playestate\.vercel\.app\/j\/XY12Z$/);
+  const text = inviteText("poker", "XY12Z", "https://estate.example.net/j/XY12Z");
+  assert.match(text, /poker.*XY12Z: https:\/\/estate\.example\.net\/j\/XY12Z$/);
   const url = whatsappUrl(text);
   assert.ok(url.startsWith("https://wa.me/?text="));
   assert.equal(decodeURIComponent(url.slice("https://wa.me/?text=".length)), text);

@@ -527,10 +527,10 @@ func putInDebt(h *harness, code, playerID string, amount int, more func(g *engin
 		g.Turn.PlayerID = playerID
 	}
 	g.Phase = engine.PhaseDebt
-	g.Debt = &engine.Debt{PayerID: playerID, Amount: amount, Reason: "Income Tax",
+	g.Debt = &engine.Debt{PayerID: playerID, Amount: amount, Reason: "Stamp Duty",
 		After: &engine.DebtAfter{Kind: engine.AfterPhase, Phase: engine.PhaseTurnComplete}}
 	// The heuristic asks for a loan once per debt, which it finds in the log.
-	g.Log = append(g.Log, engine.LogEntry{ID: "log_debt_test", Text: g.PlayerByID(playerID).Name + " must raise $" + strconv.Itoa(amount) + " to pay Income Tax"})
+	g.Log = append(g.Log, engine.LogEntry{ID: "log_debt_test", Text: g.PlayerByID(playerID).Name + " must raise $" + strconv.Itoa(amount) + " to pay Stamp Duty"})
 	if more != nil {
 		more(g)
 	}

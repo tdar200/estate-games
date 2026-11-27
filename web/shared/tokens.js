@@ -7,9 +7,9 @@ export const TOKEN_KINDS = ["rocket", "teapot", "bicycle", "lighthouse", "key", 
 
 // Retired token kinds and the token that replaced them (internal/server retiredTokenKinds). Saved
 // games, records and phone profiles may still name one; it shows as its replacement everywhere.
-export const RETIRED_TOKEN_KINDS = { tophat: "kite" };
+export const RETIRED_TOKEN_KINDS = {};
 
-// Tokens the pickers mark NEW (UX-08): the kite took the retired top hat's place.
+// Tokens the pickers mark NEW (UX-08).
 export const NEW_TOKEN_KINDS = ["kite"];
 
 // A token kind, with a retired one swapped for its replacement.

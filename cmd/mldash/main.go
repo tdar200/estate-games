@@ -4,7 +4,9 @@
 // under <dir>/status, <dir>/eval and <dir>/ledger (see docs/ai/EXPERT.md) and
 // never writes anything.
 //
-//	mldash -addr :3299 -dir ~/estate-ml
+//	mldash -addr 127.0.0.1:3299 -dir ~/estate-ml
+//
+// It listens on localhost by default; pass -addr :3299 to open it to the LAN.
 package main
 
 import (
@@ -29,7 +31,7 @@ var indexHTML []byte
 
 func main() {
 	home, _ := os.UserHomeDir()
-	addr := flag.String("addr", ":3299", "listen address")
+	addr := flag.String("addr", "127.0.0.1:3299", "listen address (:3299 opens it to the LAN)")
 	dir := flag.String("dir", filepath.Join(home, "estate-ml"), "training directory (reads <dir>/status)")
 	flag.Parse()
 

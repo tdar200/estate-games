@@ -1,8 +1,8 @@
 {
-  "name": "classic-estate",
-  "version": "1.0.0",
+  "name": "estate-games",
+  "version": "0.15.1",
   "private": true,
-  "description": "Server-authoritative classic property trading board game",
+  "description": "Party games for the TV and phones: Estate, Texas Hold'em, Ludo, a quiz and Near Thing",
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",

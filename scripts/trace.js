@@ -885,7 +885,7 @@ function scriptedEdges() {
   t.action(r.id, { type: "confirm_card" }); // street repairs with houses and hotels
   finishTurn();
 
-  // 4. Chest jail card, utility rent, a throw after partial mutation.
+  // 4. Post jail card (the `chest` deck), utility rent, a throw after partial mutation.
   const u = cur();
   const us = seatOf(u.id);
   t.mutate([

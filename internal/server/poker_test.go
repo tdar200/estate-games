@@ -1090,7 +1090,7 @@ func TestPokerLateJoin(t *testing.T) {
 	h.pokerJoin(other.code, "Eve", h.device("Eve", "bicycle", "198.51.100.165"))
 	expectStatus(t, h.pokerAct(other.code, other.token, `{"type":"settings","settings":{"lateJoin":false}}`), http.StatusOK)
 	expectStatus(t, h.pokerAct(other.code, other.token, `{"type":"start"}`), http.StatusOK)
-	late := h.post("/api/rooms/"+other.code+"/join", map[string]any{"name": "Fay"}, h.device("Fay", "tophat", "198.51.100.166").opt())
+	late := h.post("/api/rooms/"+other.code+"/join", map[string]any{"name": "Fay"}, h.device("Fay", "kite", "198.51.100.166").opt())
 	expectError(t, late, http.StatusBadRequest, "joining after the start is turned off")
 	if sum := h.get("/api/rooms/" + other.code + "/summary"); dig(sum.body, "openSeats") != float64(0) || num(dig(sum.body, "turn")) != 1 {
 		t.Fatalf("summary of a closed running game %s", sum.raw)

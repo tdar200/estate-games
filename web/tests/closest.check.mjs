@@ -51,7 +51,7 @@ const DOC_FIXTURES = [
 ];
 const PHASES = new Set(["intro", "guess", "lineup", "bet", "chips", "reveal"]);
 const BAD = /undefined|NaN|\[object |null(?![-\w])/;
-// Never the original board game's name or its words (task rules).
+// Words the screens must not show (CONTRIBUTING: keep names original).
 const BANNED = /\bwits\b|wager|\bmats?\b/i;
 
 // What each screen shows for a state, on the state's own clock (as the demos do), settled.

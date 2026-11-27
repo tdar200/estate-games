@@ -116,7 +116,7 @@ func initBoard() {
 }
 
 // stationary approximates where a token ends its moves: a Markov chain over
-// the 40 squares with two dice, Busted (go to jail), and the movement cards of both
+// the 40 squares with two dice, Busted (sent to jail), and the movement cards of both
 // decks (doubles and jail stays are ignored). Used to weigh rents.
 func stationary() [engine.BoardSize]float64 {
 	const n = engine.BoardSize

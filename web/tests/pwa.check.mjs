@@ -116,7 +116,7 @@ test("pwa: installState knows every browser, so the button can always say what t
     assert.ok(installSteps(state).length > 20, `${state} has steps`);
   }
   for (const state of ["installed", null]) assert.equal(canOfferInstall(state), false);
-  assert.ok(installSteps("insecure", { publicUrl: "https://playestate.vercel.app/" }).includes("https://playestate.vercel.app/play"), "points at the https link");
+  assert.ok(installSteps("insecure", { publicUrl: "https://estate.example.net/" }).includes("https://estate.example.net/play"), "points at the https link");
   assert.match(installSteps("ios"), /Share.*Add to Home Screen/);
   assert.match(installSteps("android"), /⋮.*Add to Home screen/);
 });

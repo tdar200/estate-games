@@ -246,21 +246,20 @@ export function parseLog(entry, state) {
   if ((match = rest.match(/^ must raise \$(\d+) to pay (.+)$/))) {
     return { ...base, kind: "debt", text: `${name} owes ${money(match[1])}: ${match[2]}` };
   }
-  // Games saved before the rename logged the old wording (GO, Chance, Get Out of Jail Free).
-  if (rest === " passed PAYDAY and collected $200" || rest === " passed GO and collected $200") return { ...base, kind: "go", text: `${name} passed PAYDAY`, amount: 200, tone: "pos" };
+  if (rest === " passed PAYDAY and collected $200") return { ...base, kind: "go", text: `${name} passed PAYDAY`, amount: 200, tone: "pos" };
   if (rest === " was sent to jail") return { ...base, kind: "jail", text: `${name} was sent to jail` };
   if (rest === " rolled doubles three times in a row") return { ...base, kind: "jail", text: `${name} rolled three doubles` };
   if (rest === " rolled doubles and left jail") return { ...base, kind: "jail", text: `${name} rolled doubles and left jail` };
   if ((match = rest.match(/^ did not roll doubles and remains in jail \((\d)\/3\)$/))) {
     return { ...base, kind: "jail", text: `${name} stays in jail (${match[1]} of 3)` };
   }
-  if (rest === " used a Jail pass" || rest === " used a Get Out of Jail Free card") return { ...base, kind: "jail", text: `${name} used a Jail pass` };
+  if (rest === " used a Jail pass") return { ...base, kind: "jail", text: `${name} used a Jail pass` };
   if (rest === " paid bail and left jail") return { ...base, kind: "jail", text: `${name} left jail` };
   if ((match = rest.match(/^ paid bail, left jail, and moved (\d+) spaces$/))) {
     return { ...base, kind: "jail", text: `${name} left jail and moved ${match[1]}` };
   }
   if ((match = rest.match(/^ drew: (.+)$/))) return { ...base, kind: "card", text: `${name} drew “${match[1]}”` };
-  if (rest === " confirmed the Headlines card" || rest === " confirmed the Chance card") return { ...base, kind: "confirm" };
+  if (rest === " confirmed the Headlines card") return { ...base, kind: "confirm" };
   if ((match = rest.match(/^ bid \$(\d+)$/))) return { ...base, kind: "bid", text: `${name} bid ${money(match[1])}`, bid: Number(match[1]) };
   if (rest === " passed in the auction") return { ...base, kind: "pass", text: `${name} passed` };
   if ((match = rest.match(/^ proposed a trade to (.+)$/))) {

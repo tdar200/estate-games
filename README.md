@@ -88,8 +88,9 @@ Every screen has a demo that needs no game. With the server running:
 - **deploy/aws:** scripts for a small AWS server, see [deploy/aws/README.md](deploy/aws/README.md).
 
 Behind a reverse proxy, run the proxy on the same machine: Estate only trusts `X-Forwarded-For`
-from a loopback address. The server has room limits and per-address rate limits built in (see
-[docs/API.md](docs/API.md), "Limits and overload protection").
+from a loopback address. Keep session tokens and device keys out of its access log (see
+[docs/API.md](docs/API.md), "Behind a reverse proxy"). The server has room limits and per-address
+rate limits built in (see [docs/API.md](docs/API.md), "Limits and overload protection").
 
 ## Documentation
 
@@ -117,6 +118,9 @@ and please follow the [Code of Conduct](CODE_OF_CONDUCT.md). To report a securit
   authors and links are in [web/shared/photos/CREDITS.txt](web/shared/photos/CREDITS.txt).
 - **Fonts:** Oswald, Inter, Barlow and Barlow Condensed, under the SIL Open Font License 1.1. See
   [web/shared/fonts/README.md](web/shared/fonts/README.md).
+- **Icons:** most icons in `public/icons.svg` are from [Lucide](https://lucide.dev) (ISC, with the
+  icons it took from Feather under MIT), some adapted; the rest are drawn to match. See
+  [public/LICENSE-lucide.txt](public/LICENSE-lucide.txt).
 - **Go libraries:** [coder/websocket](https://github.com/coder/websocket) and
   [rsc.io/qr](https://pkg.go.dev/rsc.io/qr), see `go.mod`.
 
@@ -125,5 +129,5 @@ publisher.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). The photos, fonts and the forked poker code keep their own licences,
-listed above.
+MIT, see [LICENSE](LICENSE). The photos, fonts, icons and the forked poker code keep their own
+licences, listed above.

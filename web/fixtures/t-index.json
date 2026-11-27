@@ -151,7 +151,7 @@
     "section": "Seat setup and rules",
     "title": "Take a seat: the NEW kite",
     "demo": "t-seat-kite",
-    "live": "The token picker: taken tokens greyed with their owners, the kite (new, replaces the top hat)."
+    "live": "The token picker: taken tokens greyed with their owners, the kite marked new."
   },
   {
     "id": "seat-keyboard-named",

@@ -171,7 +171,7 @@ test("Multi-segment movement paths are kept for the turn and cleared on the next
   assert.deepEqual(game.turn.movements, []);
 });
 
-test("Headlines (Chance deck) cards resolve only after the drawing player confirms them", () => {
+test("Headlines cards (the `chance` deck) resolve only after the drawing player confirms them", () => {
   const { game, first, second } = startedGame();
   game.decks.chance = ["chance-dividend"];
 
@@ -261,7 +261,7 @@ test("Host can switch to spectator in the lobby and start an all-AI game", () =>
   if (room?.timer) clearTimeout(room.timer);
 });
 
-test("Post (Chest deck) cards resolve immediately without entering the Headlines card confirmation phase", () => {
+test("Post cards (the `chest` deck) resolve immediately without entering the Headlines card confirmation phase", () => {
   const { game, first } = startedGame();
   game.decks.chest = ["chest-error"];
 

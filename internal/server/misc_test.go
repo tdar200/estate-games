@@ -279,13 +279,6 @@ func TestDiffEventsRentAndGo(t *testing.T) {
 	if ev := diffEvents(prev, &next2, board); len(ev) != 1 || ev[0].get("playerId") != "p2" {
 		t.Fatalf("win event %v", ev)
 	}
-	// Games saved before the squares were renamed say "passed GO".
-	next3 := *next
-	next3.Turn = prev.Turn
-	next3.Log = append(append([]logEntryView(nil), prev.Log...), logEntryView{ID: "y", Text: "Ann passed GO and collected $200"})
-	if ev := diffEvents(prev, &next3, board); len(ev) != 1 || ev[0].get("reason") != "go" || ev[0].get("to") != "p1" {
-		t.Fatalf("old GO wording: events %v", ev)
-	}
 }
 
 // Review 4 Nov #9: eight distinct computer names, short enough for the TV's action card.

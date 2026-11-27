@@ -65,8 +65,9 @@ CI (`.github/workflows/ci.yml`) runs these checks on every pull request.
 - `src/`, `server.js`, `test/`: the upstream Node server and JavaScript engine, kept as the
   reference the Go engine is tested against.
 - `testdata/`: games and AI decisions recorded from the JavaScript engine, for the Go parity tests.
-- `scripts/`: fixture and trace generators, question pack validators, the app icon drawer and AI
-  training job scripts.
+- `scripts/`: fixture and trace generators, question pack validators and the app icon drawer.
+  `scripts/ml/` (with `deploy/install-dashboards.sh`) is the author's AI training set-up; it is not
+  needed to play.
 - `tools/`: a test-only cross-check of the poker rules against PokerKit.
 - `deploy/`: install script, systemd unit, Tailscale Funnel scripts and `deploy/aws`.
 - `docs/`: the API and game docs, and the README screenshots in `docs/assets/`.
@@ -110,3 +111,9 @@ CI (`.github/workflows/ci.yml`) runs these checks on every pull request.
 5. CI must pass. A maintainer will review it, and may ask for changes before merging.
 
 By contributing, you agree that your work is released under the [MIT license](LICENSE).
+
+## Releases (maintainers)
+
+Push a tag `vX.Y.Z` from `main`. The Release workflow builds `estate` for Linux (amd64, arm64),
+Windows (amd64) and macOS (amd64, arm64), stamped with that version, and puts the binaries and
+`SHA256SUMS.txt` on a draft GitHub release. Check the draft, then publish it.

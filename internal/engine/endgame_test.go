@@ -11,7 +11,7 @@ func TestEndGameRichestWins(t *testing.T) {
 	}
 	g.Status, g.Phase = StatusPlaying, PhaseAwaitingRoll
 	ann.Cash, bob.Cash = 900, 600
-	// Bob owns Boardwalk's twin (index 39) with two houses, mortgaged nothing.
+	// Bob owns the last street (index 39) with two houses, mortgaged nothing.
 	g.Properties[39] = &PropertyState{OwnerID: bob.ID, Houses: 2}
 	g.Properties[1] = &PropertyState{OwnerID: ann.ID, Mortgaged: true}
 	if w := NetWorth(g, bob.ID); w != 600+Board[39].Price+2*Board[39].BuildCost {
