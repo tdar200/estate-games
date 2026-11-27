@@ -403,7 +403,7 @@ func TestFastViewCoversAIView(t *testing.T) {
 }
 
 // TestViewMatchesJSONWithLoans builds a mid-game state with an active loan
-// secured by collateral, a pending loan offer, a Free Parking pot and a loan
+// secured by collateral, a pending loan offer, a City Park pot and a loan
 // debt marker, and checks the direct AI view against the JSON round trip.
 func TestViewMatchesJSONWithLoans(t *testing.T) {
 	rng := newSplitMix(77)

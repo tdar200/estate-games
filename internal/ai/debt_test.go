@@ -17,7 +17,7 @@ var calSpaces = []int{21, 23, 24, 26, 27, 29, 31, 32, 34} // red, yellow, green
 
 // shortageDebtGame gives the AI Bea hotels on orange, $50 and nothing else,
 // fills Cal's red, yellow and green spaces with houses until the bank has
-// bankHouses (< 4) left, then rolls Bea onto Luxury Tax ($100 to the bank).
+// bankHouses (< 4) left, then rolls Bea onto Council Tax ($100 to the bank).
 func shortageDebtGame(t *testing.T, rules engine.RulesUpdate, bankHouses int) (*engine.Game, *engine.Player) {
 	t.Helper()
 	g, p := newRulesGame(t, rules, "ai:Bea", "ai:Cal")
@@ -111,7 +111,7 @@ func TestAISellsHotelsInHouseShortage(t *testing.T) {
 // to bankruptcy.
 func TestAINeverMortgagesPledgedDeeds(t *testing.T) {
 	// pledgedDebtGame: the AI Ava holds deeds; pledge (>= 0) secures a loan
-	// from Hal; then Ava, with $50, lands on Luxury Tax ($100). Hal, her only
+	// from Hal; then Ava, with $50, lands on Council Tax ($100). Hal, her only
 	// opponent, already lends to her, so she has nobody to ask for a loan.
 	pledgedDebtGame := func(t *testing.T, pledge int, deeds ...int) (*engine.Game, *engine.Player) {
 		t.Helper()

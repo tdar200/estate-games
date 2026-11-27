@@ -67,12 +67,10 @@ test("format: parseLog turns engine lines into feed items", () => {
   assert.equal(fmt.parseLog({ text: "Maya's turn" }, state).kind, "turn");
   assert.equal(fmt.parseLog({ text: "Robin paid $200 (Stamp Duty)" }, state).amount, -200);
   assert.equal(fmt.parseLog({ text: "Robin landed on Headlines" }, state).kind, "land");
-  // Games saved before the rename logged the old wording; both read the same.
-  for (const text of ["Robin passed PAYDAY and collected $200", "Robin passed GO and collected $200"]) {
-    assert.deepEqual([fmt.parseLog({ text }, state).kind, fmt.parseLog({ text }, state).amount, fmt.parseLog({ text }, state).text], ["go", 200, "Robin passed PAYDAY"]);
-  }
-  for (const text of ["Robin used a Jail pass", "Robin used a Get Out of Jail Free card"]) assert.equal(fmt.parseLog({ text }, state).text, "Robin used a Jail pass");
-  for (const text of ["Robin confirmed the Headlines card", "Robin confirmed the Chance card"]) assert.equal(fmt.parseLog({ text }, state).kind, "confirm");
+  const payday = fmt.parseLog({ text: "Robin passed PAYDAY and collected $200" }, state);
+  assert.deepEqual([payday.kind, payday.amount, payday.text], ["go", 200, "Robin passed PAYDAY"]);
+  assert.equal(fmt.parseLog({ text: "Robin used a Jail pass" }, state).text, "Robin used a Jail pass");
+  assert.equal(fmt.parseLog({ text: "Robin confirmed the Headlines card" }, state).kind, "confirm");
 });
 
 test("format: every log line in the fixtures parses with an actor or a known system kind", () => {

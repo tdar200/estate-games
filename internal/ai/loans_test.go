@@ -297,7 +297,7 @@ func TestAIBorrowerAnswersLoanOffers(t *testing.T) {
 }
 
 // debtGame puts the AI Bea on turn with hotels on orange and $50, then rolls
-// her onto Luxury Tax ($100 to the bank): a debt she can only pay by selling
+// her onto Council Tax ($100 to the bank): a debt she can only pay by selling
 // hotels.
 func debtGame(t *testing.T, names ...string) (*engine.Game, []*engine.Player) {
 	t.Helper()
@@ -382,7 +382,7 @@ func TestAIAsksForLoanInDebt(t *testing.T) {
 		build(g, 5, orange...)
 		give(g, bea, northRR)
 		bea.Cash, cal.Cash = 50, 20
-		mustDo(t, g, bea.ID, engine.Action{Type: engine.ActionRoll}, diceRNG(1, 3)) // Income Tax, $200
+		mustDo(t, g, bea.ID, engine.Action{Type: engine.ActionRoll}, diceRNG(1, 3)) // Stamp Duty, $200
 		// $50 cash + $100 from the railroad cannot cover $200 without selling
 		// hotels. Bea leads, so a cautious lender would refuse an unsecured
 		// rescue: she pledges the railroad.
@@ -668,7 +668,7 @@ const (
 	soakStallLimit = 3000 // AI actions without a completed turn: an infinite loop
 )
 
-// soakGame plays one all-AI game with loans and the Free Parking jackpot.
+// soakGame plays one all-AI game with loans and the City Park jackpot.
 func soakGame(seed uint64) (soakStats, error) {
 	stats := newSoakStats()
 	stats.games = 1

@@ -53,7 +53,7 @@ func (c *eventContext) cardRentAt(log []logEntryView, landed int, p *playerView,
 		rest := log[i].Text[len(who.Name):]
 		switch rest {
 		case " confirmed the Headlines card", // a Headlines card waits to be confirmed
-			" passed PAYDAY and collected $200", " passed GO and collected $200":
+			" passed PAYDAY and collected $200":
 			continue
 		}
 		if m := reDrew.FindStringSubmatch(rest); m != nil {

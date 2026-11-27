@@ -98,7 +98,7 @@ Limits: up to 8 players per game, 24 spectators, 100 rooms in all, rate limits p
 ## 3. Additive state fields
 
 `state.players[]` gains `input` (`"phone"|"controller"|"keyboard"|"ai"|"classic"`), `tokenKind`
-(`rocket|teapot|bicycle|lighthouse|key|umbrella|anchor|kite`; an old `tophat` is still accepted and stored as `kite`), `online` (bool). `state` gains
+(`rocket|teapot|bicycle|lighthouse|key|umbrella|anchor|kite`), `online` (bool). `state` gains
 `viewerRole` `"table"` for the PC and `localSeats:[{seatId,playerId,input,pad}]` for the table viewer.
 Never expose `deviceId`/`deviceSecret` of other players.
 
@@ -112,9 +112,7 @@ Headlines (deck and type `chance`), Post (deck and type `chest`), Stamp Duty and
 `tax`), Jail, City Park (type `parking`, jackpot `freeParking`), Busted (type `goToJail`), Power
 Station and Reservoir (utilities), and the Jail pass (`jailCards`, action `use_jail_card`). Types,
 keys, card ids and actions keep their names. Log lines read "passed PAYDAY and collected $200",
-"used a Jail pass", "confirmed the Headlines card" and "collected the $N City Park jackpot"; games
-saved before the rename hold the old wording in their log, so a client that reads the log accepts
-both.
+"used a Jail pass", "confirmed the Headlines card" and "collected the $N City Park jackpot".
 
 `state.openingOrder` (roll for turn order) gains `rollingIds` (who rolls in the current round; it
 doesn't shrink as they roll, and is `[]` once the order is set) and `ties` (`[{round, total,

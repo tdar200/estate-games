@@ -74,10 +74,9 @@ func freeAIName(used map[string]bool) string {
 var tokenKinds = []string{"rocket", "teapot", "bicycle", "lighthouse", "key", "umbrella", "anchor", "kite"}
 
 // retiredTokenKinds maps a token kind that is no longer handed out to the one
-// that replaced it. Saved devices, rooms and game records may still name it
-// (the top hat became the kite), so it stays valid and is stored as
-// its replacement.
-var retiredTokenKinds = map[string]string{"tophat": "kite"}
+// that replaced it. Saved devices, rooms and game records may still name it,
+// so it stays valid and is stored as its replacement. None are retired now.
+var retiredTokenKinds = map[string]string{}
 
 // canonicalTokenKind is kind, or the token that replaced a retired kind.
 func canonicalTokenKind(kind string) string {

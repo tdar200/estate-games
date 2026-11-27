@@ -162,9 +162,6 @@ func (r *Replayer) apply(st *Step) error {
 	got := ""
 	if err != nil {
 		got = err.Error()
-		if got != st.Error && legacyText(got) == st.Error {
-			got = st.Error // recorded before the rename (legacy.go)
-		}
 	}
 	switch {
 	case got != st.Error && st.Error == "":
@@ -200,12 +197,6 @@ func (r *Replayer) apply(st *Step) error {
 		return mismatch("dice %v do not match the recorded random numbers (%v)", st.Dice, dice)
 	}
 	if hash := StateHash(g); hash != st.Hash {
-		// Recorded before the rename: the same state in the old wording, and
-		// the replay goes on in it (legacy.go).
-		if old := legacyGame(g); old != nil && StateHash(old) == st.Hash {
-			r.G = old
-			return nil
-		}
 		return mismatch("state hash %s, recorded %s%s", hash, st.Hash, r.hint(st))
 	}
 	return nil

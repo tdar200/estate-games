@@ -50,9 +50,9 @@ func startedGame(t *testing.T, rules *engine.RulesUpdate) (*engine.Game, *engine
 	return g, me, other
 }
 
-// landOnLuxuryTax rolls me from Century Avenue onto Luxury Tax ($100) with
+// landOnCouncilTax rolls me from Century Avenue onto Council Tax ($100) with
 // $50 in hand.
-func landOnLuxuryTax(t *testing.T, g *engine.Game, me *engine.Player) {
+func landOnCouncilTax(t *testing.T, g *engine.Game, me *engine.Player) {
 	t.Helper()
 	me.Cash, me.Position = 50, 34
 	if err := engine.PerformAction(g, me.ID, engine.Action{Type: engine.ActionRoll}, diceOf(1, 3)); err != nil {
@@ -81,7 +81,7 @@ func TestLevelsSellHotelsInHouseShortage(t *testing.T) {
 	if houses := engine.BankSupply(g).Houses; houses != 2 {
 		t.Fatalf("bank has %d houses, want 2", houses)
 	}
-	landOnLuxuryTax(t, g, me)
+	landOnCouncilTax(t, g, me)
 
 	for _, level := range []Level{Easy, Normal, Hard, Expert, Grandmaster} {
 		t.Run(level.String(), func(t *testing.T) {

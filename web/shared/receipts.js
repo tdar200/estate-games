@@ -11,7 +11,7 @@ import { newLogEntries } from "./events.js";
 import { parseLog, playerById } from "./format.js";
 
 function labelForFee(reason) {
-  if (/tax|duty/i.test(reason)) return { kind: "tax", label: reason.replace(/^the /, "").toUpperCase() }; // Stamp Duty, Council Tax (Income/Luxury Tax before the rename)
+  if (/tax|duty/i.test(reason)) return { kind: "tax", label: reason.replace(/^the /, "").toUpperCase() }; // Stamp Duty, Council Tax
   if (/bail|jail fee/i.test(reason)) return { kind: "fee", label: "BAIL" };
   if (/card/i.test(reason)) return { kind: "card", label: "CARD" };
   if (/repairs/i.test(reason)) return { kind: "card", label: "REPAIRS" };
@@ -86,8 +86,7 @@ export function receiptsFor(prev, next) {
         push(entry, actor, { kind: "bankrupt", label: "OUT" });
         break;
       default:
-        // "Free Parking": games saved before the rename.
-        if ((match = text.match(/^(.+) collected the \$(\d+) (?:City Park|Free Parking) jackpot$/))) {
+        if ((match = text.match(/^(.+) collected the \$(\d+) City Park jackpot$/))) {
           push(entry, playerNamed(next, match[1])?.id, { kind: "jackpot", amount: Number(match[2]), label: "JACKPOT" });
         // The server writes "A lent B $300; B repays $360 by turn 14": the first amount counts.
         } else if ((match = text.match(/^(.+?) lent (.+?) \$(\d+)/))) {

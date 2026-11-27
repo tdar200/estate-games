@@ -58,7 +58,7 @@ func openPersister(dir string, delay time.Duration, logger *log.Logger) (*persis
 					delete(devices, id)
 					continue
 				}
-				d.TokenKind = canonicalTokenKind(d.TokenKind) // a retired token (tophat) reads as its replacement
+				d.TokenKind = canonicalTokenKind(d.TokenKind) // a retired token reads as its replacement
 			}
 		}
 	}

@@ -149,13 +149,13 @@ function cueFor(entry, item, state, viewerId, ctx) {
     case "pass":
       return { ...base, quiet: true, icon: "cross", text: `${who(state, actor, viewerId)} passed` };
     case "card":
-      return { ...base, icon: "card", text: shortCard(text.replace(/^.*? drew: /, "")), deck: ctx?.land === "Post" || ctx?.land === "Community Chest" ? "chest" : "chance" };
+      return { ...base, icon: "card", text: shortCard(text.replace(/^.*? drew: /, "")), deck: ctx?.land === "Post" ? "chest" : "chance" };
     case "jail": {
       if (/was sent to jail$/.test(text)) {
         let reason = "";
         if (ctx?.triple) reason = "3 doubles";
         else if (ctx?.card && /jail/i.test(ctx.card)) reason = "card";
-        else if (ctx?.land === "Busted" || ctx?.land === "Go to Jail") reason = "Busted";
+        else if (ctx?.land === "Busted") reason = "Busted";
         return { ...base, icon: "lock", text: `${mine ? "Jail" : `${who(state, actor, viewerId)} · jail`}${reason ? ` · ${reason}` : ""}`, reason, important: true };
       }
       if (/rolled doubles three times/.test(text)) return { ...base, quiet: true, icon: "dice", text: "3 doubles" };
@@ -204,7 +204,7 @@ function cueFor(entry, item, state, viewerId, ctx) {
     default:
       break;
   }
-  if ((match = text.match(/ collected the \$(\d+) (?:City Park|Free Parking) jackpot$/))) {
+  if ((match = text.match(/ collected the \$(\d+) City Park jackpot$/))) {
     return moneyCue({ ...base, kind: "jackpot", icon: "park", text: mine ? "City Park" : `${who(state, actor, viewerId)} · City Park` }, Number(match[1]), mine ? 1 : 0);
   }
   if ((match = text.match(/ lent (.+?) \$(\d+)/))) {

@@ -5,7 +5,7 @@ import "github.com/tdar200/estate-games/internal/engine"
 // Clairvoyant bot (analysis only, never offered in a game).
 //
 // It is Expert with one unfair advantage: it sees the future. Its rollouts
-// keep the real order of the Chance and Community Chest decks and roll the
+// keep the real order of the Headlines and Post decks and roll the
 // dice from a copy of the game's own dice generator, so for every candidate
 // plan it sees exactly the dice and cards that are coming. The other seats
 // are still modelled by the heuristic (it cannot know how they will decide),

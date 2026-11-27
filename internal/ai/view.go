@@ -31,7 +31,7 @@ type Game struct {
 
 	// House-rule state (engine rules.go and loans.go). The engine omits these
 	// keys in default games, so there they decode to their zero values.
-	FreeParking int        `json:"freeParking"` // Free Parking jackpot pot
+	FreeParking int        `json:"freeParking"` // City Park jackpot pot
 	Loans       []*Loan    `json:"loans"`       // every accepted loan, in creation order
 	LoanOffer   *LoanOffer `json:"loanOffer"`   // pending offer (phase "loan_offer")
 	// Log is the game log (text only). The AI reads it to remember that it
@@ -89,7 +89,7 @@ type Debt struct {
 	LoanID     string `json:"loanId"` // set when the debt is an overdue loan
 }
 
-// PendingCard is a drawn Chance card awaiting confirmation.
+// PendingCard is a drawn Headlines card awaiting confirmation.
 type PendingCard struct {
 	PlayerID string `json:"playerId"`
 	Deck     string `json:"deck"`

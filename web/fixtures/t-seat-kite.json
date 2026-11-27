@@ -2,7 +2,7 @@
   "meta": {
     "title": "Take a seat: the NEW kite",
     "section": "Seat setup and rules",
-    "description": "The token picker: taken tokens greyed with their owners, the kite (new, replaces the top hat)."
+    "description": "The token picker: taken tokens greyed with their owners, the kite marked new."
   },
   "extends": "table-lobby",
   "ui": {
