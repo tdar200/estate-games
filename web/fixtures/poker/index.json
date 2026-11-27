@@ -1,0 +1,172 @@
+[
+  {
+    "name": "poker-lobby-table",
+    "description": "Lobby with five seats (two computer players), four-colour deck on; Priya's phone is offline",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-lobby-phone",
+    "description": "Lobby on the host's phone (Maya): settings and Start",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-preflop-table",
+    "description": "Preflop: a raise in front of Maya, who is to act (20-second turn timer running)",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-preflop-phone",
+    "description": "Preflop: a raise in front of Maya, who is to act (20-second turn timer running) (Maya's phone with her options and hand strength)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-flop-table",
+    "description": "Flop: Sam bets, Maya to act; three players in the hand",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-flop-phone",
+    "description": "Flop: Sam bets, Maya to act; three players in the hand (Maya's phone with her options and hand strength)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-turn-table",
+    "description": "Turn: Maya faces a bet with three players in",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-turn-phone",
+    "description": "Turn: Maya faces a bet with three players in (Maya's phone with her options and hand strength)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-river-table",
+    "description": "River: Maya faces a bet; last decision of the hand",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-river-phone",
+    "description": "River: Maya faces a bet; last decision of the hand (Maya's phone with her options and hand strength)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-timebank-table",
+    "description": "Flop: Maya's turn timer ran out and her time bank is running (actionTimeBank), facing Sam's bet",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-timebank-phone",
+    "description": "Maya's phone on her time bank, facing a bet",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-flop8-table",
+    "description": "Eight seats on the flop: Sam bet, Redwood is to act, Maya acts later; Lena's phone is offline",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-flop8-phone",
+    "description": "Maya's phone while someone else is to act: she can pre-select check/fold, call or call any",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-runout-table",
+    "description": "All-in run-out: three players all-in preflop, hands face up with win chances, the flop is out",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-runout-phone",
+    "description": "All-in run-out on Sam's phone (the short stack)",
+    "viewer": "Sam"
+  },
+  {
+    "name": "poker-showdown-table",
+    "description": "Showdown with a main pot and a side pot won by different players",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-showdown-phone",
+    "description": "Showdown on Maya's phone, with her hand result",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-busted-table",
+    "description": "Maya and Sam lost all their chips and may rebuy (30-second offer)",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-busted-phone",
+    "description": "Sam's phone: out of chips, with the Rebuy option",
+    "viewer": "Sam"
+  },
+  {
+    "name": "poker-handover-table",
+    "description": "Priya raised and everyone folded: the pot is won without a showdown",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-handover-phone",
+    "description": "Hand over on the winner's phone (Priya), who may show their cards",
+    "viewer": "Priya"
+  },
+  {
+    "name": "poker-uncontested-table",
+    "description": "Maya raised and everyone folded: she wins without a showdown, her cards face down",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-uncontested-phone",
+    "description": "Maya's phone after winning uncontested: Show or keep her cards hidden (you.canShow)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-sitout-table",
+    "description": "Hand 2 dealt without Maya, who is sitting out",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-sitout-phone",
+    "description": "Maya's phone while she sits out: I'm back (sitIn)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-headsup-table",
+    "description": "Heads-up: Maya and Sam, the button posts the small blind and acts first preflop",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-headsup-phone",
+    "description": "Heads-up on Maya's phone, her turn",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-cash-lobby-table",
+    "description": "Cash-game lobby: fixed blinds 10/20, buy-in 2,000, rebuy any time",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-cash-lobby-phone",
+    "description": "Cash-game lobby on the host's phone (Maya)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "poker-cash-busted-table",
+    "description": "Cash game mid-hand: Sam is out of chips and sits out until he rebuys (no deadline); Jonah has rebought once",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-cash-busted-phone",
+    "description": "Sam's phone: busted in a cash game, Rebuy whenever he likes",
+    "viewer": "Sam"
+  },
+  {
+    "name": "poker-gameover-table",
+    "description": "Sam has every chip: final standings",
+    "viewer": "table"
+  },
+  {
+    "name": "poker-gameover-phone",
+    "description": "Game over on Maya's phone (not the winner)",
+    "viewer": "Maya"
+  }
+]

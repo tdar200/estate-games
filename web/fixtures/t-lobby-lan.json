@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Join link for this Wi-Fi only",
+    "section": "Lobby",
+    "description": "A server with no public URL: the card says SAME WI-FI."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "server": {
+      "lanURL": "http://192.168.1.20:3210",
+      "version": "demo"
+    }
+  }
+}

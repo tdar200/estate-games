@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Sent to jail",
+    "section": "Turn: landing",
+    "description": "Land on Busted."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "position": 25
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 10,
+            "inJail": true,
+            "jailTurns": 0
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            2,
+            3
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 25,
+              "to": 30,
+              "path": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 25,
+          "to": 30,
+          "path": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        "lastLanding": {
+          "playerId": "@Maya",
+          "spaceIndex": 30,
+          "kind": "goToJail",
+          "amount": 0
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 2 + 3 = 5",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on Busted",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya was sent to jail",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

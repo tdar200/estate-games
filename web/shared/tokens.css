@@ -1,0 +1,448 @@
+/* Estate design tokens and shared pieces ("classic premium"): ivory board, classic colour bars,
+   felt-green table, dark-glass panels, gold primary buttons, Oswald + Inter. */
+
+:root {
+  --ivory: #FBFAF4;
+  --paper: #FFFFFF;
+  --ink: #15191E;
+  --ink-soft: #2D333B;
+  --muted: #5B6470;
+  --muted-2: #4A525C;
+  --muted-3: #8A929C;
+  --rule: #E3DFD2;
+  --rule-2: #D9D5C7;
+  --sage: #D3E6D2;
+  --navy: #13294B;
+
+  --cream: #F4F1E6;
+  --mist: #C9D6CE;
+  --mist-2: #E3E9E4;
+  --glass: rgba(8, 26, 19, 0.7);
+  --glass-2: rgba(8, 26, 19, 0.62);
+  --glass-3: rgba(8, 26, 19, 0.82);
+  --glass-line: rgba(244, 241, 230, 0.14);
+  --glass-line-2: rgba(244, 241, 230, 0.16);
+  --gold-line: rgba(232, 192, 92, 0.45);
+
+  --gold: #F2C14E;
+  --gold-deep: #A97E1E;
+  --gold-soft: #F2D27A;
+  --gold-wash: rgba(242, 193, 78, 0.14);
+  --gold-wash-line: rgba(242, 193, 78, 0.6);
+
+  --red: #E8232A;
+  --red-deep: #C8202A;
+  --red-soft: #FF9C9C;
+  --chance: #F08A2B;
+  --chance-ink: #E97A1F;
+  --chest: #2F6FB5;
+  --online: #4ADE80;
+  --pos: #8FE3A8;
+  --neg: #F59A9A;
+  --house: #2FBF6A;
+  --house-dark: #1C8A47;
+  --hotel: #E5353B;
+  --hotel-dark: #A81E23;
+
+  --g-brown: #8A4B2A;
+  --g-lightBlue: #A9DCF2;
+  --g-pink: #D3368C;
+  --g-orange: #F7941D;
+  --g-red: #E8232A;
+  --g-yellow: #FDE21B;
+  --g-green: #1FAE57;
+  --g-darkBlue: #1166B4;
+
+  /* Player palette: one colour per token (source of truth: web/shared/palette.json, which the
+     server reads; JS twin TOKEN_COLORS in tokens.js; web/tests/board.check.mjs keeps all three
+     in step). Picked so no player can be read as a property group: the old seat colours were
+     3.7–10.8 ΔE00 from a group (blue vs dark blue, red vs red…); these are all ≥ 19.
+       token       colour            nearest group (ΔE00)   chip text
+       rocket      Sky    #1EA0FF    light blue  20.6        ink
+       teapot      Wine   #7A1838    pink        22.4        white
+       bicycle     Olive  #6F7A1A    green       22.7        white
+       lighthouse  Teal   #0E8C8C    green       25.1        white
+       key         Violet #8A5CF5    dark blue   21.4        white
+       umbrella    Onyx   #1E2228    dark blue   29.0        white
+       anchor      Rose   #D88890    pink        20.4        ink
+       kite        Slate  #727078    dark blue   23.7        white
+     Players are ≥ 26.4 ΔE00 apart from each other; the groups are 19.8 apart at the closest.
+     Ownership is also a shape (round chip with the token's silhouette), never colour alone. */
+  --p-rocket: #1EA0FF;
+  --p-teapot: #7A1838;
+  --p-bicycle: #6F7A1A;
+  --p-lighthouse: #0E8C8C;
+  --p-key: #8A5CF5;
+  --p-umbrella: #1E2228;
+  --p-anchor: #D88890;
+  --p-kite: #727078;
+
+  --felt: radial-gradient(ellipse at 34% 50%, #1F6B4E 0%, #124733 48%, #0A2A1F 100%);
+  --felt-phone: radial-gradient(ellipse at 50% 35%, #1F6B4E 0%, #124733 55%, #0A2A1F 100%);
+  --felt-base: #0A2A1F;
+
+  --font-display: "Oswald", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Menlo, monospace;
+
+  --focus: #FFE58A;
+  --focus-dark: #13294B;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--cream);
+  background: var(--felt-base);
+  /* A game screen, not a document: no drag-selecting or long-press selecting text (TV, PC, phone,
+     tablet, poker), no iOS long-press callout and no grey tap flash. Typing fields, editable text
+     and the invite link (.selectable, .link-box) stay selectable. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+input, textarea, [contenteditable]:not([contenteditable="false"]), .selectable {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+/* A double tap or double click on a control never zooms the page or selects a word. */
+button, a, input, select, textarea, label, summary, [role="button"], [data-cmd], [data-act] { touch-action: manipulation; }
+img, svg { -webkit-user-drag: none; }
+
+button { font: inherit; color: inherit; }
+button:not(:disabled) { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+
+.display { font-family: var(--font-display); letter-spacing: 0.04em; }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Visible focus everywhere: gold on dark felt, navy on ivory surfaces. */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 7px rgba(242, 193, 78, 0.35);
+}
+.on-light :focus-visible, .on-light:focus-visible {
+  outline-color: var(--focus-dark);
+  box-shadow: 0 0 0 7px rgba(19, 41, 75, 0.2);
+}
+
+/* ---- Buttons (phone "btn" kinds: primary / plain / ghost / danger) ---- */
+.btn {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  width: 100%; min-height: 50px; padding: 6px 16px;
+  border-radius: 6px; border: 0;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 80ms ease, filter 120ms ease;
+}
+.btn:active:not(:disabled) { transform: translateY(2px); }
+.btn__label { flex: 1 1 auto; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em; font-size: 18px; line-height: 1.1; }
+.btn__detail { flex: 0 1 45%; font-size: 12px; font-weight: 600; text-align: right; opacity: 0.85; }
+.btn__detail:empty { display: none; }
+.btn--primary { min-height: 64px; background: var(--gold); color: var(--ink); box-shadow: 0 5px 0 var(--gold-deep); }
+.btn--primary .btn__label { font-size: 24px; }
+.btn--primary:active:not(:disabled) { box-shadow: 0 3px 0 var(--gold-deep); }
+.btn--plain { min-height: 52px; background: var(--ivory); color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--cream); border: 1.5px solid rgba(244, 241, 230, 0.5); }
+.btn--danger { min-height: 46px; background: transparent; color: var(--red-soft); border: 1.5px solid #E8636A; }
+.btn--danger .btn__label { font-size: 16px; }
+.btn:disabled { filter: grayscale(0.6); opacity: 0.55; }
+
+/* ---- Title deed card ---- */
+.deed {
+  width: 270px; padding: 9px;
+  background: var(--paper); color: var(--ink);
+  border-radius: 4px;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.deed__head { border: 2px solid var(--ink); padding: 8px 6px; text-align: center; }
+.deed__eyebrow { font-size: 9px; font-weight: 800; letter-spacing: 0.24em; }
+.deed__name { font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.1; text-transform: uppercase; }
+.deed__rows { padding: 8px 6px 2px; display: flex; flex-direction: column; gap: 3px; font-size: 13px; }
+.deed__row { display: flex; justify-content: space-between; gap: 8px; }
+.deed__row b { font-weight: 700; }
+.deed__row.is-now { font-weight: 800; }
+.deed__row.is-now::before { content: "▸"; margin-right: -4px; }
+.deed__foot { display: flex; justify-content: space-between; margin-top: 4px; padding-top: 5px; border-top: 1px solid var(--rule-2); font-size: 12px; color: var(--muted-2); }
+
+/* ---- Dice ---- */
+.dice-pair { display: flex; align-items: center; gap: 16px; }
+.die {
+  width: 58px; height: 58px; padding: 9px;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #FFFFFF 0%, #ECEAE3 100%);
+  box-shadow: inset 0 -3px 0 #D2CFC4, 0 8px 12px rgba(0, 0, 0, 0.35);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr));
+  transform: rotate(var(--rot, 0deg));
+}
+.die > span { margin: auto; width: 10px; height: 10px; border-radius: 50%; }
+.die > span.pip { background: var(--ink); }
+.die--lg { width: 78px; height: 78px; padding: 12px; border-radius: 15px; box-shadow: inset 0 -4px 0 #D2CFC4, 0 12px 18px rgba(0, 0, 0, 0.45); }
+.die--lg > span { width: 13px; height: 13px; }
+.die--sm { width: 40px; height: 40px; padding: 6px; border-radius: 8px; }
+.die--sm > span { width: 7px; height: 7px; }
+
+/* ---- Houses and hotels ---- */
+.house, .hotel { display: block; filter: drop-shadow(0 1.5px 0 rgba(0, 0, 0, 0.45)); }
+.house::before, .hotel::before { content: ""; display: block; }
+.house::before {
+  width: 11px; height: 11px;
+  background: linear-gradient(90deg, var(--house) 0 55%, var(--house-dark) 55% 100%);
+  clip-path: polygon(50% 0, 100% 42%, 100% 100%, 0 100%, 0 42%);
+}
+.hotel::before {
+  width: 20px; height: 13px;
+  background: linear-gradient(90deg, var(--hotel) 0 55%, var(--hotel-dark) 55% 100%);
+  clip-path: polygon(50% 0, 100% 38%, 100% 100%, 0 100%, 0 38%);
+}
+
+/* ---- Chips and tips ---- */
+.flag {
+  height: 20px; padding: 0 7px; border-radius: 3px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+  display: inline-flex; align-items: center;
+}
+.flag--turn { background: var(--gold); color: var(--ink); }
+.flag--next { background: rgba(244, 241, 230, 0.16); color: var(--cream); }
+.flag--out { background: #8A929C; color: #FFFFFF; }
+
+.tip { padding: 9px 12px; border-radius: 6px; font-size: 13px; line-height: 1.45; color: var(--cream); border: 1px solid; }
+.tip strong { color: var(--gold-soft); }
+.tip--warn { background: rgba(240, 138, 43, 0.16); border-color: rgba(240, 138, 43, 0.7); }
+.tip--ok { background: rgba(74, 222, 128, 0.12); border-color: rgba(74, 222, 128, 0.55); }
+.tip--gold { background: var(--gold-wash); border-color: var(--gold-wash-line); }
+.tip--info { background: rgba(244, 241, 230, 0.08); border-color: rgba(244, 241, 230, 0.3); }
+
+/* ---- Cards (Headlines = deck "chance" / Post = deck "chest") ---- */
+.card-face {
+  width: 300px; background: #FFF6EA; color: var(--ink);
+  border: 2px solid var(--ink); border-radius: 8px;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.card-face__head {
+  height: 50px; border-bottom: 2px solid var(--ink);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: 0.14em; color: #FFFFFF;
+  background: var(--chance);
+}
+.card-face--chest .card-face__head { background: var(--chest); }
+.card-face__text { padding: 18px 18px 20px; text-align: center; font-family: var(--font-display); font-size: 26px; font-weight: 600; line-height: 1.2; text-transform: uppercase; }
+
+/* ---- Medal ---- */
+.medal {
+  width: 150px; height: 150px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFF1B8 0%, #F2C14E 45%, #B9861E 100%);
+  border: 3px solid #6B4A0E;
+  box-shadow: inset 0 0 0 9px rgba(255, 255, 255, 0.25), 0 16px 30px rgba(0, 0, 0, 0.5);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #3A2806;
+}
+.medal__eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; }
+.medal__place { font-family: var(--font-display); font-size: 52px; font-weight: 700; line-height: 1; }
+.medal--silver { background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #C9D1D8 45%, #7D8790 100%); border-color: #4E5862; color: #1E252C; }
+
+/* ---- Motion: keyframes from the approved Motion design ---- */
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes bounce { 0%, 30%, 100% { transform: translateY(0); } 40% { transform: translateY(-16px); } 50% { transform: translateY(0); } 56% { transform: translateY(-6px); } 62% { transform: translateY(0); } }
+@keyframes wobble { 0%, 30%, 100% { transform: rotate(0deg); } 36% { transform: rotate(-9deg); } 42% { transform: rotate(8deg); } 48% { transform: rotate(-5deg); } 54% { transform: rotate(3deg); } 60% { transform: rotate(0deg); } }
+@keyframes bars { 0%, 20% { transform: translateY(-110%); } 34% { transform: translateY(4%); } 40%, 100% { transform: translateY(0); } }
+@keyframes rise { 0% { transform: translateY(10px); opacity: 0; } 25%, 75% { transform: translateY(-4px); opacity: 1; } 100% { transform: translateY(-14px); opacity: 0; } }
+@keyframes spot { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.95; } }
+@keyframes diceIn { 0% { transform: translate(-150px, -60px) rotate(-220deg); opacity: 0; } 10% { opacity: 1; } 60% { transform: translate(8px, 6px) rotate(18deg); } 75% { transform: translate(-4px, -10px) rotate(-6deg); } 100% { transform: translate(0, 0) rotate(var(--rot, 0deg)); opacity: 1; } }
+@keyframes flip { 0% { transform: translateY(0) rotateY(0deg); } 30% { transform: translateY(-14px) rotateY(0deg); } 100% { transform: translateY(0) rotateY(180deg); } }
+@keyframes stamp { 0% { transform: scale(2.6) rotate(-20deg); opacity: 0; } 30% { transform: scale(0.92) rotate(-14deg); opacity: 0.9; } 45%, 100% { transform: scale(1) rotate(-14deg); opacity: 0.9; } }
+@keyframes drop { 0% { transform: translateY(-70px); opacity: 0; } 55% { transform: translateY(0); opacity: 1; } 75% { transform: translateY(-7px); } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes shake { 0% { transform: translate(0, 0) rotate(0deg); } 10% { transform: translate(-10px, 2px) rotate(-1deg); } 25% { transform: translate(10px, -2px) rotate(1deg); } 40% { transform: translate(-7px, 1px); } 55% { transform: translate(7px, -1px); } 70% { transform: translate(-3px, 0); } 100% { transform: translate(0, 0); } }
+@keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(232, 35, 42, 0); } 15% { box-shadow: 0 0 0 10px rgba(232, 35, 42, 0.55); } 100% { box-shadow: 0 0 0 0 rgba(232, 35, 42, 0); } }
+@keyframes fall { 0% { transform: translateY(-30px) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(var(--fall, 190px)) rotate(600deg); opacity: 0; } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes liftIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.react-bob { animation: bob 2.2s ease-in-out infinite; }
+.react-bounce { animation: bounce 2.2s ease-out 1; }
+.react-wobble { animation: wobble 2.2s ease-out 1; transform-origin: 50% 100%; }
+.react-pulse { animation: pulse 1.6s ease-in-out infinite; }
+
+.jail-bars { position: absolute; inset: 0; display: flex; justify-content: space-evenly; pointer-events: none; }
+.jail-bars[hidden] { display: none; }
+.jail-bars > span { width: 12%; max-width: 5px; background: #2B323A; }
+.jail-bars.is-slamming { animation: bars 1.2s ease-out 1 both; }
+
+.spotlight {
+  position: absolute; left: 50%; bottom: 0; width: 160%; aspect-ratio: 1; transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 226, 140, 0.8) 0%, rgba(255, 226, 140, 0) 70%);
+  animation: spot 1.6s ease-in-out infinite; pointer-events: none;
+}
+
+.rise-chip {
+  position: absolute; height: 22px; padding: 0 7px; border-radius: 3px;
+  color: #FFFFFF; font-family: var(--font-display); font-size: 14px; font-weight: 600;
+  display: inline-flex; align-items: center; white-space: nowrap; pointer-events: none;
+  animation: rise 1.8s ease-out 1 forwards;
+}
+.rise-chip--pos { background: #2FBF6A; }
+.rise-chip--neg { background: var(--red); }
+
+.bank-note {
+  position: absolute; left: 0; top: 0; width: 40px; height: 22px;
+  border: 1px solid rgba(21, 25, 30, 0.45); box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--ink);
+  pointer-events: none; will-change: transform;
+}
+
+.sold-stamp {
+  position: absolute; left: 50%; top: 50%; width: 116px; height: 44px; margin: -22px 0 0 -58px;
+  border: 3px solid var(--red-deep); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: 0.14em; color: var(--red-deep);
+  pointer-events: none; animation: stamp 0.6s ease-out 1 both;
+}
+
+.sold-stamp--cell { width: 64px; height: 26px; margin: -13px 0 0 -32px; font-size: 15px; border-width: 2px; z-index: 3; }
+
+.confetti-piece { position: absolute; top: 0; width: 7px; height: 12px; pointer-events: none; animation: fall 2.2s linear 1 forwards; }
+
+/* Card that lifts off the deck and flips (CARD DRAWN). */
+.flip-card { width: 236px; height: 150px; perspective: 700px; }
+.flip-card__inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+.flip-card__back, .flip-card__front {
+  position: absolute; inset: 0; border-radius: 6px; border: 2px solid var(--ink);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3); backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.flip-card__back { background: var(--chance); color: #FFFFFF; font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: 0.12em; line-height: 1.1; }
+.flip-card--chest .flip-card__back { background: var(--chest); font-size: 30px; }
+.flip-card__front { background: #FFF6EA; color: var(--ink); transform: rotateY(180deg); gap: 6px; padding: 10px 14px; }
+.flip-card__eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; color: #E06F12; }
+.flip-card--chest .flip-card__eyebrow { color: var(--chest); }
+.flip-card__text { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1.15; text-transform: uppercase; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+  .react-bob, .react-pulse, .spotlight { animation: none !important; }
+}
+
+/* ---- Player chip: round disc in the player's colour with their initial (tokens.js
+   playerChipHtml). Owner markers, plates, feed rows, trade partners. ---- */
+.pchip {
+  --pc-size: 22px;
+  width: var(--pc-size); height: var(--pc-size); flex: 0 0 var(--pc-size); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--pc); color: var(--pc-ink);
+  border: 1.5px solid #FFFFFF; box-shadow: 0 0 0 1.5px #0E1216;
+  font-family: var(--font-display); font-size: calc(var(--pc-size) * 0.55); font-weight: 700; line-height: 1; letter-spacing: 0;
+}
+
+/* ---- Mini deed card (board.js miniDeedHtml): pickers, trade piles, the deal tray ---- */
+.mdeed {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  background: var(--paper); color: var(--ink); border: 2px solid #C9C3B3; border-radius: 6px; overflow: hidden;
+  font: inherit; text-align: left; padding: 0;
+  transition: transform 120ms var(--ease-out), box-shadow 120ms ease, border-color 120ms ease;
+}
+.mdeed__head {
+  display: block; padding: 6px 8px; min-height: 40px; background: var(--gc); color: var(--gc-ink);
+  font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: 0.03em; line-height: 1.1; text-transform: uppercase;
+}
+.mdeed__row { display: flex; justify-content: space-between; gap: 6px; padding: 5px 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.mdeed__row b { color: var(--ink); }
+.mdeed__badge {
+  position: absolute; left: 6px; bottom: 28px; padding: 1px 5px; border-radius: 3px; background: var(--house-dark); color: #FFFFFF;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
+}
+.mdeed__badge--warn { background: var(--red-deep); }
+.mdeed__note { padding: 0 8px 6px; font-size: 11px; font-weight: 700; color: var(--muted); }
+.mdeed__tick {
+  position: absolute; top: 5px; right: 5px; width: 22px; height: 22px; border-radius: 50%;
+  display: none; align-items: center; justify-content: center;
+  background: var(--gold); color: var(--ink); border: 2px solid var(--ink); font-size: 13px; font-weight: 800; line-height: 1;
+}
+.mdeed.is-on { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 4px 0 var(--gold-deep), 0 0 0 3px var(--gold); }
+.mdeed.is-on .mdeed__tick { display: flex; }
+.mdeed.is-locked { opacity: 0.5; }
+.mdeed.is-mortgaged .mdeed__head { background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 0 3px, transparent 3px 8px); }
+button.mdeed:not(:disabled) { cursor: pointer; }
+button.mdeed:not(.is-on):not(:disabled):hover { border-color: var(--ink); }
+
+/* playerChipHtml(..., { glyph: true }): the token silhouette instead of the initial. */
+.pchip--glyph .glyph-svg { width: 70%; height: 70%; display: block; }
+
+/* ---- Seat / table approval (shared/claims.js) ----------------------------------------------
+   The approver's card (top of the screen) and the asking device's "waiting for a yes" box. Ivory
+   card with the navy head the dialogs use; the code big in Oswald; gold LET IN, quiet NO. */
+.claim-stack { position: fixed; top: 12px; left: 0; right: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 10px; pointer-events: none; }
+.claim-backdrop { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(4, 14, 10, 0.66); }
+.claim {
+  width: min(400px, calc(100vw - 32px)); box-sizing: border-box; pointer-events: auto; overflow: hidden;
+  background: var(--ivory); color: var(--ink); border: 3px solid var(--gold); border-radius: 14px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5); font-family: var(--font-body); animation: liftIn 0.22s var(--ease-out);
+}
+.claim__head {
+  display: flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--navy); color: #FFFFFF;
+  font-family: var(--font-display); font-size: 17px; font-weight: 600; letter-spacing: 0.14em;
+}
+.claim__icon { width: 18px; height: 18px; color: var(--gold); flex: 0 0 auto; }
+.claim__body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+.claim__who { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.claim__who > span { display: flex; flex-direction: column; min-width: 0; }
+.claim__who b { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.claim__who small { font-size: 13px; font-weight: 600; color: var(--muted-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.claim__code { display: flex; justify-content: center; gap: 8px; }
+.claim__code span {
+  width: 46px; height: 56px; display: grid; place-items: center; border-radius: 8px; background: #FFFFFF; border: 2px solid var(--ink);
+  font-family: var(--font-display); font-size: 34px; font-weight: 700; box-shadow: 0 3px 0 var(--gold-deep);
+}
+.claim__note, .claim__lead { margin: 0; font-size: 13px; line-height: 1.4; color: var(--muted-2); }
+.claim__lead { font-size: 15px; color: var(--ink); }
+.claim__actions { display: flex; gap: 10px; }
+.claim__actions--end { justify-content: flex-end; }
+.claim__btn {
+  flex: 1; min-height: 46px; padding: 0 16px; border-radius: 10px; border: 2px solid var(--rule-2); background: transparent; color: var(--ink);
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer;
+}
+.claim__actions--end .claim__btn { flex: 0 0 auto; }
+.claim__btn--yes { border-color: transparent; background: var(--gold); box-shadow: 0 3px 0 var(--gold-deep); }
+.claim__btn:disabled { opacity: 0.5; cursor: default; }
+.claim__error { min-height: 1.2em; font-size: 13px; font-weight: 600; color: var(--red-deep); }
+.claim__error:empty { display: none; }
+.claim__label { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; color: var(--muted-2); }
+.claim__row { display: flex; gap: 8px; }
+.claim__input {
+  flex: 1; min-width: 0; min-height: 50px; padding: 0 8px; border-radius: 10px; border: 2px solid var(--ink); background: #FFFFFF; color: var(--ink);
+  font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: 0.4em; text-align: center;
+}
+.claim__row .claim__btn { flex: 0 0 auto; }
+.claim__dots { display: inline-flex; gap: 4px; margin-left: auto; }
+.claim__dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: claimDot 0.9s ease-in-out infinite; }
+.claim__dots i:nth-child(2) { animation-delay: 0.15s; }
+.claim__dots i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes claimDot { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+/* The TV is read from the sofa: bigger card. */
+.table-app .claim { width: 520px; }
+.table-app .claim__head { font-size: 22px; padding: 12px 18px; }
+.table-app .claim__who b { font-size: 30px; }
+.table-app .claim__code span { width: 62px; height: 76px; font-size: 48px; }
+@media (prefers-reduced-motion: reduce) { .claim, .claim__dots i { animation: none; } }

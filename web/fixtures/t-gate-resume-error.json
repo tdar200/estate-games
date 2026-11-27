@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Resume a table: no such table",
+    "section": "Gates and connection",
+    "description": "Type a code that doesn't exist."
+  },
+  "ui": {
+    "gate": {
+      "kind": "resume",
+      "code": "ABCDE",
+      "error": "NO TABLE WITH THAT CODE"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "description": "The last question, paying double: \"How many tiles make up the made-up mosaic floor at Corran Abbey?\"; 23 s left"
+  },
+  "state": {
+    "game": "closest",
+    "title": "Near Thing",
+    "code": "BLKFG",
+    "status": "playing",
+    "hostId": "p1",
+    "version": 77,
+    "phase": "guess",
+    "now": 1795374227430,
+    "phaseEndsAt": 1795374250430,
+    "settings": {
+      "length": "quick",
+      "guessSeconds": 30,
+      "betSeconds": 25,
+      "fill": true
+    },
+    "seatLimit": 8,
+    "questionNo": 7,
+    "questionCount": 7,
+    "question": {
+      "seq": 7,
+      "no": 7,
+      "double": true,
+      "text": "How many tiles make up the made-up mosaic floor at Corran Abbey?",
+      "unit": "tiles",
+      "format": "plain",
+      "min": 2000,
+      "max": 900000,
+      "topic": "art",
+      "guessed": [
+        "p3"
+      ]
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "status": "playing",
+        "score": 33,
+        "closest": 3,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "status": "playing",
+        "score": 19,
+        "closest": 2,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "kind": "human",
+        "status": "playing",
+        "score": 16,
+        "closest": 0,
+        "guessed": true,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "kind": "human",
+        "status": "playing",
+        "score": 12,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "kind": "ai",
+        "status": "playing",
+        "score": 10,
+        "closest": 2,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "hard",
+        "autopilot": false
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "kind": "ai",
+        "status": "playing",
+        "score": 6,
+        "closest": 2,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "normal",
+        "autopilot": false
+      }
+    ],
+    "you": null,
+    "standings": null,
+    "winnerIds": [],
+    "credits": [
+      "Made-up test questions 2, CC BY-SA 4.0"
+    ],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 7 questions, and the last one pays double"
+      },
+      {
+        "id": "l2",
+        "text": "Question 1 of 7"
+      },
+      {
+        "id": "l3",
+        "text": "The answer is 148 bridges: Maya and Orca are closest"
+      },
+      {
+        "id": "l4",
+        "text": "Question 2 of 7"
+      },
+      {
+        "id": "l5",
+        "text": "The answer is 3,100 pipes: Alpha is closest"
+      },
+      {
+        "id": "l6",
+        "text": "Question 3 of 7"
+      },
+      {
+        "id": "l7",
+        "text": "The answer is 1786: Maya and Kim are closest"
+      },
+      {
+        "id": "l8",
+        "text": "Question 4 of 7"
+      },
+      {
+        "id": "l9",
+        "text": "Nobody guessed"
+      },
+      {
+        "id": "l10",
+        "text": "The answer was 26 eggs"
+      },
+      {
+        "id": "l11",
+        "text": "Question 5 of 7"
+      },
+      {
+        "id": "l12",
+        "text": "The answer is 412 days: Kim and Orca are closest"
+      },
+      {
+        "id": "l13",
+        "text": "Question 6 of 7"
+      },
+      {
+        "id": "l14",
+        "text": "The answer is 18,500 seats: Alpha and Maya are closest"
+      },
+      {
+        "id": "l15",
+        "text": "Question 7 of 7: the last one, and it pays double"
+      }
+    ],
+    "lastEventSeq": 80,
+    "viewerId": "",
+    "viewerRole": "table",
+    "viewerName": "Table",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "closest",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    },
+    "localSeats": []
+  },
+  "viewer": "table"
+}

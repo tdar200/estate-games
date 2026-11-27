@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Dice landing (mid)",
+    "section": "Turn: roll",
+    "description": "Press ROLL: the dice land above the card.",
+    "capture": {
+      "when": "#dice-hud.is-shown .die",
+      "delay": 650
+    }
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 25
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            3,
+            4
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 18,
+              "to": 25,
+              "path": [
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 18,
+          "to": 25,
+          "path": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ]
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 3 + 4 = 7",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on South Station Railroad",
+            "at": 1793560000000
+          }
+        ]
+      },
+      "after": 500
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Headlines card: controller seat confirms",
+    "section": "Turn: cards",
+    "description": "Same, for a controller seat."
+  },
+  "extends": "card",
+  "seats": {
+    "Robin": "controller"
+  }
+}

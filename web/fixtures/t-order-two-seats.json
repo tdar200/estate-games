@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "title": "Roll for order: keyboard and controller both to roll",
+    "section": "Order roll",
+    "description": "After START, two seats at this screen still have to roll."
+  },
+  "extends": "order",
+  "seats": {
+    "Robin": "keyboard",
+    "Maya": "controller"
+  }
+}

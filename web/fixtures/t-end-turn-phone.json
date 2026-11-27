@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "A phone player's turn ends (bought)",
+    "section": "Turn: landing",
+    "description": "A phone player bought and is about to end the turn."
+  },
+  "extends": "turn-done"
+}

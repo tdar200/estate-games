@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "title": "Take a seat: the last free token",
+    "section": "Seat setup and rules",
+    "description": "Five seats taken: only one token left."
+  },
+  "extends": "table-lobby",
+  "patch": {
+    "players+": [
+      {
+        "id": "player_000000000021",
+        "name": "Kai",
+        "kind": "human",
+        "color": "#4E7FD6",
+        "cash": 1500,
+        "position": 0,
+        "inJail": false,
+        "jailTurns": 0,
+        "jailCards": 0,
+        "bankrupt": false,
+        "input": "keyboard",
+        "tokenKind": "umbrella",
+        "online": true
+      }
+    ]
+  },
+  "seats": {
+    "Maya": "controller",
+    "Kai": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "seat",
+      "input": "keyboard"
+    }
+  }
+}

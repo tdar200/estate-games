@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Bankruptcy confirm: to the bank",
+    "section": "Debt and bankruptcy",
+    "description": "Bankrupt on a tax (the bank takes everything)."
+  },
+  "extends": "debt",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "debt": {
+      "creditorId": null,
+      "reason": "Council Tax",
+      "amount": 900
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "bankrupt",
+      "seat": "@Robin"
+    }
+  }
+}

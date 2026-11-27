@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Loan request sent: the computer decides",
+    "section": "Loans",
+    "description": "Ask a computer for a loan."
+  },
+  "extends": "loan-request",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "loanOffer": {
+      "targetId": "@Alpha"
+    }
+  }
+}

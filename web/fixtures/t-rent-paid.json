@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "Rent paid by a keyboard seat",
+    "section": "Turn: landing",
+    "description": "Land on someone else's street."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 23,
+            "cash": 665
+          },
+          "Alpha": {
+            "cash": 783
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            3,
+            2
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 18,
+              "to": 23,
+              "path": [
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 18,
+          "to": 23,
+          "path": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        "lastLanding": {
+          "playerId": "@Maya",
+          "spaceIndex": 23,
+          "kind": "rent",
+          "amount": 18,
+          "recipientId": "@Alpha"
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 3 + 2 = 5",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on Museum Road",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya paid $18 (Museum Road rent)",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Nothing to choose right now",
+    "section": "Toasts",
+    "description": "Press a number key when no seat here has a choice."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "currentPlayerId": "@Robin",
+    "currentIndex": 3,
+    "turn": {
+      "playerId": "@Robin"
+    }
+  },
+  "ui": {
+    "toast": {
+      "text": "Nothing to choose right now."
+    }
+  }
+}

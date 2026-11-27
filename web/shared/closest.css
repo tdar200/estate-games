@@ -1,0 +1,481 @@
+/* Styles for the closest-number game (docs/CLOSEST-API.md §8). The table screen (/, #closest-screen.qz-tv.cg-tv on
+   the 1600 × 900 stage) reuses the quiz's head, plates, timer, lobby and end card (quiz.css), so only
+   what is new is here; the phone (/play, .app[data-game="closest"], .cgp) has its own small set.
+
+   "Looks" marks the four screens in the looks the owner picked: Line-up A and Reveal A (table), Pad A
+   and Bet A (phone). Their markup is in web/shared/closest-looks.js; a look is that function plus
+   its block here.
+
+   Floors: table text ≥ 20 stage px, the question ≥ 44, slot numbers ≥ 36; phone text ≥ 14 px,
+   touch targets ≥ 44 px, bet rows ≥ 56 px. Animations are CSS delays worked out from the phase
+   start (--d, --answer, --slide, …: negative = already happened), so a re-render never restarts
+   them; reduced motion turns them off (the end frame is the plain style). */
+
+/* ============================================================== Picker, tags */
+.gtype--closest { background: #14304A; color: var(--gold-soft); border: 1px solid rgba(242, 193, 78, 0.6); }
+.art-closest { display: flex; align-items: center; justify-content: center; }
+.art-closest__svg { width: 86%; height: 86%; filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35)); transform: rotate(-4deg); }
+.gpick--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+/* Phones: two by two, and the fifth tile across the last row. */
+.app .gpick--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.app .gpick--5 > .gtile:last-child { grid-column: 1 / -1; }
+.app .gpick--5 .gtile__name { white-space: nowrap; }
+/* The table screen: five across, the art beside a name that may take two lines. */
+.pk-tv__lobby .gpick--5 { gap: 12px; }
+.pk-tv__lobby .gpick--5 .gtile { padding: 8px 12px; gap: 10px; min-height: 84px; }
+.pk-tv__lobby .gpick--5 .gtile__art { width: 50px; height: 50px; }
+.pk-tv__lobby .gpick--5 .gtile__name { font-size: 25px; line-height: 1.05; white-space: normal; }
+.pk-tv__lobby .gpick--5 .gtile__tick { top: 4px; right: 4px; }
+.pk-tv__lobby .gpick--5 .art-cards .pc { --w: 30px; }
+.pk-tv__lobby .gpick--5 .art-cards .pc:nth-child(2) { left: 18px; }
+
+/* ============================================================== Table screen */
+.cg-tv .cg-head__round { min-width: 0; }
+.cg-tv .cg-head__round small { white-space: nowrap; }
+.cg-body { gap: 14px; }
+
+/* Lobby: four setting chips, the "computers will join" note. */
+.cg-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cg-fill { color: var(--gold-soft); }
+
+/* The question: the hero while guessing, a strip over the line after that. */
+.cg-q {
+  display: flex; flex-direction: column; gap: 8px; padding: 18px 30px 22px; border-radius: 12px;
+  background: var(--ivory); color: var(--ink); border: 3px solid var(--ink); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  animation: pkUp 0.35s var(--ease-out) both;
+}
+.cg-body[data-phase="guess"] .cg-q { margin: auto 0; }
+.cg-q__meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cg-q__tag { font-size: 20px; font-weight: 800; letter-spacing: 0.12em; color: var(--muted-2); }
+.cg-q__tag.is-double { color: var(--red-deep); }
+.cg-q__range { font-size: 22px; font-weight: 700; color: var(--ink-soft); }
+.cg-q__text { margin: 0; font-family: var(--font-display); font-size: 58px; font-weight: 600; line-height: 1.16; letter-spacing: 0.01em; text-wrap: pretty; }
+.cg-q__text.is-long { font-size: 50px; }
+.cg-q.is-compact { gap: 0; padding: 8px 24px 10px; animation: none; }
+.cg-q.is-compact .cg-q__text, .cg-q.is-compact .cg-q__text.is-long { font-size: 44px; line-height: 1.1; }
+.cg-q.is-compact .cg-q__tag { font-size: 20px; }
+
+/* Who is done, and the seconds left (on the felt, not a card). */
+.cg-done { display: flex; align-items: center; gap: 20px; min-height: 66px; padding: 8px 22px; border-radius: 14px; background: rgba(6, 22, 16, 0.72); border: 1px solid var(--glass-line-2); }
+.cg-done .qz-answered__label { color: var(--mist); }
+.cg-done .qz-answered__label b { color: var(--cream); }
+.cg-done .qz-bar { background: rgba(244, 241, 230, 0.14); box-shadow: none; }
+.cg-done .qz-count-down b { color: var(--cream); }
+.cg-done .qz-count-down.is-low b { color: var(--red-soft); }
+.cg-body:is([data-phase="lineup"], [data-phase="bet"], [data-phase="chips"]) .cg-stage { margin-block: auto; }
+
+.cg-intro__double { margin: 18px 0 0; font-family: var(--font-display); font-size: 32px; font-weight: 600; letter-spacing: 0.06em; color: var(--gold-soft); }
+.cg-tvhelp .qcredits { font-size: 20px; }
+
+/* ---------------------------------------------------------- Looks: the line of slots (table) */
+/* Line-up A. Per slot: its odds on a disc along a gold rail (5× gold, 4× deep gold, 3× gold ring,
+   2× plain), a short stem, an ivory card (number, unit, owner), and from the chips phase a dashed
+   tray of chips under the card. A chip is a disc in its player's colour (dashed white edge, their
+   token's silhouette), a ×2 badge under it for both chips and a gold diamond for points staked.
+   From seven slots the chips are smaller so four fit across the narrowest tray; eight players with
+   both chips and stakes on one slot take two rows. */
+.cg-stage { position: relative; width: fit-content; max-width: 100%; margin-inline: auto; display: flex; flex-direction: column; gap: 10px; }
+.cg-line {
+  --disc: 68px; --stem: 12px; --chip: 40px;
+  position: relative; list-style: none; margin: 0; padding: 0; display: grid; align-items: stretch;
+  grid-template-columns: repeat(var(--n), minmax(0, 250px)); gap: 14px;
+}
+.cg-line::before { content: ""; position: absolute; left: 0; right: 0; top: calc(var(--disc) / 2 - 2.5px); height: 5px; border-radius: 3px; background: rgba(242, 193, 78, 0.5); }
+.cg-line.is-many { --chip: 30px; }
+.cg-slot { position: relative; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.cg-line.is-lineup .cg-slot { animation: cgSlotIn 0.45s var(--ease-out) var(--d, 0ms) both; }
+.cg-slot__odds {
+  position: relative; flex: 0 0 auto; width: var(--disc); height: var(--disc); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: #0B241A; color: var(--cream); border: 3px solid rgba(244, 241, 230, 0.35); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  font-family: var(--font-display); font-size: 30px; font-weight: 700; line-height: 1;
+}
+.cg-slot__odds[data-odds="3"] { color: var(--gold-soft); border-color: rgba(242, 193, 78, 0.6); }
+.cg-slot__odds[data-odds="4"] { background: #4A3F1A; color: var(--gold-soft); border-color: var(--gold); }
+.cg-slot__odds[data-odds="5"] { background: var(--gold); color: var(--ink); border-color: var(--ink); }
+.cg-slot__odds::after { content: ""; position: absolute; top: calc(100% + 3px); left: calc(50% - 1.5px); width: 3px; height: var(--stem); background: rgba(242, 193, 78, 0.7); }
+.cg-slot__card {
+  align-self: stretch; min-width: 0; margin-top: var(--stem); display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 6px; border-radius: 10px; background: var(--ivory); color: var(--ink); border: 3px solid var(--ink); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+.cg-slot__num { max-width: 100%; font-family: var(--font-display); font-size: 46px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cg-line.is-tight .cg-slot__num { font-size: 36px; }
+.cg-slot__unit { max-width: 100%; font-size: 20px; font-weight: 800; letter-spacing: 0.14em; line-height: 1.1; color: var(--muted-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cg-line.is-tight .cg-slot__unit { letter-spacing: 0.04em; }
+.cg-slot__owners { max-width: 100%; min-height: 38px; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 2px; }
+.cg-slot__owners.is-many { flex-wrap: wrap; }
+.cg-owner { min-width: 0; display: flex; align-items: center; gap: 8px; }
+.cg-slot .cg-owner__disc { border-width: 2px; box-shadow: 0 0 0 2px var(--ink); }
+.cg-owner__name { min-width: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cg-tray {
+  align-self: stretch; flex: 1 1 auto; min-height: 128px; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; padding: 12px 4px 10px;
+  border-radius: 12px; background: rgba(6, 22, 16, 0.5); border: 2px dashed rgba(244, 241, 230, 0.16);
+}
+.cg-tray__chips { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 12px; justify-items: center; align-content: start; }
+.cg-line.is-many .cg-tray__chips { row-gap: 14px; }
+.cg-chip { position: relative; width: var(--chip); display: flex; flex-direction: column; align-items: center; animation: cgChipIn 0.45s var(--ease-out) both; }
+.cg-chip .cg-chip__disc { width: var(--chip); height: var(--chip); flex: 0 0 auto; border: 3px dashed #FFFFFF; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5); }
+.cg-line.is-many .cg-chip .cg-chip__disc { border-width: 2px; }
+.cg-chip__n { position: relative; margin-top: -7px; height: 22px; padding: 0 5px; border-radius: 11px; background: var(--ink); color: var(--ivory); border: 2px solid var(--ivory); font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 18px; letter-spacing: 0; white-space: nowrap; }
+.cg-chip__stake { position: absolute; top: -7px; right: -8px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; transform: rotate(45deg); background: var(--gold); border: 2px solid var(--ink); font-style: normal; }
+.cg-chip__stake b { transform: rotate(-45deg); font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; color: var(--ink); }
+.cg-line.is-many .cg-chip__stake { width: 20px; height: 20px; top: -9px; right: -3px; }
+.cg-line.is-many .cg-chip__n { margin-top: -5px; }
+.cg-legend { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 8px 26px; font-size: 20px; font-weight: 800; letter-spacing: 0.08em; color: var(--cream); }
+.cg-legend__item { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+.cg-legend__chip { width: 30px; height: 30px; border-radius: 50%; background: #8A929C; border: 3px dashed #FFFFFF; }
+.cg-legend .cg-chip__n { margin: 0; height: 24px; line-height: 20px; }
+.cg-legend__stake { width: 22px; height: 22px; margin: 0 2px; transform: rotate(45deg); background: var(--gold); border: 2px solid var(--ink); }
+@keyframes cgSlotIn { from { opacity: 0; transform: translateY(26px) scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes cgChipIn { from { opacity: 0; transform: translateY(-34px); } 70% { transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+/* ---------------------------------------------------------- Looks: the reveal (table) */
+/* Reveal A. The question strip with the answer boxed at its right; a gold flag with the answer
+   slides along the rail to where it falls, its pole down through the cards; each card gets an
+   OFF BY band (green on the closest, grey on the second), CLOSEST / SECOND on its top edge, and
+   its tray what it pays; lost stakes turn grey; the fact; the plates with the points. Beats in
+   order: answer, slide, off, wins, payouts, fact (negative delays = already happened). */
+.cg-reveal { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
+.cg-reveal > * { flex: none; }
+.cg-reveal > .cg-stage { margin-block: auto; }
+/* At the reveal the header says which question, and the answer carries the unit. */
+.cg-body[data-phase="reveal"] .cg-q__meta, .cg-reveal .cg-slot__unit { display: none; }
+.cg-q--answer { flex-direction: row; align-items: center; gap: 24px; padding: 8px 10px 8px 24px; }
+.cg-q__main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.cg-answer { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 24px 8px; border-radius: 10px; background: #E6F6EA; color: var(--ink); border: 3px solid #157A3C; animation: pkPopC 0.4s var(--ease-out) var(--answer, 0ms) both; }
+.cg-answer__label { font-size: 20px; font-weight: 800; letter-spacing: 0.14em; line-height: 1.1; color: #157A3C; }
+.cg-answer__num { font-family: var(--font-display); font-size: 54px; font-weight: 700; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* The flag: its label slides with the point but keeps inside the line (left-aligned at the low
+   end, right-aligned at the high end); the caret and the pole mark the exact place. The line's
+   columns are 14 px apart, so a slot position p sits at (p + 0.5) × (width + 14) / n − 7. */
+.cg-stage.is-reveal { padding-top: 64px; }
+.cg-stage.is-reveal, .cg-stage.is-reveal .cg-line { --disc: 60px; --stem: 10px; }
+/* The flag shows up with the answer (not before), then slides to its place. */
+.cg-flag, .cg-flag__pole { position: absolute; left: calc(var(--at, 0.5) * (100% + 14px) - 7px); animation: cgFade 0.3s ease var(--answer, 0ms) both, cgSlide 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) var(--slide, 0ms) both; }
+.cg-flag { z-index: 5; top: 0; width: 0; display: flex; flex-direction: column; align-items: center; }
+.cg-flag__num {
+  transform: translateX(calc((0.5 - var(--at, 0.5)) * 100%)); padding: 5px 18px; border-radius: 10px; background: var(--gold); color: var(--ink); border: 3px solid var(--ink);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45); font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1.1; white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.cg-flag__caret { width: 0; height: 0; border-left: 11px solid transparent; border-right: 11px solid transparent; border-top: 12px solid var(--ink); }
+.cg-flag__pole { top: 58px; height: calc(64px - 58px + var(--disc) + var(--stem) + 3px); width: 4px; margin-left: -2px; border-radius: 2px; background: var(--gold); box-shadow: 0 0 0 1.5px var(--ink); }
+.cg-stage.is-reveal .cg-slot__odds { font-size: 28px; box-shadow: none; }
+.cg-stage.is-reveal .cg-slot__card { overflow: hidden; padding: 16px 0 0; box-shadow: none; }
+.cg-stage.is-reveal .cg-slot__owners { margin-top: 0; }
+.cg-stage.is-reveal .cg-slot__owners { max-width: calc(100% - 12px); }
+.cg-stage.is-reveal .cg-tray { margin-top: 12px; min-height: 104px; padding: 8px 4px 10px; }
+.cg-stage.is-reveal .cg-chip { animation: none; }
+.cg-slot__off { align-self: stretch; margin-top: 2px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; background: #ECEAE0; animation: cgFade 0.3s ease var(--off, 0ms) both; }
+.cg-slot__offlabel { font-size: 20px; font-weight: 800; letter-spacing: 0.08em; line-height: 1.1; color: var(--muted-2); }
+.cg-slot__offnum { font-family: var(--font-display); font-size: 30px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cg-slot__off.is-exact { justify-content: center; min-height: 64px; }
+/* CLOSEST / SECOND on the card's top edge, under the odds (not over them). */
+.cg-slot__result {
+  position: absolute; z-index: 4; top: calc(var(--disc) + var(--stem) - 16px); left: 0; right: 0; width: fit-content; margin-inline: auto; height: 32px; padding: 0 16px; border-radius: 16px;
+  display: flex; align-items: center; background: #157A3C; color: #FFFFFF; border: 2px solid #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  font-size: 20px; font-weight: 800; letter-spacing: 0.1em; white-space: nowrap; animation: pkPopC 0.35s var(--ease-out) var(--wins, 0ms) both;
+}
+.cg-slot.is-second .cg-slot__result { background: #C9D6CE; color: var(--ink); border-color: var(--ink); }
+/* The win and second looks are the end frame; until the wins beat the cards look as before. */
+.cg-slot.is-win .cg-slot__card { background: #E6F6EA; border: 4px solid #1FAE57; box-shadow: 0 0 0 3px var(--ink), 0 0 30px rgba(31, 174, 87, 0.55); animation: cgWin 0.6s var(--ease-out) var(--wins, 0ms) both; }
+.cg-slot.is-second .cg-slot__card { box-shadow: 0 0 0 4px #C9D6CE; animation: cgSecond 0.4s ease var(--wins, 0ms) both; }
+.cg-slot.is-win .cg-slot__off { background: #157A3C; color: #FFFFFF; animation: cgFade 0.3s ease var(--off, 0ms) both, cgBandWin 0.4s ease var(--wins, 0ms) both; }
+.cg-slot.is-win .cg-slot__offlabel { color: #FFFFFF; animation: cgInkMuted 0.4s ease var(--wins, 0ms) both; }
+.cg-slot.is-second .cg-slot__off { background: #C9D6CE; animation: cgFade 0.3s ease var(--off, 0ms) both, cgBandSecond 0.4s ease var(--wins, 0ms) both; }
+.cg-slot.is-second .cg-slot__offlabel { color: var(--ink); animation: cgInkMuted 0.4s ease var(--wins, 0ms) both; }
+.cg-slot.is-win .cg-tray { background: rgba(31, 174, 87, 0.16); border: 3px solid #1FAE57; animation: cgTrayWin 0.4s ease var(--wins, 0ms) both; }
+.cg-slot.is-second .cg-tray { background: rgba(201, 214, 206, 0.12); border: 3px solid #C9D6CE; animation: cgTrayWin 0.4s ease var(--wins, 0ms) both; }
+.cg-tray__pays { text-align: center; font-size: 20px; font-weight: 800; letter-spacing: 0.06em; line-height: 1.2; color: #8FE3A8; white-space: nowrap; animation: cgFade 0.3s ease var(--wins, 0ms) both; }
+.cg-slot.is-second .cg-tray__pays { color: var(--cream); }
+/* A stake anywhere but the closest is lost: its diamond turns grey. */
+.cg-stage.is-reveal .cg-slot:not(.is-win) .cg-chip__stake { background: #5A6068; animation: cgStakeLost 0.4s ease var(--wins, 0ms) both; }
+.cg-stage.is-reveal .cg-slot:not(.is-win) .cg-chip__stake b { color: #FFFFFF; animation: cgStakeInk 0.4s ease var(--wins, 0ms) both; }
+/* The fact, then the plates: before → after at the payouts beat, the points and what scored. */
+.cg-fact { margin: 0; display: flex; align-items: center; gap: 14px; padding: 7px 16px 7px 10px; border-radius: 10px; background: rgba(8, 26, 19, 0.82); border: 2px solid var(--glass-line-2); animation: cgFade 0.5s ease var(--fact, 0ms) both; }
+.cg-fact__tag { flex: 0 0 auto; padding: 3px 12px; border-radius: 6px; background: var(--gold); color: var(--ink); font-size: 20px; font-weight: 800; letter-spacing: 0.12em; }
+.cg-fact__text { min-width: 0; font-size: 22px; line-height: 1.3; color: var(--cream); text-wrap: pretty; }
+.cg-results { list-style: none; margin: 15px 0 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 12px; }
+.cg-res .token-svg { flex: 0 0 auto; }
+.cg-res__score { display: inline-grid; }
+.cg-res__score > b { grid-area: 1 / 1; font: inherit; }
+.cg-res__was { opacity: 0; visibility: hidden; animation: cgGone 0.3s ease var(--payouts, 0ms) both; }
+.cg-res__now { animation: cgFade 0.35s ease var(--payouts, 0ms) both; }
+.cg-res .cg-res__delta { font-size: 26px; color: var(--mist); animation: pkPopC 0.35s var(--ease-out) var(--payouts, 0ms) both; }
+.cg-res.is-up .cg-res__delta { color: var(--pos); }
+.cg-res.is-down .cg-res__delta { color: var(--neg); }
+.cg-res__tag { animation: pkPopC 0.3s var(--ease-out) var(--payouts, 0ms) both; }
+.cg-res.is-win { border-color: #1FAE57; background: rgba(20, 70, 40, 0.92); box-shadow: inset 6px 0 0 var(--pc), 0 0 22px rgba(31, 174, 87, 0.45); animation: cgResWin 0.4s ease var(--payouts, 0ms) both; }
+.cg-res.is-win .cg-res__tag { background: #157A3C; border-color: #FFFFFF; color: #FFFFFF; }
+/* Second and a lost stake mark their plates' edges at the payouts beat too, not before. */
+.cg-res.is-second { border-color: #C9D6CE; animation: cgResEdge 0.4s ease var(--payouts, 0ms) both; }
+.cg-res.is-lose { animation: cgResEdge 0.4s ease var(--payouts, 0ms) both; }
+.cg-res.is-second .cg-res__tag { background: #C9D6CE; border-color: var(--ink); color: var(--ink); }
+.cg-res.is-lose .cg-res__tag { border-color: var(--red-soft); color: var(--red-soft); }
+.cg-res.is-chips .cg-res__tag { border-color: var(--gold); color: var(--gold-soft); }
+/* Nobody guessed: the answer, the line saying so, the fact; the plates stay as they were. */
+.cg-reveal__none { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+.cg-reveal__nobody { margin: 0; font-family: var(--font-display); font-size: 36px; font-weight: 600; letter-spacing: 0.04em; color: var(--cream); }
+.cg-reveal__none .cg-fact { max-width: 1200px; }
+@keyframes cgFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cgSlide { from { left: 0; } }
+@keyframes cgWin { from { border-color: var(--ink); background-color: var(--ivory); box-shadow: 0 0 0 0 rgba(21, 25, 30, 0), 0 0 0 rgba(31, 174, 87, 0); transform: none; } 40% { transform: scale(1.05); } to { transform: none; } }
+@keyframes cgSecond { from { box-shadow: 0 0 0 0 rgba(201, 214, 206, 0); } }
+@keyframes cgBandWin { from { background-color: #ECEAE0; color: var(--ink); } }
+@keyframes cgBandSecond { from { background-color: #ECEAE0; } }
+@keyframes cgInkMuted { from { color: var(--muted-2); } }
+@keyframes cgTrayWin { from { background-color: rgba(6, 22, 16, 0.5); border-color: rgba(244, 241, 230, 0.16); border-style: dashed; } }
+@keyframes cgStakeLost { from { background-color: var(--gold); } }
+@keyframes cgStakeInk { from { color: var(--ink); } }
+@keyframes cgResEdge { from { border-color: var(--glass-line-2); } }
+@keyframes cgResWin { from { border-color: var(--glass-line-2); background-color: rgba(8, 26, 19, 0.8); box-shadow: inset 6px 0 0 var(--pc), 0 0 0 rgba(31, 174, 87, 0); } }
+
+/* The reveal's phase line (table pill, phone head): THE ANSWER, then who is closest at the wins
+   beat. The end frame (and reduced motion) is the second line alone. */
+.cg-swap { display: inline-grid; max-width: 100%; }
+.cg-swap > b { grid-area: 1 / 1; min-width: 0; }
+.qz-line .cg-swap { justify-items: center; }
+.cg-swap__a { opacity: 0; visibility: hidden; animation: cgGone 0.3s ease var(--wins, 0ms) both; }
+.cg-swap__b { animation: cgFade 0.35s ease var(--wins, 0ms) both; }
+@keyframes cgGone { from { opacity: 1; visibility: visible; } }
+
+/* ============================================================== Phone */
+.app[data-game="closest"] .main { gap: 10px; }
+.app[data-game="closest"] .gtype { font-size: 14px; line-height: 20px; }
+.app[data-game="closest"] .gtype svg { width: 14px; height: 14px; }
+.app[data-game="closest"] .bar__table { font-size: 14px; }
+.app[data-game="closest"] .codecard__code span { font-size: 14px; }
+.app[data-game="closest"] .btn__detail { font-size: 14px; }
+.app[data-game="closest"] .note, .app[data-game="closest"] .link-box span { font-size: 14px; }
+.app[data-game="closest"] .medal__eyebrow { font-size: 14px; }
+.app[data-game="closest"] .codecard__btns { flex-wrap: wrap; }
+.cgp-logo .bar__table { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.cgp-top { gap: 10px; height: 46px; }
+.cgp-more { min-height: 44px; }
+/* "ESTATE", the NEAR THING tag and the table code don't fit across a phone: the lobby's code
+   card and the invite carry the code. */
+@media (max-width: 420px) { .cgp-logo .bar__table { display: none; } }
+.cgp-me { display: inline-flex; align-items: center; gap: 6px; padding: 2px 12px 2px 3px; border-radius: 20px; background: rgba(8, 26, 19, 0.8); border: 2px solid var(--pc); }
+.cgp-me__score { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.cgp-watching { font-size: 14px; font-weight: 800; letter-spacing: 0.1em; color: var(--mist); }
+.cgp-round { flex: 1 1 auto; min-width: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; color: var(--cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cgp-more { flex: 0 0 auto; }
+
+.cgp { display: flex; flex-direction: column; gap: 12px; flex: 1 1 auto; min-width: 0; }
+.cgp-head { display: flex; align-items: center; gap: 10px; min-height: 36px; }
+.cgp-head__line { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 21px; font-weight: 600; letter-spacing: 0.05em; color: var(--cream); }
+.cgp-head__line b { font-weight: inherit; }
+.cgp-timer { flex: 0 0 auto; padding: 2px 10px; border-radius: 8px; background: rgba(8, 26, 19, 0.85); border: 1.5px solid var(--gold-line); font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.cgp-timer.is-low { border-color: var(--red); color: var(--red-soft); }
+.cgp-hint { margin: 0; font-size: 15px; line-height: 1.4; color: var(--mist); text-align: center; text-wrap: balance; }
+.cgp-q { margin: 0; padding: 12px 14px; border-radius: 10px; background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); font-size: 19px; font-weight: 700; line-height: 1.3; }
+.cgp-q.is-compact { font-size: 17px; padding: 10px 12px; }
+.cgp-q.is-long { font-size: 16px; }
+.cgp-tag { padding: 0 5px; border-radius: 4px; background: var(--gold); color: var(--ink); font-size: 14px; font-weight: 800; letter-spacing: 0.04em; }
+
+/* Lobby */
+.cgp-seats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.cgp-seat { position: relative; min-width: 0; min-height: 48px; display: flex; align-items: center; gap: 7px; padding: 4px 6px 4px 8px; border-radius: 8px; background: rgba(8, 26, 19, 0.72); border: 1px solid var(--glass-line-2); box-shadow: inset 4px 0 0 var(--pc); }
+.cgp-seat.is-me { border-color: var(--gold); background: rgba(242, 193, 78, 0.13); }
+.cgp-seat .token-svg { flex: 0 0 auto; }
+.cgp-seat__who { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+.cgp-seat__name { max-width: 100%; min-width: 0; line-height: 1.15; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-display); font-size: 16px; font-weight: 500; letter-spacing: 0.02em; }
+.cgp-seat.is-me .cgp-seat__name { color: var(--gold-soft); }
+.cgp-seat__level { flex: 0 0 auto; padding: 0 4px; line-height: 1.25; border-radius: 4px; background: rgba(244, 241, 230, 0.14); font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: var(--mist); }
+.cgp-seat__remove { flex: 0 0 auto; width: 44px; height: 44px; margin: 0 -6px 0 -4px; border: 0; background: transparent; color: var(--mist); font-size: 22px; border-radius: 6px; }
+.cgp-note { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 1.35; color: var(--mist); }
+.cgp-note .ic { flex: 0 0 auto; color: var(--gold-soft); }
+.cgp-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.cgp-chip { min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; padding: 4px 6px; border-radius: 8px; background: rgba(8, 26, 19, 0.6); border: 1px solid rgba(242, 193, 78, 0.45); color: var(--cream); font: inherit; text-align: center; }
+.cgp-chip > span { font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: var(--mist); }
+.cgp-chip > b { font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.04em; white-space: nowrap; }
+.cgp-chip.is-custom { border-color: var(--gold); background: rgba(242, 193, 78, 0.12); }
+.cgp-chosen { font-size: 14px; }
+
+/* Intro, cards, who is done */
+.cgp-big { margin-top: 18px; text-align: center; font-family: var(--font-display); font-size: 36px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold-soft); }
+.cgp-sub { text-align: center; font-size: 15px; font-weight: 800; letter-spacing: 0.1em; color: var(--mist); }
+.cgp-text { margin: 0; text-align: center; font-size: 17px; line-height: 1.45; color: var(--cream); text-wrap: balance; }
+.cgp-text--gold { color: var(--gold-soft); font-weight: 700; }
+.cgp-card { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 16px 14px; border-radius: 14px; background: rgba(8, 26, 19, 0.85); border: 3px solid var(--gold); text-align: center; animation: pkPopC 0.2s var(--ease-out) both; }
+.cgp-card__eyebrow { font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: 0.14em; color: var(--gold); }
+.cgp-card__num { font-family: var(--font-display); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--cream); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.cgp-card__unit { font-size: 16px; font-weight: 700; color: var(--mist); }
+.cgp-card__words { font-size: 15px; color: var(--mist); }
+.cgp-card__line { font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: 0.03em; color: var(--cream); }
+.cgp-card span.cgp-card__line { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--mist); }
+.cgp-change { min-height: 52px; }
+.cgp-keep { display: flex; align-items: center; gap: 10px; padding: 6px 6px 6px 12px; border-radius: 10px; background: rgba(8, 26, 19, 0.8); border: 1px solid var(--gold-line); font-size: 15px; color: var(--cream); }
+.cgp-keep > span { flex: 1 1 auto; min-width: 0; }
+.cgp-keep .small-btn { min-height: 44px; font-size: 14px; }
+.cgp-done { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; font-size: 14px; font-weight: 800; letter-spacing: 0.1em; color: var(--mist); }
+.cgp-done b { color: var(--cream); }
+.cgp-done__dots { display: flex; gap: 4px; flex-wrap: wrap; }
+
+/* The slots as a list (line-up, chips, watching) */
+.cgp-line { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cgp-slot { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; grid-template-areas: "odds num who" "odds chips chips"; align-items: center; gap: 2px 8px; min-height: 48px; padding: 5px 10px 5px 6px; border-radius: 10px; background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); animation: liftIn 0.3s var(--ease-out) both; }
+.cgp-slot.is-mine { box-shadow: inset 5px 0 0 var(--gold); }
+.cgp-slot.is-win { background: #E6F6EA; border-color: #157A3C; }
+.cgp-slot__odds { grid-area: odds; text-align: center; padding: 2px 0; border-radius: 6px; background: var(--navy); color: var(--gold-soft); font-family: var(--font-display); font-size: 17px; font-weight: 700; }
+.cgp-slot__num { grid-area: num; min-width: 0; font-family: var(--font-display); font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cgp-slot__who { grid-area: who; display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+.cgp-slot__chips { grid-area: chips; display: flex; gap: 10px; font-size: 14px; font-weight: 700; color: var(--muted); }
+.cgp-slot__chips:empty { display: none; }
+.cgp-slot__chips b { color: var(--red-deep); }
+
+/* Reveal */
+.cgp-answer { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px; border-radius: 12px; background: #E6F6EA; color: var(--ink); border: 2px solid #157A3C; text-align: center; }
+.cgp-answer__label { font-size: 14px; font-weight: 800; letter-spacing: 0.12em; color: #157A3C; }
+.cgp-answer__num { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1.1; overflow-wrap: anywhere; }
+.cgp-answer__words { font-size: 15px; color: var(--ink-soft); }
+.cgp-result { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px; border-radius: 12px; border: 3px solid var(--glass-line-2); background: rgba(8, 26, 19, 0.85); color: var(--cream); text-align: center; animation: pkPopC 0.25s var(--ease-out) both; }
+.cgp-result b { font-family: var(--font-display); font-size: 32px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.05; }
+.cgp-result span { font-size: 15px; font-weight: 600; }
+.cgp-result small { font-size: 14px; color: var(--mist); }
+.cgp-result.is-up { background: #1FAE57; border-color: #157A3C; color: #FFFFFF; }
+.cgp-result.is-up small { color: #FFFFFF; }
+.cgp-result.is-down { background: #7A1F24; border-color: var(--red-soft); color: #FFFFFF; }
+.cgp-fact { margin: 0; font-size: 15px; line-height: 1.4; color: var(--mist); text-align: center; text-wrap: balance; }
+.cgp-ress { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.cgp--reveal .cgp-result { animation: pkPopC 0.3s var(--ease-out) var(--wins, 0ms) both; }
+.cgp--reveal .cgp-ress { animation: cgFade 0.4s ease var(--payouts, 0ms) both; }
+.cgp-res { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 4px 12px 4px 8px; border-radius: 10px; background: rgba(8, 26, 19, 0.75); box-shadow: inset 4px 0 0 var(--pc); }
+.cgp-res b { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 17px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cgp-res__guess { font-size: 14px; color: var(--mist); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cgp-res__delta { min-width: 44px; text-align: right; font-family: var(--font-display); font-size: 19px; font-weight: 700; }
+
+/* Places */
+.cgp-ranks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cgp-rank { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 4px 12px 4px 8px; border-radius: 10px; background: rgba(8, 26, 19, 0.75); border: 1px solid var(--glass-line-2); box-shadow: inset 4px 0 0 var(--pc); }
+.cgp-rank.is-me { border-color: var(--gold); }
+.cgp-rank__place { width: 40px; font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--gold-soft); }
+.cgp-rank__who { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.15; }
+.cgp-rank__name { min-width: 0; font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.03em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cgp-rank__who small { font-size: 14px; font-weight: 700; letter-spacing: 0.06em; color: var(--mist); }
+.cgp-rank__score { font-family: var(--font-display); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cgp-title { color: var(--cream); }
+.cgp-endlist { margin-top: 4px; }
+
+/* Sheets */
+.cgp-sheet .tableline span { font-size: 14px; }
+.cgp-sheet .sheet__text { text-wrap: balance; }
+.cgp-part { display: inline-block; }
+.cgp-sheet .gtype { font-size: 14px; line-height: 20px; }
+.cgp-help .qhow { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.45; color: var(--mist-2); }
+.cgp-help .qhow b { color: var(--cream); }
+.cgp-help .qhow li::marker { color: var(--gold-soft); font-weight: 800; }
+.cgp-help__head { margin: 6px 0 0; font-size: 14px; font-weight: 800; letter-spacing: 0.14em; color: var(--mist); }
+.cgp-help .qcredits { font-size: 14px; line-height: 1.4; color: var(--mist); }
+
+/* ---------------------------------------------------------- Looks: the number pad (phone) */
+/* Pad A. The number big on a dark panel in a gold frame with a gold caret, its words and the
+   range under it (or why it is refused, in red); white keys 3 × 4 with 000 and ⌫ dark; LOCK IN in
+   gold with the number. Heights follow the screen so a 360 × 740 phone keeps every key and LOCK
+   IN on screen; long numbers step down in size so 999,999,999 and a unit still fit across. */
+.cg-pad { display: flex; flex-direction: column; gap: 10px; }
+.cg-pad__screen {
+  --fs: clamp(48px, 8vh, 70px);
+  display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; padding: 8px 14px 10px; border-radius: 14px; text-align: center;
+  background: rgba(6, 22, 16, 0.88); border: 3px solid var(--gold); box-shadow: 0 0 0 4px rgba(242, 193, 78, 0.18);
+}
+.cg-pad__screen.is-bad { border-color: var(--red); box-shadow: 0 0 0 4px rgba(232, 35, 42, 0.25); }
+.cg-pad__screen:has([data-size="l"]) { --fs: clamp(44px, 7vh, 56px); }
+.cg-pad__screen:has([data-size="m"]) { --fs: 44px; }
+.cg-pad__screen:has([data-size="s"]) { --fs: 38px; }
+.cg-pad__line { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; column-gap: 8px; min-height: var(--fs); max-width: 100%; }
+.cg-pad__num { flex: 0 0 auto; font-family: var(--font-display); font-size: var(--fs); font-weight: 700; line-height: 1; letter-spacing: 0.05em; color: var(--ivory); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cg-pad__num[data-size="s"] { letter-spacing: 0.02em; }
+.cg-pad__caret { flex: 0 0 auto; width: 4px; height: calc(var(--fs) * 0.78); margin-left: -4px; border-radius: 2px; background: var(--gold); animation: cgBlink 1s linear infinite; }
+/* Empty: a text-sized caret before the prompt, as in an empty input. */
+.cg-pad__screen.is-empty .cg-pad__caret { height: 28px; margin: 0; transform: translateY(6px); }
+.cg-pad__unit { flex: 0 1 auto; min-width: 0; font-size: 18px; font-weight: 800; letter-spacing: 0.04em; color: var(--mist); overflow-wrap: anywhere; }
+.cg-pad__empty { font-size: 22px; font-weight: 600; color: rgba(244, 241, 230, 0.6); }
+.cg-pad__words { min-height: 1.3em; font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--cream); }
+.cg-pad__note { font-size: 14px; font-weight: 800; letter-spacing: 0.08em; line-height: 1.3; color: var(--mist); text-transform: uppercase; }
+.cg-pad__note.is-bad { font-size: 15px; letter-spacing: 0.01em; color: var(--red-soft); text-transform: none; }
+.cg-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.cg-key {
+  height: clamp(48px, 7.2vh, 62px); padding: 0; border-radius: 12px; border: 2px solid var(--ink); background: #FFFFFF; color: var(--ink); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.55);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums;
+  touch-action: manipulation; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; transition: transform 60ms ease, box-shadow 60ms ease;
+}
+.cg-key--zeros, .cg-key--back { border-color: rgba(244, 241, 230, 0.45); background: rgba(8, 26, 19, 0.85); color: var(--cream); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.45); }
+.cg-key--zeros { font-size: 26px; }
+.cg-key .cg-ico { width: 32px; height: 32px; }
+.cg-key:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55); background: var(--gold); color: var(--ink); }
+.cg-key:disabled { opacity: 0.35; box-shadow: none; }
+.cg-pad.is-changing .cg-key { height: clamp(46px, 6.6vh, 62px); }
+.cg-lock { min-height: clamp(56px, 8vh, 68px); border-radius: 8px; justify-content: center; gap: 12px; }
+.cg-lock .cg-ico { flex: 0 0 auto; }
+.cg-lock .btn__label { flex: 0 1 auto; min-width: 0; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; white-space: nowrap; }
+.cg-lock.is-long .btn__label { font-size: 22px; letter-spacing: 0.04em; }
+.cg-pad__hint { margin: 0; text-align: center; font-size: 14px; line-height: 1.3; color: var(--mist); }
+@keyframes cgBlink { 0%, 68% { opacity: 1; } 72%, 96% { opacity: 0; } }
+
+/* ---------------------------------------------------------- Looks: the bet (phone) */
+/* Bet A. A header naming the two chip columns; a dark row per slot (odds square, number and unit,
+   owner, CHIP 1, CHIP 2), gold when a chip is on it; a chip on is a disc in your colour with a
+   dashed white edge and its number, and a gold diamond where the stake is. The stake panel
+   (ivory, − n +, where it goes, what it wins and could lose) and CONFIRM stay on screen at the
+   bottom while the rows scroll under them. */
+.cg-bet { display: flex; flex-direction: column; gap: 6px; }
+.cg-bet__head { display: flex; align-items: center; gap: 6px; padding: 0 8px; }
+.cg-bet__tip { flex: 1 1 auto; min-width: 0; font-size: 14px; font-weight: 700; color: var(--cream); }
+.cg-bet__col { flex: 0 0 44px; text-align: center; white-space: nowrap; font-size: 14px; font-weight: 800; letter-spacing: 0; color: var(--gold-soft); }
+.cg-rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.cg-row { display: flex; align-items: center; gap: 6px; min-height: 56px; padding: 0 6px; border-radius: 10px; background: rgba(8, 26, 19, 0.78); border: 2px solid var(--glass-line-2); }
+.cg-row.has-chip { background: rgba(242, 193, 78, 0.14); border-color: var(--gold); }
+.cg-row__odds { flex: 0 0 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #0B241A; color: var(--cream); border: 2px solid rgba(244, 241, 230, 0.4); font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; }
+.cg-row__odds[data-odds="3"] { color: var(--gold-soft); border-color: rgba(242, 193, 78, 0.7); }
+.cg-row__odds[data-odds="4"] { background: #4A3F1A; color: var(--gold-soft); border-color: var(--gold); }
+.cg-row__odds[data-odds="5"] { background: var(--gold); color: var(--ink); border-color: var(--ink); }
+.cg-row__what { flex: 0 1 auto; min-width: 0; display: flex; align-items: baseline; gap: 4px; overflow: hidden; }
+.cg-row__num { flex: 0 0 auto; font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.1; color: var(--cream); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cg-row.has-chip .cg-row__num { color: var(--gold-soft); }
+.cg-row__unit { flex: 0 1 auto; min-width: 0; font-size: 14px; font-weight: 800; color: var(--mist); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cg-row__who { flex: 1 1 0; min-width: 26px; display: flex; align-items: center; gap: 6px; overflow: hidden; }
+.cg-row .cg-row__disc { border-width: 2px; box-shadow: none; }
+.cg-row__name { min-width: 0; font-size: 14px; font-weight: 700; color: var(--cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cg-row__you { flex: 0 0 auto; font-size: 14px; font-weight: 800; letter-spacing: 0.06em; color: var(--gold-soft); }
+.cg-chipbtn {
+  position: relative; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--cream);
+  display: flex; align-items: center; justify-content: center; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.cg-chipbtn__disc { width: 32px; height: 32px; border-radius: 50%; border: 2px dashed rgba(244, 241, 230, 0.45); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; font-weight: 700; line-height: 1; transition: transform 80ms ease; }
+.cg-chipbtn.is-on .cg-chipbtn__disc { width: 40px; height: 40px; background: var(--pc, var(--gold)); color: var(--pc-ink, var(--ink)); border: 3px dashed #FFFFFF; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5); animation: pkPopC 0.2s var(--ease-out) both; }
+.cg-chipbtn:active .cg-chipbtn__disc { transform: scale(0.9); }
+.cg-chipbtn__stake { position: absolute; top: -3px; right: -4px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; transform: rotate(45deg); background: var(--gold); border: 2px solid var(--ink); font-style: normal; }
+.cg-chipbtn__stake b { transform: rotate(-45deg); font-family: var(--font-display); font-size: 14px; font-weight: 700; line-height: 1; color: var(--ink); }
+/* The dock's shade runs out to the screen's edges (.main's side padding is 10–12 px) so rows scrolling
+   under it never show beside it. */
+.cg-bet__dock { position: sticky; bottom: 0; z-index: 3; isolation: isolate; display: flex; flex-direction: column; gap: 8px; margin-top: 2px; padding: 12px 0 10px; }
+.cg-bet__dock::before { content: ""; position: absolute; z-index: -1; inset: 0 -10px -10px; background: linear-gradient(180deg, rgba(8, 26, 19, 0) 0, rgba(8, 26, 19, 0.95) 12px); }
+.cg-stake { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border-radius: 12px; background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); }
+.cg-stake__top { display: flex; align-items: center; gap: 8px; }
+.cg-stake__label { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.cg-stake__title { font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: var(--muted-2); }
+.cg-stake__sub { font-size: 16px; font-weight: 800; line-height: 1.2; overflow-wrap: anywhere; }
+.cg-step {
+  flex: 0 0 52px; width: 52px; height: 52px; padding: 0; border-radius: 10px; border: 2px solid var(--ink); background: #FFFFFF; color: var(--ink); box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+  display: flex; align-items: center; justify-content: center; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.cg-step:disabled { border-style: dashed; border-color: var(--muted-2); background: #ECEAE0; color: var(--muted-2); box-shadow: none; }
+.cg-step:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35); }
+.cg-stake__n { flex: 0 0 36px; text-align: center; font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.cg-stake__where { display: flex; align-items: center; gap: 6px; }
+.cg-stake__on { flex: 0 0 auto; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: var(--muted-2); }
+.cg-stakebtn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 6px; border-radius: 8px; border: 2px solid var(--ink); background: #FFFFFF; color: var(--ink); font-family: var(--font-display); font-size: 20px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cg-stakebtn.is-on { background: var(--ink); color: var(--gold-soft); }
+.cg-stake__risk { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; }
+.cg-stake__risk b { color: var(--red-deep); font-weight: 800; }
+.cg-stake--none { margin: 0; padding: 10px 12px; font-size: 15px; line-height: 1.4; text-align: center; }
+.cg-confirm { min-height: 56px; border-radius: 8px; justify-content: center; gap: 12px; }
+.cg-confirm .cg-ico { flex: 0 0 auto; }
+.cg-confirm .btn__label { flex: 0 1 auto; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; }
+
+/* ============================================================== Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cg-tv *, .app[data-game="closest"] * { animation: none !important; transition: none !important; }
+}
+[data-motion="reduce"] .cg-tv *, [data-motion="reduce"] .app[data-game="closest"] * { animation: none !important; transition: none !important; }

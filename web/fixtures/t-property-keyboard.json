@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "title": "Property: your turn (build, sell, mortgage)",
+    "section": "Property drawer",
+    "description": "Press P on your turn."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "cash": 1200
+      }
+    },
+    "properties": {
+      "16": {
+        "ownerId": "@Maya",
+        "houses": 2,
+        "mortgaged": false
+      },
+      "18": {
+        "ownerId": "@Maya",
+        "houses": 1,
+        "mortgaged": false
+      },
+      "19": {
+        "ownerId": "@Maya",
+        "houses": 1,
+        "mortgaged": false
+      }
+    }
+  },
+  "ui": {
+    "open": "property"
+  }
+}

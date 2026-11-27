@@ -1,0 +1,593 @@
+{
+  "meta": {
+    "description": "Six players on the 6-arm board: Sana rolled a 6"
+  },
+  "state": {
+    "game": "ludo",
+    "code": "DLXE5",
+    "status": "playing",
+    "phase": "move",
+    "hostId": "p1",
+    "version": 180,
+    "now": 1793909864581,
+    "settings": {
+      "pieces": 3,
+      "board": "auto",
+      "anyRollOut": false,
+      "homeBonus": true,
+      "safeSquares": true,
+      "threeSixes": true,
+      "captureFirst": true,
+      "blocks": true,
+      "playOn": true
+    },
+    "seatLimit": 6,
+    "board": {
+      "arms": 6,
+      "ring": 78,
+      "column": 5,
+      "stepsHome": 82,
+      "starts": [
+        8,
+        21,
+        34,
+        47,
+        60,
+        73
+      ],
+      "safe": [
+        3,
+        8,
+        16,
+        21,
+        29,
+        34,
+        42,
+        47,
+        55,
+        60,
+        68,
+        73
+      ]
+    },
+    "turnId": "p1",
+    "turnNumber": 79,
+    "dice": 6,
+    "diceBy": "p1",
+    "rollSeq": 95,
+    "sixes": 1,
+    "moves": [
+      {
+        "piece": 0,
+        "from": "r11",
+        "to": {
+          "zone": "track",
+          "step": 9
+        },
+        "cell": "r17",
+        "path": [
+          "r12",
+          "r13",
+          "r14",
+          "r15",
+          "r16",
+          "r17"
+        ]
+      },
+      {
+        "piece": 1,
+        "from": "r20",
+        "to": {
+          "zone": "track",
+          "step": 18
+        },
+        "cell": "r26",
+        "path": [
+          "r21",
+          "r22",
+          "r23",
+          "r24",
+          "r25",
+          "r26"
+        ]
+      },
+      {
+        "piece": 2,
+        "from": "y0.2",
+        "to": {
+          "zone": "track",
+          "step": 0
+        },
+        "cell": "r8",
+        "path": [
+          "r8"
+        ],
+        "out": true,
+        "safe": true
+      }
+    ],
+    "lastMove": {
+      "seq": 76,
+      "playerId": "p6",
+      "piece": 1,
+      "roll": 3,
+      "from": "r7",
+      "cell": "r10",
+      "path": [
+        "r8",
+        "r9",
+        "r10"
+      ],
+      "captured": [],
+      "out": false,
+      "home": false,
+      "again": false
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Sana",
+        "kind": "human",
+        "arm": 0,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "track",
+            "step": 3,
+            "cell": "r11",
+            "square": 11,
+            "left": 79,
+            "safe": false
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 12,
+            "cell": "r20",
+            "square": 20,
+            "left": 70,
+            "safe": false
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y0.2",
+            "square": -1,
+            "left": 83,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 2,
+        "progress": 6,
+        "captures": 1,
+        "lost": 1,
+        "sixes": 4,
+        "canGoHome": true,
+        "isTurn": true,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Omar",
+        "kind": "human",
+        "arm": 1,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.0",
+            "square": -1,
+            "left": 83,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 28,
+            "cell": "r49",
+            "square": 49,
+            "left": 54,
+            "safe": false
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.2",
+            "square": -1,
+            "left": 83,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 1,
+        "progress": 11,
+        "captures": 1,
+        "lost": 0,
+        "sixes": 2,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Leila",
+        "kind": "human",
+        "arm": 2,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "track",
+            "step": 4,
+            "cell": "r38",
+            "square": 38,
+            "left": 78,
+            "safe": false
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 22,
+            "cell": "r56",
+            "square": 56,
+            "left": 60,
+            "safe": false
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.2",
+            "square": -1,
+            "left": 83,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 2,
+        "progress": 11,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 2,
+        "canGoHome": false,
+        "isTurn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true
+      },
+      {
+        "id": "p4",
+        "name": "Alpha",
+        "kind": "ai",
+        "arm": 3,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "track",
+            "step": 20,
+            "cell": "r67",
+            "square": 67,
+            "left": 62,
+            "safe": false
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 0,
+            "cell": "r47",
+            "square": 47,
+            "left": 82,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "track",
+            "step": 26,
+            "cell": "r73",
+            "square": 73,
+            "left": 56,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 3,
+        "progress": 19,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 3,
+        "canGoHome": false,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "difficulty": "easy"
+      },
+      {
+        "id": "p5",
+        "name": "Orca",
+        "kind": "ai",
+        "arm": 4,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y4.0",
+            "square": -1,
+            "left": 83,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 13,
+            "cell": "r73",
+            "square": 73,
+            "left": 69,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "track",
+            "step": 1,
+            "cell": "r61",
+            "square": 61,
+            "left": 81,
+            "safe": false
+          }
+        ],
+        "home": 0,
+        "out": 2,
+        "progress": 6,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 2,
+        "canGoHome": false,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "normal"
+      },
+      {
+        "id": "p6",
+        "name": "Redwood",
+        "kind": "ai",
+        "arm": 5,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y5.0",
+            "square": -1,
+            "left": 83,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 15,
+            "cell": "r10",
+            "square": 10,
+            "left": 67,
+            "safe": false
+          },
+          {
+            "index": 2,
+            "zone": "track",
+            "step": 12,
+            "cell": "r7",
+            "square": 7,
+            "left": 70,
+            "safe": false
+          }
+        ],
+        "home": 0,
+        "out": 2,
+        "progress": 11,
+        "captures": 0,
+        "lost": 1,
+        "sixes": 3,
+        "canGoHome": false,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "hard"
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "toRoll": false,
+      "toMove": true,
+      "movable": [
+        0,
+        1,
+        2
+      ]
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts on the 6-arm board, 3 pieces each. Sana goes first"
+      },
+      {
+        "id": "l2",
+        "text": "Sana brings a piece out"
+      },
+      {
+        "id": "l3",
+        "text": "Omar rolls 4 and can't move"
+      },
+      {
+        "id": "l4",
+        "text": "Leila rolls 5 and can't move"
+      },
+      {
+        "id": "l5",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l6",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l7",
+        "text": "Orca rolls 3 and can't move"
+      },
+      {
+        "id": "l8",
+        "text": "Redwood brings a piece out"
+      },
+      {
+        "id": "l9",
+        "text": "Omar rolls 1 and can't move"
+      },
+      {
+        "id": "l10",
+        "text": "Leila rolls 3 and can't move"
+      },
+      {
+        "id": "l11",
+        "text": "Orca rolls 1 and can't move"
+      },
+      {
+        "id": "l12",
+        "text": "Omar rolls 5 and can't move"
+      },
+      {
+        "id": "l13",
+        "text": "Leila rolls 4 and can't move"
+      },
+      {
+        "id": "l14",
+        "text": "Orca rolls 3 and can't move"
+      },
+      {
+        "id": "l15",
+        "text": "Redwood brings a piece out"
+      },
+      {
+        "id": "l16",
+        "text": "Omar rolls 1 and can't move"
+      },
+      {
+        "id": "l17",
+        "text": "Leila rolls 4 and can't move"
+      },
+      {
+        "id": "l18",
+        "text": "Orca rolls 1 and can't move"
+      },
+      {
+        "id": "l19",
+        "text": "Omar rolls 4 and can't move"
+      },
+      {
+        "id": "l20",
+        "text": "Leila brings a piece out"
+      },
+      {
+        "id": "l21",
+        "text": "Orca rolls 1 and can't move"
+      },
+      {
+        "id": "l22",
+        "text": "Omar rolls 4 and can't move"
+      },
+      {
+        "id": "l23",
+        "text": "Orca rolls 3 and can't move"
+      },
+      {
+        "id": "l24",
+        "text": "Omar brings a piece out"
+      },
+      {
+        "id": "l25",
+        "text": "Orca rolls 1 and can't move"
+      },
+      {
+        "id": "l26",
+        "text": "Sana brings a piece out"
+      },
+      {
+        "id": "l27",
+        "text": "Sana brings a piece out"
+      },
+      {
+        "id": "l28",
+        "text": "Orca rolls 4 and can't move"
+      },
+      {
+        "id": "l29",
+        "text": "Redwood brings a piece out"
+      },
+      {
+        "id": "l30",
+        "text": "Orca brings a piece out"
+      },
+      {
+        "id": "l31",
+        "text": "Omar captures Sana's piece"
+      },
+      {
+        "id": "l32",
+        "text": "Leila brings a piece out"
+      },
+      {
+        "id": "l33",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l34",
+        "text": "Sana captures Redwood's piece"
+      },
+      {
+        "id": "l35",
+        "text": "Orca brings a piece out"
+      }
+    ],
+    "lastEventSeq": 293,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Sana",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "ludo",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Sana"
+}

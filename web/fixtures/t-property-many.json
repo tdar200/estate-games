@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Property: many deeds (scrolls)",
+    "section": "Property drawer",
+    "description": "Late game with a long list."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "1": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "3": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "5": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "8": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "9": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "11": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "15": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "16": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "18": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "21": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "24": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "25": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "27": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "35": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "37": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  },
+  "ui": {
+    "open": "property"
+  }
+}

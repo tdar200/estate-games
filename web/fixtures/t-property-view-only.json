@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Property: VIEW ONLY (not your turn)",
+    "section": "Property drawer",
+    "description": "Press P while someone else plays."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "currentPlayerId": "@Robin",
+    "currentIndex": 3,
+    "turn": {
+      "playerId": "@Robin"
+    }
+  },
+  "ui": {
+    "open": "property"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "RESUME A TABLE: code too short",
+    "section": "Lobby",
+    "description": "Press the arrow with fewer than five letters."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "type": {
+      "#resume-code": "AB"
+    },
+    "toast": {
+      "text": "Type the 5-letter table code",
+      "error": true
+    }
+  }
+}

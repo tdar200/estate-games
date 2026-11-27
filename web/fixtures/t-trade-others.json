@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "A trade between two phones",
+    "section": "Trade",
+    "description": "Two phone players trade: the room watches."
+  },
+  "extends": "trade",
+  "patch": {
+    "trade": {
+      "proposerId": "@Sam",
+      "targetId": "@Robin",
+      "offer": {
+        "cash": 100,
+        "properties": []
+      },
+      "request": {
+        "cash": 0,
+        "properties": [
+          19
+        ]
+      }
+    }
+  }
+}

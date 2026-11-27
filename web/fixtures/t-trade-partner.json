@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Trade: partner picked",
+    "section": "Trade",
+    "description": "Pick who to trade with."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Robin"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "MENU (in the lobby)",
+    "section": "Menu, settings and sound",
+    "description": "The menu button in the lobby header, or Esc."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "open": {
+      "kind": "menu"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Resume a table",
+    "section": "Gates and connection",
+    "description": "Reload after this table's session expired, or the moved gate's NEW TABLE path."
+  },
+  "ui": {
+    "gate": {
+      "kind": "resume",
+      "code": ""
+    }
+  }
+}

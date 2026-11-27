@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "description": "Lobby on Maya's phone: she hosts, rule chips and START"
+  },
+  "state": {
+    "game": "ludo",
+    "code": "D29HQ",
+    "status": "lobby",
+    "phase": "lobby",
+    "hostId": "p1",
+    "version": 5,
+    "now": 1793909864511,
+    "settings": {
+      "pieces": 4,
+      "board": "auto",
+      "anyRollOut": false,
+      "homeBonus": true,
+      "safeSquares": true,
+      "threeSixes": true,
+      "captureFirst": false,
+      "blocks": false,
+      "playOn": true
+    },
+    "seatLimit": 6,
+    "board": {
+      "arms": 4,
+      "ring": 52,
+      "column": 5,
+      "stepsHome": 56,
+      "starts": [
+        8,
+        21,
+        34,
+        47
+      ],
+      "safe": [
+        3,
+        8,
+        16,
+        21,
+        29,
+        34,
+        42,
+        47
+      ]
+    },
+    "turnId": "",
+    "turnNumber": 0,
+    "dice": 0,
+    "diceBy": "",
+    "rollSeq": 0,
+    "sixes": 0,
+    "moves": [],
+    "lastMove": null,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "arm": 0,
+        "status": "waiting",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y0.0",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y0.1",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y0.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y0.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 0,
+        "progress": 0,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 0,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "arm": 1,
+        "status": "waiting",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.0",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.1",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 0,
+        "progress": 0,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 0,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "keyboard",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Alpha",
+        "kind": "ai",
+        "arm": 2,
+        "status": "waiting",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.0",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.1",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 0,
+        "progress": 0,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 0,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "difficulty": "hard"
+      },
+      {
+        "id": "p4",
+        "name": "Orca",
+        "kind": "ai",
+        "arm": 3,
+        "status": "waiting",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.0",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.1",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 0,
+        "progress": 0,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 0,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "difficulty": "normal"
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "toRoll": false,
+      "toMove": false,
+      "movable": []
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [],
+    "lastEventSeq": 4,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "ludo",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

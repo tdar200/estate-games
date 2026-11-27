@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "A loan between others",
+    "section": "Loans",
+    "description": "A computer offers a phone player a loan."
+  },
+  "extends": "loan-offer"
+}

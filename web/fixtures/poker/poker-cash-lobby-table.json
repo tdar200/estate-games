@@ -1,0 +1,210 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "lobby",
+    "phase": "lobby",
+    "hostId": "p1",
+    "version": 6,
+    "now": 1762160400000,
+    "settings": {
+      "style": "cash",
+      "maxPlayers": 8,
+      "startingStack": 2000,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "auto",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 0,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 0,
+      "next": null
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 0,
+    "street": "",
+    "board": [],
+    "pots": [],
+    "totalPot": 0,
+    "currentBet": 0,
+    "buttonSeat": -1,
+    "smallBlindSeat": -1,
+    "bigBlindSeat": -1,
+    "actorId": "",
+    "actionDeadline": 0,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 2000,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 2000,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 2000,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 2000,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 2000,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 2000,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      },
+      {
+        "id": "p4",
+        "name": "Priya",
+        "kind": "human",
+        "seat": 3,
+        "stack": 2000,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 2000,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "online": true
+      }
+    ],
+    "actions": [],
+    "result": null,
+    "you": null,
+    "winnerId": "",
+    "standings": null,
+    "log": [],
+    "lastEventSeq": 4,
+    "viewerId": "",
+    "viewerRole": "table",
+    "viewerName": "",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    },
+    "localSeats": []
+  },
+  "viewer": {
+    "role": "table"
+  },
+  "events": [
+    {
+      "seq": 1,
+      "type": "join",
+      "playerId": "p1"
+    },
+    {
+      "seq": 2,
+      "type": "join",
+      "playerId": "p2"
+    },
+    {
+      "seq": 3,
+      "type": "join",
+      "playerId": "p3"
+    },
+    {
+      "seq": 4,
+      "type": "join",
+      "playerId": "p4"
+    }
+  ],
+  "meta": {
+    "description": "Cash-game lobby: fixed blinds 10/20, buy-in 2,000, rebuy any time",
+    "seed": 8,
+    "hand": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Debt: enough cash, PAY",
+    "section": "Debt and bankruptcy",
+    "description": "Owe less than you have after raising cash."
+  },
+  "extends": "debt",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Robin": {
+        "cash": 600
+      }
+    }
+  }
+}

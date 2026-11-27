@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Doubles: ROLL AGAIN",
+    "section": "Turn: roll",
+    "description": "Roll doubles: the same player rolls again (one of three)."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "turn": {
+      "dice": [
+        3,
+        3
+      ],
+      "doublesCount": 1
+    }
+  }
+}

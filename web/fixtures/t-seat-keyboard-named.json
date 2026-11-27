@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Take a seat: keyboard, name typed, token picked",
+    "section": "Seat setup and rules",
+    "description": "Type a name and pick a token."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "open": {
+      "kind": "seat",
+      "input": "keyboard",
+      "draft": {
+        "name": "Kai",
+        "tokenKind": "umbrella"
+      }
+    }
+  }
+}

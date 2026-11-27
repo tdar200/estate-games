@@ -1,0 +1,438 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "playing",
+    "phase": "betting",
+    "hostId": "p1",
+    "version": 27,
+    "now": 1762160443800,
+    "settings": {
+      "style": "cash",
+      "maxPlayers": 8,
+      "startingStack": 1000,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "auto",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 0,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 0,
+      "next": null
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 3,
+    "street": "preflop",
+    "board": [],
+    "pots": [],
+    "totalPot": 30,
+    "currentBet": 20,
+    "buttonSeat": 2,
+    "smallBlindSeat": 3,
+    "bigBlindSeat": 4,
+    "actorId": "p1",
+    "actionDeadline": 1762160463800,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 2020,
+        "bet": 0,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1000,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 0,
+        "bet": 0,
+        "status": "busted",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1000,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 1980,
+        "bet": 0,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": true,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1000,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      },
+      {
+        "id": "p4",
+        "name": "Priya",
+        "kind": "human",
+        "seat": 3,
+        "stack": 990,
+        "bet": 10,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": true,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p4",
+          "street": "preflop",
+          "type": "smallBlind",
+          "amount": 10,
+          "to": 10
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1000,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "online": true
+      },
+      {
+        "id": "p5",
+        "name": "Jonah",
+        "kind": "human",
+        "seat": 4,
+        "stack": 980,
+        "bet": 20,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": true,
+        "lastAction": {
+          "playerId": "p5",
+          "street": "preflop",
+          "type": "bigBlind",
+          "amount": 20,
+          "to": 20
+        },
+        "odds": null,
+        "rebuys": 1,
+        "timeBank": 30,
+        "boughtIn": 2000,
+        "input": "phone",
+        "tokenKind": "umbrella",
+        "online": true
+      }
+    ],
+    "actions": [
+      {
+        "playerId": "p4",
+        "street": "preflop",
+        "type": "smallBlind",
+        "amount": 10,
+        "to": 10
+      },
+      {
+        "playerId": "p5",
+        "street": "preflop",
+        "type": "bigBlind",
+        "amount": 20,
+        "to": 20
+      }
+    ],
+    "result": null,
+    "you": {
+      "id": "p2",
+      "seat": 1,
+      "cards": null,
+      "handName": "",
+      "strength": null,
+      "toAct": false,
+      "legal": null,
+      "canShow": false,
+      "canRebuy": true,
+      "sittingOut": false,
+      "sitOutNext": false,
+      "isHost": false
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The cash game starts: 1,000 chips each, blinds 10/20"
+      },
+      {
+        "id": "l2",
+        "text": "Hand #1: Jonah has the button"
+      },
+      {
+        "id": "l3",
+        "text": "Maya posts the small blind 10"
+      },
+      {
+        "id": "l4",
+        "text": "Sam posts the big blind 20"
+      },
+      {
+        "id": "l5",
+        "text": "Redwood folds"
+      },
+      {
+        "id": "l6",
+        "text": "Priya folds"
+      },
+      {
+        "id": "l7",
+        "text": "Jonah raises to 1,000 and is all-in"
+      },
+      {
+        "id": "l8",
+        "text": "Maya calls 990 and is all-in"
+      },
+      {
+        "id": "l9",
+        "text": "Sam folds"
+      },
+      {
+        "id": "l10",
+        "text": "Maya shows 3d 3h"
+      },
+      {
+        "id": "l11",
+        "text": "Jonah shows Js 9c"
+      },
+      {
+        "id": "l12",
+        "text": "Flop: 5d 6h 6c"
+      },
+      {
+        "id": "l13",
+        "text": "Turn: Ad"
+      },
+      {
+        "id": "l14",
+        "text": "River: 4h"
+      },
+      {
+        "id": "l15",
+        "text": "Maya has Two pair, Sixes and Threes"
+      },
+      {
+        "id": "l16",
+        "text": "Jonah has Pair of Sixes"
+      },
+      {
+        "id": "l17",
+        "text": "Maya wins 2,020 with Two pair, Sixes and Threes"
+      },
+      {
+        "id": "l18",
+        "text": "Jonah is out of chips and may rebuy"
+      },
+      {
+        "id": "l19",
+        "text": "Jonah rebuys for 1,000"
+      },
+      {
+        "id": "l20",
+        "text": "Hand #2: Maya has the button"
+      },
+      {
+        "id": "l21",
+        "text": "Sam posts the small blind 10"
+      },
+      {
+        "id": "l22",
+        "text": "Redwood posts the big blind 20"
+      },
+      {
+        "id": "l23",
+        "text": "Priya folds"
+      },
+      {
+        "id": "l24",
+        "text": "Jonah folds"
+      },
+      {
+        "id": "l25",
+        "text": "Maya folds"
+      },
+      {
+        "id": "l26",
+        "text": "Sam raises to 980 and is all-in"
+      },
+      {
+        "id": "l27",
+        "text": "Redwood calls 960"
+      },
+      {
+        "id": "l28",
+        "text": "Sam shows Ks 8h"
+      },
+      {
+        "id": "l29",
+        "text": "Redwood shows 2d 3d"
+      },
+      {
+        "id": "l30",
+        "text": "Flop: Tc 3s Qc"
+      },
+      {
+        "id": "l31",
+        "text": "Turn: Jh"
+      },
+      {
+        "id": "l32",
+        "text": "River: Qd"
+      },
+      {
+        "id": "l33",
+        "text": "Sam has Pair of Queens"
+      },
+      {
+        "id": "l34",
+        "text": "Redwood has Two pair, Queens and Threes"
+      },
+      {
+        "id": "l35",
+        "text": "Redwood wins 1,960 with Two pair, Queens and Threes"
+      },
+      {
+        "id": "l36",
+        "text": "Sam is out of chips and may rebuy"
+      },
+      {
+        "id": "l37",
+        "text": "Hand #3: Redwood has the button"
+      },
+      {
+        "id": "l38",
+        "text": "Priya posts the small blind 10"
+      },
+      {
+        "id": "l39",
+        "text": "Jonah posts the big blind 20"
+      }
+    ],
+    "lastEventSeq": 39,
+    "viewerId": "p2",
+    "viewerRole": "player",
+    "viewerName": "Sam",
+    "spectatorId": "",
+    "viewerIsHost": false,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    }
+  },
+  "viewer": {
+    "role": "player",
+    "playerId": "p2",
+    "name": "Sam"
+  },
+  "events": [
+    {
+      "seq": 37,
+      "type": "handStart",
+      "handNumber": 3,
+      "playerId": "p3"
+    },
+    {
+      "seq": 38,
+      "type": "post",
+      "handNumber": 3,
+      "playerId": "p4",
+      "action": "smallBlind",
+      "amount": 10,
+      "to": 10,
+      "street": "preflop"
+    },
+    {
+      "seq": 39,
+      "type": "post",
+      "handNumber": 3,
+      "playerId": "p5",
+      "action": "bigBlind",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    }
+  ],
+  "meta": {
+    "description": "Sam's phone: busted in a cash game, Rebuy whenever he likes",
+    "seed": 17,
+    "hand": 3
+  }
+}

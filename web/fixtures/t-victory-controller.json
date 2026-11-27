@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Victory: a controller seat wins",
+    "section": "End of game",
+    "description": "A seat at this screen wins."
+  },
+  "extends": "defeat"
+}

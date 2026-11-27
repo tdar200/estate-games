@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "title": "Bail paid: out of jail",
+    "section": "Turn: jail",
+    "description": "Pay $50: out of jail, ROLL."
+  },
+  "extends": "jail",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Robin": {
+            "inJail": false,
+            "jailTurns": 0,
+            "cash": 591
+          }
+        },
+        "log+": [
+          {
+            "text": "Robin paid $50 (jail fee)",
+            "at": 1793560000000
+          },
+          {
+            "text": "Robin paid bail and left jail",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

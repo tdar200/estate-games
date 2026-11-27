@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Square card: Headlines",
+    "section": "Deed cards",
+    "description": "Click a Headlines square."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 7
+    }
+  }
+}

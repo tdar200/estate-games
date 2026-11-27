@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Resume a table (from a game: CANCEL)",
+    "section": "Gates and connection",
+    "description": "A resume that failed while a game is up."
+  },
+  "extends": "pad-turn",
+  "ui": {
+    "gate": {
+      "kind": "resume",
+      "code": "ZZZZZ",
+      "error": "NO TABLE WITH THAT CODE"
+    }
+  }
+}

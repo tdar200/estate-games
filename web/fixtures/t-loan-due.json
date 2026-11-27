@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Loan due",
+    "section": "Loans",
+    "description": "A loan's last turn comes: the repayment is owed like a debt."
+  },
+  "extends": "active-loan",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "phase": "debt",
+    "currentPlayerId": "@Robin",
+    "debt": {
+      "payerId": "@Robin",
+      "amount": 480,
+      "creditorId": "@Alpha",
+      "reason": "loan repayment to Alpha",
+      "loanId": "loan_000000000001",
+      "after": {
+        "kind": "phase",
+        "phase": "awaiting_roll"
+      }
+    },
+    "players": {
+      "Robin": {
+        "cash": 520
+      }
+    }
+  }
+}

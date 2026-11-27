@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Estate · Board demo</title>
+  <link rel="preload" href="/shared/fonts/Oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/shared/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/shared/fonts.css">
+  <link rel="stylesheet" href="/shared/tokens.css">
+  <link rel="stylesheet" href="/shared/board.css">
+  <style>
+    /* Demo of the shared Board API (web/shared/board.js) for the phone app and the owner.
+       Not part of either app. Frames: compact boards at 360 / 390 / 430 px with a token hop and the
+       follow camera, then the full PC board with crowded squares, jail, houses and mortgages. */
+    body { margin: 0; background: var(--felt); background-color: var(--felt-base); min-height: 100vh; padding: 20px 16px 40px; }
+    h1 { margin: 0 0 4px; font-family: var(--font-display); font-size: 26px; letter-spacing: 0.08em; }
+    .lead { margin: 0 0 18px; max-width: 980px; color: var(--mist); font-size: 14px; line-height: 1.5; }
+    .lead code { color: var(--gold-soft); }
+    .row { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+    .frame { display: flex; flex-direction: column; gap: 8px; }
+    .cap { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--mist); }
+    .phone { border-radius: 22px; border: 1px solid rgba(244, 241, 230, 0.14); background: var(--felt-phone); padding: 10px 10px 14px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 8px; }
+    .ticker { display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 6px 10px; border-radius: 10px; background: var(--glass); border: 1px solid var(--glass-line); font-size: 13px; font-weight: 600; }
+    .ticker b { margin-left: auto; font-family: var(--font-display); font-size: 16px; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+    .controls button { min-height: 40px; padding: 0 12px; border-radius: 6px; border: 1.5px solid rgba(244, 241, 230, 0.5); background: transparent; color: var(--cream); font-family: var(--font-display); font-size: 14px; letter-spacing: 0.05em; }
+    .controls button.gold { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+    .stage-event { background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); border-radius: 6px; padding: 4px 8px; text-align: center; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15); }
+    .stage-event small { display: block; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; color: var(--muted); }
+    .stage-event span { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+    .pc { width: 840px; height: 840px; flex: 0 0 auto; }
+    .pc-wrap { overflow-x: auto; max-width: 100%; }
+    section { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>BOARD DEMO</h1>
+  <p class="lead">Shared board API (<code>web/shared/board.js</code>, documented at the top of the file). Phones: <code>new Board(el, { compact: true, youPlayerId })</code>. Each phone loops a 7-square hop with <code>board.hop(id, path, { follow: true })</code> (zoom 1.6× and pan, then ease out), the landing glow, dice and an event in the centre stage via <code>setStage()</code>. The first phone shows next-roll heat for "you" (<code>highlightSquares(nextRollHeat(…).squares, "risk")</code>). Tap any square to put its deed on the stage.</p>
+  <div class="row" id="phones"></div>
+  <section>
+    <p class="cap">PC TABLE BOARD · 840 PX · FOUR TOKENS ON PAYDAY, TWO IN JAIL AND ONE PASSING, HOUSES, A HOTEL, MORTGAGES, LANDING GLOW</p>
+    <div class="controls" style="margin:8px 0"><button type="button" class="gold" id="pc-hop">HOP 9 SQUARES</button><button type="button" id="pc-crowd">CROWD PAYDAY</button><button type="button" id="pc-spread">SPREAD OUT</button></div>
+    <div class="pc-wrap"><div id="pc" class="pc"></div></div>
+  </section>
+  <script type="module">
+    import { Board, deedHtml } from "/shared/board.js";
+    import { diceHtml } from "/shared/dice.js";
+    import { money } from "/shared/format.js";
+    import { nextRollHeat } from "/shared/insights.js";
+    import { ensureMetalDefs } from "/shared/tokens.js";
+
+    ensureMetalDefs();
+    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const fixture = await (await fetch("/fixtures/roll.json", { cache: "no-store" })).json();
+    const base = fixture.state;
+    const clone = () => structuredClone(base);
+    const params = new URLSearchParams(location.search);
+
+    // ---- Phones -------------------------------------------------------------------------------
+    const widths = [360, 390, 430];
+    const phones = document.getElementById("phones");
+    widths.forEach((width, frame) => {
+      const state = clone();
+      const you = state.players[frame % state.players.length];
+      const mover = state.players[(frame + 1) % state.players.length];
+      const wrap = document.createElement("div");
+      wrap.className = "frame";
+      wrap.innerHTML = `<span class="cap">${width} PX · YOU ARE ${you.name.toUpperCase()} · ${mover.name.toUpperCase()} MOVES</span>
+        <div class="phone" style="width:${width}px"><div class="board-host"></div><div class="ticker"><span class="t">Ready</span><b></b></div>
+        <div class="controls"><button type="button" class="gold" data-hop>HOP</button><button type="button" data-zoom>ZOOM YOU</button><button type="button" data-reset>RESET</button></div></div>`;
+      phones.append(wrap);
+      const board = new Board(wrap.querySelector(".board-host"), { compact: true, youPlayerId: you.id, labels: params.get("labels") === "short" ? "short" : "none" });
+      board.update(state, { currentSquare: mover.position });
+      board.placeTokens(state, { animate: false });
+      if (frame === 0) board.highlightSquares(nextRollHeat(state, you.id).squares, "risk");
+      const ticker = wrap.querySelector(".ticker .t");
+      const amount = wrap.querySelector(".ticker b");
+      board.onSquareTap((index) => {
+        const space = state.board[index];
+        board.highlightSquares([index], "pick");
+        board.setStage(["property", "railroad", "utility"].includes(space.type) ? deedHtml(state, index, { eyebrow: "" }) : `<div class="stage-event"><small>SQUARE ${index}</small><span>${space.name.toUpperCase()}</span></div>`);
+        ticker.textContent = `Tapped ${space.name}`;
+        amount.textContent = "";
+      });
+      let busy = false;
+      const hop = async () => {
+        if (busy) return;
+        busy = true;
+        board.clearHighlights("pick");
+        const dice = [3, 4];
+        const from = mover.position;
+        const path = Array.from({ length: 8 }, (_, step) => (from + step) % 40);
+        state.currentPlayerId = mover.id;
+        board.setStage(`${diceHtml(dice, { className: "die--sm" })}<div class="stage-event"><small>${mover.name.toUpperCase()} ROLLED</small><span>7</span></div>`);
+        ticker.textContent = `${mover.name} is moving`;
+        amount.textContent = "";
+        await wait(700);
+        await board.hop(mover.id, path, { follow: true });
+        mover.position = path[path.length - 1];
+        board.update(state, { currentSquare: mover.position });
+        board.placeTokens(state);
+        const space = state.board[mover.position];
+        board.setStage(`<div class="stage-event"><small>${mover.name.toUpperCase()} LANDED ON</small><span>${space.name.toUpperCase()}</span></div>`);
+        ticker.textContent = `${mover.name} → ${space.name}`;
+        amount.textContent = space.price ? money(space.price) : "";
+        busy = false;
+      };
+      wrap.querySelector("[data-hop]").addEventListener("click", hop);
+      wrap.querySelector("[data-zoom]").addEventListener("click", () => board.focusOn(you.position, { zoom: 1.8 }));
+      wrap.querySelector("[data-reset]").addEventListener("click", () => board.resetCamera());
+      if (!params.has("still")) {
+        (async () => {
+          await wait(900 + frame * 500);
+          for (;;) {
+            await hop();
+            await wait(2600);
+          }
+        })();
+      }
+      window[`phone${width}`] = { board, state, hop };
+    });
+
+    // ---- PC board stress test -----------------------------------------------------------------
+    const pcState = clone();
+    const [a, b, c, d] = pcState.players;
+    for (const player of pcState.players) { player.position = 0; player.inJail = false; }
+    // Buildings and a mortgage to show houses, a hotel and hatching.
+    Object.assign(pcState.properties, {
+      37: { ownerId: d.id, houses: 5, mortgaged: false }, 39: { ownerId: d.id, houses: 4, mortgaged: false },
+      11: { ownerId: c.id, houses: 3, mortgaged: false }, 13: { ownerId: c.id, houses: 3, mortgaged: false }, 14: { ownerId: c.id, houses: 2, mortgaged: false },
+      26: { ownerId: b.id, houses: 1, mortgaged: false }, 27: { ownerId: b.id, houses: 1, mortgaged: false }, 29: { ownerId: b.id, houses: 1, mortgaged: false },
+      25: { ownerId: a.id, houses: 0, mortgaged: true },
+    });
+    const pc = new Board(document.getElementById("pc"), { youPlayerId: a.id });
+    pcState.currentPlayerId = a.id;
+    pc.update(pcState, { currentSquare: 0 });
+    pc.placeTokens(pcState, { animate: false });
+    window.pcBoard = { board: pc, state: pcState };
+    const crowd = () => { for (const player of pcState.players) { player.position = 0; player.inJail = false; } pc.placeTokens(pcState); };
+    const spread = () => {
+      a.position = 0; b.position = 10; b.inJail = true; c.position = 10; c.inJail = true; d.position = 10; d.inJail = false;
+      pc.update(pcState, { currentSquare: a.position });
+      pc.placeTokens(pcState);
+    };
+    document.getElementById("pc-crowd").addEventListener("click", crowd);
+    document.getElementById("pc-spread").addEventListener("click", spread);
+    document.getElementById("pc-hop").addEventListener("click", async () => {
+      const path = Array.from({ length: 10 }, (_, step) => (a.position + step) % 40);
+      await pc.hop(a.id, path);
+      a.position = path[path.length - 1];
+      pc.update(pcState, { currentSquare: a.position });
+      pc.placeTokens(pcState);
+    });
+    if (params.get("pc") === "spread") spread();
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "RESUME A TABLE: no such table",
+    "section": "Lobby",
+    "description": "Type a code that doesn't exist and press the arrow."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "type": {
+      "#resume-code": "ABCDE"
+    },
+    "toast": {
+      "text": "ABCDE: NO TABLE WITH THAT CODE",
+      "error": true
+    }
+  }
+}

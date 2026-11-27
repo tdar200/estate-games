@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Loan drawer: borrow in debt",
+    "section": "Loans",
+    "description": "LOAN (L / Y) in debt with the loans rule on."
+  },
+  "extends": "debt-loans",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "ui": {
+    "open": "loan"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "title": "Big rent (hotel)",
+    "section": "Turn: landing",
+    "description": "Land on a street with a hotel: the board shakes."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "position": 25,
+        "cash": 2200
+      }
+    },
+    "properties": {
+      "31": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 5
+      },
+      "32": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 5
+      },
+      "34": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 5
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 32,
+            "cash": 925
+          },
+          "Robin": {
+            "cash": 1546
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            3,
+            4
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 25,
+              "to": 32,
+              "path": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 25,
+          "to": 32,
+          "path": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "lastLanding": {
+          "playerId": "@Maya",
+          "spaceIndex": 32,
+          "kind": "rent",
+          "amount": 1275,
+          "recipientId": "@Robin"
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 3 + 4 = 7",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on Forest Avenue",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya paid $1275 (Forest Avenue rent)",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

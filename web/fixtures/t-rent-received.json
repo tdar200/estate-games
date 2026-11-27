@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Rent received by a seat at this screen",
+    "section": "Turn: landing",
+    "description": "A phone player lands on a keyboard seat's street."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "currentPlayerId": "@Robin",
+    "currentIndex": 3,
+    "turn": {
+      "playerId": "@Robin"
+    },
+    "players": {
+      "Robin": {
+        "position": 16,
+        "cash": 400
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Robin": {
+            "position": 21,
+            "cash": 382
+          },
+          "Maya": {
+            "cash": 701
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            2,
+            3
+          ],
+          "movements": [
+            {
+              "playerId": "@Robin",
+              "from": 16,
+              "to": 21,
+              "path": [
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Robin",
+          "from": 16,
+          "to": 21,
+          "path": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ]
+        },
+        "lastLanding": {
+          "playerId": "@Robin",
+          "spaceIndex": 21,
+          "kind": "rent",
+          "amount": 18,
+          "recipientId": "@Maya"
+        },
+        "log+": [
+          {
+            "text": "Robin rolled 2 + 3 = 5",
+            "at": 1793560000000
+          },
+          {
+            "text": "Robin landed on Golden Leaf Road",
+            "at": 1793560000000
+          },
+          {
+            "text": "Robin paid $18 (Golden Leaf Road rent)",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "id": "made-up-1",
+  "title": "Made-up test questions 1",
+  "version": 1,
+  "license": "own",
+  "attribution": "",
+  "questions": [
+    {
+      "id": "made-up-1/01",
+      "topic": "geography",
+      "text": "How many bridges cross the canals of the made-up city of Lantern Bay?",
+      "answer": 148,
+      "unit": "bridges",
+      "format": "plain",
+      "min": 10,
+      "max": 2000,
+      "spread": 60,
+      "fact": "Lantern Bay, a made-up city, has 148 bridges in this test pack.",
+      "src": [
+        "https://example.org/made-up/lantern-bay",
+        "https://example.com/made-up/lantern-bay"
+      ]
+    },
+    {
+      "id": "made-up-1/02",
+      "topic": "history",
+      "text": "In what year was the made-up Port Ashby lighthouse first lit?",
+      "answer": 1786,
+      "unit": "",
+      "format": "year",
+      "min": 1000,
+      "max": 2025,
+      "spread": 60,
+      "fact": "The made-up Port Ashby lighthouse was first lit in 1786.",
+      "src": [
+        "https://example.org/made-up/port-ashby",
+        "https://example.com/made-up/port-ashby"
+      ]
+    },
+    {
+      "id": "made-up-1/03",
+      "topic": "science",
+      "text": "How many litres of water pour over the made-up Glimmer Falls each second?",
+      "answer": 5200,
+      "unit": "litres",
+      "format": "plain",
+      "min": 100,
+      "max": 90000,
+      "spread": 80,
+      "fact": "The made-up Glimmer Falls pours 5,200 litres a second.",
+      "src": [
+        "https://example.org/made-up/glimmer-falls",
+        "https://example.com/made-up/glimmer-falls"
+      ]
+    },
+    {
+      "id": "made-up-1/04",
+      "topic": "space",
+      "text": "How many days long is a year on the made-up planet Vellum?",
+      "answer": 412,
+      "unit": "days",
+      "format": "plain",
+      "min": 20,
+      "max": 9000,
+      "spread": 50,
+      "fact": "A year on the made-up planet Vellum lasts 412 days.",
+      "src": [
+        "https://example.org/made-up/vellum",
+        "https://example.com/made-up/vellum"
+      ]
+    },
+    {
+      "id": "made-up-1/05",
+      "topic": "nature",
+      "text": "How many kilograms does a fully grown made-up marsh ox weigh?",
+      "answer": 640,
+      "unit": "kg",
+      "format": "plain",
+      "min": 30,
+      "max": 9000,
+      "spread": 50,
+      "fact": "A grown marsh ox (made up) weighs 640 kg.",
+      "src": [
+        "https://example.org/made-up/marsh-ox",
+        "https://example.com/made-up/marsh-ox"
+      ]
+    },
+    {
+      "id": "made-up-1/06",
+      "topic": "sport",
+      "text": "In what year did the made-up Tidewater Regatta first run?",
+      "answer": 1902,
+      "unit": "",
+      "format": "year",
+      "min": 1000,
+      "max": 2025,
+      "spread": 40,
+      "fact": "The made-up Tidewater Regatta first ran in 1902.",
+      "src": [
+        "https://example.org/made-up/tidewater",
+        "https://example.com/made-up/tidewater"
+      ]
+    },
+    {
+      "id": "made-up-1/07",
+      "topic": "music",
+      "text": "How many pipes does the organ in the made-up Saint Orrin's Hall have?",
+      "answer": 3100,
+      "unit": "pipes",
+      "format": "plain",
+      "min": 100,
+      "max": 60000,
+      "spread": 90,
+      "fact": "The made-up organ at Saint Orrin's Hall has 3,100 pipes.",
+      "src": [
+        "https://example.org/made-up/saint-orrin",
+        "https://example.com/made-up/saint-orrin"
+      ]
+    },
+    {
+      "id": "made-up-1/08",
+      "topic": "food",
+      "text": "How many tonnes of plums does the made-up village of Pellow pick each year?",
+      "answer": 860,
+      "unit": "tonnes",
+      "format": "plain",
+      "min": 20,
+      "max": 20000,
+      "spread": 100,
+      "fact": "The made-up village of Pellow picks 860 tonnes of plums a year.",
+      "src": [
+        "https://example.org/made-up/pellow",
+        "https://example.com/made-up/pellow"
+      ]
+    },
+    {
+      "id": "made-up-1/09",
+      "topic": "inventions",
+      "text": "In what year was the made-up Hartwell clockwork loom patented?",
+      "answer": 1834,
+      "unit": "",
+      "format": "year",
+      "min": 1000,
+      "max": 2025,
+      "spread": 50,
+      "fact": "The made-up Hartwell loom was patented in 1834.",
+      "src": [
+        "https://example.org/made-up/hartwell",
+        "https://example.com/made-up/hartwell"
+      ]
+    },
+    {
+      "id": "made-up-1/10",
+      "topic": "numbers",
+      "text": "How many grains of sand fill the made-up Great Hourglass of Morrow?",
+      "answer": 800000,
+      "unit": "grains",
+      "format": "plain",
+      "min": 50000,
+      "max": 9999999,
+      "spread": 150,
+      "fact": "The made-up Great Hourglass of Morrow holds 800,000 grains.",
+      "src": [
+        "https://example.org/made-up/morrow",
+        "https://example.com/made-up/morrow"
+      ]
+    },
+    {
+      "id": "made-up-1/11",
+      "topic": "books",
+      "text": "How many pages long is the made-up novel The Salt Orchard?",
+      "answer": 712,
+      "unit": "pages",
+      "format": "plain",
+      "min": 50,
+      "max": 9000,
+      "spread": 40,
+      "fact": "The made-up novel The Salt Orchard runs to 712 pages.",
+      "src": [
+        "https://example.org/made-up/salt-orchard",
+        "https://example.com/made-up/salt-orchard"
+      ]
+    },
+    {
+      "id": "made-up-1/12",
+      "topic": "art",
+      "text": "How many tiles make up the made-up mosaic floor at Corran Abbey?",
+      "answer": 46000,
+      "unit": "tiles",
+      "format": "plain",
+      "min": 2000,
+      "max": 900000,
+      "spread": 120,
+      "fact": "The made-up Corran Abbey floor has 46,000 tiles.",
+      "src": [
+        "https://example.org/made-up/corran",
+        "https://example.com/made-up/corran"
+      ]
+    },
+    {
+      "id": "made-up-1/13",
+      "topic": "people",
+      "text": "In what year was the made-up explorer Ada Fenwick born?",
+      "answer": 1851,
+      "unit": "",
+      "format": "year",
+      "min": 1000,
+      "max": 2025,
+      "spread": 60,
+      "fact": "Ada Fenwick, a made-up explorer, was born in 1851.",
+      "src": [
+        "https://example.org/made-up/fenwick",
+        "https://example.com/made-up/fenwick"
+      ]
+    },
+    {
+      "id": "made-up-1/14",
+      "topic": "words",
+      "text": "How many words are in the made-up Glossary of the Fen dialect?",
+      "answer": 2700,
+      "unit": "words",
+      "format": "plain",
+      "min": 100,
+      "max": 90000,
+      "spread": 80,
+      "fact": "The made-up Fen glossary lists 2,700 words.",
+      "src": [
+        "https://example.org/made-up/fen-glossary",
+        "https://example.com/made-up/fen-glossary"
+      ]
+    },
+    {
+      "id": "made-up-1/15",
+      "topic": "screen",
+      "text": "How many episodes did the made-up show Harbour Lights run for?",
+      "answer": 164,
+      "unit": "episodes",
+      "format": "plain",
+      "min": 10,
+      "max": 3000,
+      "spread": 60,
+      "fact": "The made-up show Harbour Lights ran for 164 episodes.",
+      "src": [
+        "https://example.org/made-up/harbour-lights",
+        "https://example.com/made-up/harbour-lights"
+      ]
+    }
+  ]
+}

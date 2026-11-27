@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Lobby with players",
+    "section": "Lobby",
+    "description": "Phones, a computer and a controller seat have joined."
+  },
+  "extends": "table-lobby"
+}

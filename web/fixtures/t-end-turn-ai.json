@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "A computer's turn ends",
+    "section": "Turn: landing",
+    "description": "A computer finishes its turn."
+  },
+  "extends": "waiting"
+}

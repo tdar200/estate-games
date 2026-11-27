@@ -1,0 +1,601 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "finished",
+    "phase": "finished",
+    "hostId": "p1",
+    "version": 12,
+    "now": 1762160412300,
+    "settings": {
+      "style": "tournament",
+      "maxPlayers": 8,
+      "startingStack": 1500,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "off",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 0,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 0,
+      "next": null
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 1,
+    "street": "",
+    "board": [
+      "Ks",
+      "Kc",
+      "9c",
+      "6s",
+      "Js"
+    ],
+    "pots": [],
+    "totalPot": 0,
+    "currentBet": 0,
+    "buttonSeat": 1,
+    "smallBlindSeat": 2,
+    "bigBlindSeat": 0,
+    "actorId": "",
+    "actionDeadline": 0,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 0,
+        "bet": 0,
+        "status": "out",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "8c",
+          "8s"
+        ],
+        "shown": true,
+        "handName": "Two pair, Kings and Eights",
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": true,
+        "lastAction": {
+          "playerId": "p1",
+          "street": "preflop",
+          "type": "call",
+          "amount": 1480,
+          "to": 1500,
+          "allIn": true
+        },
+        "odds": null,
+        "rebuys": 0,
+        "place": 2,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 4500,
+        "bet": 0,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "5h",
+          "Kh"
+        ],
+        "shown": true,
+        "handName": "Three of a kind, Kings",
+        "isButton": true,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p2",
+          "street": "preflop",
+          "type": "raise",
+          "amount": 1500,
+          "to": 1500,
+          "allIn": true
+        },
+        "odds": null,
+        "rebuys": 0,
+        "place": 1,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 0,
+        "bet": 0,
+        "status": "out",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "6d",
+          "3s"
+        ],
+        "shown": true,
+        "handName": "Two pair, Kings and Sixes",
+        "isButton": false,
+        "isSmallBlind": true,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p3",
+          "street": "preflop",
+          "type": "call",
+          "amount": 1490,
+          "to": 1500,
+          "allIn": true
+        },
+        "odds": null,
+        "rebuys": 0,
+        "place": 3,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      }
+    ],
+    "actions": [
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "smallBlind",
+        "amount": 10,
+        "to": 10
+      },
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "bigBlind",
+        "amount": 20,
+        "to": 20
+      },
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "raise",
+        "amount": 1500,
+        "to": 1500,
+        "allIn": true
+      },
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "call",
+        "amount": 1490,
+        "to": 1500,
+        "allIn": true
+      },
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "call",
+        "amount": 1480,
+        "to": 1500,
+        "allIn": true
+      }
+    ],
+    "result": {
+      "handNumber": 1,
+      "showdown": true,
+      "board": [
+        "Ks",
+        "Kc",
+        "9c",
+        "6s",
+        "Js"
+      ],
+      "pots": [
+        {
+          "amount": 4500,
+          "eligibleIds": [
+            "p3",
+            "p1",
+            "p2"
+          ],
+          "winners": [
+            {
+              "id": "p2",
+              "amount": 4500,
+              "handName": "Three of a kind, Kings",
+              "bestCards": [
+                "Ks",
+                "Kh",
+                "Kc",
+                "Js",
+                "9c"
+              ]
+            }
+          ]
+        }
+      ],
+      "hands": [
+        {
+          "id": "p3",
+          "cards": [
+            "6d",
+            "3s"
+          ],
+          "handName": "Two pair, Kings and Sixes",
+          "bestCards": [
+            "Ks",
+            "Kc",
+            "6s",
+            "6d",
+            "Js"
+          ],
+          "mucked": false
+        },
+        {
+          "id": "p1",
+          "cards": [
+            "8c",
+            "8s"
+          ],
+          "handName": "Two pair, Kings and Eights",
+          "bestCards": [
+            "Ks",
+            "Kc",
+            "8s",
+            "8c",
+            "Js"
+          ],
+          "mucked": false
+        },
+        {
+          "id": "p2",
+          "cards": [
+            "5h",
+            "Kh"
+          ],
+          "handName": "Three of a kind, Kings",
+          "bestCards": [
+            "Ks",
+            "Kh",
+            "Kc",
+            "Js",
+            "9c"
+          ],
+          "mucked": false
+        }
+      ],
+      "uncalled": []
+    },
+    "you": {
+      "id": "p1",
+      "seat": 0,
+      "cards": [
+        "8c",
+        "8s"
+      ],
+      "handName": "Two pair, Kings and Eights",
+      "strength": null,
+      "toAct": false,
+      "legal": null,
+      "canShow": false,
+      "canRebuy": false,
+      "sittingOut": false,
+      "sitOutNext": false,
+      "isHost": true
+    },
+    "winnerId": "p2",
+    "standings": [
+      {
+        "id": "p2",
+        "name": "Sam",
+        "place": 1,
+        "stack": 4500,
+        "boughtIn": 1500,
+        "net": 3000
+      },
+      {
+        "id": "p1",
+        "name": "Maya",
+        "place": 2,
+        "stack": 0,
+        "boughtIn": 1500,
+        "net": -1500
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "place": 3,
+        "stack": 0,
+        "boughtIn": 1500,
+        "net": -1500
+      }
+    ],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 1,500 chips each, blinds 10/20"
+      },
+      {
+        "id": "l2",
+        "text": "Hand #1: Sam has the button"
+      },
+      {
+        "id": "l3",
+        "text": "Redwood posts the small blind 10"
+      },
+      {
+        "id": "l4",
+        "text": "Maya posts the big blind 20"
+      },
+      {
+        "id": "l5",
+        "text": "Sam raises to 1,500 and is all-in"
+      },
+      {
+        "id": "l6",
+        "text": "Redwood calls 1,490 and is all-in"
+      },
+      {
+        "id": "l7",
+        "text": "Maya calls 1,480 and is all-in"
+      },
+      {
+        "id": "l8",
+        "text": "Redwood shows 6d 3s"
+      },
+      {
+        "id": "l9",
+        "text": "Maya shows 8c 8s"
+      },
+      {
+        "id": "l10",
+        "text": "Sam shows 5h Kh"
+      },
+      {
+        "id": "l11",
+        "text": "Flop: Ks Kc 9c"
+      },
+      {
+        "id": "l12",
+        "text": "Turn: 6s"
+      },
+      {
+        "id": "l13",
+        "text": "River: Js"
+      },
+      {
+        "id": "l14",
+        "text": "Redwood has Two pair, Kings and Sixes"
+      },
+      {
+        "id": "l15",
+        "text": "Maya has Two pair, Kings and Eights"
+      },
+      {
+        "id": "l16",
+        "text": "Sam has Three of a kind, Kings"
+      },
+      {
+        "id": "l17",
+        "text": "Sam wins 4,500 with Three of a kind, Kings"
+      },
+      {
+        "id": "l18",
+        "text": "Redwood is out in 3rd place"
+      },
+      {
+        "id": "l19",
+        "text": "Maya is out in 2nd place"
+      },
+      {
+        "id": "l20",
+        "text": "Sam wins the game!"
+      }
+    ],
+    "lastEventSeq": 19,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    }
+  },
+  "viewer": {
+    "role": "player",
+    "playerId": "p1",
+    "name": "Maya"
+  },
+  "events": [
+    {
+      "seq": 4,
+      "type": "handStart",
+      "handNumber": 1,
+      "playerId": "p2"
+    },
+    {
+      "seq": 5,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "smallBlind",
+      "amount": 10,
+      "to": 10,
+      "street": "preflop"
+    },
+    {
+      "seq": 6,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "bigBlind",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    },
+    {
+      "seq": 7,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "raise",
+      "amount": 1500,
+      "to": 1500,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 8,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "call",
+      "amount": 1490,
+      "to": 1500,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 9,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "call",
+      "amount": 1480,
+      "to": 1500,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 10,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p3",
+      "cards": [
+        "6d",
+        "3s"
+      ]
+    },
+    {
+      "seq": 11,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p1",
+      "cards": [
+        "8c",
+        "8s"
+      ]
+    },
+    {
+      "seq": 12,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p2",
+      "cards": [
+        "5h",
+        "Kh"
+      ]
+    },
+    {
+      "seq": 13,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "flop",
+      "cards": [
+        "Ks",
+        "Kc",
+        "9c"
+      ]
+    },
+    {
+      "seq": 14,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "turn",
+      "cards": [
+        "6s"
+      ]
+    },
+    {
+      "seq": 15,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "river",
+      "cards": [
+        "Js"
+      ]
+    },
+    {
+      "seq": 16,
+      "type": "win",
+      "handNumber": 1,
+      "playerId": "p2",
+      "amount": 4500,
+      "handName": "Three of a kind, Kings"
+    },
+    {
+      "seq": 17,
+      "type": "bust",
+      "handNumber": 1,
+      "playerId": "p3",
+      "place": 3
+    },
+    {
+      "seq": 18,
+      "type": "bust",
+      "handNumber": 1,
+      "playerId": "p1",
+      "place": 2
+    },
+    {
+      "seq": 19,
+      "type": "gameOver",
+      "handNumber": 1,
+      "playerId": "p2"
+    }
+  ],
+  "meta": {
+    "description": "Game over on Maya's phone (not the winner)",
+    "seed": 4,
+    "hand": 1
+  }
+}

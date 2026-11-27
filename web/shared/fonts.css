@@ -1,0 +1,18 @@
+/* Estate's two typefaces, served by Estate itself (review F18: they came from Google Fonts, so on a
+   home network without internet everything fell back to the system face, and every guest's phone
+   contacted Google). Latin subsets, one variable file each covering every weight the apps use.
+   Both are under the SIL Open Font License 1.1: see /shared/fonts/README.md. */
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/shared/fonts/Oswald-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/shared/fonts/Inter-latin.woff2") format("woff2");
+}

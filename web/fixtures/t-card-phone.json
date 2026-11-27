@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Headlines card: a phone player reads it",
+    "section": "Turn: cards",
+    "description": "A phone player drew a card (they confirm on the phone)."
+  },
+  "extends": "card"
+}

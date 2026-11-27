@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Game, watching (old server)",
+    "section": "Gates and connection",
+    "description": "Watch a room in play: no buttons."
+  },
+  "extends": "pad-turn",
+  "ctx": {
+    "watching": true
+  }
+}

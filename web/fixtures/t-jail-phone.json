@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "In jail: a phone player",
+    "section": "Turn: jail",
+    "description": "A phone player's turn in jail."
+  },
+  "extends": "jail"
+}

@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "ACTIVE GAMES: a long list",
+    "section": "Lobby",
+    "description": "Seven other games on the server."
+  },
+  "extends": "table-empty",
+  "ctx": {
+    "games": [
+      {
+        "code": "PHN01",
+        "status": "lobby",
+        "phase": "lobby",
+        "turn": null,
+        "host": {
+          "name": "Priya",
+          "tokenKind": "teapot",
+          "color": "#7A1838"
+        },
+        "players": [
+          {
+            "id": "p1",
+            "name": "Priya",
+            "tokenKind": "teapot",
+            "color": "#7A1838",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "p2",
+            "name": "Ravi",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "phone",
+            "online": false
+          },
+          {
+            "id": "a1",
+            "name": "Alpha",
+            "tokenKind": "key",
+            "color": "#8A5CF5",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 3,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560000000
+      },
+      {
+        "code": "PLY22",
+        "status": "playing",
+        "phase": "awaiting_roll",
+        "turn": 14,
+        "host": {
+          "name": "Sam",
+          "tokenKind": "rocket",
+          "color": "#1EA0FF"
+        },
+        "players": [
+          {
+            "id": "s1",
+            "name": "Sam",
+            "tokenKind": "rocket",
+            "color": "#1EA0FF",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "m1",
+            "name": "Maya",
+            "tokenKind": "lighthouse",
+            "color": "#0E8C8C",
+            "input": "controller",
+            "online": true
+          }
+        ],
+        "openSeats": 0,
+        "tableOnline": true,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560001000
+      },
+      {
+        "code": "KEY77",
+        "status": "playing",
+        "phase": "awaiting_roll",
+        "turn": 3,
+        "host": {
+          "name": "Eve",
+          "tokenKind": "key",
+          "color": "#8A5CF5"
+        },
+        "players": [
+          {
+            "id": "e1",
+            "name": "Eve",
+            "tokenKind": "key",
+            "color": "#8A5CF5",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "t1",
+            "name": "Tom",
+            "tokenKind": "teapot",
+            "color": "#7A1838",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "b1",
+            "name": "Beta",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 0,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560002000
+      },
+      {
+        "code": "ROOK4",
+        "status": "playing",
+        "phase": "awaiting_roll",
+        "turn": 5,
+        "host": {
+          "name": "Ana",
+          "tokenKind": "umbrella",
+          "color": "#4E7FD6"
+        },
+        "players": [
+          {
+            "id": "x0",
+            "name": "Ana",
+            "tokenKind": "umbrella",
+            "color": "#4E7FD6",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "y0",
+            "name": "Bot",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 0,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560003000
+      },
+      {
+        "code": "BEAR8",
+        "status": "lobby",
+        "phase": "awaiting_roll",
+        "turn": 12,
+        "host": {
+          "name": "Ben",
+          "tokenKind": "rocket",
+          "color": "#1EA0FF"
+        },
+        "players": [
+          {
+            "id": "x1",
+            "name": "Ben",
+            "tokenKind": "rocket",
+            "color": "#1EA0FF",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "y1",
+            "name": "Bot",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 4,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560003001
+      },
+      {
+        "code": "LYNX2",
+        "status": "playing",
+        "phase": "awaiting_roll",
+        "turn": 19,
+        "host": {
+          "name": "Cleo",
+          "tokenKind": "teapot",
+          "color": "#7A1838"
+        },
+        "players": [
+          {
+            "id": "x2",
+            "name": "Cleo",
+            "tokenKind": "teapot",
+            "color": "#7A1838",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "y2",
+            "name": "Bot",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 0,
+        "tableOnline": true,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560003002
+      },
+      {
+        "code": "WOLF6",
+        "status": "lobby",
+        "phase": "awaiting_roll",
+        "turn": 26,
+        "host": {
+          "name": "Dev",
+          "tokenKind": "key",
+          "color": "#8A5CF5"
+        },
+        "players": [
+          {
+            "id": "x3",
+            "name": "Dev",
+            "tokenKind": "key",
+            "color": "#8A5CF5",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "y3",
+            "name": "Bot",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 4,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560003003
+      }
+    ]
+  }
+}

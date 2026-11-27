@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Loan offered to a seat here",
+    "section": "Loans",
+    "description": "A computer offers a keyboard seat a loan."
+  },
+  "extends": "loan-offer",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

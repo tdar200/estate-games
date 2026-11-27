@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "CONTROLS: one key map",
+    "section": "Menu, settings and sound",
+    "description": "MENU → CONTROLS: pad, keyboard and phone, the same words in the same order."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "menu",
+      "page": "controls"
+    }
+  }
+}

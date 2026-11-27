@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Auction: controller seat bidding",
+    "section": "Turn: auction",
+    "description": "Same, controller (RB/RT raise)."
+  },
+  "extends": "table-auction",
+  "patch": {
+    "auction": {
+      "currentPlayerId": "@Maya"
+    }
+  }
+}

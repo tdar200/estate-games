@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Offer sent: the computer decides",
+    "section": "Trade",
+    "description": "Offer a computer a trade."
+  },
+  "extends": "trade",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "trade": {
+      "targetId": "@Alpha",
+      "request": {
+        "cash": 0,
+        "properties": [
+          13
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "title": "BUY?: a computer decides",
+    "section": "Turn: buying",
+    "description": "A computer landed on an unowned street."
+  },
+  "extends": "buy",
+  "patch": {
+    "currentPlayerId": "@Alpha",
+    "currentIndex": 1,
+    "players": {
+      "Alpha": {
+        "position": 19,
+        "cash": 900
+      },
+      "Robin": {
+        "position": 12
+      }
+    },
+    "turn": {
+      "playerId": "@Alpha"
+    },
+    "lastLanding": {
+      "playerId": "@Alpha"
+    }
+  }
+}

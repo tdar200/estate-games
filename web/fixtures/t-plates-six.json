@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Six players",
+    "section": "Plates and board",
+    "description": "A full table."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "players+": [
+      {
+        "id": "player_000000000021",
+        "name": "Kai",
+        "kind": "human",
+        "color": "#4E7FD6",
+        "cash": 980,
+        "position": 12,
+        "inJail": false,
+        "jailTurns": 0,
+        "jailCards": 0,
+        "bankrupt": false,
+        "input": "keyboard",
+        "tokenKind": "umbrella",
+        "online": true
+      },
+      {
+        "id": "ai_000000000022",
+        "name": "Eve",
+        "kind": "ai",
+        "color": "#8A5CF5",
+        "cash": 1210,
+        "position": 27,
+        "inJail": false,
+        "jailTurns": 0,
+        "jailCards": 0,
+        "bankrupt": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "online": true,
+        "difficulty": "easy"
+      }
+    ]
+  },
+  "seats": {
+    "Maya": "controller",
+    "Kai": "keyboard"
+  }
+}

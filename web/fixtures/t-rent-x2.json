@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "RENT ×2: a Headlines card's double rent",
+    "section": "Turn: landing",
+    "description": "\"Strike called off\" sends the player to the nearest station: double rent (base × 2)."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "phase": "turn_complete",
+    "properties": {
+      "15": {
+        "ownerId": "@Sam",
+        "mortgaged": false,
+        "houses": 0
+      }
+    },
+    "players": {
+      "Maya": {
+        "position": 15,
+        "cash": 633
+      },
+      "Sam": {
+        "cash": 1195
+      }
+    },
+    "lastCard": {
+      "deck": "chance",
+      "text": "Strike called off: go to the nearest railroad; if owned, pay double rent"
+    },
+    "lastLanding": {
+      "playerId": "@Maya",
+      "spaceIndex": 15,
+      "kind": "rent",
+      "amount": 50,
+      "recipientId": "@Sam",
+      "base": 25,
+      "multiplier": 2
+    },
+    "log+": [
+      {
+        "text": "Maya drew Headlines: Strike called off: go to the nearest railroad; if owned, pay double rent",
+        "at": 1793559997000
+      },
+      {
+        "text": "Maya paid $50 (West Station Railroad rent)",
+        "at": 1793559999000
+      }
+    ]
+  }
+}

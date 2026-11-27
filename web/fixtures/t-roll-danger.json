@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "ROLL with danger ahead",
+    "section": "Turn: roll",
+    "description": "Expensive squares within one roll and little cash: the $ AHEAD badge turns red."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "cash": 120
+      }
+    },
+    "properties": {
+      "21": {
+        "ownerId": "@Alpha",
+        "mortgaged": false,
+        "houses": 3
+      },
+      "23": {
+        "ownerId": "@Alpha",
+        "mortgaged": false,
+        "houses": 3
+      },
+      "24": {
+        "ownerId": "@Alpha",
+        "mortgaged": false,
+        "houses": 3
+      }
+    }
+  }
+}

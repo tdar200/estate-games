@@ -1,0 +1,691 @@
+{
+  "meta": {
+    "description": "Game over: final places, PLAY AGAIN / NEW TABLE"
+  },
+  "state": {
+    "game": "ludo",
+    "code": "D29HQ",
+    "status": "finished",
+    "phase": "finished",
+    "hostId": "p1",
+    "version": 789,
+    "now": 1793909864565,
+    "settings": {
+      "pieces": 4,
+      "board": "auto",
+      "anyRollOut": false,
+      "homeBonus": true,
+      "safeSquares": true,
+      "threeSixes": true,
+      "captureFirst": false,
+      "blocks": false,
+      "playOn": true
+    },
+    "seatLimit": 6,
+    "board": {
+      "arms": 4,
+      "ring": 52,
+      "column": 5,
+      "stepsHome": 56,
+      "starts": [
+        8,
+        21,
+        34,
+        47
+      ],
+      "safe": [
+        3,
+        8,
+        16,
+        21,
+        29,
+        34,
+        42,
+        47
+      ]
+    },
+    "turnId": "",
+    "turnNumber": 334,
+    "dice": 1,
+    "diceBy": "p3",
+    "rollSeq": 419,
+    "sixes": 0,
+    "moves": [],
+    "lastMove": {
+      "seq": 364,
+      "playerId": "p3",
+      "piece": 3,
+      "roll": 1,
+      "from": "c2.5",
+      "cell": "h2",
+      "path": [
+        "h2"
+      ],
+      "captured": [],
+      "out": false,
+      "home": true,
+      "again": false
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "arm": 0,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "home",
+            "step": 0,
+            "cell": "h0",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "home",
+            "step": 0,
+            "cell": "h0",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "column",
+            "step": 1,
+            "cell": "c0.1",
+            "square": -1,
+            "left": 5,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "home",
+            "step": 0,
+            "cell": "h0",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          }
+        ],
+        "home": 3,
+        "out": 1,
+        "progress": 97,
+        "captures": 3,
+        "lost": 4,
+        "sixes": 14,
+        "place": 4,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "arm": 1,
+        "status": "finished",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "home",
+            "step": 0,
+            "cell": "h1",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "home",
+            "step": 0,
+            "cell": "h1",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "home",
+            "step": 0,
+            "cell": "h1",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "home",
+            "step": 0,
+            "cell": "h1",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          }
+        ],
+        "home": 4,
+        "out": 0,
+        "progress": 100,
+        "captures": 4,
+        "lost": 2,
+        "sixes": 10,
+        "place": 2,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "keyboard",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Alpha",
+        "kind": "ai",
+        "arm": 2,
+        "status": "finished",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "home",
+            "step": 0,
+            "cell": "h2",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "home",
+            "step": 0,
+            "cell": "h2",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "home",
+            "step": 0,
+            "cell": "h2",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "home",
+            "step": 0,
+            "cell": "h2",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          }
+        ],
+        "home": 4,
+        "out": 0,
+        "progress": 100,
+        "captures": 3,
+        "lost": 5,
+        "sixes": 19,
+        "place": 3,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "difficulty": "hard"
+      },
+      {
+        "id": "p4",
+        "name": "Orca",
+        "kind": "ai",
+        "arm": 3,
+        "status": "finished",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "home",
+            "step": 0,
+            "cell": "h3",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "home",
+            "step": 0,
+            "cell": "h3",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "home",
+            "step": 0,
+            "cell": "h3",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "home",
+            "step": 0,
+            "cell": "h3",
+            "square": -1,
+            "left": 0,
+            "safe": true
+          }
+        ],
+        "home": 4,
+        "out": 0,
+        "progress": 100,
+        "captures": 5,
+        "lost": 4,
+        "sixes": 15,
+        "place": 1,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "difficulty": "normal"
+      }
+    ],
+    "you": null,
+    "winnerId": "p4",
+    "standings": [
+      {
+        "id": "p4",
+        "name": "Orca",
+        "place": 1,
+        "home": 4,
+        "progress": 100,
+        "captures": 5
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "place": 2,
+        "home": 4,
+        "progress": 100,
+        "captures": 4
+      },
+      {
+        "id": "p3",
+        "name": "Alpha",
+        "place": 3,
+        "home": 4,
+        "progress": 100,
+        "captures": 3
+      },
+      {
+        "id": "p1",
+        "name": "Maya",
+        "place": 4,
+        "home": 3,
+        "progress": 97,
+        "captures": 3
+      }
+    ],
+    "log": [
+      {
+        "id": "l39",
+        "text": "Alpha rolls 1 and can't move"
+      },
+      {
+        "id": "l40",
+        "text": "Orca gets a piece home"
+      },
+      {
+        "id": "l41",
+        "text": "Alpha rolls 5 and can't move"
+      },
+      {
+        "id": "l42",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l43",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l44",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l45",
+        "text": "Orca captures Kim's piece"
+      },
+      {
+        "id": "l46",
+        "text": "Kim captures Orca's piece"
+      },
+      {
+        "id": "l47",
+        "text": "Maya brings a piece out"
+      },
+      {
+        "id": "l48",
+        "text": "Maya gets a piece home"
+      },
+      {
+        "id": "l49",
+        "text": "Kim brings a piece out"
+      },
+      {
+        "id": "l50",
+        "text": "Orca brings a piece out"
+      },
+      {
+        "id": "l51",
+        "text": "Orca captures Alpha's piece"
+      },
+      {
+        "id": "l52",
+        "text": "Kim brings a piece out"
+      },
+      {
+        "id": "l53",
+        "text": "Kim gets a piece home"
+      },
+      {
+        "id": "l54",
+        "text": "Orca captures Alpha's piece"
+      },
+      {
+        "id": "l55",
+        "text": "Orca gets a piece home"
+      },
+      {
+        "id": "l56",
+        "text": "Kim captures Orca's piece"
+      },
+      {
+        "id": "l57",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l58",
+        "text": "Kim captures Maya's piece"
+      },
+      {
+        "id": "l59",
+        "text": "Maya rolls 3 and can't move"
+      },
+      {
+        "id": "l60",
+        "text": "Maya rolls 5 and can't move"
+      },
+      {
+        "id": "l61",
+        "text": "Maya rolls 5 and can't move"
+      },
+      {
+        "id": "l62",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l63",
+        "text": "Maya rolls 3 and can't move"
+      },
+      {
+        "id": "l64",
+        "text": "Maya rolls 2 and can't move"
+      },
+      {
+        "id": "l65",
+        "text": "Orca brings a piece out"
+      },
+      {
+        "id": "l66",
+        "text": "Orca captures Alpha's piece"
+      },
+      {
+        "id": "l67",
+        "text": "Maya rolls 2 and can't move"
+      },
+      {
+        "id": "l68",
+        "text": "Maya rolls 2 and can't move"
+      },
+      {
+        "id": "l69",
+        "text": "Maya rolls 3 and can't move"
+      },
+      {
+        "id": "l70",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l71",
+        "text": "Maya rolls 2 and can't move"
+      },
+      {
+        "id": "l72",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l73",
+        "text": "Orca gets a piece home"
+      },
+      {
+        "id": "l74",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l75",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l76",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l77",
+        "text": "Kim gets a piece home"
+      },
+      {
+        "id": "l78",
+        "text": "Maya rolls 1 and can't move"
+      },
+      {
+        "id": "l79",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l80",
+        "text": "Maya brings a piece out"
+      },
+      {
+        "id": "l81",
+        "text": "Alpha captures Maya's piece"
+      },
+      {
+        "id": "l82",
+        "text": "Maya rolls 3 and can't move"
+      },
+      {
+        "id": "l83",
+        "text": "Maya rolls 5 and can't move"
+      },
+      {
+        "id": "l84",
+        "text": "Maya rolls 1 and can't move"
+      },
+      {
+        "id": "l85",
+        "text": "Alpha gets a piece home"
+      },
+      {
+        "id": "l86",
+        "text": "Maya rolls 3 and can't move"
+      },
+      {
+        "id": "l87",
+        "text": "Kim rolls 5 and can't move"
+      },
+      {
+        "id": "l88",
+        "text": "Maya brings a piece out"
+      },
+      {
+        "id": "l89",
+        "text": "Kim rolls a 6 but can't move, and rolls again"
+      },
+      {
+        "id": "l90",
+        "text": "Orca rolls 5 and can't move"
+      },
+      {
+        "id": "l91",
+        "text": "Kim rolls 5 and can't move"
+      },
+      {
+        "id": "l92",
+        "text": "Orca gets a piece home"
+      },
+      {
+        "id": "l93",
+        "text": "Orca has every piece home: 1st place"
+      },
+      {
+        "id": "l94",
+        "text": "Kim rolls a 6 but can't move, and rolls again"
+      },
+      {
+        "id": "l95",
+        "text": "Kim rolls 5 and can't move"
+      },
+      {
+        "id": "l96",
+        "text": "Kim rolls a 6 but can't move, and rolls again"
+      },
+      {
+        "id": "l97",
+        "text": "Kim rolls 5 and can't move"
+      },
+      {
+        "id": "l98",
+        "text": "Kim gets a piece home"
+      },
+      {
+        "id": "l99",
+        "text": "Kim has every piece home: 2nd place"
+      },
+      {
+        "id": "l100",
+        "text": "Alpha captures Maya's piece"
+      },
+      {
+        "id": "l101",
+        "text": "Maya rolls 5 and can't move"
+      },
+      {
+        "id": "l102",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l103",
+        "text": "Maya rolls 3 and can't move"
+      },
+      {
+        "id": "l104",
+        "text": "Maya rolls 5 and can't move"
+      },
+      {
+        "id": "l105",
+        "text": "Maya rolls 1 and can't move"
+      },
+      {
+        "id": "l106",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l107",
+        "text": "Maya rolls 4 and can't move"
+      },
+      {
+        "id": "l108",
+        "text": "Maya rolls 5 and can't move"
+      },
+      {
+        "id": "l109",
+        "text": "Maya rolls 1 and can't move"
+      },
+      {
+        "id": "l110",
+        "text": "Maya brings a piece out"
+      },
+      {
+        "id": "l111",
+        "text": "Alpha gets a piece home"
+      },
+      {
+        "id": "l112",
+        "text": "Alpha gets a piece home"
+      },
+      {
+        "id": "l113",
+        "text": "Alpha rolls 4 and can't move"
+      },
+      {
+        "id": "l114",
+        "text": "Alpha rolls a 6 but can't move, and rolls again"
+      },
+      {
+        "id": "l115",
+        "text": "Alpha rolls 2 and can't move"
+      },
+      {
+        "id": "l116",
+        "text": "Alpha gets a piece home"
+      },
+      {
+        "id": "l117",
+        "text": "Alpha has every piece home: 3rd place"
+      },
+      {
+        "id": "l118",
+        "text": "Orca wins the game"
+      }
+    ],
+    "lastEventSeq": 1290,
+    "viewerId": "",
+    "viewerRole": "table",
+    "viewerName": "Table",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "ludo",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    },
+    "localSeats": [
+      {
+        "seatId": "seat_25b1b7fbb2b4",
+        "playerId": "p2",
+        "input": "keyboard",
+        "pad": null
+      }
+    ]
+  },
+  "viewer": "table"
+}

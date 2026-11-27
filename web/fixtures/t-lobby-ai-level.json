@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Computer level picked: EASY",
+    "section": "Lobby",
+    "description": "Press the level chip next to the computer + until it says EASY."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "aiLevel": "easy"
+  }
+}

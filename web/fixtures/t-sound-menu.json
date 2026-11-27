@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Sound menu (in a game)",
+    "section": "Menu, settings and sound",
+    "description": "The speaker button top-right."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "sound"
+    }
+  }
+}

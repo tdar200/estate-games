@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Mini-map while zoomed",
+    "section": "Plates and board",
+    "description": "Any zoomed moment (here: a buy): the mini-map shows the whole board."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

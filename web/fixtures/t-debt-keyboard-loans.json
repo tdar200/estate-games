@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Debt with loans on: LOAN offered",
+    "section": "Debt and bankruptcy",
+    "description": "Same with the loans house rule."
+  },
+  "extends": "debt-loans",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

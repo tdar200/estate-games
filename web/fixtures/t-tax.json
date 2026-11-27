@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Tax paid",
+    "section": "Turn: landing",
+    "description": "Land on Stamp Duty."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "position": 0
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 4,
+            "cash": 483
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            1,
+            3
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 0,
+              "to": 4,
+              "path": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 0,
+          "to": 4,
+          "path": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "lastLanding": {
+          "playerId": "@Maya",
+          "spaceIndex": 4,
+          "kind": "tax",
+          "amount": 200
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 1 + 3 = 4",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on Stamp Duty",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya paid $200 (Stamp Duty)",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

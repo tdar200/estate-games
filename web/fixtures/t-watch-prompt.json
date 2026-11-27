@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Watch a game (old server)",
+    "section": "Start-up",
+    "description": "Open the table page on a server without party mode (old Node server), or with ?watch."
+  },
+  "ui": {
+    "watchPrompt": ""
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Auction: a computer bidding",
+    "section": "Turn: auction",
+    "description": "A computer's bid."
+  },
+  "extends": "table-auction"
+}

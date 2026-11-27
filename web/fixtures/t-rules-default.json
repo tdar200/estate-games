@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "House rules: default",
+    "section": "Seat setup and rules",
+    "description": "Press RULES in the lobby."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "open": "rules"
+  }
+}

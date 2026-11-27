@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "BUY?: controller seat",
+    "section": "Turn: buying",
+    "description": "Same, controller."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "controller"
+  }
+}

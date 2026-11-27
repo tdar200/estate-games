@@ -1,0 +1,78 @@
+name: Bug report
+description: Something doesn't work as it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+        Found a security problem? Please don't post it here. See SECURITY.md for how to report it privately.
+  - type: dropdown
+    id: game
+    attributes:
+      label: Which game?
+      options:
+        - Estate
+        - Poker
+        - Ludo
+        - Quiz
+        - Near Thing
+        - Not a game (lobby, joining, server, install)
+    validations:
+      required: true
+  - type: dropdown
+    id: screen
+    attributes:
+      label: Where did you see it?
+      options:
+        - TV screen
+        - Phone
+        - Both
+        - Server or install
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What went wrong, in a few sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: If a demo screen shows it, its name helps a lot (for example `/?demo=t-auction-timed` or `/play?demo=scene&s=your-turn`).
+      placeholder: |
+        1. Start a game with 3 phones and 1 computer
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The output of `estate version`, or the commit you built.
+  - type: input
+    id: device
+    attributes:
+      label: Browser and device
+      placeholder: Chrome on Android, Edge on a Windows PC as the TV
+  - type: textarea
+    id: logs
+    attributes:
+      label: Server log or screenshots
+      description: Paste the relevant server log lines, or drag in screenshots. Remove anything private first.
+  - type: checkboxes
+    id: searched
+    attributes:
+      label: Before you send
+      options:
+        - label: I searched the existing issues and this is not a duplicate.
+          required: true

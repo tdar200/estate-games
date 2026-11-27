@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "title": "Idle: the game waits on a phone",
+    "section": "Host: players",
+    "description": "A phone player hasn't moved for 30 s or more: IDLE m:ss on their tray (from the log's last time)."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "now": 1793560000000,
+    "currentPlayerId": "@Sam",
+    "phase": "awaiting_roll",
+    "players": {
+      "Robin": {
+        "cash": 1020
+      },
+      "Sam": {
+        "cash": 1145,
+        "position": 0
+      },
+      "Alpha": {
+        "cash": 442
+      },
+      "Maya": {
+        "cash": 683
+      }
+    },
+    "log+": [
+      {
+        "text": "Maya paid Alpha rent",
+        "at": 1793559896000
+      },
+      {
+        "text": "Sam's turn",
+        "at": 1793559900000
+      }
+    ]
+  }
+}

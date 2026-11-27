@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0A2A1F">
+  <title>Estate · Offline</title>
+  <!-- Shown by the service worker (/sw.js) when a page can't be fetched. Everything it needs is
+       here or in the worker's cache: no web fonts, no shared CSS. -->
+  <style>
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; box-sizing: border-box;
+      padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+      background: radial-gradient(ellipse at 50% 35%, #1F6B4E 0%, #124733 55%, #0A2A1F 100%) #0A2A1F;
+      color: #F4F1E6; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
+      -webkit-user-select: none; user-select: none;
+    }
+    main { max-width: 340px; display: grid; justify-items: center; gap: 14px; }
+    img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 28px rgba(0, 0, 0, .35); }
+    h1 { margin: 6px 0 0; font: 700 26px/1.15 "Oswald", "Arial Narrow", "Roboto Condensed", Impact, sans-serif; letter-spacing: .04em; }
+    p { margin: 0; font-size: 16px; line-height: 1.45; color: #C9D6CE; }
+    button {
+      margin-top: 8px; min-width: 200px; min-height: 52px; border: 0; border-radius: 14px; cursor: pointer;
+      background: #F2C14E; color: #15191E; font: 700 18px/1 "Oswald", "Arial Narrow", Impact, sans-serif; letter-spacing: .06em;
+      box-shadow: 0 4px 0 #A97E1E;
+    }
+    button:active { transform: translateY(2px); box-shadow: 0 2px 0 #A97E1E; }
+    button:focus-visible { outline: 3px solid #FFE58A; outline-offset: 3px; }
+    .status { font-size: 14px; color: #8FA79A; min-height: 1.4em; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/shared/app-icons/apple-touch-icon.png" alt="">
+    <h1>CAN'T REACH THE TABLE</h1>
+    <p>Estate isn't answering. Check your Wi-Fi or mobile data. If you're connected, the computer running Estate may be off.</p>
+    <button type="button" id="retry">TRY AGAIN</button>
+    <p class="status" id="status" aria-live="polite">Trying again every few seconds.</p>
+  </main>
+  <script src="/phone/offline.js"></script>
+</body>
+</html>

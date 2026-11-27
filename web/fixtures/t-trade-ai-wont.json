@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Trade: the computer won't trade at any price",
+    "section": "Trade",
+    "description": "The computer's own price: no deal, with its reason (0.10.1)."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Alpha",
+        "offer": [21],
+        "request": [23],
+        "quote": { "error": "No deal: that would give you a full set." }
+      }
+    }
+  }
+}

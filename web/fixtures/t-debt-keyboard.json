@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Debt: keyboard seat (raise cash plan)",
+    "section": "Debt and bankruptcy",
+    "description": "Owe more than you have."
+  },
+  "extends": "debt",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "made-up-2",
+  "title": "Made-up test questions 2",
+  "version": 1,
+  "license": "CC BY-SA 4.0",
+  "attribution": "Made-up test questions 2, CC BY-SA 4.0",
+  "questions": [
+    {
+      "id": "made-up-2/01",
+      "topic": "geography",
+      "text": "How many metres tall is the made-up Mount Corvel?",
+      "answer": 3420,
+      "unit": "metres",
+      "format": "plain",
+      "min": 300,
+      "max": 30000,
+      "spread": 35,
+      "fact": "The made-up Mount Corvel stands 3,420 metres tall.",
+      "src": [
+        "https://example.org/made-up/corvel",
+        "https://example.com/made-up/corvel"
+      ]
+    },
+    {
+      "id": "made-up-2/02",
+      "topic": "science",
+      "text": "In what year did the made-up Bellmoor observatory open?",
+      "answer": 1874,
+      "unit": "",
+      "format": "year",
+      "min": 1000,
+      "max": 2025,
+      "spread": 50,
+      "fact": "The made-up Bellmoor observatory opened in 1874.",
+      "src": [
+        "https://example.org/made-up/bellmoor",
+        "https://example.com/made-up/bellmoor"
+      ]
+    },
+    {
+      "id": "made-up-2/03",
+      "topic": "nature",
+      "text": "How many eggs does the made-up reed finch lay in a season?",
+      "answer": 26,
+      "unit": "eggs",
+      "format": "plain",
+      "min": 1,
+      "max": 500,
+      "spread": 70,
+      "fact": "The made-up reed finch lays 26 eggs a season.",
+      "src": [
+        "https://example.org/made-up/reed-finch",
+        "https://example.com/made-up/reed-finch"
+      ]
+    },
+    {
+      "id": "made-up-2/04",
+      "topic": "space",
+      "text": "How many moons does the made-up planet Orrow have?",
+      "answer": 38,
+      "unit": "moons",
+      "format": "plain",
+      "min": 1,
+      "max": 900,
+      "spread": 60,
+      "fact": "The made-up planet Orrow has 38 moons.",
+      "src": [
+        "https://example.org/made-up/orrow",
+        "https://example.com/made-up/orrow"
+      ]
+    },
+    {
+      "id": "made-up-2/05",
+      "topic": "history",
+      "text": "How many soldiers guarded the made-up fort at Dunmere?",
+      "answer": 1250,
+      "unit": "soldiers",
+      "format": "plain",
+      "min": 50,
+      "max": 30000,
+      "spread": 70,
+      "fact": "The made-up fort at Dunmere had 1,250 soldiers.",
+      "src": [
+        "https://example.org/made-up/dunmere",
+        "https://example.com/made-up/dunmere"
+      ]
+    },
+    {
+      "id": "made-up-2/06",
+      "topic": "sport",
+      "text": "How many seats are in the made-up Kettle Lane stadium?",
+      "answer": 18500,
+      "unit": "seats",
+      "format": "plain",
+      "min": 1000,
+      "max": 400000,
+      "spread": 50,
+      "fact": "The made-up Kettle Lane stadium seats 18,500.",
+      "src": [
+        "https://example.org/made-up/kettle-lane",
+        "https://example.com/made-up/kettle-lane"
+      ]
+    },
+    {
+      "id": "made-up-2/07",
+      "topic": "music",
+      "text": "In what year was the made-up song Lanterns Low first sung?",
+      "answer": 1923,
+      "unit": "",
+      "format": "year",
+      "min": 1000,
+      "max": 2025,
+      "spread": 30,
+      "fact": "The made-up song Lanterns Low was first sung in 1923.",
+      "src": [
+        "https://example.org/made-up/lanterns-low",
+        "https://example.com/made-up/lanterns-low"
+      ]
+    },
+    {
+      "id": "made-up-2/08",
+      "topic": "food",
+      "text": "How many cheeses does the made-up Ormsby market sell?",
+      "answer": 340,
+      "unit": "cheeses",
+      "format": "plain",
+      "min": 10,
+      "max": 9000,
+      "spread": 70,
+      "fact": "The made-up Ormsby market sells 340 cheeses.",
+      "src": [
+        "https://example.org/made-up/ormsby",
+        "https://example.com/made-up/ormsby"
+      ]
+    },
+    {
+      "id": "made-up-2/09",
+      "topic": "inventions",
+      "text": "How many parts are in the made-up Pennick steam bicycle?",
+      "answer": 1480,
+      "unit": "parts",
+      "format": "plain",
+      "min": 50,
+      "max": 40000,
+      "spread": 80,
+      "fact": "The made-up Pennick steam bicycle has 1,480 parts.",
+      "src": [
+        "https://example.org/made-up/pennick",
+        "https://example.com/made-up/pennick"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Deed card: a street for sale",
+    "section": "Deed cards",
+    "description": "Click an unowned street."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 16
+    }
+  }
+}

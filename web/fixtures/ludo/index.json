@@ -1,0 +1,77 @@
+[
+  {
+    "name": "ludo-lobby-table",
+    "description": "Lobby on the table screen: Maya's phone (host), Kim on the keyboard, two computers (Hard, Normal); default rules",
+    "viewer": "table"
+  },
+  {
+    "name": "ludo-lobby-phone",
+    "description": "Lobby on Maya's phone: she hosts, rule chips and START",
+    "viewer": "Maya"
+  },
+  {
+    "name": "ludo-roll-table",
+    "description": "Mid-game on the 4-arm board: Maya's turn to roll, pieces all round the board",
+    "viewer": "table"
+  },
+  {
+    "name": "ludo-roll-phone",
+    "description": "Mid-game on Maya's phone: the big ROLL button",
+    "viewer": "Maya"
+  },
+  {
+    "name": "ludo-move-table",
+    "description": "Maya rolled a 5: three pieces can move, highlighted on the board",
+    "viewer": "table"
+  },
+  {
+    "name": "ludo-move-phone",
+    "description": "Maya's phone: tap one of the three highlighted pieces",
+    "viewer": "Maya"
+  },
+  {
+    "name": "ludo-capture-table",
+    "description": "Maya just captured a piece (sent back to its yard) and rolls again",
+    "viewer": "table"
+  },
+  {
+    "name": "ludo-capture-phone",
+    "description": "Maya's phone after her capture: ROLL AGAIN",
+    "viewer": "Maya"
+  },
+  {
+    "name": "ludo-waiting-table",
+    "description": "Another player's turn (a computer is next to roll)",
+    "viewer": "table"
+  },
+  {
+    "name": "ludo-waiting-phone",
+    "description": "Maya's phone while someone else plays: whose turn it is, the board",
+    "viewer": "Maya"
+  },
+  {
+    "name": "ludo-finished-table",
+    "description": "Game over: final places, PLAY AGAIN / NEW TABLE",
+    "viewer": "table"
+  },
+  {
+    "name": "ludo-finished-phone",
+    "description": "Game over on Maya's phone: her place and the standings",
+    "viewer": "Maya"
+  },
+  {
+    "name": "ludo-lobby6-phone",
+    "description": "Six players on Sana's phone (host): the 6-arm board, 3 pieces, blocks and capture-first on",
+    "viewer": "Sana"
+  },
+  {
+    "name": "ludo-six-phone",
+    "description": "Six players on the 6-arm board: Sana rolled a 6",
+    "viewer": "Sana"
+  },
+  {
+    "name": "ludo-six-table",
+    "description": "Six players on the 6-arm board, as a spectator (or the PC) sees it",
+    "viewer": "spectator"
+  }
+]

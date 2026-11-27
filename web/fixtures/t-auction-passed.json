@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Auction: a seat here passed",
+    "section": "Turn: auction",
+    "description": "The keyboard seat passed: OUT on its chip."
+  },
+  "extends": "table-auction",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "auction": {
+      "activeIds": [
+        "@Alpha",
+        "@Robin"
+      ]
+    },
+    "log+": [
+      {
+        "text": "Maya passed in the auction",
+        "at": 1793560000000
+      }
+    ]
+  }
+}

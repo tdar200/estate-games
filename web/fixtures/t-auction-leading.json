@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Auction: a seat here leads",
+    "section": "Turn: auction",
+    "description": "The keyboard seat holds the top bid; a computer is deciding."
+  },
+  "extends": "table-auction",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

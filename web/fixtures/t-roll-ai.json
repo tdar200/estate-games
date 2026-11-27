@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "A computer's turn (thinking)",
+    "section": "Turn: roll",
+    "description": "A computer player's turn."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "currentPlayerId": "@Alpha",
+    "currentIndex": 1,
+    "turn": {
+      "playerId": "@Alpha"
+    }
+  }
+}

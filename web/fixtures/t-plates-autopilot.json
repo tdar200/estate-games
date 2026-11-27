@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Plate: robot stand-in",
+    "section": "Plates and board",
+    "description": "The computer plays for an offline phone."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "players": {
+      "Sam": {
+        "online": false,
+        "autopilot": true
+      },
+      "Robin": {
+        "online": false
+      }
+    }
+  }
+}

@@ -1,0 +1,482 @@
+{
+  "meta": {
+    "description": "Maya's phone at the end: place 1 of 6"
+  },
+  "state": {
+    "game": "closest",
+    "title": "Near Thing",
+    "code": "BLKFG",
+    "status": "finished",
+    "hostId": "p1",
+    "version": 91,
+    "phase": "finished",
+    "now": 1795374256003,
+    "phaseEndsAt": 0,
+    "settings": {
+      "length": "quick",
+      "guessSeconds": 30,
+      "betSeconds": 25,
+      "fill": true
+    },
+    "seatLimit": 8,
+    "questionNo": 7,
+    "questionCount": 7,
+    "question": {
+      "seq": 7,
+      "no": 7,
+      "double": true,
+      "text": "How many tiles make up the made-up mosaic floor at Corran Abbey?",
+      "unit": "tiles",
+      "format": "plain",
+      "min": 2000,
+      "max": 900000,
+      "topic": "art",
+      "slots": [
+        {
+          "index": 0,
+          "value": 30000,
+          "ownerIds": [
+            "p6"
+          ],
+          "odds": 4,
+          "chips": [
+            {
+              "playerId": "p6",
+              "count": 2,
+              "stake": 1
+            }
+          ],
+          "off": 16000,
+          "result": ""
+        },
+        {
+          "index": 1,
+          "value": 38000,
+          "ownerIds": [
+            "p2"
+          ],
+          "odds": 3,
+          "chips": [
+            {
+              "playerId": "p1",
+              "count": 1,
+              "stake": 0
+            },
+            {
+              "playerId": "p2",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 8000,
+          "result": "second"
+        },
+        {
+          "index": 2,
+          "value": 45000,
+          "ownerIds": [
+            "p1"
+          ],
+          "odds": 2,
+          "chips": [
+            {
+              "playerId": "p1",
+              "count": 1,
+              "stake": 3
+            },
+            {
+              "playerId": "p2",
+              "count": 1,
+              "stake": 0
+            },
+            {
+              "playerId": "p3",
+              "count": 2,
+              "stake": 0
+            },
+            {
+              "playerId": "p4",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 1000,
+          "result": "win"
+        },
+        {
+          "index": 3,
+          "value": 60000,
+          "ownerIds": [
+            "p3"
+          ],
+          "odds": 2,
+          "chips": [],
+          "off": 14000,
+          "result": ""
+        },
+        {
+          "index": 4,
+          "value": 80000,
+          "ownerIds": [
+            "p4"
+          ],
+          "odds": 3,
+          "chips": [
+            {
+              "playerId": "p4",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 34000,
+          "result": ""
+        },
+        {
+          "index": 5,
+          "value": 140000,
+          "ownerIds": [
+            "p5"
+          ],
+          "odds": 4,
+          "chips": [
+            {
+              "playerId": "p5",
+              "count": 2,
+              "stake": 2
+            }
+          ],
+          "off": 94000,
+          "result": ""
+        }
+      ],
+      "answer": 46000,
+      "fact": "The made-up Corran Abbey floor has 46,000 tiles.",
+      "src": [
+        "https://example.org/made-up/corran",
+        "https://example.com/made-up/corran"
+      ],
+      "results": [
+        {
+          "playerId": "p1",
+          "guess": 45000,
+          "slot": 2,
+          "bonus": 6,
+          "chipPoints": 6,
+          "stakePoints": 6,
+          "delta": 18,
+          "before": 33,
+          "after": 51
+        },
+        {
+          "playerId": "p2",
+          "guess": 38000,
+          "slot": 1,
+          "bonus": 2,
+          "chipPoints": 6,
+          "stakePoints": 0,
+          "delta": 8,
+          "before": 19,
+          "after": 27
+        },
+        {
+          "playerId": "p3",
+          "guess": 60000,
+          "slot": 3,
+          "bonus": 0,
+          "chipPoints": 8,
+          "stakePoints": 0,
+          "delta": 8,
+          "before": 16,
+          "after": 24
+        },
+        {
+          "playerId": "p4",
+          "guess": 80000,
+          "slot": 4,
+          "bonus": 0,
+          "chipPoints": 4,
+          "stakePoints": 0,
+          "delta": 4,
+          "before": 12,
+          "after": 16
+        },
+        {
+          "playerId": "p5",
+          "guess": 140000,
+          "slot": 5,
+          "bonus": 0,
+          "chipPoints": 0,
+          "stakePoints": -2,
+          "delta": -2,
+          "before": 10,
+          "after": 8
+        },
+        {
+          "playerId": "p6",
+          "guess": 30000,
+          "slot": 0,
+          "bonus": 0,
+          "chipPoints": 0,
+          "stakePoints": -1,
+          "delta": -1,
+          "before": 6,
+          "after": 5
+        }
+      ],
+      "nobody": false
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "status": "playing",
+        "score": 51,
+        "closest": 4,
+        "place": 1,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "status": "playing",
+        "score": 27,
+        "closest": 2,
+        "place": 2,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "kind": "human",
+        "status": "playing",
+        "score": 24,
+        "closest": 0,
+        "place": 3,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "kind": "human",
+        "status": "playing",
+        "score": 16,
+        "closest": 0,
+        "place": 4,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "kind": "ai",
+        "status": "playing",
+        "score": 8,
+        "closest": 2,
+        "place": 5,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "hard",
+        "autopilot": false
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "kind": "ai",
+        "status": "playing",
+        "score": 5,
+        "closest": 2,
+        "place": 6,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "normal",
+        "autopilot": false
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "canGuess": false,
+      "guess": 45000,
+      "changesLeft": 1,
+      "canBet": false,
+      "chips": [
+        2,
+        1
+      ],
+      "stake": 3,
+      "stakeSlot": 2,
+      "stakeMax": 3
+    },
+    "standings": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "place": 1,
+        "score": 51,
+        "closest": 4
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "place": 2,
+        "score": 27,
+        "closest": 2
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "place": 3,
+        "score": 24,
+        "closest": 0
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "place": 4,
+        "score": 16,
+        "closest": 0
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "place": 5,
+        "score": 8,
+        "closest": 2
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "place": 6,
+        "score": 5,
+        "closest": 2
+      }
+    ],
+    "winnerIds": [
+      "p1"
+    ],
+    "credits": [
+      "Made-up test questions 2, CC BY-SA 4.0"
+    ],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 7 questions, and the last one pays double"
+      },
+      {
+        "id": "l2",
+        "text": "Question 1 of 7"
+      },
+      {
+        "id": "l3",
+        "text": "The answer is 148 bridges: Maya and Orca are closest"
+      },
+      {
+        "id": "l4",
+        "text": "Question 2 of 7"
+      },
+      {
+        "id": "l5",
+        "text": "The answer is 3,100 pipes: Alpha is closest"
+      },
+      {
+        "id": "l6",
+        "text": "Question 3 of 7"
+      },
+      {
+        "id": "l7",
+        "text": "The answer is 1786: Maya and Kim are closest"
+      },
+      {
+        "id": "l8",
+        "text": "Question 4 of 7"
+      },
+      {
+        "id": "l9",
+        "text": "Nobody guessed"
+      },
+      {
+        "id": "l10",
+        "text": "The answer was 26 eggs"
+      },
+      {
+        "id": "l11",
+        "text": "Question 5 of 7"
+      },
+      {
+        "id": "l12",
+        "text": "The answer is 412 days: Kim and Orca are closest"
+      },
+      {
+        "id": "l13",
+        "text": "Question 6 of 7"
+      },
+      {
+        "id": "l14",
+        "text": "The answer is 18,500 seats: Alpha and Maya are closest"
+      },
+      {
+        "id": "l15",
+        "text": "Question 7 of 7: the last one, and it pays double"
+      },
+      {
+        "id": "l16",
+        "text": "The answer is 46,000 tiles: Maya is closest"
+      },
+      {
+        "id": "l17",
+        "text": "Maya wins with 51 points"
+      }
+    ],
+    "lastEventSeq": 95,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "closest",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

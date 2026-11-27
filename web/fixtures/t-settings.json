@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "SETTINGS",
+    "section": "Menu, settings and sound",
+    "description": "MENU → SETTINGS."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "menu",
+      "page": "settings"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Controller connected",
+    "section": "Toasts",
+    "description": "Plug in a controller."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "pads": {
+      "0": "Xbox controller",
+      "1": "PlayStation controller"
+    }
+  },
+  "ui": {
+    "toast": {
+      "text": "PlayStation controller connected"
+    }
+  }
+}

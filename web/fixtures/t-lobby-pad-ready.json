@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "A controller plugged in with no seat",
+    "section": "Lobby",
+    "description": "Plug in a second controller: the first open seat lights up (press A to sit)."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "pads": {
+      "0": "Xbox controller",
+      "1": "PlayStation controller"
+    }
+  }
+}

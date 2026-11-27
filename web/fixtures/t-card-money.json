@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Headlines card: collect money",
+    "section": "Turn: cards",
+    "description": "A card that pays: confirm collects it."
+  },
+  "extends": "card",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "pendingCard": {
+      "cardId": "chance-award",
+      "text": "Named Citizen of the Year: collect $100"
+    }
+  }
+}

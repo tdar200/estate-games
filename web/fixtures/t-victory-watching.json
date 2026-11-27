@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Victory, watching (old server)",
+    "section": "End of game",
+    "description": "Watching a finished game: no PLAY AGAIN."
+  },
+  "extends": "victory",
+  "ctx": {
+    "watching": true
+  }
+}

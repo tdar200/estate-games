@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Take a seat: keyboard (step 1, name selected)",
+    "section": "Seat setup and rules",
+    "description": "Press Enter in the lobby (or the keyboard + chip)."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "open": {
+      "kind": "seat",
+      "input": "keyboard"
+    }
+  }
+}

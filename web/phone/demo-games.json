@@ -1,0 +1,193 @@
+{
+  "_comment": "GET /api/games as Ben's phone sees it (shape captured from the server, 2 Nov 2026). Used by ?demo=home and web/tests/phone.check.mjs.",
+  "games": [
+    {
+      "code": "TLUER",
+      "status": "lobby",
+      "phase": "lobby",
+      "turn": 0,
+      "openSeats": 3,
+      "tableOnline": false,
+      "mine": true,
+      "playerId": "player_e3bf57f72172",
+      "online": true,
+      "updatedAt": 1793608509720,
+      "host": {
+        "name": "Ana",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF"
+      },
+      "rules": {
+        "diceMode": "random"
+      },
+      "players": [
+        {
+          "id": "player_ebcf4c37c8ac",
+          "name": "Ana",
+          "tokenKind": "rocket",
+          "color": "#1EA0FF",
+          "input": "phone",
+          "online": true,
+          "reclaimable": false
+        },
+        {
+          "id": "player_e3bf57f72172",
+          "name": "Ben",
+          "tokenKind": "teapot",
+          "color": "#7A1838",
+          "input": "phone",
+          "online": true,
+          "reclaimable": false
+        },
+        {
+          "id": "ai_9cddd384c85c",
+          "name": "Alpha",
+          "tokenKind": "bicycle",
+          "color": "#6F7A1A",
+          "input": "ai",
+          "online": true,
+          "reclaimable": false
+        }
+      ],
+      "gameType": "estate"
+    },
+    {
+      "code": "FP85S",
+      "status": "lobby",
+      "phase": "lobby",
+      "turn": 0,
+      "openSeats": 5,
+      "tableOnline": true,
+      "mine": false,
+      "online": true,
+      "updatedAt": 1793608509734,
+      "host": {
+        "name": "Dev",
+        "tokenKind": "key",
+        "color": "#8A5CF5"
+      },
+      "rules": {
+        "diceMode": "random"
+      },
+      "players": [
+        {
+          "id": "player_d3b251037fbc",
+          "name": "Dev",
+          "tokenKind": "key",
+          "color": "#8A5CF5",
+          "input": "phone",
+          "online": true,
+          "reclaimable": false
+        }
+      ],
+      "gameType": "poker"
+    },
+    {
+      "code": "KQ7RT",
+      "status": "playing",
+      "phase": "awaiting_roll",
+      "turn": 14,
+      "openSeats": 0,
+      "tableOnline": true,
+      "mine": false,
+      "online": true,
+      "updatedAt": 1793608400000,
+      "host": {
+        "name": "Cara",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C"
+      },
+      "rules": {
+        "diceMode": "random"
+      },
+      "players": [
+        {
+          "id": "player_2b78a2b26b4e",
+          "name": "Cara",
+          "tokenKind": "lighthouse",
+          "color": "#0E8C8C",
+          "input": "phone",
+          "online": true,
+          "reclaimable": false
+        },
+        {
+          "id": "player_77aa01b2c3d4",
+          "name": "Leo",
+          "tokenKind": "umbrella",
+          "color": "#1F1F24",
+          "input": "phone",
+          "online": false,
+          "reclaimable": true
+        },
+        {
+          "id": "player_5c1e0f9a8b7d",
+          "name": "Maya",
+          "tokenKind": "key",
+          "color": "#8A5CF5",
+          "input": "controller",
+          "online": true,
+          "reclaimable": false
+        },
+        {
+          "id": "ai_56b002966f72",
+          "name": "Blue Whale",
+          "tokenKind": "teapot",
+          "color": "#7A1838",
+          "input": "ai",
+          "online": true,
+          "reclaimable": false
+        }
+      ],
+      "gameType": "estate"
+    },
+    {
+      "code": "X5PAE",
+      "status": "playing",
+      "phase": "turn_complete",
+      "turn": 31,
+      "openSeats": 0,
+      "tableOnline": false,
+      "mine": false,
+      "online": true,
+      "updatedAt": 1793608300000,
+      "host": {
+        "name": "Priya",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A"
+      },
+      "rules": {
+        "diceMode": "random"
+      },
+      "players": [
+        {
+          "id": "player_0d9e8f7a6b5c",
+          "name": "Priya",
+          "tokenKind": "bicycle",
+          "color": "#6F7A1A",
+          "input": "phone",
+          "online": true,
+          "reclaimable": false
+        },
+        {
+          "id": "player_4a3b2c1d0e9f",
+          "name": "Jordan",
+          "tokenKind": "key",
+          "color": "#8A5CF5",
+          "input": "phone",
+          "online": true,
+          "reclaimable": false
+        },
+        {
+          "id": "ai_3d7f607eee82",
+          "name": "Alpha",
+          "tokenKind": "rocket",
+          "color": "#1EA0FF",
+          "input": "ai",
+          "online": true,
+          "reclaimable": false
+        }
+      ],
+      "gameType": "poker"
+    }
+  ]
+}

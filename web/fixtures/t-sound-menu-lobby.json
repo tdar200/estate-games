@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Sound menu (in the lobby)",
+    "section": "Menu, settings and sound",
+    "description": "The speaker button in the lobby header."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "open": {
+      "kind": "sound"
+    }
+  }
+}

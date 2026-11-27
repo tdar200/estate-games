@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "description": "Maya's phone after her capture: ROLL AGAIN"
+  },
+  "state": {
+    "game": "ludo",
+    "code": "D29HQ",
+    "status": "playing",
+    "phase": "roll",
+    "hostId": "p1",
+    "version": 84,
+    "now": 1793909864524,
+    "settings": {
+      "pieces": 4,
+      "board": "auto",
+      "anyRollOut": false,
+      "homeBonus": true,
+      "safeSquares": true,
+      "threeSixes": true,
+      "captureFirst": false,
+      "blocks": false,
+      "playOn": true
+    },
+    "seatLimit": 6,
+    "board": {
+      "arms": 4,
+      "ring": 52,
+      "column": 5,
+      "stepsHome": 56,
+      "starts": [
+        8,
+        21,
+        34,
+        47
+      ],
+      "safe": [
+        3,
+        8,
+        16,
+        21,
+        29,
+        34,
+        42,
+        47
+      ]
+    },
+    "turnId": "p1",
+    "turnNumber": 36,
+    "dice": 3,
+    "diceBy": "p1",
+    "rollSeq": 43,
+    "sixes": 0,
+    "moves": [],
+    "lastMove": {
+      "seq": 35,
+      "playerId": "p1",
+      "piece": 0,
+      "roll": 3,
+      "from": "r22",
+      "cell": "r25",
+      "path": [
+        "r23",
+        "r24",
+        "r25"
+      ],
+      "captured": [
+        {
+          "playerId": "p2",
+          "piece": 1,
+          "cell": "r25",
+          "yard": "y1.1"
+        }
+      ],
+      "out": false,
+      "home": false,
+      "again": true
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "arm": 0,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "track",
+            "step": 17,
+            "cell": "r25",
+            "square": 25,
+            "left": 39,
+            "safe": false
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 31,
+            "cell": "r39",
+            "square": 39,
+            "left": 25,
+            "safe": false
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y0.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "column",
+            "step": 1,
+            "cell": "c0.1",
+            "square": -1,
+            "left": 5,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 3,
+        "progress": 44,
+        "captures": 1,
+        "lost": 0,
+        "sixes": 2,
+        "canGoHome": true,
+        "isTurn": true,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "arm": 1,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "track",
+            "step": 27,
+            "cell": "r48",
+            "square": 48,
+            "left": 29,
+            "safe": false
+          },
+          {
+            "index": 1,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.1",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y1.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 1,
+        "progress": 12,
+        "captures": 0,
+        "lost": 1,
+        "sixes": 1,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "keyboard",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Alpha",
+        "kind": "ai",
+        "arm": 2,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.0",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 26,
+            "cell": "r8",
+            "square": 8,
+            "left": 30,
+            "safe": true
+          },
+          {
+            "index": 2,
+            "zone": "track",
+            "step": 5,
+            "cell": "r39",
+            "square": 39,
+            "left": 51,
+            "safe": false
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y2.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 2,
+        "progress": 14,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 2,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "difficulty": "hard"
+      },
+      {
+        "id": "p4",
+        "name": "Orca",
+        "kind": "ai",
+        "arm": 3,
+        "status": "playing",
+        "pieces": [
+          {
+            "index": 0,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.0",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 1,
+            "zone": "track",
+            "step": 10,
+            "cell": "r5",
+            "square": 5,
+            "left": 46,
+            "safe": false
+          },
+          {
+            "index": 2,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.2",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          },
+          {
+            "index": 3,
+            "zone": "yard",
+            "step": 0,
+            "cell": "y3.3",
+            "square": -1,
+            "left": 57,
+            "safe": true
+          }
+        ],
+        "home": 0,
+        "out": 1,
+        "progress": 4,
+        "captures": 0,
+        "lost": 0,
+        "sixes": 1,
+        "canGoHome": true,
+        "isTurn": false,
+        "input": "ai",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "difficulty": "normal"
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "toRoll": true,
+      "toMove": false,
+      "movable": []
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts on the 4-arm board, 4 pieces each. Kim goes first"
+      },
+      {
+        "id": "l2",
+        "text": "Kim brings a piece out"
+      },
+      {
+        "id": "l3",
+        "text": "Alpha rolls 4 and can't move"
+      },
+      {
+        "id": "l4",
+        "text": "Orca rolls 5 and can't move"
+      },
+      {
+        "id": "l5",
+        "text": "Maya brings a piece out"
+      },
+      {
+        "id": "l6",
+        "text": "Maya brings a piece out"
+      },
+      {
+        "id": "l7",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l8",
+        "text": "Orca rolls 2 and can't move"
+      },
+      {
+        "id": "l9",
+        "text": "Orca rolls 1 and can't move"
+      },
+      {
+        "id": "l10",
+        "text": "Orca rolls 4 and can't move"
+      },
+      {
+        "id": "l11",
+        "text": "Alpha brings a piece out"
+      },
+      {
+        "id": "l12",
+        "text": "Orca rolls 3 and can't move"
+      },
+      {
+        "id": "l13",
+        "text": "Orca rolls 1 and can't move"
+      },
+      {
+        "id": "l14",
+        "text": "Orca brings a piece out"
+      },
+      {
+        "id": "l15",
+        "text": "Maya captures Kim's piece"
+      }
+    ],
+    "lastEventSeq": 134,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "ludo",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Moved to another screen",
+    "section": "Gates and connection",
+    "description": "Open this table on another PC (SHOW HERE / RESUME there)."
+  },
+  "ui": {
+    "gate": {
+      "kind": "moved",
+      "code": "NXGNT"
+    }
+  }
+}

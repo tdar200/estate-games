@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0A2A1F">
+  <link rel="manifest" href="/table/app.webmanifest">
+  <link rel="apple-touch-icon" href="/shared/app-icons/apple-touch-icon.png">
+  <title>Estate · Table</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230A2A1F%27/%3E%3Crect x=%275%27 y=%275%27 width=%2722%27 height=%2722%27 fill=%27%23FBFAF4%27/%3E%3Crect x=%275%27 y=%275%27 width=%2722%27 height=%276%27 fill=%27%23F2C14E%27/%3E%3C/svg%3E">
+  <link rel="preload" href="/shared/fonts/Oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/shared/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/shared/fonts/BarlowCondensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/shared/fonts/BarlowCondensed-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/shared/fonts/Barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/shared/fonts.css">
+  <link rel="stylesheet" href="/shared/fonts-tabletop.css">
+  <link rel="stylesheet" href="/shared/tokens.css">
+  <link rel="stylesheet" href="/shared/board.css">
+  <link rel="stylesheet" href="/table/table.css">
+  <link rel="stylesheet" href="/shared/poker.css">
+  <link rel="stylesheet" href="/shared/ludo.css">
+  <link rel="stylesheet" href="/shared/quiz.css">
+  <link rel="stylesheet" href="/shared/closest.css">
+  <link rel="stylesheet" href="/table/tabletop.css">
+  <script type="module" src="/table/table.js"></script>
+</head>
+<body class="table-app">
+  <div id="viewport" class="viewport">
+    <div id="stage" class="stage">
+      <main id="join-screen" class="join" hidden aria-labelledby="join-title"></main>
+      <main id="game-screen" class="game" hidden aria-label="Game table">
+        <!-- The board fills the stage inside a clipped camera; everything else floats over it. -->
+        <div id="camera" class="camera"><div id="board" class="game__board"></div></div>
+        <aside class="rail" aria-label="Players">
+          <h1 class="sr-only">Estate</h1>
+          <span id="table-code" class="table-code"></span>
+          <section id="plates" class="plates" aria-label="Players"></section>
+          <div id="plate-fx" class="plate-fx" aria-hidden="true"></div>
+        </aside>
+        <div class="hud-tools">
+          <span id="conn-note" class="side__conn"><span class="dot" aria-hidden="true"></span><span class="side__conn-text"></span></span>
+          <button id="mute" class="icon-btn sound-btn" type="button" aria-pressed="false" aria-label="Sound" title="Sound and music"></button>
+          <button id="menu-btn" class="icon-btn menu-btn" type="button" aria-haspopup="dialog" aria-label="Menu" title="Menu: settings, how to play, leave"></button>
+        </div>
+        <div id="minimap" class="minimap" hidden aria-hidden="true"><div class="minimap__board"></div><div class="minimap__view"></div></div>
+        <div class="hud-right">
+          <div id="dice-hud" class="dice-hud" aria-hidden="true"></div>
+          <div id="show" class="show" aria-live="polite"></div>
+          <section id="panel" class="panel now on-light" aria-live="polite"></section>
+        </div>
+        <section id="dock" class="dock on-light" hidden></section>
+      </main>
+      <main id="poker-screen" class="pk-screen pk-tv" hidden aria-label="Poker table"></main>
+      <main id="ludo-screen" class="pk-screen ld-tv" hidden aria-label="Ludo table"></main>
+      <main id="quiz-screen" class="pk-screen qz-tv" hidden aria-label="Quiz table"></main>
+      <main id="closest-screen" class="pk-screen qz-tv cg-tv" hidden aria-label="Number guessing game table"></main>
+      <div id="stage-fx" class="stage-fx" aria-hidden="true"></div>
+      <button id="sound-pill" class="sound-pill" type="button" hidden></button>
+      <div id="netbar" class="netbar" role="alert" hidden></div>
+      <div id="overlay" class="overlay" hidden></div>
+      <div id="sound-menu" class="sound-menu" hidden></div>
+      <div id="deed-view" class="deed-view" hidden></div>
+      <div id="gate" class="gate" hidden></div>
+      <div id="loading" class="loading" role="status">Setting up the table…</div>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

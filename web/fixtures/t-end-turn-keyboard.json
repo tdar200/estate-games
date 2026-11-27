@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "END TURN: keyboard seat",
+    "section": "Turn: landing",
+    "description": "Nothing left to decide after the move."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "phase": "turn_complete",
+    "turn": {
+      "dice": [
+        3,
+        4
+      ]
+    }
+  }
+}

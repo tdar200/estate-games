@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Headlines card: keyboard seat confirms",
+    "section": "Turn: cards",
+    "description": "Land on Headlines: the card shows above the action card; the board marks where it sends you."
+  },
+  "extends": "card",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

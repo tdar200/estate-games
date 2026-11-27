@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Two players",
+    "section": "Plates and board",
+    "description": "A two-player game."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "players": {
+      "Sam": null,
+      "Robin": null
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Lobby, watching (old server)",
+    "section": "Lobby",
+    "description": "Watch a room from the old server (?watch=CODE): no controls."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "watching": true
+  }
+}

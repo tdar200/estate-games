@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "title": "ACTIVE GAMES: SHOW HERE and ON A SCREEN",
+    "section": "Lobby",
+    "description": "Other games on this server: a phone-hosted lobby and game (SHOW HERE) and one already on a screen."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "games": [
+      {
+        "code": "PHN01",
+        "status": "lobby",
+        "phase": "lobby",
+        "turn": null,
+        "host": {
+          "name": "Priya",
+          "tokenKind": "teapot",
+          "color": "#7A1838"
+        },
+        "players": [
+          {
+            "id": "p1",
+            "name": "Priya",
+            "tokenKind": "teapot",
+            "color": "#7A1838",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "p2",
+            "name": "Ravi",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "phone",
+            "online": false
+          },
+          {
+            "id": "a1",
+            "name": "Alpha",
+            "tokenKind": "key",
+            "color": "#8A5CF5",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 3,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560000000
+      },
+      {
+        "code": "PLY22",
+        "status": "playing",
+        "phase": "awaiting_roll",
+        "turn": 14,
+        "host": {
+          "name": "Sam",
+          "tokenKind": "rocket",
+          "color": "#1EA0FF"
+        },
+        "players": [
+          {
+            "id": "s1",
+            "name": "Sam",
+            "tokenKind": "rocket",
+            "color": "#1EA0FF",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "m1",
+            "name": "Maya",
+            "tokenKind": "lighthouse",
+            "color": "#0E8C8C",
+            "input": "controller",
+            "online": true
+          }
+        ],
+        "openSeats": 0,
+        "tableOnline": true,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560001000
+      },
+      {
+        "code": "KEY77",
+        "status": "playing",
+        "phase": "awaiting_roll",
+        "turn": 3,
+        "host": {
+          "name": "Eve",
+          "tokenKind": "key",
+          "color": "#8A5CF5"
+        },
+        "players": [
+          {
+            "id": "e1",
+            "name": "Eve",
+            "tokenKind": "key",
+            "color": "#8A5CF5",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "t1",
+            "name": "Tom",
+            "tokenKind": "teapot",
+            "color": "#7A1838",
+            "input": "phone",
+            "online": true
+          },
+          {
+            "id": "b1",
+            "name": "Beta",
+            "tokenKind": "bicycle",
+            "color": "#6F7A1A",
+            "input": "ai",
+            "online": true
+          }
+        ],
+        "openSeats": 0,
+        "tableOnline": false,
+        "rules": {},
+        "mine": false,
+        "online": true,
+        "updatedAt": 1793560002000
+      }
+    ]
+  }
+}

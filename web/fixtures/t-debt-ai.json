@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Debt: a computer",
+    "section": "Debt and bankruptcy",
+    "description": "A computer is raising cash."
+  },
+  "extends": "debt",
+  "patch": {
+    "currentPlayerId": "@Alpha",
+    "currentIndex": 1,
+    "debt": {
+      "payerId": "@Alpha"
+    },
+    "turn": {
+      "playerId": "@Alpha"
+    },
+    "players": {
+      "Alpha": {
+        "position": 16
+      }
+    }
+  }
+}

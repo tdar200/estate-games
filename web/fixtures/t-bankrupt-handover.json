@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Bankruptcy: hand-over",
+    "section": "Debt and bankruptcy",
+    "description": "Confirm bankruptcy: deeds and cash go to the creditor, the plate says OUT."
+  },
+  "extends": "debt",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "awaiting_roll",
+        "debt": null,
+        "currentPlayerId": "@Sam",
+        "currentIndex": 0,
+        "turn": {
+          "playerId": "@Sam",
+          "dice": null,
+          "doublesCount": 0
+        },
+        "players": {
+          "Robin": {
+            "bankrupt": true,
+            "cash": 0
+          },
+          "Maya": {
+            "cash": 654
+          }
+        },
+        "properties": {
+          "11": {
+            "ownerId": "@Maya",
+            "houses": 0
+          },
+          "23": {
+            "ownerId": "@Maya",
+            "houses": 0
+          },
+          "31": {
+            "ownerId": "@Maya",
+            "houses": 0
+          },
+          "32": {
+            "ownerId": "@Maya",
+            "houses": 0
+          },
+          "34": {
+            "ownerId": "@Maya",
+            "houses": 0
+          }
+        },
+        "lastBankruptcy": {
+          "playerId": "@Robin",
+          "creditorId": "@Maya"
+        },
+        "log+": [
+          {
+            "text": "Robin declared bankruptcy; assets transferred to Maya",
+            "at": 1793560000000
+          },
+          {
+            "text": "Sam's turn",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

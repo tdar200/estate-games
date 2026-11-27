@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Trade: controller seat",
+    "section": "Trade",
+    "description": "Press Y on a controller."
+  },
+  "extends": "pad-turn",
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Sam",
+        "offer": [
+          21
+        ],
+        "request": [
+          26
+        ]
+      }
+    }
+  }
+}

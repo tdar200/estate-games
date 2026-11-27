@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "ROLL: controller seat",
+    "section": "Turn: roll",
+    "description": "A controller seat's turn starts."
+  },
+  "extends": "pad-turn"
+}

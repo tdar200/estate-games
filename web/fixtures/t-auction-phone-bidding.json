@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Auction: a phone player bidding",
+    "section": "Turn: auction",
+    "description": "A phone player's bid."
+  },
+  "extends": "auction"
+}

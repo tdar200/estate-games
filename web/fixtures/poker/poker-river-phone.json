@@ -1,0 +1,827 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "playing",
+    "phase": "betting",
+    "hostId": "p1",
+    "version": 23,
+    "now": 1762160434500,
+    "settings": {
+      "style": "tournament",
+      "maxPlayers": 8,
+      "startingStack": 1500,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "auto",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 0,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 1762160880000,
+      "next": {
+        "smallBlind": 15,
+        "bigBlind": 30,
+        "ante": 0,
+        "minutes": 8
+      }
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 15,
+        "bigBlind": 30,
+        "ante": 0,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 20,
+        "bigBlind": 40,
+        "ante": 5,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 30,
+        "bigBlind": 60,
+        "ante": 6,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 50,
+        "bigBlind": 100,
+        "ante": 12,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 75,
+        "bigBlind": 150,
+        "ante": 15,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 100,
+        "bigBlind": 200,
+        "ante": 25,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 150,
+        "bigBlind": 300,
+        "ante": 30,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 250,
+        "bigBlind": 500,
+        "ante": 60,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 400,
+        "bigBlind": 800,
+        "ante": 100,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 600,
+        "bigBlind": 1200,
+        "ante": 150,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 1000,
+        "bigBlind": 2000,
+        "ante": 250,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 1500,
+        "bigBlind": 3000,
+        "ante": 300,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 2000,
+        "bigBlind": 4000,
+        "ante": 500,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 3000,
+        "bigBlind": 6000,
+        "ante": 750,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 1,
+    "street": "river",
+    "board": [
+      "4c",
+      "9c",
+      "7d",
+      "8c",
+      "4d"
+    ],
+    "pots": [
+      {
+        "amount": 840,
+        "eligibleIds": [
+          "p2",
+          "p3",
+          "p1"
+        ]
+      }
+    ],
+    "totalPot": 1680,
+    "currentBet": 420,
+    "buttonSeat": 0,
+    "smallBlindSeat": 1,
+    "bigBlindSeat": 2,
+    "actorId": "p1",
+    "actionDeadline": 1762160454500,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 1220,
+        "bet": 0,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "3h",
+          "6d"
+        ],
+        "shown": false,
+        "isButton": true,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p1",
+          "street": "turn",
+          "type": "call",
+          "amount": 168,
+          "to": 168
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 800,
+        "bet": 420,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": true,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p2",
+          "street": "river",
+          "type": "bet",
+          "amount": 420,
+          "to": 420
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 800,
+        "bet": 420,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": true,
+        "lastAction": {
+          "playerId": "p3",
+          "street": "river",
+          "type": "call",
+          "amount": 420,
+          "to": 420
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      },
+      {
+        "id": "p4",
+        "name": "Priya",
+        "kind": "human",
+        "seat": 3,
+        "stack": 1500,
+        "bet": 0,
+        "status": "folded",
+        "inHand": true,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p4",
+          "street": "preflop",
+          "type": "fold",
+          "amount": 0,
+          "to": 0
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "online": true
+      },
+      {
+        "id": "p5",
+        "name": "Skylark",
+        "kind": "ai",
+        "seat": 4,
+        "stack": 1500,
+        "bet": 0,
+        "status": "folded",
+        "inHand": true,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p5",
+          "street": "preflop",
+          "type": "fold",
+          "amount": 0,
+          "to": 0
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "key",
+        "online": true,
+        "difficulty": "easy"
+      },
+      {
+        "id": "p6",
+        "name": "Jonah",
+        "kind": "human",
+        "seat": 5,
+        "stack": 1500,
+        "bet": 0,
+        "status": "folded",
+        "inHand": true,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p6",
+          "street": "preflop",
+          "type": "fold",
+          "amount": 0,
+          "to": 0
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "umbrella",
+        "online": true
+      }
+    ],
+    "actions": [
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "smallBlind",
+        "amount": 10,
+        "to": 10
+      },
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "bigBlind",
+        "amount": 20,
+        "to": 20
+      },
+      {
+        "playerId": "p4",
+        "street": "preflop",
+        "type": "fold",
+        "amount": 0,
+        "to": 0
+      },
+      {
+        "playerId": "p5",
+        "street": "preflop",
+        "type": "fold",
+        "amount": 0,
+        "to": 0
+      },
+      {
+        "playerId": "p6",
+        "street": "preflop",
+        "type": "fold",
+        "amount": 0,
+        "to": 0
+      },
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "call",
+        "amount": 20,
+        "to": 20
+      },
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "raise",
+        "amount": 35,
+        "to": 45
+      },
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "call",
+        "amount": 25,
+        "to": 45
+      },
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "call",
+        "amount": 25,
+        "to": 45
+      },
+      {
+        "playerId": "p2",
+        "street": "flop",
+        "type": "bet",
+        "amount": 67,
+        "to": 67
+      },
+      {
+        "playerId": "p3",
+        "street": "flop",
+        "type": "call",
+        "amount": 67,
+        "to": 67
+      },
+      {
+        "playerId": "p1",
+        "street": "flop",
+        "type": "call",
+        "amount": 67,
+        "to": 67
+      },
+      {
+        "playerId": "p2",
+        "street": "turn",
+        "type": "bet",
+        "amount": 168,
+        "to": 168
+      },
+      {
+        "playerId": "p3",
+        "street": "turn",
+        "type": "call",
+        "amount": 168,
+        "to": 168
+      },
+      {
+        "playerId": "p1",
+        "street": "turn",
+        "type": "call",
+        "amount": 168,
+        "to": 168
+      },
+      {
+        "playerId": "p2",
+        "street": "river",
+        "type": "bet",
+        "amount": 420,
+        "to": 420
+      },
+      {
+        "playerId": "p3",
+        "street": "river",
+        "type": "call",
+        "amount": 420,
+        "to": 420
+      }
+    ],
+    "result": null,
+    "you": {
+      "id": "p1",
+      "seat": 0,
+      "cards": [
+        "3h",
+        "6d"
+      ],
+      "handName": "Pair of Fours",
+      "strength": 0,
+      "toAct": true,
+      "legal": {
+        "fold": true,
+        "check": false,
+        "call": 420,
+        "raise": {
+          "isBet": false,
+          "min": 840,
+          "max": 1220,
+          "presets": [
+            {
+              "label": "Min",
+              "to": 840
+            },
+            {
+              "label": "All-in",
+              "to": 1220
+            }
+          ]
+        },
+        "allIn": 1220
+      },
+      "canShow": false,
+      "canRebuy": false,
+      "sittingOut": false,
+      "sitOutNext": false,
+      "isHost": true
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 1,500 chips each, blinds 10/20"
+      },
+      {
+        "id": "l2",
+        "text": "Hand #1: Maya has the button"
+      },
+      {
+        "id": "l3",
+        "text": "Sam posts the small blind 10"
+      },
+      {
+        "id": "l4",
+        "text": "Redwood posts the big blind 20"
+      },
+      {
+        "id": "l5",
+        "text": "Priya folds"
+      },
+      {
+        "id": "l6",
+        "text": "Skylark folds"
+      },
+      {
+        "id": "l7",
+        "text": "Jonah folds"
+      },
+      {
+        "id": "l8",
+        "text": "Maya calls 20"
+      },
+      {
+        "id": "l9",
+        "text": "Sam raises to 45"
+      },
+      {
+        "id": "l10",
+        "text": "Redwood calls 25"
+      },
+      {
+        "id": "l11",
+        "text": "Maya calls 25"
+      },
+      {
+        "id": "l12",
+        "text": "Flop: 4c 9c 7d"
+      },
+      {
+        "id": "l13",
+        "text": "Sam bets 67"
+      },
+      {
+        "id": "l14",
+        "text": "Redwood calls 67"
+      },
+      {
+        "id": "l15",
+        "text": "Maya calls 67"
+      },
+      {
+        "id": "l16",
+        "text": "Turn: 8c"
+      },
+      {
+        "id": "l17",
+        "text": "Sam bets 168"
+      },
+      {
+        "id": "l18",
+        "text": "Redwood calls 168"
+      },
+      {
+        "id": "l19",
+        "text": "Maya calls 168"
+      },
+      {
+        "id": "l20",
+        "text": "River: 4d"
+      },
+      {
+        "id": "l21",
+        "text": "Sam bets 420"
+      },
+      {
+        "id": "l22",
+        "text": "Redwood calls 420"
+      }
+    ],
+    "lastEventSeq": 27,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    }
+  },
+  "viewer": {
+    "role": "player",
+    "playerId": "p1",
+    "name": "Maya"
+  },
+  "events": [
+    {
+      "seq": 7,
+      "type": "handStart",
+      "handNumber": 1,
+      "playerId": "p1"
+    },
+    {
+      "seq": 8,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "smallBlind",
+      "amount": 10,
+      "to": 10,
+      "street": "preflop"
+    },
+    {
+      "seq": 9,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "bigBlind",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    },
+    {
+      "seq": 10,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p4",
+      "action": "fold",
+      "street": "preflop"
+    },
+    {
+      "seq": 11,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p5",
+      "action": "fold",
+      "street": "preflop"
+    },
+    {
+      "seq": 12,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p6",
+      "action": "fold",
+      "street": "preflop"
+    },
+    {
+      "seq": 13,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "call",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    },
+    {
+      "seq": 14,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "raise",
+      "amount": 35,
+      "to": 45,
+      "street": "preflop"
+    },
+    {
+      "seq": 15,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "call",
+      "amount": 25,
+      "to": 45,
+      "street": "preflop"
+    },
+    {
+      "seq": 16,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "call",
+      "amount": 25,
+      "to": 45,
+      "street": "preflop"
+    },
+    {
+      "seq": 17,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "flop",
+      "cards": [
+        "4c",
+        "9c",
+        "7d"
+      ]
+    },
+    {
+      "seq": 18,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "bet",
+      "amount": 67,
+      "to": 67,
+      "street": "flop"
+    },
+    {
+      "seq": 19,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "call",
+      "amount": 67,
+      "to": 67,
+      "street": "flop"
+    },
+    {
+      "seq": 20,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "call",
+      "amount": 67,
+      "to": 67,
+      "street": "flop"
+    },
+    {
+      "seq": 21,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "turn",
+      "cards": [
+        "8c"
+      ]
+    },
+    {
+      "seq": 22,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "bet",
+      "amount": 168,
+      "to": 168,
+      "street": "turn"
+    },
+    {
+      "seq": 23,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "call",
+      "amount": 168,
+      "to": 168,
+      "street": "turn"
+    },
+    {
+      "seq": 24,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "call",
+      "amount": 168,
+      "to": 168,
+      "street": "turn"
+    },
+    {
+      "seq": 25,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "river",
+      "cards": [
+        "4d"
+      ]
+    },
+    {
+      "seq": 26,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "bet",
+      "amount": 420,
+      "to": 420,
+      "street": "river"
+    },
+    {
+      "seq": 27,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "call",
+      "amount": 420,
+      "to": 420,
+      "street": "river"
+    }
+  ],
+  "meta": {
+    "description": "River: Maya faces a bet; last decision of the hand (Maya's phone with her options and hand strength)",
+    "seed": 1,
+    "hand": 1
+  }
+}

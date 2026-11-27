@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "MENU (in a game)",
+    "section": "Menu, settings and sound",
+    "description": "The menu button top-right, Esc with nothing open, or Start on a pad."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "menu"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Waiting for players (START off)",
+    "section": "Lobby",
+    "description": "One phone has joined; START needs two players."
+  },
+  "extends": "table-empty"
+}

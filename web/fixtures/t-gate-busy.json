@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Open on another screen",
+    "section": "Gates and connection",
+    "description": "RESUME a table another screen is showing."
+  },
+  "ui": {
+    "gate": {
+      "kind": "busy",
+      "code": "NXGNT"
+    }
+  }
+}

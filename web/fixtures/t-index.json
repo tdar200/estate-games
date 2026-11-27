@@ -1,0 +1,1367 @@
+[
+  {
+    "id": "loading",
+    "section": "Start-up",
+    "title": "Setting up the table",
+    "demo": "t-loading",
+    "live": "The first second after opening the table page."
+  },
+  {
+    "id": "setup-error",
+    "section": "Start-up",
+    "title": "Couldn't set up a table",
+    "demo": "t-setup-error",
+    "live": "The server refuses POST /api/tables (or is unreachable) when the page opens."
+  },
+  {
+    "id": "watch-prompt",
+    "section": "Start-up",
+    "title": "Watch a game (old server)",
+    "demo": "t-watch-prompt",
+    "live": "Open the table page on a server without party mode (old Node server), or with ?watch."
+  },
+  {
+    "id": "watch-prompt-error",
+    "section": "Start-up",
+    "title": "Watch a game: wrong code",
+    "demo": "t-watch-prompt-error",
+    "live": "Type a room code that doesn't exist on the watch prompt."
+  },
+  {
+    "id": "lobby-fresh",
+    "section": "Lobby",
+    "title": "Fresh table, nobody seated",
+    "demo": "t-lobby-fresh",
+    "live": "A new table before anyone joins."
+  },
+  {
+    "id": "lobby-host-only",
+    "section": "Lobby",
+    "title": "Waiting for players (START off)",
+    "demo": "t-lobby-host-only",
+    "live": "One phone has joined; START needs two players."
+  },
+  {
+    "id": "lobby-players",
+    "section": "Lobby",
+    "title": "Lobby with players",
+    "demo": "t-lobby-players",
+    "live": "Phones, a computer and a controller seat have joined."
+  },
+  {
+    "id": "lobby-full",
+    "section": "Lobby",
+    "title": "Full lobby: every kind of seat",
+    "demo": "t-lobby-full",
+    "live": "Six seats: phones, controller, keyboard and computers at two levels; + buttons are off."
+  },
+  {
+    "id": "lobby-pad-ready",
+    "section": "Lobby",
+    "title": "A controller plugged in with no seat",
+    "demo": "t-lobby-pad-ready",
+    "live": "Plug in a second controller: the first open seat lights up (press A to sit)."
+  },
+  {
+    "id": "lobby-rules-custom",
+    "section": "Lobby",
+    "title": "Lobby with custom house rules",
+    "demo": "t-lobby-rules-custom",
+    "live": "Change a house rule: the RULES chip is highlighted."
+  },
+  {
+    "id": "lobby-ai-level",
+    "section": "Lobby",
+    "title": "Computer level picked: EASY",
+    "demo": "t-lobby-ai-level",
+    "live": "Press the level chip next to the computer + until it says EASY."
+  },
+  {
+    "id": "lobby-lan",
+    "section": "Lobby",
+    "title": "Join link for this Wi-Fi only",
+    "demo": "t-lobby-lan",
+    "live": "A server with no public URL: the card says SAME WI-FI."
+  },
+  {
+    "id": "lobby-active-games",
+    "section": "Lobby",
+    "title": "ACTIVE GAMES: SHOW HERE and ON A SCREEN",
+    "demo": "t-lobby-active-games",
+    "live": "Other games on this server: a phone-hosted lobby and game (SHOW HERE) and one already on a screen."
+  },
+  {
+    "id": "lobby-active-games-many",
+    "section": "Lobby",
+    "title": "ACTIVE GAMES: a long list",
+    "demo": "t-lobby-active-games-many",
+    "live": "Seven other games on the server."
+  },
+  {
+    "id": "lobby-resume-typing",
+    "section": "Lobby",
+    "title": "RESUME A TABLE: typing a code",
+    "demo": "t-lobby-resume-typing",
+    "live": "Click the RESUME A TABLE box and type."
+  },
+  {
+    "id": "lobby-resume-error",
+    "section": "Lobby",
+    "title": "RESUME A TABLE: no such table",
+    "demo": "t-lobby-resume-error",
+    "live": "Type a code that doesn't exist and press the arrow."
+  },
+  {
+    "id": "lobby-resume-short",
+    "section": "Lobby",
+    "title": "RESUME A TABLE: code too short",
+    "demo": "t-lobby-resume-short",
+    "live": "Press the arrow with fewer than five letters."
+  },
+  {
+    "id": "lobby-rematch",
+    "section": "Lobby",
+    "title": "Lobby after PLAY AGAIN",
+    "demo": "t-lobby-rematch",
+    "live": "PLAY AGAIN on the victory screen: same code, same seats and rules, a fresh lobby."
+  },
+  {
+    "id": "lobby-watching",
+    "section": "Lobby",
+    "title": "Lobby, watching (old server)",
+    "demo": "t-lobby-watching",
+    "live": "Watch a room from the old server (?watch=CODE): no controls."
+  },
+  {
+    "id": "lobby-offline",
+    "section": "Lobby",
+    "title": "Lobby: connection lost",
+    "demo": "t-lobby-offline",
+    "live": "The server drops while the lobby is up."
+  },
+  {
+    "id": "seat-keyboard",
+    "section": "Seat setup and rules",
+    "title": "Take a seat: keyboard (step 1, name selected)",
+    "demo": "t-seat-keyboard",
+    "live": "Press Enter in the lobby (or the keyboard + chip)."
+  },
+  {
+    "id": "seat-kite",
+    "section": "Seat setup and rules",
+    "title": "Take a seat: the NEW kite",
+    "demo": "t-seat-kite",
+    "live": "The token picker: taken tokens greyed with their owners, the kite (new, replaces the top hat)."
+  },
+  {
+    "id": "seat-keyboard-named",
+    "section": "Seat setup and rules",
+    "title": "Take a seat: keyboard, name typed, token picked",
+    "demo": "t-seat-keyboard-named",
+    "live": "Type a name and pick a token."
+  },
+  {
+    "id": "seat-controller",
+    "section": "Seat setup and rules",
+    "title": "Take a seat: controller",
+    "demo": "t-seat-controller",
+    "live": "Press A on a controller that has no seat yet."
+  },
+  {
+    "id": "seat-last",
+    "section": "Seat setup and rules",
+    "title": "Take a seat: the last free token",
+    "demo": "t-seat-last",
+    "live": "Five seats taken: only one token left."
+  },
+  {
+    "id": "seats-full-toast",
+    "section": "Seat setup and rules",
+    "title": "All six seats taken",
+    "demo": "t-seats-full-toast",
+    "live": "Press Enter (or A) with six players seated."
+  },
+  {
+    "id": "rules-default",
+    "section": "Seat setup and rules",
+    "title": "House rules: default",
+    "demo": "t-rules-default",
+    "live": "Press RULES in the lobby."
+  },
+  {
+    "id": "rules-custom",
+    "section": "Seat setup and rules",
+    "title": "House rules: changed",
+    "demo": "t-rules-custom",
+    "live": "Turn loans and the City Park jackpot on, auctions off, start cash up."
+  },
+  {
+    "id": "order-two-seats",
+    "section": "Order roll",
+    "title": "Roll for order: keyboard and controller both to roll",
+    "demo": "t-order-two-seats",
+    "live": "After START, two seats at this screen still have to roll."
+  },
+  {
+    "id": "order-controller",
+    "section": "Order roll",
+    "title": "Roll for order: controller seat",
+    "demo": "t-order-controller",
+    "live": "After START, the controller seat has to roll (phones roll on their phones)."
+  },
+  {
+    "id": "order-waiting",
+    "section": "Order roll",
+    "title": "Roll for order: waiting on phones",
+    "demo": "t-order-waiting",
+    "live": "Everyone here has rolled; a phone hasn't."
+  },
+  {
+    "id": "order-dice",
+    "section": "Order roll",
+    "title": "Roll for order: dice landing (mid)",
+    "demo": "t-order-dice",
+    "live": "A seat rolls for order."
+  },
+  {
+    "id": "order-countdown",
+    "section": "Order roll",
+    "title": "Order settled: countdown",
+    "demo": "t-order-countdown",
+    "live": "Everyone has rolled; the order shows before the first turn."
+  },
+  {
+    "id": "roll-keyboard",
+    "section": "Turn: roll",
+    "title": "ROLL: keyboard seat",
+    "demo": "t-roll-keyboard",
+    "live": "A keyboard seat's turn starts."
+  },
+  {
+    "id": "roll-controller",
+    "section": "Turn: roll",
+    "title": "ROLL: controller seat",
+    "demo": "t-roll-controller",
+    "live": "A controller seat's turn starts."
+  },
+  {
+    "id": "roll-build",
+    "section": "Turn: roll",
+    "title": "ROLL with BUILD offered",
+    "demo": "t-roll-build",
+    "live": "A keyboard seat with a full set and cash: BUILD sits next to ROLL."
+  },
+  {
+    "id": "roll-danger",
+    "section": "Turn: roll",
+    "title": "ROLL with danger ahead",
+    "demo": "t-roll-danger",
+    "live": "Expensive squares within one roll and little cash: the $ AHEAD badge turns red."
+  },
+  {
+    "id": "roll-phone",
+    "section": "Turn: roll",
+    "title": "A phone player's turn",
+    "demo": "t-roll-phone",
+    "live": "Someone on a phone is about to roll: the card shows their phone and dots."
+  },
+  {
+    "id": "roll-ai",
+    "section": "Turn: roll",
+    "title": "A computer's turn (thinking)",
+    "demo": "t-roll-ai",
+    "live": "A computer player's turn."
+  },
+  {
+    "id": "roll-offline",
+    "section": "Turn: roll",
+    "title": "An offline player's turn",
+    "demo": "t-roll-offline",
+    "live": "A phone dropped off and it's their turn: wifi-off on the plate and the card."
+  },
+  {
+    "id": "roll-autopilot",
+    "section": "Turn: roll",
+    "title": "Robot stand-in plays for an offline player",
+    "demo": "t-roll-autopilot",
+    "live": "An offline phone's turn when the server lets the computer play for them."
+  },
+  {
+    "id": "dice-landing",
+    "section": "Turn: roll",
+    "title": "Dice landing (mid)",
+    "demo": "t-dice-landing",
+    "live": "Press ROLL: the dice land above the card."
+  },
+  {
+    "id": "hop-mid",
+    "section": "Turn: roll",
+    "title": "Hop, mid-move (camera follows)",
+    "demo": "t-hop-mid",
+    "live": "After the dice: the token hops square by square and the camera follows."
+  },
+  {
+    "id": "doubles-again",
+    "section": "Turn: roll",
+    "title": "Doubles: ROLL AGAIN",
+    "demo": "t-doubles-again",
+    "live": "Roll doubles: the same player rolls again (one of three)."
+  },
+  {
+    "id": "doubles-twice",
+    "section": "Turn: roll",
+    "title": "Doubles twice: one more is jail",
+    "demo": "t-doubles-twice",
+    "live": "Second doubles in a row."
+  },
+  {
+    "id": "pass-go",
+    "section": "Turn: landing",
+    "title": "Passed PAYDAY: +$200",
+    "demo": "t-pass-go",
+    "live": "A move past PAYDAY."
+  },
+  {
+    "id": "tax",
+    "section": "Turn: landing",
+    "title": "Tax paid",
+    "demo": "t-tax",
+    "live": "Land on Stamp Duty."
+  },
+  {
+    "id": "go-to-jail",
+    "section": "Turn: landing",
+    "title": "Sent to jail",
+    "demo": "t-go-to-jail",
+    "live": "Land on Busted."
+  },
+  {
+    "id": "rent-paid",
+    "section": "Turn: landing",
+    "title": "Rent paid by a keyboard seat",
+    "demo": "t-rent-paid",
+    "live": "Land on someone else's street."
+  },
+  {
+    "id": "rent-big",
+    "section": "Turn: landing",
+    "title": "Big rent (hotel)",
+    "demo": "t-rent-big",
+    "live": "Land on a street with a hotel: the board shakes."
+  },
+  {
+    "id": "rent-received",
+    "section": "Turn: landing",
+    "title": "Rent received by a seat at this screen",
+    "demo": "t-rent-received",
+    "live": "A phone player lands on a keyboard seat's street."
+  },
+  {
+    "id": "rent-x2",
+    "section": "Turn: landing",
+    "title": "RENT ×2: a Headlines card's double rent",
+    "demo": "t-rent-x2",
+    "live": "\"Strike called off\" sends the player to the nearest station: double rent (base × 2)."
+  },
+  {
+    "id": "rent-x10",
+    "section": "Turn: landing",
+    "title": "RENT ×10: a Headlines card's utility rent",
+    "demo": "t-rent-x10",
+    "live": "\"Heatwave\" sends the player to the nearest utility: ten times a fresh roll (dice shown)."
+  },
+  {
+    "id": "jackpot",
+    "section": "Turn: landing",
+    "title": "City Park jackpot",
+    "demo": "t-jackpot",
+    "live": "House rule on: land on City Park with money in the pot."
+  },
+  {
+    "id": "end-turn-keyboard",
+    "section": "Turn: landing",
+    "title": "END TURN: keyboard seat",
+    "demo": "t-end-turn-keyboard",
+    "live": "Nothing left to decide after the move."
+  },
+  {
+    "id": "end-turn-controller",
+    "section": "Turn: landing",
+    "title": "END TURN: controller seat",
+    "demo": "t-end-turn-controller",
+    "live": "Nothing left to decide after the move."
+  },
+  {
+    "id": "end-turn-phone",
+    "section": "Turn: landing",
+    "title": "A phone player's turn ends (bought)",
+    "demo": "t-end-turn-phone",
+    "live": "A phone player bought and is about to end the turn."
+  },
+  {
+    "id": "end-turn-ai",
+    "section": "Turn: landing",
+    "title": "A computer's turn ends",
+    "demo": "t-end-turn-ai",
+    "live": "A computer finishes its turn."
+  },
+  {
+    "id": "card-keyboard",
+    "section": "Turn: cards",
+    "title": "Headlines card: keyboard seat confirms",
+    "demo": "t-card-keyboard",
+    "live": "Land on Headlines: the card shows above the action card; the board marks where it sends you."
+  },
+  {
+    "id": "card-controller",
+    "section": "Turn: cards",
+    "title": "Headlines card: controller seat confirms",
+    "demo": "t-card-controller",
+    "live": "Same, for a controller seat."
+  },
+  {
+    "id": "card-phone",
+    "section": "Turn: cards",
+    "title": "Headlines card: a phone player reads it",
+    "demo": "t-card-phone",
+    "live": "A phone player drew a card (they confirm on the phone)."
+  },
+  {
+    "id": "card-money",
+    "section": "Turn: cards",
+    "title": "Headlines card: collect money",
+    "demo": "t-card-money",
+    "live": "A card that pays: confirm collects it."
+  },
+  {
+    "id": "card-flip",
+    "section": "Turn: cards",
+    "title": "Card turning over (mid)",
+    "demo": "t-card-flip",
+    "live": "Land on Headlines: the card flips over above the action card."
+  },
+  {
+    "id": "card-result-move",
+    "section": "Turn: cards",
+    "title": "Card result: moved",
+    "demo": "t-card-result-move",
+    "live": "Confirm an advance card: the token moves there and the landing plays out."
+  },
+  {
+    "id": "card-result-cash",
+    "section": "Turn: cards",
+    "title": "Card result: money in",
+    "demo": "t-card-result-cash",
+    "live": "Confirm a card that pays."
+  },
+  {
+    "id": "jail-keyboard",
+    "section": "Turn: jail",
+    "title": "In jail: keyboard seat (roll, pay, card)",
+    "demo": "t-jail-keyboard",
+    "live": "A keyboard seat starts a turn in jail with jail passes."
+  },
+  {
+    "id": "jail-controller-last",
+    "section": "Turn: jail",
+    "title": "In jail: last try (3/3), controller",
+    "demo": "t-jail-controller-last",
+    "live": "Third turn in jail, no card."
+  },
+  {
+    "id": "jail-no-cash",
+    "section": "Turn: jail",
+    "title": "In jail: can't pay bail",
+    "demo": "t-jail-no-cash",
+    "live": "Less than $50 and no card: only ROLL works."
+  },
+  {
+    "id": "jail-phone",
+    "section": "Turn: jail",
+    "title": "In jail: a phone player",
+    "demo": "t-jail-phone",
+    "live": "A phone player's turn in jail."
+  },
+  {
+    "id": "jail-bail-paid",
+    "section": "Turn: jail",
+    "title": "Bail paid: out of jail",
+    "demo": "t-jail-bail-paid",
+    "live": "Pay $50: out of jail, ROLL."
+  },
+  {
+    "id": "jail-stays",
+    "section": "Turn: jail",
+    "title": "No doubles: stays in jail",
+    "demo": "t-jail-stays",
+    "live": "Roll in jail without doubles."
+  },
+  {
+    "id": "buy-keyboard",
+    "section": "Turn: buying",
+    "title": "BUY?: keyboard seat",
+    "demo": "t-buy-keyboard",
+    "live": "Land on an unowned street."
+  },
+  {
+    "id": "buy-controller",
+    "section": "Turn: buying",
+    "title": "BUY?: controller seat",
+    "demo": "t-buy-controller",
+    "live": "Same, controller."
+  },
+  {
+    "id": "buy-short",
+    "section": "Turn: buying",
+    "title": "BUY?: not enough cash",
+    "demo": "t-buy-short",
+    "live": "Land on a street you can't afford: BUY is off, SHORT shows."
+  },
+  {
+    "id": "buy-no-auction",
+    "section": "Turn: buying",
+    "title": "BUY?: auctions off (PASS)",
+    "demo": "t-buy-no-auction",
+    "live": "House rule: no auctions."
+  },
+  {
+    "id": "buy-phone",
+    "section": "Turn: buying",
+    "title": "BUY?: a phone player decides",
+    "demo": "t-buy-phone",
+    "live": "A phone player landed on an unowned street."
+  },
+  {
+    "id": "buy-ai",
+    "section": "Turn: buying",
+    "title": "BUY?: a computer decides",
+    "demo": "t-buy-ai",
+    "live": "A computer landed on an unowned street."
+  },
+  {
+    "id": "bought",
+    "section": "Turn: buying",
+    "title": "Bought",
+    "demo": "t-bought",
+    "live": "Press BUY."
+  },
+  {
+    "id": "bought-stamp",
+    "section": "Turn: buying",
+    "title": "Bought: SOLD stamp (mid)",
+    "demo": "t-bought-stamp",
+    "live": "Press BUY: the SOLD stamp lands on the deed."
+  },
+  {
+    "id": "auction-keyboard-bid",
+    "section": "Turn: auction",
+    "title": "Auction: keyboard seat bidding",
+    "demo": "t-auction-keyboard-bid",
+    "live": "A street goes to auction; it's the keyboard seat's bid."
+  },
+  {
+    "id": "auction-controller-bid",
+    "section": "Turn: auction",
+    "title": "Auction: controller seat bidding",
+    "demo": "t-auction-controller-bid",
+    "live": "Same, controller (RB/RT raise)."
+  },
+  {
+    "id": "auction-leading",
+    "section": "Turn: auction",
+    "title": "Auction: a seat here leads",
+    "demo": "t-auction-leading",
+    "live": "The keyboard seat holds the top bid; a computer is deciding."
+  },
+  {
+    "id": "auction-passed",
+    "section": "Turn: auction",
+    "title": "Auction: a seat here passed",
+    "demo": "t-auction-passed",
+    "live": "The keyboard seat passed: OUT on its chip."
+  },
+  {
+    "id": "auction-phone-bidding",
+    "section": "Turn: auction",
+    "title": "Auction: a phone player bidding",
+    "demo": "t-auction-phone-bidding",
+    "live": "A phone player's bid."
+  },
+  {
+    "id": "auction-ai-bidding",
+    "section": "Turn: auction",
+    "title": "Auction: a computer bidding",
+    "demo": "t-auction-ai-bidding",
+    "live": "A computer's bid."
+  },
+  {
+    "id": "auction-cant-afford",
+    "section": "Turn: auction",
+    "title": "Auction: can't afford the next bid",
+    "demo": "t-auction-cant-afford",
+    "live": "The bid is above the seat's cash: BID is off."
+  },
+  {
+    "id": "auction-won",
+    "section": "Turn: auction",
+    "title": "Auction won",
+    "demo": "t-auction-won",
+    "live": "The last bidder standing wins the street."
+  },
+  {
+    "id": "auction-timed",
+    "section": "Turn: auction",
+    "title": "Timed auction: controller seat bidding",
+    "demo": "t-auction-timed",
+    "live": "A street goes to auction in a new game (8-second clock): A / X / Y bid +$10 / +$50 / +$100, B passes."
+  },
+  {
+    "id": "auction-timed-going",
+    "section": "Turn: auction",
+    "title": "Timed auction: GOING ONCE, +$100 too dear",
+    "demo": "t-auction-timed-going",
+    "live": "3 seconds or less on the clock; the seat's cash doesn't cover +$100, so that quick bid is gone."
+  },
+  {
+    "id": "auction-timed-lead",
+    "section": "Turn: auction",
+    "title": "Timed auction: the seat here leads",
+    "demo": "t-auction-timed-lead",
+    "live": "The controller seat holds the top bid: YOU LEAD, its buttons wait greyed."
+  },
+  {
+    "id": "auction-timed-keyboard",
+    "section": "Turn: auction",
+    "title": "Timed auction: keyboard seat bidding",
+    "demo": "t-auction-timed-keyboard",
+    "live": "Same with a keyboard seat: A / X / Y and B, with the KEYBOARD SEAT card."
+  },
+  {
+    "id": "auction-timed-passed",
+    "section": "Turn: auction",
+    "title": "Timed auction: the seat here passed",
+    "demo": "t-auction-timed-passed",
+    "live": "The controller seat passed: PASSED in the roster; the others bid on."
+  },
+  {
+    "id": "auction-timed-phones",
+    "section": "Turn: auction",
+    "title": "Timed auction: phones and computers only",
+    "demo": "t-auction-timed-phones",
+    "live": "Nobody bids from this screen: the board's centre shows the clock and who leads."
+  },
+  {
+    "id": "debt-keyboard",
+    "section": "Debt and bankruptcy",
+    "title": "Debt: keyboard seat (raise cash plan)",
+    "demo": "t-debt-keyboard",
+    "live": "Owe more than you have."
+  },
+  {
+    "id": "debt-keyboard-loans",
+    "section": "Debt and bankruptcy",
+    "title": "Debt with loans on: LOAN offered",
+    "demo": "t-debt-keyboard-loans",
+    "live": "Same with the loans house rule."
+  },
+  {
+    "id": "debt-controller",
+    "section": "Debt and bankruptcy",
+    "title": "Debt: controller seat",
+    "demo": "t-debt-controller",
+    "live": "A controller seat owes rent it can't cover."
+  },
+  {
+    "id": "debt-can-pay",
+    "section": "Debt and bankruptcy",
+    "title": "Debt: enough cash, PAY",
+    "demo": "t-debt-can-pay",
+    "live": "Owe less than you have after raising cash."
+  },
+  {
+    "id": "debt-phone",
+    "section": "Debt and bankruptcy",
+    "title": "Debt: a phone player",
+    "demo": "t-debt-phone",
+    "live": "A phone player is raising cash."
+  },
+  {
+    "id": "debt-ai",
+    "section": "Debt and bankruptcy",
+    "title": "Debt: a computer",
+    "demo": "t-debt-ai",
+    "live": "A computer is raising cash."
+  },
+  {
+    "id": "debt-raised",
+    "section": "Debt and bankruptcy",
+    "title": "Debt: cash raised by mortgage",
+    "demo": "t-debt-raised",
+    "live": "Mortgage a deed from the plan or the property drawer."
+  },
+  {
+    "id": "debt-checklist-short",
+    "section": "Debt and bankruptcy",
+    "title": "Debt checklist: ticks short, PAY off",
+    "demo": "t-debt-checklist-short",
+    "live": "Untick a deed in the debt checklist: STILL TO FIND shows what's missing and PAY waits."
+  },
+  {
+    "id": "bankrupt-confirm-keyboard",
+    "section": "Debt and bankruptcy",
+    "title": "Bankruptcy confirm: to a player",
+    "demo": "t-bankrupt-confirm-keyboard",
+    "live": "Press BANKRUPT (Q) in debt."
+  },
+  {
+    "id": "bankrupt-confirm-controller",
+    "section": "Debt and bankruptcy",
+    "title": "Bankruptcy confirm: controller seat",
+    "demo": "t-bankrupt-confirm-controller",
+    "live": "Press X in debt."
+  },
+  {
+    "id": "bankrupt-confirm-bank",
+    "section": "Debt and bankruptcy",
+    "title": "Bankruptcy confirm: to the bank",
+    "demo": "t-bankrupt-confirm-bank",
+    "live": "Bankrupt on a tax (the bank takes everything)."
+  },
+  {
+    "id": "bankrupt-handover",
+    "section": "Debt and bankruptcy",
+    "title": "Bankruptcy: hand-over",
+    "demo": "t-bankrupt-handover",
+    "live": "Confirm bankruptcy: deeds and cash go to the creditor, the plate says OUT."
+  },
+  {
+    "id": "bankrupt-out-plates",
+    "section": "Debt and bankruptcy",
+    "title": "After a bankruptcy: OUT plates",
+    "demo": "t-bankrupt-out-plates",
+    "live": "Play on after someone went out."
+  },
+  {
+    "id": "trade-empty",
+    "section": "Trade",
+    "title": "Trade: just opened",
+    "demo": "t-trade-empty",
+    "live": "Press T (or Y) on your turn."
+  },
+  {
+    "id": "trade-partner",
+    "section": "Trade",
+    "title": "Trade: partner picked",
+    "demo": "t-trade-partner",
+    "live": "Pick who to trade with."
+  },
+  {
+    "id": "trade-filled",
+    "section": "Trade",
+    "title": "Trade: deal ready (completes a set)",
+    "demo": "t-trade-filled",
+    "live": "Pick deeds and cash on both sides; SEND lights up."
+  },
+  {
+    "id": "trade-ai-asking",
+    "section": "Trade",
+    "title": "Trade: asking the computer's price",
+    "demo": "t-trade-ai-asking",
+    "live": "Build a deal with a computer: it works out its price."
+  },
+  {
+    "id": "trade-ai-price",
+    "section": "Trade",
+    "title": "Trade: the computer's price",
+    "demo": "t-trade-ai-price",
+    "live": "The computer's price shows as a button."
+  },
+  {
+    "id": "trade-ai-applied",
+    "section": "Trade",
+    "title": "Trade: price applied",
+    "demo": "t-trade-ai-applied",
+    "live": "Press the price (Y): the cash is added."
+  },
+  {
+    "id": "trade-ai-wont",
+    "section": "Trade",
+    "title": "Trade: the computer won't trade at any price",
+    "demo": "t-trade-ai-wont",
+    "live": "The computer's own price: no deal, with its reason."
+  },
+  {
+    "id": "trade-counter",
+    "section": "Trade",
+    "title": "Counter-offer: a computer answers your offer with its price",
+    "demo": "t-trade-counter",
+    "live": "Offer a computer less than its price: it counters at its price (ACCEPT / CHANGE / WALK AWAY)."
+  },
+  {
+    "id": "trade-locked",
+    "section": "Trade",
+    "title": "Trade: locked deeds",
+    "demo": "t-trade-locked",
+    "live": "Deeds with houses or pledged to a loan can't be traded."
+  },
+  {
+    "id": "trade-controller",
+    "section": "Trade",
+    "title": "Trade: controller seat",
+    "demo": "t-trade-controller",
+    "live": "Press Y on a controller."
+  },
+  {
+    "id": "trade-waiting-phone",
+    "section": "Trade",
+    "title": "Offer sent: waiting on a phone",
+    "demo": "t-trade-waiting-phone",
+    "live": "SEND: the phone player decides on their phone."
+  },
+  {
+    "id": "trade-waiting-ai",
+    "section": "Trade",
+    "title": "Offer sent: the computer decides",
+    "demo": "t-trade-waiting-ai",
+    "live": "Offer a computer a trade."
+  },
+  {
+    "id": "trade-incoming-keyboard",
+    "section": "Trade",
+    "title": "Incoming offer: keyboard seat answers",
+    "demo": "t-trade-incoming-keyboard",
+    "live": "A phone player offers a keyboard seat a trade."
+  },
+  {
+    "id": "trade-incoming-controller",
+    "section": "Trade",
+    "title": "Incoming offer: controller seat answers",
+    "demo": "t-trade-incoming-controller",
+    "live": "Same, controller."
+  },
+  {
+    "id": "trade-others",
+    "section": "Trade",
+    "title": "A trade between two phones",
+    "demo": "t-trade-others",
+    "live": "Two phone players trade: the room watches."
+  },
+  {
+    "id": "trade-accepted",
+    "section": "Trade",
+    "title": "Trade accepted",
+    "demo": "t-trade-accepted",
+    "live": "Accept: deeds and cash swap, both plates show DEAL."
+  },
+  {
+    "id": "trade-declined",
+    "section": "Trade",
+    "title": "Trade declined",
+    "demo": "t-trade-declined",
+    "live": "Decline: the proposer's plate says ✕."
+  },
+  {
+    "id": "loan-drawer",
+    "section": "Loans",
+    "title": "Loan drawer: borrow in debt",
+    "demo": "t-loan-drawer",
+    "live": "LOAN (L / Y) in debt with the loans rule on."
+  },
+  {
+    "id": "loan-drawer-security",
+    "section": "Loans",
+    "title": "Loan drawer: security picked",
+    "demo": "t-loan-drawer-security",
+    "live": "Pick deeds as security: they pulse on the board."
+  },
+  {
+    "id": "loan-drawer-controller",
+    "section": "Loans",
+    "title": "Loan drawer: controller seat",
+    "demo": "t-loan-drawer-controller",
+    "live": "Press Y in debt on a controller."
+  },
+  {
+    "id": "loan-incoming-take",
+    "section": "Loans",
+    "title": "Loan offered to a seat here",
+    "demo": "t-loan-incoming-take",
+    "live": "A computer offers a keyboard seat a loan."
+  },
+  {
+    "id": "loan-incoming-lend",
+    "section": "Loans",
+    "title": "Asked to lend",
+    "demo": "t-loan-incoming-lend",
+    "live": "A phone player in debt asks a keyboard seat for a loan."
+  },
+  {
+    "id": "loan-waiting",
+    "section": "Loans",
+    "title": "Loan request sent: waiting on a phone",
+    "demo": "t-loan-waiting",
+    "live": "SEND in the loan drawer: the lender decides on their phone."
+  },
+  {
+    "id": "loan-waiting-ai",
+    "section": "Loans",
+    "title": "Loan request sent: the computer decides",
+    "demo": "t-loan-waiting-ai",
+    "live": "Ask a computer for a loan."
+  },
+  {
+    "id": "loan-others",
+    "section": "Loans",
+    "title": "A loan between others",
+    "demo": "t-loan-others",
+    "live": "A computer offers a phone player a loan."
+  },
+  {
+    "id": "loan-accepted",
+    "section": "Loans",
+    "title": "Loan accepted",
+    "demo": "t-loan-accepted",
+    "live": "Take the loan: cash moves, both plates show LOAN."
+  },
+  {
+    "id": "loan-due",
+    "section": "Loans",
+    "title": "Loan due",
+    "demo": "t-loan-due",
+    "live": "A loan's last turn comes: the repayment is owed like a debt."
+  },
+  {
+    "id": "loan-repaid",
+    "section": "Loans",
+    "title": "Loan repaid when due",
+    "demo": "t-loan-repaid",
+    "live": "A loan comes due at the start of the borrower's turn with enough cash: it is repaid."
+  },
+  {
+    "id": "loan-defaulted",
+    "section": "Loans",
+    "title": "Loan missed: security passes to the lender",
+    "demo": "t-loan-defaulted",
+    "live": "A loan comes due without the cash: the pledged deed goes to the lender."
+  },
+  {
+    "id": "property-keyboard",
+    "section": "Property drawer",
+    "title": "Property: your turn (build, sell, mortgage)",
+    "demo": "t-property-keyboard",
+    "live": "Press P on your turn."
+  },
+  {
+    "id": "property-controller",
+    "section": "Property drawer",
+    "title": "Property: controller seat",
+    "demo": "t-property-controller",
+    "live": "Press Menu on a controller."
+  },
+  {
+    "id": "property-view-only",
+    "section": "Property drawer",
+    "title": "Property: VIEW ONLY (not your turn)",
+    "demo": "t-property-view-only",
+    "live": "Press P while someone else plays."
+  },
+  {
+    "id": "property-debt",
+    "section": "Property drawer",
+    "title": "Property: in debt (sell and mortgage only)",
+    "demo": "t-property-debt",
+    "live": "PROPERTY in debt."
+  },
+  {
+    "id": "property-mortgaged",
+    "section": "Property drawer",
+    "title": "Property: mortgaged and pledged deeds",
+    "demo": "t-property-mortgaged",
+    "live": "Mortgage a deed; pledge another as loan security."
+  },
+  {
+    "id": "property-hotels",
+    "section": "Property drawer",
+    "title": "Property: hotels and the even-building rule",
+    "demo": "t-property-hotels",
+    "live": "A full set with hotels and houses."
+  },
+  {
+    "id": "property-none",
+    "section": "Property drawer",
+    "title": "Property: no deeds yet",
+    "demo": "t-property-none",
+    "live": "Press P before buying anything."
+  },
+  {
+    "id": "property-many",
+    "section": "Property drawer",
+    "title": "Property: many deeds (scrolls)",
+    "demo": "t-property-many",
+    "live": "Late game with a long list."
+  },
+  {
+    "id": "property-focus-card",
+    "section": "Property drawer",
+    "title": "Property: a deed card focused (camera frames it)",
+    "demo": "t-property-focus-card",
+    "live": "Arrow to a deed card: the camera frames its square."
+  },
+  {
+    "id": "plates-offline",
+    "section": "Plates and board",
+    "title": "Plate: offline player",
+    "demo": "t-plates-offline",
+    "live": "A phone loses its connection."
+  },
+  {
+    "id": "plates-autopilot",
+    "section": "Plates and board",
+    "title": "Plate: robot stand-in",
+    "demo": "t-plates-autopilot",
+    "live": "The computer plays for an offline phone."
+  },
+  {
+    "id": "plates-six",
+    "section": "Plates and board",
+    "title": "Six players",
+    "demo": "t-plates-six",
+    "live": "A full table."
+  },
+  {
+    "id": "plates-two",
+    "section": "Plates and board",
+    "title": "Two players",
+    "demo": "t-plates-two",
+    "live": "A two-player game."
+  },
+  {
+    "id": "plates-jail-sets",
+    "section": "Plates and board",
+    "title": "Plates: jail, sets and deed counts",
+    "demo": "t-plates-jail-sets",
+    "live": "Players with full sets, one in jail."
+  },
+  {
+    "id": "minimap",
+    "section": "Plates and board",
+    "title": "Mini-map while zoomed",
+    "demo": "t-minimap",
+    "live": "Any zoomed moment (here: a buy): the mini-map shows the whole board."
+  },
+  {
+    "id": "victory-phone",
+    "section": "End of game",
+    "title": "Victory: a phone player wins",
+    "demo": "t-victory-phone",
+    "live": "The last player standing."
+  },
+  {
+    "id": "victory-controller",
+    "section": "End of game",
+    "title": "Victory: a controller seat wins",
+    "demo": "t-victory-controller",
+    "live": "A seat at this screen wins."
+  },
+  {
+    "id": "victory-again",
+    "section": "End of game",
+    "title": "PLAY AGAIN? confirm",
+    "demo": "t-victory-again",
+    "live": "PLAY AGAIN on the victory screen asks first; focus starts on NOT YET."
+  },
+  {
+    "id": "victory-ai",
+    "section": "End of game",
+    "title": "Victory: a computer wins",
+    "demo": "t-victory-ai",
+    "live": "The computer outlasts everyone."
+  },
+  {
+    "id": "victory-board",
+    "section": "End of game",
+    "title": "After SEE THE BOARD",
+    "demo": "t-victory-board",
+    "live": "Close the victory screen: the final board and standings, PLAY AGAIN on the card."
+  },
+  {
+    "id": "victory-watching",
+    "section": "End of game",
+    "title": "Victory, watching (old server)",
+    "demo": "t-victory-watching",
+    "live": "Watching a finished game: no PLAY AGAIN."
+  },
+  {
+    "id": "gate-moved",
+    "section": "Gates and connection",
+    "title": "Moved to another screen",
+    "demo": "t-gate-moved",
+    "live": "Open this table on another PC (SHOW HERE / RESUME there)."
+  },
+  {
+    "id": "gate-moved-error",
+    "section": "Gates and connection",
+    "title": "Moved: taking it back failed",
+    "demo": "t-gate-moved-error",
+    "live": "TAKE IT BACK when the table is gone."
+  },
+  {
+    "id": "gate-busy",
+    "section": "Gates and connection",
+    "title": "Open on another screen",
+    "demo": "t-gate-busy",
+    "live": "RESUME a table another screen is showing."
+  },
+  {
+    "id": "gate-busy-over-game",
+    "section": "Gates and connection",
+    "title": "Open on another screen (from a game: CANCEL)",
+    "demo": "t-gate-busy-over-game",
+    "live": "RESUME another table from a game screen."
+  },
+  {
+    "id": "gate-resume",
+    "section": "Gates and connection",
+    "title": "Resume a table",
+    "demo": "t-gate-resume",
+    "live": "Reload after this table's session expired, or the moved gate's NEW TABLE path."
+  },
+  {
+    "id": "gate-resume-error",
+    "section": "Gates and connection",
+    "title": "Resume a table: no such table",
+    "demo": "t-gate-resume-error",
+    "live": "Type a code that doesn't exist."
+  },
+  {
+    "id": "gate-resume-over-game",
+    "section": "Gates and connection",
+    "title": "Resume a table (from a game: CANCEL)",
+    "demo": "t-gate-resume-over-game",
+    "live": "A resume that failed while a game is up."
+  },
+  {
+    "id": "conn-lost",
+    "section": "Gates and connection",
+    "title": "Connection lost (in a game)",
+    "demo": "t-conn-lost",
+    "live": "The server drops: OFFLINE and a toast."
+  },
+  {
+    "id": "conn-retrying",
+    "section": "Gates and connection",
+    "title": "Reconnecting (in a game)",
+    "demo": "t-conn-retrying",
+    "live": "Still offline after the toast: OFFLINE stays until the link is back."
+  },
+  {
+    "id": "table-closed",
+    "section": "Gates and connection",
+    "title": "Table closed",
+    "demo": "t-table-closed",
+    "live": "The server forgot this table (restart): a new one is set up."
+  },
+  {
+    "id": "game-watching",
+    "section": "Gates and connection",
+    "title": "Game, watching (old server)",
+    "demo": "t-game-watching",
+    "live": "Watch a room in play: no buttons."
+  },
+  {
+    "id": "toast-cash",
+    "section": "Toasts",
+    "title": "Error: not enough cash",
+    "demo": "t-toast-cash",
+    "live": "Try an action you can't afford."
+  },
+  {
+    "id": "toast-nothing",
+    "section": "Toasts",
+    "title": "Nothing to choose right now",
+    "demo": "t-toast-nothing",
+    "live": "Press a number key when no seat here has a choice."
+  },
+  {
+    "id": "toast-pad",
+    "section": "Toasts",
+    "title": "Controller connected",
+    "demo": "t-toast-pad",
+    "live": "Plug in a controller."
+  },
+  {
+    "id": "toast-deal-changed",
+    "section": "Toasts",
+    "title": "Error: the deal changed",
+    "demo": "t-toast-deal-changed",
+    "live": "Accept a trade whose deeds changed hands meanwhile."
+  },
+  {
+    "id": "menu",
+    "section": "Menu, settings and sound",
+    "title": "MENU (in a game)",
+    "demo": "t-menu",
+    "live": "The menu button top-right, Esc with nothing open, or Start on a pad."
+  },
+  {
+    "id": "host-idle",
+    "section": "Host: players",
+    "title": "Idle: the game waits on a phone",
+    "demo": "t-host-idle",
+    "live": "A phone player hasn't moved for 30 s or more: IDLE m:ss on their tray (from the log's last time)."
+  },
+  {
+    "id": "host-players",
+    "section": "Host: players",
+    "title": "PLAYERS: the host's controls",
+    "demo": "t-host-players",
+    "live": "MENU → PLAYERS (the table screen is the host): COMPUTER PLAYS / SKIP TURN / REMOVE per player."
+  },
+  {
+    "id": "host-remove",
+    "section": "Host: players",
+    "title": "PLAYERS: REMOVE confirm",
+    "demo": "t-host-remove",
+    "live": "REMOVE on a player's row: deeds, houses and cash go to the bank, the seat closes."
+  },
+  {
+    "id": "standin-computer",
+    "section": "Host: players",
+    "title": "Stand-in: COMPUTER PLAYS FOR SAM",
+    "demo": "t-standin-computer",
+    "live": "The computer plays for a person (away 30 s, idle 2 min, or the host's COMPUTER PLAYS)."
+  },
+  {
+    "id": "controls",
+    "section": "Menu, settings and sound",
+    "title": "CONTROLS: one key map",
+    "demo": "t-controls",
+    "live": "MENU → CONTROLS: pad, keyboard and phone, the same words in the same order."
+  },
+  {
+    "id": "menu-lobby",
+    "section": "Menu, settings and sound",
+    "title": "MENU (in the lobby)",
+    "demo": "t-menu-lobby",
+    "live": "The menu button in the lobby header, or Esc."
+  },
+  {
+    "id": "settings",
+    "section": "Menu, settings and sound",
+    "title": "SETTINGS",
+    "demo": "t-settings",
+    "live": "MENU → SETTINGS."
+  },
+  {
+    "id": "settings-changed",
+    "section": "Menu, settings and sound",
+    "title": "SETTINGS changed (follow off, fast, reduced motion on)",
+    "demo": "t-settings-changed",
+    "live": "Change the camera and animation settings."
+  },
+  {
+    "id": "how-to-play",
+    "section": "Menu, settings and sound",
+    "title": "HOW TO PLAY",
+    "demo": "t-how-to-play",
+    "live": "MENU → HOW TO PLAY."
+  },
+  {
+    "id": "leave-confirm",
+    "section": "Menu, settings and sound",
+    "title": "Leave table confirm",
+    "demo": "t-leave-confirm",
+    "live": "MENU → LEAVE TABLE."
+  },
+  {
+    "id": "end-confirm",
+    "section": "Menu, settings and sound",
+    "title": "End game confirm (richest player wins)",
+    "demo": "t-end-confirm",
+    "live": "MENU → END GAME (the table or the host)."
+  },
+  {
+    "id": "sound-menu",
+    "section": "Menu, settings and sound",
+    "title": "Sound menu (in a game)",
+    "demo": "t-sound-menu",
+    "live": "The speaker button top-right."
+  },
+  {
+    "id": "sound-menu-lobby",
+    "section": "Menu, settings and sound",
+    "title": "Sound menu (in the lobby)",
+    "demo": "t-sound-menu-lobby",
+    "live": "The speaker button in the lobby header."
+  },
+  {
+    "id": "deed-street",
+    "section": "Deed cards",
+    "title": "Deed card: a street with houses",
+    "demo": "t-deed-street",
+    "live": "Click any square on the board (or I on a focused deed)."
+  },
+  {
+    "id": "deed-street-forsale",
+    "section": "Deed cards",
+    "title": "Deed card: a street for sale",
+    "demo": "t-deed-street-forsale",
+    "live": "Click an unowned street."
+  },
+  {
+    "id": "deed-mortgaged",
+    "section": "Deed cards",
+    "title": "Deed card: mortgaged and pledged",
+    "demo": "t-deed-mortgaged",
+    "live": "Click a mortgaged deed, or one pledged to a loan."
+  },
+  {
+    "id": "deed-railroad",
+    "section": "Deed cards",
+    "title": "Deed card: a railroad",
+    "demo": "t-deed-railroad",
+    "live": "Click a railroad."
+  },
+  {
+    "id": "deed-utility",
+    "section": "Deed cards",
+    "title": "Deed card: a utility",
+    "demo": "t-deed-utility",
+    "live": "Click a utility."
+  },
+  {
+    "id": "deed-corner",
+    "section": "Deed cards",
+    "title": "Square card: jail",
+    "demo": "t-deed-corner",
+    "live": "Click a corner (PAYDAY, Jail, City Park, Busted)."
+  },
+  {
+    "id": "deed-tax",
+    "section": "Deed cards",
+    "title": "Square card: tax",
+    "demo": "t-deed-tax",
+    "live": "Click a tax square."
+  },
+  {
+    "id": "deed-chance",
+    "section": "Deed cards",
+    "title": "Square card: Headlines",
+    "demo": "t-deed-chance",
+    "live": "Click a Headlines square."
+  },
+  {
+    "id": "deed-over-trade",
+    "section": "Deed cards",
+    "title": "Deed card over the trade modal",
+    "demo": "t-deed-over-trade",
+    "live": "In the trade, press I on a deed."
+  },
+  {
+    "id": "trade-focus",
+    "section": "Deed cards",
+    "title": "Trade: a focused deed's card beside the lists",
+    "demo": "t-trade-focus",
+    "live": "Arrow through the deeds in the trade."
+  }
+]

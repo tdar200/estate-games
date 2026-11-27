@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Couldn't set up a table",
+    "section": "Start-up",
+    "description": "The server refuses POST /api/tables (or is unreachable) when the page opens."
+  },
+  "ui": {
+    "loading": "Couldn't set up a table: Failed to fetch"
+  }
+}

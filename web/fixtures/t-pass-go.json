@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "Passed PAYDAY: +$200",
+    "section": "Turn: landing",
+    "description": "A move past PAYDAY."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "position": 38
+      }
+    },
+    "properties": {
+      "1": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 1,
+            "cash": 883
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            1,
+            2
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 38,
+              "to": 1,
+              "path": [
+                38,
+                39,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 38,
+          "to": 1,
+          "path": [
+            38,
+            39,
+            0,
+            1
+          ]
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 1 + 2 = 3",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya passed PAYDAY and collected $200",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on Begonia Road",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

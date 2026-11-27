@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "END TURN: controller seat",
+    "section": "Turn: landing",
+    "description": "Nothing left to decide after the move."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "phase": "turn_complete",
+    "turn": {
+      "dice": [
+        3,
+        4
+      ]
+    }
+  }
+}

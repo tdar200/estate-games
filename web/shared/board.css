@@ -1,0 +1,335 @@
+/* The 40-square board (PartyMain design). Sized by its container: the table uses 840 × 840, phones
+   use the compact variant (.board--compact) at 340–410 px inside a clipped .board-viewport.
+   Layers: cells → centre (stage) → tokens (lanes just inside each square) → fx. */
+
+.board {
+  --corner: 1.55fr;
+  --strip: 25px;     /* colour bar depth (PC) */
+  --band: 8px;       /* owner band on the outer edge */
+  --chip: 20px;      /* owner chip */
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--corner) repeat(9, minmax(0, 1fr)) var(--corner);
+  grid-template-rows: var(--corner) repeat(9, minmax(0, 1fr)) var(--corner);
+  gap: 1.5px;
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: 0 2px 0 #E8E3D3, 0 40px 80px rgba(0, 0, 0, 0.55), 0 10px 22px rgba(0, 0, 0, 0.35);
+  color: var(--ink);
+}
+
+/* Follow-cam wrapper (compact boards): the root clips, the grid inside is transformed. */
+.board-viewport { position: relative; overflow: hidden; width: 100%; aspect-ratio: 1 / 1; border-radius: 6px; }
+.board-viewport > .board { position: absolute; inset: 0; width: 100%; height: 100%; transform-origin: 0 0; will-change: transform; }
+
+.cell {
+  position: relative;
+  background: var(--ivory);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 2px;
+  text-align: center; min-width: 0; min-height: 0; overflow: hidden;
+}
+/* Vertical padding in % would resolve against the width, so the strip uses a length instead. */
+.cell[data-side="bottom"] { padding: calc(var(--strip) + 3px) 3px 7px; }
+.cell[data-side="top"] { padding: 7px 3px calc(var(--strip) + 3px); }
+.cell[data-side="left"] { padding: 3px 26% 3px 7px; }
+.cell[data-side="right"] { padding: 3px 7px 3px 26%; }
+/* Owned squares keep their outer edge clear for the owner flag. */
+.cell.is-owned[data-side="bottom"] { padding-bottom: calc(var(--band) + var(--chip) + 4px); }
+.cell.is-owned[data-side="top"] { padding-top: calc(var(--band) + var(--chip) + 4px); }
+.cell.is-owned[data-side="left"] { padding-left: calc(var(--band) + var(--chip) + 2px); }
+.cell.is-owned[data-side="right"] { padding-right: calc(var(--band) + var(--chip) + 2px); }
+
+.cell__name {
+  font-family: var(--font-display); font-size: 9px; font-weight: 600; line-height: 1.05;
+  letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink);
+}
+.cell__sub { font-size: 9px; font-weight: 700; color: var(--muted-2); }
+/* Rent on owned squares stays, but quieter than the owner flag and houses. */
+.cell.is-owned .cell__sub { font-size: 8px; color: var(--muted); letter-spacing: 0.02em; }
+.cell.is-mortgaged .cell__sub { color: var(--red-deep); }
+
+.cell__strip {
+  position: absolute; border: 0 solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.cell[data-side="bottom"] .cell__strip { top: 0; left: 0; right: 0; height: var(--strip); border-bottom-width: 1.5px; }
+.cell[data-side="top"] .cell__strip { bottom: 0; left: 0; right: 0; height: var(--strip); border-top-width: 1.5px; }
+.cell[data-side="left"] .cell__strip { top: 0; bottom: 0; right: 0; width: 22%; border-left-width: 1.5px; }
+.cell[data-side="right"] .cell__strip { top: 0; bottom: 0; left: 0; width: 22%; border-right-width: 1.5px; }
+.cell__houses { display: flex; gap: 2px; align-items: center; justify-content: center; }
+.cell[data-side="left"] .cell__houses, .cell[data-side="right"] .cell__houses { flex-direction: column; }
+/* Houses 1.4× the old 11 px with a hard shadow so they read from across the room. */
+.cell .house, .cell .hotel { filter: drop-shadow(0 1.5px 0 rgba(0, 0, 0, 0.6)) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5)); }
+.cell .house::before { width: 15px; height: 15px; }
+.cell .hotel::before { width: 26px; height: 18px; }
+
+/* Owner flag: a band in the owner's colour on the outer edge plus a round chip with their initial
+   (a different shape from the colour bar, so it never reads as "another colour bar"). */
+.cell__owner { position: absolute; pointer-events: none; }
+.cell__owner[hidden] { display: none; }
+.cell__owner::before { content: ""; position: absolute; background: var(--pc); border: 0 solid rgba(21, 25, 30, 0.75); }
+.cell[data-side="bottom"] .cell__owner { left: 0; right: 0; bottom: 0; height: calc(var(--band) + var(--chip)); }
+.cell[data-side="top"] .cell__owner { left: 0; right: 0; top: 0; height: calc(var(--band) + var(--chip)); }
+.cell[data-side="left"] .cell__owner { top: 0; bottom: 0; left: 0; width: calc(var(--band) + var(--chip)); }
+.cell[data-side="right"] .cell__owner { top: 0; bottom: 0; right: 0; width: calc(var(--band) + var(--chip)); }
+.cell[data-side="bottom"] .cell__owner::before { left: 0; right: 0; bottom: 0; height: var(--band); border-top-width: 1.5px; }
+.cell[data-side="top"] .cell__owner::before { left: 0; right: 0; top: 0; height: var(--band); border-bottom-width: 1.5px; }
+.cell[data-side="left"] .cell__owner::before { top: 0; bottom: 0; left: 0; width: var(--band); border-right-width: 1.5px; }
+.cell[data-side="right"] .cell__owner::before { top: 0; bottom: 0; right: 0; width: var(--band); border-left-width: 1.5px; }
+.cell__chip {
+  position: absolute; width: var(--chip); height: var(--chip); border-radius: 50%;
+  background: var(--pc); color: var(--pc-ink);
+  border: 1.5px solid #FFFFFF; box-shadow: 0 0 0 1.5px #0E1216, 0 2px 2px rgba(0, 0, 0, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: calc(var(--chip) * 0.56); font-weight: 700; line-height: 1;
+}
+.cell[data-side="bottom"] .cell__chip { bottom: 3px; left: 50%; margin-left: calc(var(--chip) / -2); }
+.cell[data-side="top"] .cell__chip { top: 3px; left: 50%; margin-left: calc(var(--chip) / -2); }
+.cell[data-side="left"] .cell__chip { left: 3px; top: 50%; margin-top: calc(var(--chip) / -2); }
+.cell[data-side="right"] .cell__chip { right: 3px; top: 50%; margin-top: calc(var(--chip) / -2); }
+
+/* Mortgaged: hatched, colour bar and owner flag greyed out. */
+.cell.is-mortgaged { background-image: repeating-linear-gradient(-45deg, rgba(21, 25, 30, 0.14) 0 3px, transparent 3px 8px); }
+.cell.is-mortgaged .cell__strip { filter: grayscale(0.9); opacity: 0.55; }
+.cell.is-mortgaged .cell__owner { opacity: 0.6; filter: grayscale(0.6); }
+.cell.is-mortgaged .cell__chip { box-shadow: 0 0 0 1.5px #0E1216; border-style: dashed; }
+
+.cell__chance { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1; color: var(--chance-ink); }
+.cell__icon { flex: 0 0 auto; }
+
+.cell__current { position: absolute; inset: 0; display: none; pointer-events: none; box-shadow: inset 0 0 0 3px var(--gold), inset 0 0 18px rgba(242, 193, 78, 0.55); z-index: 2; }
+.cell.is-current .cell__current { display: block; }
+
+/* ---- Corners: label on the outer side, token zone on the inner side (see CORNER_ZONES) ---- */
+.cell--corner { padding: 0 !important; display: block; }
+.corner__label { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; font-family: var(--font-display); font-weight: 700; line-height: 1; letter-spacing: 0.03em; }
+.cell--corner[data-corner="br"] .corner__label { bottom: 8%; }
+.cell--corner[data-corner="tl"] .corner__label, .cell--corner[data-corner="tr"] .corner__label { top: 10%; }
+.corner__name { font-size: 18px; }
+.cell--go .corner__name { font-size: 24px; }
+.corner__sub { font-family: var(--font-body); font-size: 9px; font-weight: 700; letter-spacing: 0.04em; color: var(--muted-2); }
+.corner__sub:empty { display: none; }
+.jailbox {
+  position: absolute; left: 40%; top: 0; right: 0; height: 60%;
+  background: #F08A2B; border-left: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 3%;
+}
+.jailbox__bars { position: absolute; inset: 26% 12% 8%; background: repeating-linear-gradient(90deg, #2B323A 0 3px, transparent 3px 11px); opacity: 0.55; }
+.jailbox__label { position: relative; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); }
+.corner__visit {
+  position: absolute; left: 0; top: 0; width: 40%; height: 60%;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--font-display); font-size: 9px; font-weight: 700; line-height: 1.15; letter-spacing: 0.04em; color: var(--ink);
+}
+
+/* ---- Square highlights (Board#highlightSquares) ---- */
+.cell.is-risk::after, .cell.is-hl-risk::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: rgba(232, 35, 42, calc(0.07 + 0.38 * var(--hl-risk, 0.5)));
+  box-shadow: inset 0 0 0 2px rgba(200, 32, 42, calc(0.3 + 0.55 * var(--hl-risk, 0.5)));
+}
+.cell.is-hl-pick::before, .cell.is-hl-target::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  box-shadow: inset 0 0 0 3px var(--gold), inset 0 0 14px rgba(242, 193, 78, 0.6);
+  animation: pulseRing 1.4s ease-in-out infinite;
+}
+.cell.is-hl-target::before { box-shadow: none; outline: 3px dashed var(--gold-deep); outline-offset: -4px; animation: none; background: rgba(242, 193, 78, 0.2); }
+.cell.is-hl-land { animation: landGlow 1.1s ease-out 1; }
+.cell.is-hl-land::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3; box-shadow: inset 0 0 0 3px var(--gold); animation: fadeOut 1.1s ease-in 1 forwards; }
+@keyframes landGlow { 0% { background-color: #FFE9A0; } 100% { background-color: var(--ivory); } }
+@keyframes fadeOut { 0%, 60% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes pulseRing { 0%, 100% { opacity: 0.65; } 50% { opacity: 1; } }
+
+.board.is-tappable .cell { cursor: pointer; }
+.board.is-tappable .cell:focus-visible { outline: 3px solid var(--navy); outline-offset: -3px; box-shadow: none; z-index: 4; }
+
+/* ---- Centre ---- */
+.board__center {
+  position: relative; background: var(--sage);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  padding: 24px; text-align: center; color: var(--ink); overflow: hidden;
+}
+.deck { position: absolute; width: 150px; height: 98px; transform: rotate(-45deg); }
+.deck > span, .deck > div { position: absolute; inset: 0; border-radius: 6px; }
+.deck > span:nth-child(1) { transform: translate(5px, 5px); }
+.deck > span:nth-child(2) { transform: translate(2.5px, 2.5px); }
+.deck > div {
+  border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--font-display); font-weight: 700; color: #FFFFFF;
+}
+/* Decks sit far enough in that the token lanes along the edges stay clear. */
+.deck--chance { left: 78px; top: 78px; }
+.deck--chance > span:nth-child(1) { background: #C9671A; }
+.deck--chance > span:nth-child(2) { background: #DA7420; }
+.deck--chance > div { background: var(--chance); font-size: 19px; letter-spacing: 0.1em; }
+.deck--chest { right: 78px; bottom: 78px; }
+.deck--chest > span:nth-child(1) { background: #1F4F86; }
+.deck--chest > span:nth-child(2) { background: #275E9C; }
+.deck--chest > div { background: var(--chest); font-size: 24px; letter-spacing: 0.16em; line-height: 1.1; }
+
+.wordmark { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.wordmark__rule { width: 220px; height: 3px; background: var(--ink); }
+.wordmark__text { font-family: var(--font-display); font-size: 62px; font-weight: 700; letter-spacing: 0.1em; line-height: 1; }
+
+.board__slot { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 16px; min-height: 0; }
+.board__slot:empty { display: none; }
+
+/* ---- Tokens ---- */
+.board__tokens, .board__fx { position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; }
+.board__fx { z-index: 6; overflow: visible; }
+.board__tokens { z-index: 5; }
+.board-token { position: absolute; left: 0; top: 0; width: var(--tok, 42px); height: var(--tok, 42px); will-change: transform; transform-origin: 50% 52%; }
+.board[data-tokens="chip"] .board-token { transform-origin: 50% 50%; }
+.board-token__body { position: relative; width: 100%; height: 100%; filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.45)); transform-origin: 50% 100%; }
+.board-token__body > svg { display: block; width: 100%; height: 100%; }
+.board-token .jail-bars { inset: 2px 6px 4px; }
+.board-token.is-out { display: none; }
+.board-token.is-turn .board-token__body { animation: bob 2.2s ease-in-out infinite; }
+/* Whose turn: a glowing gold pad under the token. */
+.board-token__halo { position: absolute; left: -22%; right: -22%; top: 70%; height: 38%; border-radius: 50%; display: none; pointer-events: none; }
+.board-token.is-current .board-token__halo { display: block; background: radial-gradient(ellipse at center, rgba(255, 214, 102, 1) 0 34%, rgba(242, 193, 78, 0.55) 52%, rgba(242, 193, 78, 0) 72%); animation: spot 1.6s ease-in-out infinite; }
+.board-token.is-you .board-token__halo { display: block; left: 6%; right: 6%; top: 78%; height: 24%; box-shadow: 0 0 0 3px var(--gold), 0 0 0 4.5px #0E1216; }
+.board-token.is-you.is-current .board-token__halo { left: -22%; right: -22%; top: 70%; height: 38%; box-shadow: none; }
+/* "YOU" tag above your own token. */
+.board-token__you {
+  display: none; position: absolute; left: 50%; bottom: calc(100% - 2px); transform: translateX(-50%);
+  padding: 1px 5px; border-radius: 4px; background: var(--gold); color: var(--ink); border: 1px solid #0E1216;
+  font-family: var(--font-body); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; line-height: 1.3; white-space: nowrap;
+}
+.board-token.is-you .board-token__you { display: block; }
+/* Tokens in the top lane hang below the top row, so their tag goes underneath (never over a square). */
+.board-token[data-lane="top"] .board-token__you { bottom: auto; top: calc(100% + 1px); }
+
+/* Round tokens (compact boards / tokenStyle "chip"): no drop-shadow filter (cheap on old phones). */
+.board[data-tokens="chip"] .board-token__body { filter: none; }
+.tok-chip {
+  width: 100%; height: 100%; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--pc); color: var(--pc-ink); border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1.5px #0E1216, 0 3px 0 rgba(0, 0, 0, 0.35);
+  font-family: var(--font-display); font-size: calc(var(--tok, 22px) * 0.5); font-weight: 700; line-height: 1;
+}
+.board[data-tokens="chip"] .board-token.is-you .tok-chip { box-shadow: 0 0 0 1.5px #0E1216, 0 0 0 4px var(--gold), 0 0 0 5.5px #0E1216, 0 3px 0 rgba(0, 0, 0, 0.35); }
+.board[data-tokens="chip"] .board-token__halo { left: -30%; right: -30%; top: -30%; height: 160%; }
+.board[data-tokens="chip"] .board-token.is-current .board-token__halo { background: radial-gradient(circle, rgba(255, 214, 102, 0.85) 30%, rgba(242, 193, 78, 0) 70%); }
+.board[data-tokens="chip"] .board-token.is-you .board-token__halo { box-shadow: none; }
+.board[data-tokens="chip"] .board-token.is-you:not(.is-current) .board-token__halo { display: none; }
+.board[data-tokens="chip"] .board-token .jail-bars { inset: 0; border-radius: 50%; overflow: hidden; }
+.board[data-tokens="chip"] .board-token__you { font-size: max(7px, calc(var(--tok, 22px) * 0.36)); padding: 0 3px; bottom: calc(100% + 4px); }
+.board[data-tokens="chip"] .board-token[data-lane="top"] .board-token__you { bottom: auto; top: calc(100% + 4px); }
+
+/* Big rent hit: the board jolts with a red pulse. */
+.is-hit { animation: shake 0.5s linear 1, flash 0.9s linear 1; }
+
+/* ---- Compact (phone) board: sizes follow --u, the width of one square (set by board.js) ---- */
+.board--compact {
+  --corner: 2fr;
+  --strip: calc(var(--u, 26px) * 0.5);
+  --band: 3px;
+  --chip: calc(var(--u, 26px) * 0.52);
+  gap: 1px; border-width: 2px; border-radius: 4px;
+  box-shadow: 0 2px 0 #E8E3D3, 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+.board--compact .cell { padding: 0 !important; justify-content: center; gap: 0; }
+.board--compact .cell[data-side="bottom"]:not(.cell--corner) { padding-top: var(--strip) !important; }
+.board--compact .cell[data-side="top"]:not(.cell--corner) { padding-bottom: var(--strip) !important; }
+.board--compact .cell[data-side="left"] { padding-right: var(--strip) !important; }
+.board--compact .cell[data-side="right"] { padding-left: var(--strip) !important; }
+.board--compact .cell[data-side="left"] .cell__strip, .board--compact .cell[data-side="right"] .cell__strip { width: var(--strip); }
+.board--compact .cell__name, .board--compact .cell__sub { display: none; }
+.board--compact.board--labels .cell:not(.cell--corner) .cell__name { display: block; font-size: max(6px, calc(var(--u) * 0.26)); letter-spacing: 0; }
+.board--compact .cell__strip { border-width: 0 !important; }
+.board--compact .cell__houses { gap: 1px; }
+.board--compact .cell .house, .board--compact .cell .hotel { filter: drop-shadow(0 0.5px 0 rgba(0, 0, 0, 0.7)); }
+.board--compact .cell .house::before { width: calc(var(--u) * 0.2); height: calc(var(--u) * 0.2); clip-path: none; border-radius: 1px; background: var(--house); box-shadow: inset 0 0 0 0.5px var(--house-dark); }
+.board--compact .cell .hotel::before { width: calc(var(--u) * 0.5); height: calc(var(--u) * 0.22); clip-path: none; border-radius: 1px; background: var(--hotel); }
+.board--compact .cell[data-side="left"] .hotel::before, .board--compact .cell[data-side="right"] .hotel::before { width: calc(var(--u) * 0.22); height: calc(var(--u) * 0.5); }
+.board--compact .cell__chip { font-size: calc(var(--chip) * 0.62); border-width: 1px; box-shadow: 0 0 0 1px #0E1216; }
+.board--compact .cell[data-side="bottom"] .cell__chip { bottom: 2px; }
+.board--compact .cell[data-side="top"] .cell__chip { top: 2px; }
+.board--compact .cell[data-side="left"] .cell__chip { left: 2px; }
+.board--compact .cell[data-side="right"] .cell__chip { right: 2px; }
+.board--compact .cell__owner::before { border-width: 0 !important; }
+.board--compact .cell__icon { width: calc(var(--u) * 0.62); height: auto; }
+.board--compact .cell__chance { font-size: calc(var(--u) * 0.7); }
+.board--compact .cell.is-owned .cell__icon, .board--compact .cell.is-owned .cell__chance { opacity: 0.6; }
+/* Owned compact squares: keep the icon clear of the owner chip. */
+.board--compact .cell.is-owned[data-side="bottom"] { padding-bottom: calc(var(--chip) + 3px) !important; }
+.board--compact .cell.is-owned[data-side="top"] { padding-top: calc(var(--chip) + 3px) !important; }
+.board--compact .cell.is-owned[data-side="left"] { padding-left: calc(var(--chip) + 3px) !important; }
+.board--compact .cell.is-owned[data-side="right"] { padding-right: calc(var(--chip) + 3px) !important; }
+.board--compact .cell.is-owned .cell__icon { width: calc(var(--u) * 0.5); }
+.board--compact .cell.is-mine { box-shadow: inset 0 0 0 1.5px rgba(169, 126, 30, 0.9); }
+.board--compact .cell__current { box-shadow: inset 0 0 0 2px var(--gold), inset 0 0 8px rgba(242, 193, 78, 0.55); }
+.board--compact .corner__name { font-size: calc(var(--u) * 0.36); letter-spacing: 0.02em; }
+.board--compact .cell--go .corner__name { font-size: calc(var(--u) * 0.42); }
+.board--compact .cell--goToJail .corner__name { font-size: calc(var(--u) * 0.3); max-width: 80%; line-height: 1.05; }
+.board--compact .cell--corner[data-corner="br"] .corner__label { bottom: 10%; }
+.board--compact .jailbox { border-width: 1px; }
+.board--compact .jailbox__label { font-size: calc(var(--u) * 0.26); }
+.board--compact .jailbox__bars { background: repeating-linear-gradient(90deg, #2B323A 0 1.5px, transparent 1.5px 5px); }
+.board--compact .corner__visit { display: none; }
+.board--compact .board__center { padding: calc(var(--tok, 22px) + 6px); gap: 6px; }
+.board--compact .wordmark { position: absolute; left: 0; right: 0; top: calc(var(--tok, 22px) + 4px); opacity: 0.22; gap: 2px; }
+.board--compact .wordmark__text { font-size: calc(var(--u) * 0.62); letter-spacing: 0.3em; }
+.board--compact .wordmark__rule { display: none; }
+.board--compact .board__slot { gap: 6px; }
+.board--compact .cell.is-hl-risk::after { box-shadow: inset 0 0 0 1px rgba(200, 32, 42, calc(0.3 + 0.55 * var(--hl-risk, 0.5))); }
+.board--compact .cell.is-hl-pick::before { box-shadow: inset 0 0 0 2px var(--gold), inset 0 0 6px rgba(242, 193, 78, 0.6); }
+.board--compact .cell.is-hl-land::before { box-shadow: inset 0 0 0 2px var(--gold); }
+.board--compact .corner__sub { font-size: max(6px, calc(var(--u) * 0.24)); }
+/* Stage content sized for the compact centre (≈ 230–290 px square). */
+.board--compact .board__slot { max-width: 100%; }
+.board--compact .board__slot .deed { width: min(100%, 200px); padding: 5px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); border: 1.5px solid var(--ink); }
+.board--compact .board__slot .deed__head { padding: 4px; border-width: 1.5px; }
+.board--compact .board__slot .deed__eyebrow { font-size: 7px; }
+.board--compact .board__slot .deed__name { font-size: 15px; }
+.board--compact .board__slot .deed__rows { padding: 4px 3px 0; gap: 1px; font-size: 11px; }
+.board--compact .board__slot .deed__foot { font-size: 10px; }
+.board--compact .board__slot .flip-card { width: min(100%, 190px); height: 120px; }
+.board--compact .board__slot .flip-card__text { font-size: 15px; }
+.board--compact .board__slot .card-face { width: min(100%, 200px); }
+.board--compact .board__slot .card-face__head { height: 32px; font-size: 16px; }
+.board--compact .board__slot .card-face__text { padding: 10px; font-size: 16px; }
+.board--compact .board__slot .dice-pair { gap: 8px; }
+
+/* Token silhouettes inside owner chips and chip tokens (tokens.js tokenGlyphSvg). */
+.cell__chip .glyph-svg { width: 76%; height: 76%; display: block; }
+.tok-chip .glyph-svg { width: 66%; height: 66%; display: block; }
+
+/* Full title-deed card (web/shared/deed.js deedDetailHtml), PC and phone. */
+.deed-card { --dc-w: 340px; width: var(--dc-w); max-width: 100%; display: flex; flex-direction: column; background: #FFFFFF; color: #15191E; border: 2px solid #15191E; border-radius: 10px; overflow: hidden; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); font-family: var(--font-body, Inter, sans-serif); }
+.deed-card--lg { --dc-w: 420px; }
+.deed-card--sm { --dc-w: 100%; box-shadow: none; border-width: 1.5px; }
+.deed-card__head { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 14px 12px; border-bottom: 2px solid #15191E; text-align: center; }
+.deed-card__eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; opacity: 0.85; }
+.deed-card__name { font-family: var(--font-display, Oswald, sans-serif); font-size: 24px; font-weight: 600; letter-spacing: 0.06em; line-height: 1.1; }
+.deed-card__price { font-family: var(--font-display, Oswald, sans-serif); font-size: 18px; font-weight: 600; opacity: 0.9; }
+.deed-card__owner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 14px; border-bottom: 1px solid #E3DFD2; font-family: var(--font-display, Oswald, sans-serif); font-size: 16px; letter-spacing: 0.06em; }
+.deed-card__bank { font-size: 13px; font-weight: 600; color: #5B6470; letter-spacing: 0.1em; }
+.deed-card__tag { padding: 1px 7px; border-radius: 4px; font-family: var(--font-body, Inter, sans-serif); font-size: 10px; font-weight: 800; letter-spacing: 0.08em; color: #FFFFFF; }
+.deed-card__tag--mortgaged { background: #B3242A; }
+.deed-card__tag--pledged { background: #A97E1E; }
+.deed-card__rows { display: flex; flex-direction: column; padding: 8px 14px; gap: 1px; }
+.deed-card__row { display: flex; justify-content: space-between; gap: 12px; padding: 3px 8px; border-radius: 4px; font-size: 15px; }
+.deed-card__row b { font-family: var(--font-display, Oswald, sans-serif); font-size: 17px; font-weight: 600; }
+.deed-card__row.is-now { background: #F2C14E; box-shadow: inset 0 0 0 1.5px #A97E1E; font-weight: 700; }
+.deed-card__costs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6px; padding: 6px 14px; border-top: 1px solid #E3DFD2; background: #FBFAF4; }
+.deed-card__costs .deed-card__row { font-size: 13px; padding: 2px 4px; }
+.deed-card__costs .deed-card__row b { font-size: 14px; }
+.deed-card__built { display: flex; justify-content: center; padding: 4px 0 6px; }
+.deed-card__houses { display: inline-flex; gap: 4px; }
+.deed-card__house { width: 16px; height: 14px; background: #1C8A47; clip-path: polygon(50% 0, 100% 45%, 100% 100%, 0 100%, 0 45%); }
+.deed-card__hotel { width: 30px; height: 16px; background: #D9343A; border-radius: 2px; }
+.deed-card__set-title { padding: 6px 14px 0; border-top: 1px solid #E3DFD2; font-size: 10px; font-weight: 800; letter-spacing: 0.16em; color: #5B6470; }
+.deed-card__set { display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 6px 14px 12px; }
+.deed-card__member { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
+.deed-card__nobody { width: 20px; height: 20px; border-radius: 50%; border: 2px dashed #8A929C; }
+.deed-card__info { margin: 4px 0 6px; font-size: 15px; line-height: 1.45; color: #2D333B; }
+.deed-card--sm .deed-card__name { font-size: 19px; }
+.deed-card--sm .deed-card__rows { padding: 4px 10px; }
+.deed-card--sm .deed-card__row { font-size: 13px; padding: 2px 6px; }
+.deed-card--sm .deed-card__row b { font-size: 14px; }
+.deed-card--sm .deed-card__owner { padding: 5px 10px; font-size: 14px; }
+.deed-card--sm .deed-card__costs { padding: 4px 10px; }
+.deed-card--sm .deed-card__set { padding: 4px 10px 8px; }
+.deed-card--sm .deed-card__head { padding: 6px 10px 8px; }

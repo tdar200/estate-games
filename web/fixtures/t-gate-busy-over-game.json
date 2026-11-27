@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Open on another screen (from a game: CANCEL)",
+    "section": "Gates and connection",
+    "description": "RESUME another table from a game screen."
+  },
+  "extends": "pad-turn",
+  "ui": {
+    "gate": {
+      "kind": "busy",
+      "code": "KEY77"
+    }
+  }
+}

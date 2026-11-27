@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "Card result: money in",
+    "section": "Turn: cards",
+    "description": "Confirm a card that pays."
+  },
+  "extends": "card",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "pendingCard": {
+      "cardId": "chance-award",
+      "text": "Named Citizen of the Year: collect $100"
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "turn_complete",
+        "pendingCard": null,
+        "players": {
+          "Robin": {
+            "cash": 184
+          }
+        },
+        "log+": [
+          {
+            "text": "Robin drew: Named Citizen of the Year: collect $100",
+            "at": 1793560000000
+          },
+          {
+            "text": "Robin confirmed the Headlines card",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

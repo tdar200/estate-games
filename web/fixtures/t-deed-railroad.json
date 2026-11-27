@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Deed card: a railroad",
+    "section": "Deed cards",
+    "description": "Click a railroad."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 25
+    }
+  }
+}

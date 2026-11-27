@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "RENT ×10: a Headlines card's utility rent",
+    "section": "Turn: landing",
+    "description": "\"Heatwave\" sends the player to the nearest utility: ten times a fresh roll (dice shown)."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "phase": "turn_complete",
+    "players": {
+      "Maya": {
+        "position": 28,
+        "cash": 613
+      },
+      "Sam": {
+        "cash": 1421
+      }
+    },
+    "lastCard": {
+      "deck": "chance",
+      "text": "Heatwave: go to the nearest utility; if owned, pay ten times the dice total"
+    },
+    "lastLanding": {
+      "playerId": "@Maya",
+      "spaceIndex": 28,
+      "kind": "rent",
+      "amount": 70,
+      "recipientId": "@Sam",
+      "base": 7,
+      "multiplier": 10,
+      "dice": [
+        3,
+        4
+      ]
+    },
+    "log+": [
+      {
+        "text": "Maya drew Headlines: Heatwave: go to the nearest utility; if owned, pay ten times the dice total",
+        "at": 1793559997000
+      },
+      {
+        "text": "Maya rolled 3 + 4 = 7 for the utility",
+        "at": 1793559998000
+      },
+      {
+        "text": "Maya paid $70 (Reservoir rent)",
+        "at": 1793559999000
+      }
+    ]
+  }
+}

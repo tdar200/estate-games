@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Trade declined",
+    "section": "Trade",
+    "description": "Decline: the proposer's plate says ✕."
+  },
+  "extends": "trade",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "trade": {
+      "proposerId": "@Robin",
+      "targetId": "@Maya",
+      "offer": {
+        "cash": 0,
+        "properties": [
+          19
+        ]
+      },
+      "request": {
+        "cash": 200,
+        "properties": [
+          23
+        ]
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "awaiting_roll",
+        "trade": null,
+        "log+": [
+          {
+            "text": "Maya declined the trade",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

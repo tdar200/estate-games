@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "Estate front-ends (PC table + phone). Vanilla ES modules, no build step."
+}

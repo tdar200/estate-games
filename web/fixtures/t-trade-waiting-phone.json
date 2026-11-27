@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Offer sent: waiting on a phone",
+    "section": "Trade",
+    "description": "SEND: the phone player decides on their phone."
+  },
+  "extends": "trade"
+}

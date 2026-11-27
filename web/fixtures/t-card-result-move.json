@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Card result: moved",
+    "section": "Turn: cards",
+    "description": "Confirm an advance card: the token moves there and the landing plays out."
+  },
+  "extends": "card",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "turn_complete",
+        "pendingCard": null,
+        "players": {
+          "Robin": {
+            "position": 15
+          }
+        },
+        "turn": {
+          "movements": [
+            {
+              "playerId": "@Robin",
+              "from": 7,
+              "to": 15,
+              "path": [
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Robin",
+          "from": 7,
+          "to": 15,
+          "path": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "log+": [
+          {
+            "text": "Robin confirmed the Headlines card",
+            "at": 1793560000000
+          },
+          {
+            "text": "Robin landed on West Station Railroad",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

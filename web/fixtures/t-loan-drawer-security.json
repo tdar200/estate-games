@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Loan drawer: security picked",
+    "section": "Loans",
+    "description": "Pick deeds as security: they pulse on the board."
+  },
+  "extends": "debt-loans",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "loan",
+      "draft": {
+        "targetId": "@Sam",
+        "principal": 200,
+        "repay": 250,
+        "dueTurns": 8,
+        "collateral": [
+          11,
+          23
+        ]
+      }
+    }
+  }
+}

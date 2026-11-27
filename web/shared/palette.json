@@ -1,0 +1,23 @@
+{
+  "about": "Estate player palette: token kind -> colour. Read by the Go server at startup (internal/server/palette.go) to colour party-table players; web/shared/tokens.js TOKEN_COLORS is its JS twin and web/tests/board.check.mjs fails if the two ever differ. Every colour is at least 19 CIEDE2000 from all eight property-group colours (the groups are 19.8 apart from each other). See the table in web/shared/tokens.css.",
+  "tokens": {
+    "rocket": "#1EA0FF",
+    "teapot": "#7A1838",
+    "bicycle": "#6F7A1A",
+    "lighthouse": "#0E8C8C",
+    "key": "#8A5CF5",
+    "umbrella": "#1E2228",
+    "anchor": "#D88890",
+    "kite": "#727078"
+  },
+  "names": {
+    "rocket": "Sky",
+    "teapot": "Wine",
+    "bicycle": "Olive",
+    "lighthouse": "Teal",
+    "key": "Violet",
+    "umbrella": "Onyx",
+    "anchor": "Rose",
+    "kite": "Slate"
+  }
+}

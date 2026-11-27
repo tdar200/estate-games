@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Timed auction: keyboard seat bidding",
+    "section": "Turn: auction",
+    "description": "Same with a keyboard seat: A / X / Y and B, with the KEYBOARD SEAT card."
+  },
+  "extends": "t-auction-timed",
+  "seats": {
+    "Maya": "keyboard"
+  }
+}

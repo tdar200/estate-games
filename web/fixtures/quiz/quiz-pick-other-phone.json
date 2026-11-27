@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "description": "Maya's phone while Orca picks"
+  },
+  "state": {
+    "game": "quiz",
+    "code": "A3VA4",
+    "status": "playing",
+    "hostId": "p1",
+    "version": 26,
+    "phase": "pick",
+    "now": 1795374038230,
+    "phaseEndsAt": 1795374050230,
+    "settings": {
+      "length": "quick",
+      "readSpeed": "normal",
+      "answerSeconds": 8
+    },
+    "seatLimit": 8,
+    "round": 1,
+    "rounds": 1,
+    "board": {
+      "round": 1,
+      "categories": [
+        {
+          "index": 0,
+          "title": "THE OLYMPICS",
+          "topic": "sport",
+          "cells": [
+            {
+              "row": 0,
+              "value": 100,
+              "played": false
+            },
+            {
+              "row": 1,
+              "value": 200,
+              "played": false
+            },
+            {
+              "row": 2,
+              "value": 300,
+              "played": false
+            },
+            {
+              "row": 3,
+              "value": 400,
+              "played": true
+            },
+            {
+              "row": 4,
+              "value": 500,
+              "played": false
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "title": "CLASSICAL COMPOSERS",
+          "topic": "music",
+          "cells": [
+            {
+              "row": 0,
+              "value": 100,
+              "played": false
+            },
+            {
+              "row": 1,
+              "value": 200,
+              "played": false
+            },
+            {
+              "row": 2,
+              "value": 300,
+              "played": false
+            },
+            {
+              "row": 3,
+              "value": 400,
+              "played": false
+            },
+            {
+              "row": 4,
+              "value": 500,
+              "played": false
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "title": "WONDERS AND MONUMENTS",
+          "topic": "history",
+          "cells": [
+            {
+              "row": 0,
+              "value": 100,
+              "played": false
+            },
+            {
+              "row": 1,
+              "value": 200,
+              "played": false
+            },
+            {
+              "row": 2,
+              "value": 300,
+              "played": true
+            },
+            {
+              "row": 3,
+              "value": 400,
+              "played": false
+            },
+            {
+              "row": 4,
+              "value": 500,
+              "played": false
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "title": "SEA CREATURES",
+          "topic": "nature",
+          "cells": [
+            {
+              "row": 0,
+              "value": 100,
+              "played": false
+            },
+            {
+              "row": 1,
+              "value": 200,
+              "played": false
+            },
+            {
+              "row": 2,
+              "value": 300,
+              "played": false
+            },
+            {
+              "row": 3,
+              "value": 400,
+              "played": false
+            },
+            {
+              "row": 4,
+              "value": 500,
+              "played": false
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "title": "MEDICAL BREAKTHROUGHS",
+          "topic": "inventions",
+          "cells": [
+            {
+              "row": 0,
+              "value": 100,
+              "played": false
+            },
+            {
+              "row": 1,
+              "value": 200,
+              "played": false
+            },
+            {
+              "row": 2,
+              "value": 300,
+              "played": false
+            },
+            {
+              "row": 3,
+              "value": 400,
+              "played": false
+            },
+            {
+              "row": 4,
+              "value": 500,
+              "played": false
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "title": "HERBS AND SPICES",
+          "topic": "food",
+          "cells": [
+            {
+              "row": 0,
+              "value": 100,
+              "played": false
+            },
+            {
+              "row": 1,
+              "value": 200,
+              "played": false
+            },
+            {
+              "row": 2,
+              "value": 300,
+              "played": false
+            },
+            {
+              "row": 3,
+              "value": 400,
+              "played": true
+            },
+            {
+              "row": 4,
+              "value": 500,
+              "played": false
+            }
+          ]
+        }
+      ]
+    },
+    "chooserId": "p6",
+    "clue": null,
+    "bet": null,
+    "final": null,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "status": "playing",
+        "score": 100,
+        "correct": 1,
+        "wrong": 1,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "status": "playing",
+        "score": -400,
+        "correct": 0,
+        "wrong": 1,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "kind": "human",
+        "status": "playing",
+        "score": 300,
+        "correct": 1,
+        "wrong": 0,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "kind": "human",
+        "status": "playing",
+        "score": 0,
+        "correct": 0,
+        "wrong": 0,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "kind": "ai",
+        "status": "playing",
+        "score": 0,
+        "correct": 0,
+        "wrong": 0,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "hard",
+        "autopilot": false
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "kind": "ai",
+        "status": "playing",
+        "score": 400,
+        "correct": 1,
+        "wrong": 0,
+        "isChooser": true,
+        "lockedIn": false,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "normal",
+        "autopilot": false
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "canPick": false,
+      "canAnswer": false,
+      "choice": -1,
+      "canBet": false,
+      "betMin": 0,
+      "betMax": 0,
+      "bet": null,
+      "finalChoice": -1,
+      "latencyMs": 250
+    },
+    "standings": null,
+    "winnerIds": [],
+    "credits": [],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The quiz starts. Maya picks first"
+      },
+      {
+        "id": "l2",
+        "text": "Round 1: THE OLYMPICS, CLASSICAL COMPOSERS, WONDERS AND MONUMENTS, SEA CREATURES, MEDICAL BREAKTHROUGHS, HERBS AND SPICES"
+      },
+      {
+        "id": "l3",
+        "text": "Maya picks WONDERS AND MONUMENTS for 300"
+      },
+      {
+        "id": "l4",
+        "text": "Maya loses 300"
+      },
+      {
+        "id": "l5",
+        "text": "Sam is right: Cambodia, +300"
+      },
+      {
+        "id": "l6",
+        "text": "Sam picks THE OLYMPICS for 400"
+      },
+      {
+        "id": "l7",
+        "text": "Maya is right: Jesse Owens, +400"
+      },
+      {
+        "id": "l8",
+        "text": "Maya picks HERBS AND SPICES for 400"
+      },
+      {
+        "id": "l9",
+        "text": "Kim loses 400"
+      },
+      {
+        "id": "l10",
+        "text": "Orca is right: Cilantro, +400"
+      }
+    ],
+    "lastEventSeq": 27,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "quiz",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

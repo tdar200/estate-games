@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Take a seat: controller",
+    "section": "Seat setup and rules",
+    "description": "Press A on a controller that has no seat yet."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "pads": {
+      "0": "Xbox controller",
+      "1": "PlayStation controller"
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "seat",
+      "input": "controller",
+      "pad": 1
+    }
+  }
+}

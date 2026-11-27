@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Victory: a computer wins",
+    "section": "End of game",
+    "description": "The computer outlasts everyone."
+  },
+  "extends": "victory",
+  "patch": {
+    "winnerId": "@Alpha",
+    "players": {
+      "Alpha": {
+        "bankrupt": false,
+        "cash": 2140
+      },
+      "Robin": {
+        "bankrupt": true,
+        "cash": 0
+      }
+    }
+  }
+}

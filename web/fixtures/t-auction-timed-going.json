@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Timed auction: GOING ONCE, +$100 too dear",
+    "section": "Turn: auction",
+    "description": "3 seconds or less on the clock; the seat's cash doesn't cover +$100, so that quick bid is gone."
+  },
+  "extends": "t-auction-timed",
+  "patch": {
+    "now": 1793560003000,
+    "players": {
+      "Maya": {
+        "cash": 250
+      }
+    }
+  }
+}

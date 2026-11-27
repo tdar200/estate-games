@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Deed card over the trade modal",
+    "section": "Deed cards",
+    "description": "In the trade, press I on a deed."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "16": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  },
+  "ui": {
+    "open": [
+      {
+        "kind": "trade",
+        "draft": {
+          "targetId": "@Robin",
+          "offer": [
+            21
+          ],
+          "request": [
+            19
+          ],
+          "offerCash": 50
+        }
+      },
+      {
+        "kind": "deed",
+        "index": 19
+      }
+    ]
+  }
+}

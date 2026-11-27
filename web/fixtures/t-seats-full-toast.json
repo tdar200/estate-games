@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "All six seats taken",
+    "section": "Seat setup and rules",
+    "description": "Press Enter (or A) with six players seated."
+  },
+  "extends": "table-lobby",
+  "patch": {
+    "players+": [
+      {
+        "id": "player_000000000021",
+        "name": "Kai",
+        "kind": "human",
+        "color": "#4E7FD6",
+        "cash": 1500,
+        "position": 0,
+        "inJail": false,
+        "jailTurns": 0,
+        "jailCards": 0,
+        "bankrupt": false,
+        "input": "keyboard",
+        "tokenKind": "umbrella",
+        "online": true
+      },
+      {
+        "id": "ai_000000000022",
+        "name": "Eve",
+        "kind": "ai",
+        "color": "#8A5CF5",
+        "cash": 1500,
+        "position": 0,
+        "inJail": false,
+        "jailTurns": 0,
+        "jailCards": 0,
+        "bankrupt": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "online": true,
+        "difficulty": "easy"
+      }
+    ]
+  },
+  "seats": {
+    "Maya": "controller",
+    "Kai": "keyboard"
+  },
+  "ui": {
+    "toast": {
+      "text": "All six seats are taken."
+    }
+  }
+}

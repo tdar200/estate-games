@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Roll for order: dice landing (mid)",
+    "section": "Order roll",
+    "description": "A seat rolls for order.",
+    "capture": {
+      "when": "#dice-hud.is-shown .die",
+      "delay": 650
+    }
+  },
+  "extends": "order",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "openingOrder": {
+          "pendingIds": [
+            "@Maya"
+          ],
+          "entries": [
+            {
+              "playerId": "@Robin",
+              "rolls": [
+                {
+                  "round": 1,
+                  "dice": [
+                    5,
+                    2
+                  ],
+                  "total": 7
+                },
+                {
+                  "round": 2,
+                  "dice": [
+                    6,
+                    4
+                  ],
+                  "total": 10
+                }
+              ]
+            },
+            {
+              "playerId": "@Alpha",
+              "rolls": [
+                {
+                  "round": 1,
+                  "dice": [
+                    5,
+                    3
+                  ],
+                  "total": 8
+                }
+              ]
+            },
+            {
+              "playerId": "@Sam",
+              "rolls": [
+                {
+                  "round": 1,
+                  "dice": [
+                    5,
+                    6
+                  ],
+                  "total": 11
+                }
+              ]
+            },
+            {
+              "playerId": "@Maya",
+              "rolls": [
+                {
+                  "round": 1,
+                  "dice": [
+                    2,
+                    5
+                  ],
+                  "total": 7
+                }
+              ]
+            }
+          ]
+        },
+        "log+": [
+          {
+            "text": "Robin rolled 6 + 4 = 10 for turn order",
+            "at": 1793560000000
+          }
+        ]
+      },
+      "after": 700
+    }
+  ]
+}

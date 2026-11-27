@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "Auction won",
+    "section": "Turn: auction",
+    "description": "The last bidder standing wins the street."
+  },
+  "extends": "table-auction",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "auction": {
+      "currentPlayerId": "@Maya"
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "turn_complete",
+        "auction": null,
+        "players": {
+          "Maya": {
+            "cash": 663
+          }
+        },
+        "properties": {
+          "9": {
+            "ownerId": "@Maya",
+            "mortgaged": false,
+            "houses": 0
+          }
+        },
+        "log+": [
+          {
+            "text": "Maya bid $70",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya won Pearl Lane for $70",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

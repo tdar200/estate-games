@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Take a seat: the NEW kite",
+    "section": "Seat setup and rules",
+    "description": "The token picker: taken tokens greyed with their owners, the kite (new, replaces the top hat)."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "open": {
+      "kind": "seat",
+      "input": "keyboard",
+      "draft": {
+        "tokenKind": "kite",
+        "name": "Kite"
+      }
+    }
+  }
+}

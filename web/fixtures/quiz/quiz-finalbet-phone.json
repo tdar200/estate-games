@@ -1,0 +1,489 @@
+{
+  "meta": {
+    "description": "Maya's phone: her secret final bet, 0 to 3,200"
+  },
+  "state": {
+    "game": "quiz",
+    "code": "A3VA4",
+    "status": "playing",
+    "hostId": "p1",
+    "version": 190,
+    "phase": "finalBet",
+    "now": 1795374333069,
+    "phaseEndsAt": 1795374359069,
+    "settings": {
+      "length": "quick",
+      "readSpeed": "normal",
+      "answerSeconds": 8
+    },
+    "seatLimit": 8,
+    "round": 3,
+    "rounds": 1,
+    "board": null,
+    "chooserId": "p3",
+    "clue": null,
+    "bet": null,
+    "final": {
+      "seq": 31,
+      "category": "ANIMAL RECORDS",
+      "betsIn": [
+        "p2",
+        "p3",
+        "p5",
+        "p6"
+      ]
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "status": "playing",
+        "score": 3200,
+        "correct": 10,
+        "wrong": 2,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "status": "playing",
+        "score": -700,
+        "correct": 1,
+        "wrong": 2,
+        "isChooser": false,
+        "lockedIn": true,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "kind": "human",
+        "status": "playing",
+        "score": 700,
+        "correct": 3,
+        "wrong": 2,
+        "isChooser": true,
+        "lockedIn": true,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "kind": "human",
+        "status": "playing",
+        "score": -200,
+        "correct": 1,
+        "wrong": 1,
+        "isChooser": false,
+        "lockedIn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "kind": "ai",
+        "status": "playing",
+        "score": 900,
+        "correct": 6,
+        "wrong": 2,
+        "isChooser": false,
+        "lockedIn": true,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "hard",
+        "autopilot": false
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "kind": "ai",
+        "status": "playing",
+        "score": 2400,
+        "correct": 9,
+        "wrong": 0,
+        "isChooser": false,
+        "lockedIn": true,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "normal",
+        "autopilot": false
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "canPick": false,
+      "canAnswer": false,
+      "choice": -1,
+      "canBet": true,
+      "betMin": 0,
+      "betMax": 3200,
+      "bet": null,
+      "finalChoice": -1,
+      "latencyMs": 250
+    },
+    "standings": null,
+    "winnerIds": [],
+    "credits": [],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The quiz starts. Maya picks first"
+      },
+      {
+        "id": "l2",
+        "text": "Round 1: THE OLYMPICS, CLASSICAL COMPOSERS, WONDERS AND MONUMENTS, SEA CREATURES, MEDICAL BREAKTHROUGHS, HERBS AND SPICES"
+      },
+      {
+        "id": "l3",
+        "text": "Maya picks WONDERS AND MONUMENTS for 300"
+      },
+      {
+        "id": "l4",
+        "text": "Maya loses 300"
+      },
+      {
+        "id": "l5",
+        "text": "Sam is right: Cambodia, +300"
+      },
+      {
+        "id": "l6",
+        "text": "Sam picks THE OLYMPICS for 400"
+      },
+      {
+        "id": "l7",
+        "text": "Maya is right: Jesse Owens, +400"
+      },
+      {
+        "id": "l8",
+        "text": "Maya picks HERBS AND SPICES for 400"
+      },
+      {
+        "id": "l9",
+        "text": "Kim loses 400"
+      },
+      {
+        "id": "l10",
+        "text": "Orca is right: Cilantro, +400"
+      },
+      {
+        "id": "l11",
+        "text": "Orca picks SEA CREATURES for 300"
+      },
+      {
+        "id": "l12",
+        "text": "Jun is right: Blue, +300"
+      },
+      {
+        "id": "l13",
+        "text": "Jun picks THE OLYMPICS for 500"
+      },
+      {
+        "id": "l14",
+        "text": "Orca is right: Mark Spitz, +500"
+      },
+      {
+        "id": "l15",
+        "text": "Orca picks MEDICAL BREAKTHROUGHS for 400"
+      },
+      {
+        "id": "l16",
+        "text": "Alpha is right: South Africa, +400"
+      },
+      {
+        "id": "l17",
+        "text": "Alpha picks WONDERS AND MONUMENTS for 200"
+      },
+      {
+        "id": "l18",
+        "text": "Sam loses 200"
+      },
+      {
+        "id": "l19",
+        "text": "Orca is right: Great Pyramid of Giza, +200"
+      },
+      {
+        "id": "l20",
+        "text": "Orca picks HERBS AND SPICES for 500"
+      },
+      {
+        "id": "l21",
+        "text": "Maya is right: Nutmeg, +500"
+      },
+      {
+        "id": "l22",
+        "text": "Maya picks SEA CREATURES for 100"
+      },
+      {
+        "id": "l23",
+        "text": "Alpha is right: Blue whale, +100"
+      },
+      {
+        "id": "l24",
+        "text": "Alpha picks THE OLYMPICS for 200"
+      },
+      {
+        "id": "l25",
+        "text": "Orca is right: Beijing, +200"
+      },
+      {
+        "id": "l26",
+        "text": "Orca picks CLASSICAL COMPOSERS for 500"
+      },
+      {
+        "id": "l27",
+        "text": "Jun loses 500"
+      },
+      {
+        "id": "l28",
+        "text": "Maya is right: Igor Stravinsky, +500"
+      },
+      {
+        "id": "l29",
+        "text": "Maya picks CLASSICAL COMPOSERS for 100"
+      },
+      {
+        "id": "l30",
+        "text": "Maya is right: Ludwig van Beethoven, +100"
+      },
+      {
+        "id": "l31",
+        "text": "Maya picks THE OLYMPICS for 100"
+      },
+      {
+        "id": "l32",
+        "text": "Orca is right: 5, +100"
+      },
+      {
+        "id": "l33",
+        "text": "Orca picks HERBS AND SPICES for 100"
+      },
+      {
+        "id": "l34",
+        "text": "Maya is right: Cinnamon, +100"
+      },
+      {
+        "id": "l35",
+        "text": "Maya picks MEDICAL BREAKTHROUGHS for 200"
+      },
+      {
+        "id": "l36",
+        "text": "Alpha is right: Smallpox, +200"
+      },
+      {
+        "id": "l37",
+        "text": "Alpha picks WONDERS AND MONUMENTS for 400"
+      },
+      {
+        "id": "l38",
+        "text": "Maya is right: Jordan, +400"
+      },
+      {
+        "id": "l39",
+        "text": "Maya picks SEA CREATURES for 400"
+      },
+      {
+        "id": "l40",
+        "text": "Alpha loses 400"
+      },
+      {
+        "id": "l41",
+        "text": "Sam loses 400"
+      },
+      {
+        "id": "l42",
+        "text": "Maya is right: Tooth, +400"
+      },
+      {
+        "id": "l43",
+        "text": "Maya picks CLASSICAL COMPOSERS for 400"
+      },
+      {
+        "id": "l44",
+        "text": "A gold square! Only Maya may answer it"
+      },
+      {
+        "id": "l45",
+        "text": "Maya bets 1200"
+      },
+      {
+        "id": "l46",
+        "text": "Maya is right: Pyotr Ilyich Tchaikovsky, +1200"
+      },
+      {
+        "id": "l47",
+        "text": "Maya picks SEA CREATURES for 200"
+      },
+      {
+        "id": "l48",
+        "text": "Orca is right: Whale shark, +200"
+      },
+      {
+        "id": "l49",
+        "text": "Orca picks WONDERS AND MONUMENTS for 500"
+      },
+      {
+        "id": "l50",
+        "text": "Alpha is right: Ming, +500"
+      },
+      {
+        "id": "l51",
+        "text": "Alpha picks MEDICAL BREAKTHROUGHS for 100"
+      },
+      {
+        "id": "l52",
+        "text": "Maya is right: Alexander Fleming, +100"
+      },
+      {
+        "id": "l53",
+        "text": "Maya picks HERBS AND SPICES for 300"
+      },
+      {
+        "id": "l54",
+        "text": "Maya is right: Saffron, +300"
+      },
+      {
+        "id": "l55",
+        "text": "Maya picks CLASSICAL COMPOSERS for 300"
+      },
+      {
+        "id": "l56",
+        "text": "Alpha is right: Antonio Vivaldi, +300"
+      },
+      {
+        "id": "l57",
+        "text": "Alpha picks CLASSICAL COMPOSERS for 200"
+      },
+      {
+        "id": "l58",
+        "text": "Orca is right: Wolfgang Amadeus Mozart, +200"
+      },
+      {
+        "id": "l59",
+        "text": "Orca picks WONDERS AND MONUMENTS for 100"
+      },
+      {
+        "id": "l60",
+        "text": "Alpha is right: India, +100"
+      },
+      {
+        "id": "l61",
+        "text": "Alpha picks MEDICAL BREAKTHROUGHS for 500"
+      },
+      {
+        "id": "l62",
+        "text": "Sam is right: Insulin, +500"
+      },
+      {
+        "id": "l63",
+        "text": "Sam picks THE OLYMPICS for 300"
+      },
+      {
+        "id": "l64",
+        "text": "Alpha loses 300"
+      },
+      {
+        "id": "l65",
+        "text": "Orca is right: Athens, +300"
+      },
+      {
+        "id": "l66",
+        "text": "Orca picks HERBS AND SPICES for 200"
+      },
+      {
+        "id": "l67",
+        "text": "Kim is right: Basil, +200"
+      },
+      {
+        "id": "l68",
+        "text": "Kim picks MEDICAL BREAKTHROUGHS for 300"
+      },
+      {
+        "id": "l69",
+        "text": "Orca is right: X-rays, +300"
+      },
+      {
+        "id": "l70",
+        "text": "Orca picks SEA CREATURES for 500"
+      },
+      {
+        "id": "l71",
+        "text": "Kim loses 500"
+      },
+      {
+        "id": "l72",
+        "text": "Maya loses 500"
+      },
+      {
+        "id": "l73",
+        "text": "Sam is right: Bioluminescence, +500"
+      },
+      {
+        "id": "l74",
+        "text": "That's the end of round 1"
+      },
+      {
+        "id": "l75",
+        "text": "The final: ANIMAL RECORDS"
+      },
+      {
+        "id": "l76",
+        "text": "Kim has bet"
+      },
+      {
+        "id": "l77",
+        "text": "Sam has bet"
+      },
+      {
+        "id": "l78",
+        "text": "Alpha has bet"
+      },
+      {
+        "id": "l79",
+        "text": "Orca has bet"
+      }
+    ],
+    "lastEventSeq": 198,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "quiz",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

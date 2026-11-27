@@ -1,0 +1,122 @@
+[
+  {
+    "name": "quiz-lobby-table",
+    "description": "Lobby on the table screen: Maya's phone (host), three more phones and two computers (Hard, Normal); Quick game, normal reading, 8 s to answer",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-lobby-phone",
+    "description": "Lobby on Maya's phone: she hosts, the setting chips and START",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-intro-table",
+    "description": "Round 1 starts: the round title, then the six categories one by one",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-pick-other-phone",
+    "description": "Maya's phone while Orca picks",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-pick-table",
+    "description": "Maya has control and is picking: 16 of 30 clues played, scores on the plates",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-pick-phone",
+    "description": "Maya's phone while she picks: the board as big buttons",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-read-table",
+    "description": "SEA CREATURES for 400: the clue is being read; the choices appear when the bar ends",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-read-phone",
+    "description": "Maya's phone during the reading: the clue and the bar, no choices yet",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-answer-table",
+    "description": "The four choices are open: Alpha and Sam have tapped (who, not what), 6 s left",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-answer-phone",
+    "description": "Maya's phone with the four choices open",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-answered-phone",
+    "description": "Maya has tapped B: locked in, waiting for the reveal",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-reveal-table",
+    "description": "Reveal: Tooth was right; Maya won +400, Alpha and Sam lost 400, Kim was right but late",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-reveal-phone",
+    "description": "Maya's phone at the reveal: right, +400",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-gold-table",
+    "description": "Maya found the gold square under CLASSICAL COMPOSERS for 400",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-bet-table",
+    "description": "Maya is betting on the gold square (5 to 2,100) before she sees the clue",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-bet-phone",
+    "description": "Maya's phone: the bet stepper with MIN, HALF and MAX",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-roundend-table",
+    "description": "Round 1 is over: the scores, the final next",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-finalbet-table",
+    "description": "The final: ANIMAL RECORDS; 4 bets are in (amounts secret)",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-finalbet-phone",
+    "description": "Maya's phone: her secret final bet, 0 to 3,200",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-finalanswer-table",
+    "description": "The final clue with its four choices; 4 answers are in, 14 s left",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-finalanswer-phone",
+    "description": "Maya's phone: the final's four choices (she bet 1,921)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "quiz-finalreveal-table",
+    "description": "The final reveal, lowest score first: 4 of 6 revealed",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-finished-table",
+    "description": "Game over: Maya wins on 5,121; PLAY AGAIN and NEW TABLE",
+    "viewer": "table"
+  },
+  {
+    "name": "quiz-finished-phone",
+    "description": "Maya's phone at the end: place 1 of 6",
+    "viewer": "Maya"
+  }
+]

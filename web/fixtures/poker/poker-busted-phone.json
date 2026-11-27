@@ -1,0 +1,614 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "playing",
+    "phase": "showdown",
+    "hostId": "p1",
+    "version": 12,
+    "now": 1762160412300,
+    "settings": {
+      "style": "tournament",
+      "maxPlayers": 8,
+      "startingStack": 1500,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "off",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 1,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 0,
+      "next": null
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 1,
+    "street": "",
+    "board": [
+      "2s",
+      "3d",
+      "Qh",
+      "4c",
+      "4h"
+    ],
+    "pots": [],
+    "totalPot": 0,
+    "currentBet": 0,
+    "buttonSeat": 2,
+    "smallBlindSeat": 0,
+    "bigBlindSeat": 1,
+    "actorId": "",
+    "actionDeadline": 0,
+    "actionTimeBank": false,
+    "nextHandAt": 1762160418800,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 0,
+        "bet": 0,
+        "status": "busted",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "7c",
+          "6h"
+        ],
+        "shown": true,
+        "handName": "Pair of Fours",
+        "isButton": false,
+        "isSmallBlind": true,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p1",
+          "street": "preflop",
+          "type": "call",
+          "amount": 1490,
+          "to": 1500,
+          "allIn": true
+        },
+        "odds": null,
+        "rebuyUntil": 1762160442300,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 0,
+        "bet": 0,
+        "status": "busted",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "Ac",
+          "8d"
+        ],
+        "shown": true,
+        "handName": "Pair of Fours",
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": true,
+        "lastAction": {
+          "playerId": "p2",
+          "street": "preflop",
+          "type": "call",
+          "amount": 580,
+          "to": 600,
+          "allIn": true
+        },
+        "odds": null,
+        "rebuyUntil": 1762160442300,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 4500,
+        "bet": 0,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "Tc",
+          "2h"
+        ],
+        "shown": true,
+        "handName": "Two pair, Fours and Twos",
+        "isButton": true,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p3",
+          "street": "preflop",
+          "type": "raise",
+          "amount": 2400,
+          "to": 2400,
+          "allIn": true
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      }
+    ],
+    "actions": [
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "smallBlind",
+        "amount": 10,
+        "to": 10
+      },
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "bigBlind",
+        "amount": 20,
+        "to": 20
+      },
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "raise",
+        "amount": 2400,
+        "to": 2400,
+        "allIn": true
+      },
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "call",
+        "amount": 1490,
+        "to": 1500,
+        "allIn": true
+      },
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "call",
+        "amount": 580,
+        "to": 600,
+        "allIn": true
+      }
+    ],
+    "result": {
+      "handNumber": 1,
+      "showdown": true,
+      "board": [
+        "2s",
+        "3d",
+        "Qh",
+        "4c",
+        "4h"
+      ],
+      "pots": [
+        {
+          "amount": 1800,
+          "eligibleIds": [
+            "p1",
+            "p2",
+            "p3"
+          ],
+          "winners": [
+            {
+              "id": "p3",
+              "amount": 1800,
+              "handName": "Two pair, Fours and Twos",
+              "bestCards": [
+                "4h",
+                "4c",
+                "2s",
+                "2h",
+                "Qh"
+              ]
+            }
+          ]
+        },
+        {
+          "amount": 1800,
+          "eligibleIds": [
+            "p1",
+            "p3"
+          ],
+          "winners": [
+            {
+              "id": "p3",
+              "amount": 1800,
+              "handName": "Two pair, Fours and Twos",
+              "bestCards": [
+                "4h",
+                "4c",
+                "2s",
+                "2h",
+                "Qh"
+              ]
+            }
+          ]
+        }
+      ],
+      "hands": [
+        {
+          "id": "p1",
+          "cards": [
+            "7c",
+            "6h"
+          ],
+          "handName": "Pair of Fours",
+          "bestCards": [
+            "4h",
+            "4c",
+            "Qh",
+            "7c",
+            "6h"
+          ],
+          "mucked": false
+        },
+        {
+          "id": "p2",
+          "cards": [
+            "Ac",
+            "8d"
+          ],
+          "handName": "Pair of Fours",
+          "bestCards": [
+            "4h",
+            "4c",
+            "Ac",
+            "Qh",
+            "8d"
+          ],
+          "mucked": false
+        },
+        {
+          "id": "p3",
+          "cards": [
+            "Tc",
+            "2h"
+          ],
+          "handName": "Two pair, Fours and Twos",
+          "bestCards": [
+            "4h",
+            "4c",
+            "2s",
+            "2h",
+            "Qh"
+          ],
+          "mucked": false
+        }
+      ],
+      "uncalled": [
+        {
+          "id": "p3",
+          "amount": 900
+        }
+      ]
+    },
+    "you": {
+      "id": "p2",
+      "seat": 1,
+      "cards": [
+        "Ac",
+        "8d"
+      ],
+      "handName": "Pair of Fours",
+      "strength": null,
+      "toAct": false,
+      "legal": null,
+      "canShow": false,
+      "canRebuy": true,
+      "rebuyUntil": 1762160442300,
+      "sittingOut": false,
+      "sitOutNext": false,
+      "isHost": false
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 1,500 chips each, blinds 10/20"
+      },
+      {
+        "id": "l2",
+        "text": "Hand #1: Redwood has the button"
+      },
+      {
+        "id": "l3",
+        "text": "Maya posts the small blind 10"
+      },
+      {
+        "id": "l4",
+        "text": "Sam posts the big blind 20"
+      },
+      {
+        "id": "l5",
+        "text": "Redwood raises to 2,400 and is all-in"
+      },
+      {
+        "id": "l6",
+        "text": "Maya calls 1,490 and is all-in"
+      },
+      {
+        "id": "l7",
+        "text": "Sam calls 580 and is all-in"
+      },
+      {
+        "id": "l8",
+        "text": "Maya shows 7c 6h"
+      },
+      {
+        "id": "l9",
+        "text": "Sam shows Ac 8d"
+      },
+      {
+        "id": "l10",
+        "text": "Redwood shows Tc 2h"
+      },
+      {
+        "id": "l11",
+        "text": "Flop: 2s 3d Qh"
+      },
+      {
+        "id": "l12",
+        "text": "Turn: 4c"
+      },
+      {
+        "id": "l13",
+        "text": "River: 4h"
+      },
+      {
+        "id": "l14",
+        "text": "Redwood takes back 900 uncalled"
+      },
+      {
+        "id": "l15",
+        "text": "Maya has Pair of Fours"
+      },
+      {
+        "id": "l16",
+        "text": "Sam has Pair of Fours"
+      },
+      {
+        "id": "l17",
+        "text": "Redwood has Two pair, Fours and Twos"
+      },
+      {
+        "id": "l18",
+        "text": "Redwood wins 1,800 from the main pot with Two pair, Fours and Twos"
+      },
+      {
+        "id": "l19",
+        "text": "Redwood wins 1,800 from side pot 1 with Two pair, Fours and Twos"
+      },
+      {
+        "id": "l20",
+        "text": "Maya is out of chips and may rebuy"
+      },
+      {
+        "id": "l21",
+        "text": "Sam is out of chips and may rebuy"
+      }
+    ],
+    "lastEventSeq": 20,
+    "viewerId": "p2",
+    "viewerRole": "player",
+    "viewerName": "Sam",
+    "spectatorId": "",
+    "viewerIsHost": false,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    }
+  },
+  "viewer": {
+    "role": "player",
+    "playerId": "p2",
+    "name": "Sam"
+  },
+  "events": [
+    {
+      "seq": 4,
+      "type": "handStart",
+      "handNumber": 1,
+      "playerId": "p3"
+    },
+    {
+      "seq": 5,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "smallBlind",
+      "amount": 10,
+      "to": 10,
+      "street": "preflop"
+    },
+    {
+      "seq": 6,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "bigBlind",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    },
+    {
+      "seq": 7,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "raise",
+      "amount": 2400,
+      "to": 2400,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 8,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "call",
+      "amount": 1490,
+      "to": 1500,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 9,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "call",
+      "amount": 580,
+      "to": 600,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 10,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p1",
+      "cards": [
+        "7c",
+        "6h"
+      ]
+    },
+    {
+      "seq": 11,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p2",
+      "cards": [
+        "Ac",
+        "8d"
+      ]
+    },
+    {
+      "seq": 12,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p3",
+      "cards": [
+        "Tc",
+        "2h"
+      ]
+    },
+    {
+      "seq": 13,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "flop",
+      "cards": [
+        "2s",
+        "3d",
+        "Qh"
+      ]
+    },
+    {
+      "seq": 14,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "turn",
+      "cards": [
+        "4c"
+      ]
+    },
+    {
+      "seq": 15,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "river",
+      "cards": [
+        "4h"
+      ]
+    },
+    {
+      "seq": 16,
+      "type": "uncalled",
+      "handNumber": 1,
+      "playerId": "p3",
+      "amount": 900
+    },
+    {
+      "seq": 17,
+      "type": "win",
+      "handNumber": 1,
+      "playerId": "p3",
+      "amount": 1800,
+      "handName": "Two pair, Fours and Twos"
+    },
+    {
+      "seq": 18,
+      "type": "win",
+      "handNumber": 1,
+      "playerId": "p3",
+      "amount": 1800,
+      "pot": 1,
+      "handName": "Two pair, Fours and Twos"
+    },
+    {
+      "seq": 19,
+      "type": "bust",
+      "handNumber": 1,
+      "playerId": "p1"
+    },
+    {
+      "seq": 20,
+      "type": "bust",
+      "handNumber": 1,
+      "playerId": "p2"
+    }
+  ],
+  "meta": {
+    "description": "Sam's phone: out of chips, with the Rebuy option",
+    "seed": 2,
+    "hand": 1
+  }
+}

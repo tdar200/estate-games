@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Property: controller seat",
+    "section": "Property drawer",
+    "description": "Press Menu on a controller."
+  },
+  "extends": "pad-turn",
+  "ui": {
+    "open": "property"
+  }
+}

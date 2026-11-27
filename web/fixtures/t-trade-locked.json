@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Trade: locked deeds",
+    "section": "Trade",
+    "description": "Deeds with houses or pledged to a loan can't be traded."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "31": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 1
+      },
+      "32": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 1
+      },
+      "34": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 1
+      }
+    },
+    "loans": [
+      {
+        "id": "loan_demo_1",
+        "lenderId": "@Sam",
+        "borrowerId": "@Robin",
+        "principal": 150,
+        "repay": 180,
+        "dueTurn": 140,
+        "collateral": [
+          19
+        ],
+        "status": "active"
+      }
+    ]
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Robin"
+      }
+    }
+  }
+}

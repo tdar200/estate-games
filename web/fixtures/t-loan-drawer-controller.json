@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Loan drawer: controller seat",
+    "section": "Loans",
+    "description": "Press Y in debt on a controller."
+  },
+  "extends": "pad-debt",
+  "patch": {
+    "settings": {
+      "diceMode": "random",
+      "rules": {
+        "loans": true,
+        "freeParkingJackpot": false,
+        "auctions": true,
+        "startingCash": 1500
+      }
+    }
+  },
+  "ui": {
+    "open": "loan"
+  }
+}

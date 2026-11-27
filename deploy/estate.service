@@ -1,0 +1,24 @@
+# Estate party board game server (systemd user unit).
+#
+# Installed by deploy/install-linux.sh to ~/.config/systemd/user/estate.service.
+# Settings live in ~/.config/estate/estate.env (ESTATE_ADDR, ESTATE_PUBLIC_URL,
+# ESTATE_DATA). Logs: journalctl --user -u estate -f
+[Unit]
+Description=Estate party board game server
+Documentation=https://github.com/tdar200/estate-games
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=ESTATE_ADDR=:3210
+Environment=ESTATE_DATA=%h/.local/share/estate
+EnvironmentFile=-%h/.config/estate/estate.env
+ExecStart=%h/.local/bin/estate serve --no-open
+Restart=on-failure
+RestartSec=2
+# Hardening that works in user units without extra privileges.
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

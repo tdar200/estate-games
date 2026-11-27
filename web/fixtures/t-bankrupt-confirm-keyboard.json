@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Bankruptcy confirm: to a player",
+    "section": "Debt and bankruptcy",
+    "description": "Press BANKRUPT (Q) in debt."
+  },
+  "extends": "debt",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "bankrupt",
+      "seat": "@Robin"
+    }
+  }
+}

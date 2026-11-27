@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "SETTINGS changed (follow off, fast, reduced motion on)",
+    "section": "Menu, settings and sound",
+    "description": "Change the camera and animation settings."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ctx": {
+    "screen": {
+      "follow": false,
+      "zoom": 2.4,
+      "speed": "fast",
+      "motion": "reduce"
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "menu",
+      "page": "settings"
+    }
+  }
+}

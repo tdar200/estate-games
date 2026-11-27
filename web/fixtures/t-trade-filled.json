@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Trade: deal ready (completes a set)",
+    "section": "Trade",
+    "description": "Pick deeds and cash on both sides; SEND lights up."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "16": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Robin",
+        "offer": [
+          21
+        ],
+        "request": [
+          19
+        ],
+        "offerCash": 50
+      }
+    }
+  }
+}

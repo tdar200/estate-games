@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Trade: the computer's price",
+    "section": "Trade",
+    "description": "The computer's price shows as a button."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Alpha",
+        "offer": [
+          21
+        ],
+        "request": [
+          23
+        ],
+        "quote": {
+          "offerCash": 80,
+          "requestCash": 0
+        }
+      }
+    }
+  }
+}

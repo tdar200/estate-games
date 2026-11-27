@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Lobby with custom house rules",
+    "section": "Lobby",
+    "description": "Change a house rule: the RULES chip is highlighted."
+  },
+  "extends": "lobby-rules"
+}

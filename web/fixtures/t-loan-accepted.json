@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Loan accepted",
+    "section": "Loans",
+    "description": "Take the loan: cash moves, both plates show LOAN."
+  },
+  "extends": "loan-offer",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "turn_complete",
+        "loanOffer": null,
+        "players": {
+          "Robin": {
+            "cash": 1470
+          },
+          "Alpha": {
+            "cash": 0
+          }
+        },
+        "loans": [
+          {
+            "id": "loan_demo_2",
+            "lenderId": "@Alpha",
+            "borrowerId": "@Robin",
+            "principal": 300,
+            "repay": 360,
+            "dueTurn": 150,
+            "collateral": [
+              39
+            ],
+            "status": "active"
+          }
+        ],
+        "log+": [
+          {
+            "text": "Alpha lent Robin $300; Robin repays $360 by turn 150",
+            "at": 1793560000000
+          },
+          {
+            "text": "Crown Avenue secures the loan",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

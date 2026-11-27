@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0A2A1F">
+  <meta name="apple-mobile-web-app-title" content="Estate">
+  <link rel="manifest" href="/phone/app.webmanifest">
+  <link rel="apple-touch-icon" href="/shared/app-icons/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Estate</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Estate">
+  <meta property="og:title" content="Join my game on Estate">
+  <meta property="og:description" content="Tap to join the table. No app needed: Estate, poker and Ludo on your phone.">
+  <meta name="description" content="Tap to join the table. No app needed: Estate, poker and Ludo on your phone.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230A2A1F%27/%3E%3Crect x=%275%27 y=%275%27 width=%2722%27 height=%2722%27 fill=%27%23FBFAF4%27/%3E%3Crect x=%275%27 y=%275%27 width=%2722%27 height=%276%27 fill=%27%23F2C14E%27/%3E%3C/svg%3E">
+  <link rel="preload" href="/shared/fonts/Oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/shared/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/shared/fonts.css">
+  <link rel="stylesheet" href="/shared/tokens.css">
+  <link rel="stylesheet" href="/shared/board.css">
+  <link rel="stylesheet" href="/phone/phone.css">
+  <link rel="stylesheet" href="/shared/poker.css">
+  <link rel="stylesheet" href="/shared/ludo.css">
+  <link rel="stylesheet" href="/shared/quiz.css">
+  <link rel="stylesheet" href="/shared/closest.css">
+  <link rel="preload" href="/shared/fonts/BarlowCondensed-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/shared/fonts-tabletop.css">
+  <link rel="stylesheet" href="/phone/tabletop.css">
+  <script type="module" src="/phone/phone.js"></script>
+</head>
+<body class="phone-app">
+  <div id="app" class="app">
+    <header id="header" class="header"></header>
+    <div id="banner" class="banner-slot" aria-live="polite"></div>
+    <section id="boardview" class="boardview" hidden aria-label="Board">
+      <div id="board" class="pboard"></div>
+    </section>
+    <div id="status" class="status-slot" aria-live="polite" hidden></div>
+    <main id="main" class="main"><p class="loading">Finding your table…</p></main>
+    <div id="nav" class="nav-slot"></div>
+  </div>
+  <div id="cues" class="cue-toasts" aria-live="polite"></div>
+  <div id="fx" class="fx" aria-hidden="true"></div>
+  <dialog id="sheet" class="sheet" aria-label="Details"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

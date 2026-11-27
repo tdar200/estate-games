@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "Property: no deeds yet",
+    "section": "Property drawer",
+    "description": "Press P before buying anything."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "5": {
+        "ownerId": null
+      },
+      "18": {
+        "ownerId": null
+      },
+      "21": {
+        "ownerId": null
+      },
+      "25": {
+        "ownerId": null
+      }
+    }
+  },
+  "ui": {
+    "open": "property"
+  }
+}

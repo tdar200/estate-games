@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Asked to lend",
+    "section": "Loans",
+    "description": "A phone player in debt asks a keyboard seat for a loan."
+  },
+  "extends": "loan-request",
+  "seats": {
+    "Sam": "keyboard"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Doubles twice: one more is jail",
+    "section": "Turn: roll",
+    "description": "Second doubles in a row."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "turn": {
+      "dice": [
+        5,
+        5
+      ],
+      "doublesCount": 2
+    }
+  }
+}

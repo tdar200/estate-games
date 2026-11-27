@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Debt: a phone player",
+    "section": "Debt and bankruptcy",
+    "description": "A phone player is raising cash."
+  },
+  "extends": "debt"
+}

@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Trade: asking the computer's price",
+    "section": "Trade",
+    "description": "Build a deal with a computer: it works out its price."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Alpha",
+        "offer": [
+          21
+        ],
+        "request": [
+          23
+        ],
+        "quote": {
+          "loading": true
+        }
+      }
+    }
+  }
+}

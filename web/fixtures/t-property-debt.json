@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Property: in debt (sell and mortgage only)",
+    "section": "Property drawer",
+    "description": "PROPERTY in debt."
+  },
+  "extends": "pad-debt",
+  "ui": {
+    "open": "property"
+  }
+}

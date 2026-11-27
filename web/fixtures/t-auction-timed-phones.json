@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Timed auction: phones and computers only",
+    "section": "Turn: auction",
+    "description": "Nobody bids from this screen: the board's centre shows the clock and who leads."
+  },
+  "extends": "t-auction-timed",
+  "seats": {
+    "Maya": "phone"
+  }
+}

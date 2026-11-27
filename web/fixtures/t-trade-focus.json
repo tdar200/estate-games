@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Trade: a focused deed's card beside the lists",
+    "section": "Deed cards",
+    "description": "Arrow through the deeds in the trade."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "16": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Robin",
+        "offer": [
+          21
+        ],
+        "request": [
+          19
+        ],
+        "offerCash": 50
+      }
+    },
+    "focus": "[data-toggle=\"request:32\"]"
+  }
+}

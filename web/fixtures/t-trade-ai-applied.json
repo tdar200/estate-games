@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "Trade: price applied",
+    "section": "Trade",
+    "description": "Press the price (Y): the cash is added."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "trade",
+      "draft": {
+        "targetId": "@Alpha",
+        "offer": [
+          21
+        ],
+        "request": [
+          23
+        ],
+        "offerCash": 80,
+        "quote": {
+          "offerCash": 80,
+          "requestCash": 0
+        }
+      }
+    }
+  }
+}

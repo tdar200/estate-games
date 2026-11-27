@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "Property: hotels and the even-building rule",
+    "section": "Property drawer",
+    "description": "A full set with hotels and houses."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "currentPlayerId": "@Robin",
+    "currentIndex": 3,
+    "turn": {
+      "playerId": "@Robin"
+    },
+    "players": {
+      "Robin": {
+        "cash": 1600
+      }
+    },
+    "properties": {
+      "31": {
+        "houses": 5
+      },
+      "32": {
+        "houses": 4
+      },
+      "34": {
+        "houses": 4
+      }
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "property",
+      "seat": "@Robin"
+    }
+  }
+}

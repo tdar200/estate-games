@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "BUY?: not enough cash",
+    "section": "Turn: buying",
+    "description": "Land on a street you can't afford: BUY is off, SHORT shows."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Robin": {
+        "cash": 120
+      }
+    }
+  }
+}

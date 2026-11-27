@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#182025" />
+    <title>Classic Estate</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Classic Estate home">
+          <img src="/board-mark.svg" alt="" />
+          <span>Classic Estate</span>
+        </a>
+        <div id="room-meta" class="room-meta" hidden></div>
+        <div id="connection" class="connection" aria-live="polite">
+          <span></span>Local
+        </div>
+      </header>
+
+      <main>
+        <section id="home-view" class="home-view">
+          <div class="entry-panel">
+            <div class="mode-tabs" role="tablist" aria-label="Entry method">
+              <button class="tab-button active" data-entry-tab="create" role="tab" aria-selected="true">Create Room</button>
+              <button class="tab-button" data-entry-tab="join" role="tab" aria-selected="false">Join Room</button>
+              <button class="tab-button" data-entry-tab="watch" role="tab" aria-selected="false">Watch</button>
+            </div>
+            <form id="create-form" class="entry-form">
+              <label for="create-name">Player name</label>
+              <input id="create-name" name="name" maxlength="12" autocomplete="nickname" placeholder="Enter a name" required />
+              <button class="primary-button" type="submit">
+                <svg aria-hidden="true"><use href="/icons.svg#plus"></use></svg>
+                Create Room
+              </button>
+            </form>
+            <form id="join-form" class="entry-form" hidden>
+              <label for="join-name">Player name</label>
+              <input id="join-name" name="name" maxlength="12" autocomplete="nickname" placeholder="Enter a name" required />
+              <label for="join-code">Room code</label>
+              <input id="join-code" name="code" maxlength="5" autocomplete="off" placeholder="ABCDE" required />
+              <button class="primary-button" type="submit">
+                <svg aria-hidden="true"><use href="/icons.svg#log-in"></use></svg>
+                Join Room
+              </button>
+            </form>
+            <form id="watch-form" class="entry-form" hidden>
+              <label for="watch-name">Spectator name</label>
+              <input id="watch-name" name="name" maxlength="12" autocomplete="nickname" placeholder="Enter a name" required />
+              <label for="watch-code">Room code</label>
+              <input id="watch-code" name="code" maxlength="5" autocomplete="off" placeholder="ABCDE" required />
+              <button class="secondary-button watch-button" type="submit">
+                <svg aria-hidden="true"><use href="/icons.svg#users"></use></svg>
+                Join as Spectator
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section id="lobby-view" class="lobby-view" hidden>
+          <div class="lobby-tool">
+            <div class="lobby-heading">
+              <div>
+                <span class="eyebrow">Room code</span>
+                <div class="room-code-line">
+                  <strong id="lobby-code"></strong>
+                  <button id="copy-room" class="icon-button" type="button" title="Copy invite link" aria-label="Copy invite link">
+                    <svg aria-hidden="true"><use href="/icons.svg#copy"></use></svg>
+                  </button>
+                </div>
+              </div>
+              <span id="lobby-count" class="capacity"></span>
+            </div>
+            <div id="lobby-players" class="lobby-players"></div>
+            <div id="lobby-mode" class="lobby-mode"></div>
+            <div id="lobby-actions" class="lobby-actions"></div>
+          </div>
+        </section>
+
+        <section id="game-view" class="game-view" hidden>
+          <div class="board-shell">
+            <div id="board-toolbar" class="board-toolbar" role="toolbar" aria-label="Map view">
+              <div class="zoom-controls">
+                <button class="icon-button" type="button" data-board-zoom="out" title="Zoom out" aria-label="Zoom out">
+                  <svg aria-hidden="true"><use href="/icons.svg#zoom-out"></use></svg>
+                </button>
+                <button class="zoom-reset" type="button" data-board-zoom="reset" title="Reset zoom" aria-label="Reset zoom">
+                  <span id="board-zoom-value">100%</span>
+                </button>
+                <button class="icon-button" type="button" data-board-zoom="in" title="Zoom in" aria-label="Zoom in">
+                  <svg aria-hidden="true"><use href="/icons.svg#zoom-in"></use></svg>
+                </button>
+              </div>
+              <label class="fast-move-setting" for="fast-move">
+                <span>Fast movement</span>
+                <span class="switch-control">
+                  <input id="fast-move" type="checkbox" />
+                  <span aria-hidden="true"></span>
+                </span>
+              </label>
+            </div>
+            <div id="board-viewport" class="board-wrap">
+              <div id="board-stage" class="board-stage">
+                <div id="board" class="board" aria-label="Game board">
+                  <svg id="movement-trails" class="movement-trails" viewBox="0 0 1100 1100" preserveAspectRatio="none" aria-hidden="true"></svg>
+                  <div id="player-tokens" class="player-tokens-layer" aria-hidden="true"></div>
+                  <div id="moving-token" class="moving-token" hidden></div>
+                  <div id="board-center" class="board-center"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="game-panel">
+            <div class="panel-tabs" role="tablist" aria-label="Game information">
+              <button class="panel-tab active" data-panel-tab="players" role="tab" aria-selected="true">
+                <svg aria-hidden="true"><use href="/icons.svg#users"></use></svg>Players
+              </button>
+              <button class="panel-tab" data-panel-tab="assets" role="tab" aria-selected="false">
+                <svg aria-hidden="true"><use href="/icons.svg#building"></use></svg>Assets
+              </button>
+              <button class="panel-tab" data-panel-tab="log" role="tab" aria-selected="false">
+                <svg aria-hidden="true"><use href="/icons.svg#scroll"></use></svg>Log
+              </button>
+              <button class="panel-tab" data-panel-tab="stats" role="tab" aria-selected="false">
+                <svg aria-hidden="true"><use href="/icons.svg#landmark"></use></svg>Stats
+              </button>
+              <button class="panel-tab" data-panel-tab="rules" role="tab" aria-selected="false">
+                <svg aria-hidden="true"><use href="/icons.svg#help"></use></svg>Rules
+              </button>
+            </div>
+            <div id="panel-content" class="panel-content"></div>
+            <div id="bank-status" class="bank-status"></div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="property-dialog" class="property-dialog">
+      <button class="dialog-close icon-button" type="button" title="Close" aria-label="Close">
+        <svg aria-hidden="true"><use href="/icons.svg#x"></use></svg>
+      </button>
+      <div id="property-content"></div>
+    </dialog>
+
+    <dialog id="trade-dialog" class="trade-dialog">
+      <button class="dialog-close icon-button trade-close" type="button" title="Close" aria-label="Close">
+        <svg aria-hidden="true"><use href="/icons.svg#x"></use></svg>
+      </button>
+      <div id="trade-content"></div>
+    </dialog>
+
+    <dialog id="victory-dialog" class="victory-dialog">
+      <div id="victory-content"></div>
+    </dialog>
+
+    <dialog id="card-dialog" class="card-dialog">
+      <div id="card-content"></div>
+    </dialog>
+
+    <section id="bankruptcy-notice" class="bankruptcy-notice" role="status" aria-live="assertive" hidden>
+      <div id="bankruptcy-content"></div>
+    </section>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

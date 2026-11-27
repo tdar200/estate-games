@@ -1,0 +1,13 @@
+/* The tabletop look's typefaces (Barlow Condensed for labels, keys and numbers; Barlow for body
+   text), served by Estate itself like fonts.css. Latin subsets as Google Fonts serves them, one
+   static file per weight. SIL Open Font License 1.1: see /shared/fonts/README.md and
+   /shared/fonts/OFL-Barlow.txt. Linked by the TV table (and by any page that wants the look);
+   fonts.css stays as it is for the pages that use Oswald and Inter. */
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("/shared/fonts/BarlowCondensed-500-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("/shared/fonts/BarlowCondensed-600-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("/shared/fonts/BarlowCondensed-700-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 800; font-display: swap; src: url("/shared/fonts/BarlowCondensed-800-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url("/shared/fonts/Barlow-400-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 500; font-display: swap; src: url("/shared/fonts/Barlow-500-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 600; font-display: swap; src: url("/shared/fonts/Barlow-600-latin.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: swap; src: url("/shared/fonts/Barlow-700-latin.woff2") format("woff2"); }

@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "Property: mortgaged and pledged deeds",
+    "section": "Property drawer",
+    "description": "Mortgage a deed; pledge another as loan security."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "settings": {
+      "diceMode": "random",
+      "rules": {
+        "loans": true,
+        "freeParkingJackpot": false,
+        "auctions": true,
+        "startingCash": 1500
+      }
+    },
+    "properties": {
+      "5": {
+        "mortgaged": true
+      }
+    },
+    "loans": [
+      {
+        "id": "loan_demo_3",
+        "lenderId": "@Sam",
+        "borrowerId": "@Maya",
+        "principal": 200,
+        "repay": 240,
+        "dueTurn": 140,
+        "collateral": [
+          21
+        ],
+        "status": "active"
+      }
+    ]
+  },
+  "ui": {
+    "open": "property"
+  }
+}

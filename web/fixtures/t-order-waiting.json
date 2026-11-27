@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Roll for order: waiting on phones",
+    "section": "Order roll",
+    "description": "Everyone here has rolled; a phone hasn't."
+  },
+  "extends": "order",
+  "patch": {
+    "openingOrder": {
+      "pendingIds": [
+        "@Robin"
+      ]
+    }
+  }
+}

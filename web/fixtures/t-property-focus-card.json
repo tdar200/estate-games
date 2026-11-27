@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Property: a deed card focused (camera frames it)",
+    "section": "Property drawer",
+    "description": "Arrow to a deed card: the camera frames its square."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": "property",
+    "focus": "[data-pkey=\"25:card\"]"
+  }
+}

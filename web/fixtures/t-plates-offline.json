@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Plate: offline player",
+    "section": "Plates and board",
+    "description": "A phone loses its connection."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "players": {
+      "Sam": {
+        "online": false
+      }
+    }
+  }
+}

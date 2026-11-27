@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Lobby: connection lost",
+    "section": "Lobby",
+    "description": "The server drops while the lobby is up."
+  },
+  "extends": "table-lobby",
+  "ctx": {
+    "status": "offline"
+  },
+  "ui": {
+    "toast": {
+      "text": "Connection lost. Retrying…",
+      "error": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Trade: just opened",
+    "section": "Trade",
+    "description": "Press T (or Y) on your turn."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": "trade"
+  }
+}

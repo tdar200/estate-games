@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Debt: cash raised by mortgage",
+    "section": "Debt and bankruptcy",
+    "description": "Mortgage a deed from the plan or the property drawer."
+  },
+  "extends": "debt",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Robin": {
+            "cash": 461
+          }
+        },
+        "properties": {
+          "11": {
+            "mortgaged": true
+          }
+        },
+        "log+": [
+          {
+            "text": "Robin mortgaged Garden Avenue for $70",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

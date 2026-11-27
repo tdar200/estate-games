@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Timed auction: the seat here leads",
+    "section": "Turn: auction",
+    "description": "The controller seat holds the top bid: YOU LEAD, its buttons wait greyed."
+  },
+  "extends": "t-auction-timed",
+  "patch": {
+    "auction": {
+      "currentBid": 190,
+      "bidderId": "@Maya",
+      "endsAt": 1793560007000,
+      "bids": {
+        "player_000000000005": 180,
+        "ai_000000000003": 160,
+        "player_000000000007": 190
+      }
+    },
+    "log+": [
+      {
+        "text": "Maya bid $190",
+        "at": 1793559999000
+      }
+    ]
+  }
+}

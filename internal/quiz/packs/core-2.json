@@ -1,0 +1,381 @@
+{
+  "id": "core-2",
+  "title": "General knowledge 2",
+  "version": 1,
+  "license": "own",
+  "attribution": "",
+  "categories": [
+    {
+      "id": "core-2/islands",
+      "title": "ISLANDS",
+      "topic": "geography",
+      "clues": [
+        {"tier": 1, "text": "The island of Sicily is part of which country?", "answer": "Italy", "wrong": ["Greece", "Spain", "Malta"], "src": "https://en.wikipedia.org/wiki/Sicily"},
+        {"tier": 2, "text": "What is the largest island in the world, not counting Australia?", "answer": "Greenland", "wrong": ["New Guinea", "Madagascar", "Baffin Island"], "src": "https://en.wikipedia.org/wiki/Greenland"},
+        {"tier": 3, "text": "The Galápagos Islands belong to which country?", "answer": "Ecuador", "wrong": ["Peru", "Chile", "Colombia"], "src": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands"},
+        {"tier": 4, "text": "Which island is shared by Indonesia, Malaysia and Brunei?", "answer": "Borneo", "wrong": ["Sumatra", "New Guinea", "Java"], "src": "https://en.wikipedia.org/wiki/Borneo"},
+        {"tier": 5, "text": "Which strait separates the island of Tasmania from mainland Australia?", "answer": "Bass Strait", "wrong": ["Cook Strait", "Torres Strait", "Strait of Magellan"], "src": "https://en.wikipedia.org/wiki/Bass_Strait"}
+      ]
+    },
+    {
+      "id": "core-2/world-flags",
+      "title": "WORLD FLAGS",
+      "topic": "geography",
+      "clues": [
+        {"tier": 1, "text": "Which country's flag is white with a red circle in the middle?", "answer": "Japan", "wrong": ["China", "South Korea", "Bangladesh"], "src": "https://en.wikipedia.org/wiki/Flag_of_Japan"},
+        {"tier": 2, "text": "Which country has a red maple leaf on its flag?", "answer": "Canada", "wrong": ["Austria", "Denmark", "Peru"], "src": "https://en.wikipedia.org/wiki/Flag_of_Canada"},
+        {"tier": 3, "text": "Which country's flag is shaped like two stacked pennants instead of a rectangle?", "answer": "Nepal", "wrong": ["Bhutan", "Sri Lanka", "Mongolia"], "src": "https://en.wikipedia.org/wiki/Flag_of_Nepal"},
+        {"tier": 4, "text": "Which country's flag has a green cedar tree in the centre?", "answer": "Lebanon", "wrong": ["Cyprus", "Jordan", "Tunisia"], "src": "https://en.wikipedia.org/wiki/Flag_of_Lebanon"},
+        {"tier": 5, "text": "Which African country's flag shows a grey crowned crane?", "answer": "Uganda", "wrong": ["Kenya", "Rwanda", "Zambia"], "src": "https://en.wikipedia.org/wiki/Flag_of_Uganda"}
+      ]
+    },
+    {
+      "id": "core-2/forces-and-energy",
+      "title": "FORCES AND ENERGY",
+      "topic": "science",
+      "clues": [
+        {"tier": 1, "text": "Which scientist is said to have been inspired by a falling apple to think about gravity?", "answer": "Isaac Newton", "wrong": ["Albert Einstein", "Galileo Galilei", "Charles Darwin"], "src": "https://en.wikipedia.org/wiki/Isaac_Newton"},
+        {"tier": 2, "text": "At sea level, at what temperature does pure water boil?", "answer": "100 °C", "wrong": ["90 °C", "110 °C", "120 °C"], "src": "https://en.wikipedia.org/wiki/Boiling_point"},
+        {"tier": 3, "text": "What is the SI unit of electric current?", "answer": "Ampere", "wrong": ["Volt", "Ohm", "Watt"], "src": "https://en.wikipedia.org/wiki/Ampere"},
+        {"tier": 4, "text": "Roughly how fast does light travel through a vacuum?", "answer": "300,000 km/s", "wrong": ["30,000 km/s", "150,000 km/s", "3,000,000 km/s"], "src": "https://en.wikipedia.org/wiki/Speed_of_light"},
+        {"tier": 5, "text": "Which physicist's 'uncertainty principle' says a particle's position and momentum can't both be known exactly?", "answer": "Werner Heisenberg", "wrong": ["Niels Bohr", "Max Planck", "Erwin Schrödinger"], "src": "https://en.wikipedia.org/wiki/Uncertainty_principle"}
+      ]
+    },
+    {
+      "id": "core-2/earth-science",
+      "title": "EARTH SCIENCE",
+      "topic": "science",
+      "clues": [
+        {"tier": 1, "text": "What is molten rock called once it pours out of a volcano?", "answer": "Lava", "wrong": ["Magma", "Basalt", "Ash"], "src": "https://en.wikipedia.org/wiki/Lava"},
+        {"tier": 2, "text": "The Richter scale was devised to measure the strength of what?", "answer": "Earthquakes", "wrong": ["Hurricanes", "Tornadoes", "Tsunamis"], "src": "https://en.wikipedia.org/wiki/Richter_scale"},
+        {"tier": 3, "text": "Which gas makes up about 78% of the Earth's atmosphere?", "answer": "Nitrogen", "wrong": ["Oxygen", "Argon", "Carbon dioxide"], "src": "https://en.wikipedia.org/wiki/Atmosphere_of_Earth"},
+        {"tier": 4, "text": "What name is given to the supercontinent that joined nearly all of Earth's land about 300 million years ago?", "answer": "Pangaea", "wrong": ["Gondwana", "Laurasia", "Rodinia"], "src": "https://en.wikipedia.org/wiki/Pangaea"},
+        {"tier": 5, "text": "Which mineral is the softest on the Mohs scale of hardness?", "answer": "Talc", "wrong": ["Gypsum", "Calcite", "Fluorite"], "src": "https://en.wikipedia.org/wiki/Mohs_scale"}
+      ]
+    },
+    {
+      "id": "core-2/stars-and-constellations",
+      "title": "STARS AND CONSTELLATIONS",
+      "topic": "space",
+      "clues": [
+        {"tier": 1, "text": "What is the name of the galaxy that contains our Solar System?", "answer": "Milky Way", "wrong": ["Andromeda", "Whirlpool", "Triangulum"], "src": "https://en.wikipedia.org/wiki/Milky_Way"},
+        {"tier": 2, "text": "Which constellation, known as the Hunter, has a famous 'belt' of three stars?", "answer": "Orion", "wrong": ["Perseus", "Hercules", "Cassiopeia"], "src": "https://en.wikipedia.org/wiki/Orion_(constellation)"},
+        {"tier": 3, "text": "What is the brightest star in the night sky?", "answer": "Sirius", "wrong": ["Polaris", "Betelgeuse", "Vega"], "src": "https://en.wikipedia.org/wiki/Sirius"},
+        {"tier": 4, "text": "What is the nearest star to the Sun?", "answer": "Proxima Centauri", "wrong": ["Barnard's Star", "Wolf 359", "Tau Ceti"], "src": "https://en.wikipedia.org/wiki/Proxima_Centauri"},
+        {"tier": 5, "text": "What name is given to the boundary around a black hole from which nothing can escape?", "answer": "Event horizon", "wrong": ["Photon sphere", "Singularity", "Accretion disc"], "src": "https://en.wikipedia.org/wiki/Event_horizon"}
+      ]
+    },
+    {
+      "id": "core-2/people-in-space",
+      "title": "PEOPLE IN SPACE",
+      "topic": "space",
+      "clues": [
+        {"tier": 1, "text": "Who was the first person to walk on the Moon?", "answer": "Neil Armstrong", "wrong": ["Buzz Aldrin", "John Glenn", "Alan Shepard"], "src": "https://en.wikipedia.org/wiki/Neil_Armstrong"},
+        {"tier": 2, "text": "Who became the first human in space, in 1961?", "answer": "Yuri Gagarin", "wrong": ["Alan Shepard", "John Glenn", "Gherman Titov"], "src": "https://en.wikipedia.org/wiki/Yuri_Gagarin"},
+        {"tier": 3, "text": "Who became the first woman in space, in 1963?", "answer": "Valentina Tereshkova", "wrong": ["Sally Ride", "Svetlana Savitskaya", "Mae Jemison"], "src": "https://en.wikipedia.org/wiki/Valentina_Tereshkova"},
+        {"tier": 4, "text": "Which Apollo 11 astronaut stayed in orbit around the Moon while the other two walked on it?", "answer": "Michael Collins", "wrong": ["Jim Lovell", "Pete Conrad", "Alan Bean"], "src": "https://en.wikipedia.org/wiki/Michael_Collins_(astronaut)"},
+        {"tier": 5, "text": "Who made the first ever spacewalk, in 1965?", "answer": "Alexei Leonov", "wrong": ["Ed White", "Gherman Titov", "Vladimir Komarov"], "src": "https://en.wikipedia.org/wiki/Alexei_Leonov"}
+      ]
+    },
+    {
+      "id": "core-2/sea-creatures",
+      "title": "SEA CREATURES",
+      "topic": "nature",
+      "clues": [
+        {"tier": 1, "text": "What is the largest animal alive today?", "answer": "Blue whale", "wrong": ["Sperm whale", "Fin whale", "African elephant"], "src": "https://en.wikipedia.org/wiki/Blue_whale"},
+        {"tier": 2, "text": "What is the largest fish in the world?", "answer": "Whale shark", "wrong": ["Great white shark", "Basking shark", "Manta ray"], "src": "https://en.wikipedia.org/wiki/Whale_shark"},
+        {"tier": 3, "text": "What colour is an octopus's blood?", "answer": "Blue", "wrong": ["Green", "Red", "Yellow"], "src": "https://en.wikipedia.org/wiki/Octopus"},
+        {"tier": 4, "text": "A narwhal's long spiral 'tusk' is actually an overgrown what?", "answer": "Tooth", "wrong": ["Horn", "Jawbone", "Antler"], "src": "https://en.wikipedia.org/wiki/Narwhal"},
+        {"tier": 5, "text": "What is the word for the light made by living things such as anglerfish and fireflies?", "answer": "Bioluminescence", "wrong": ["Phosphorescence", "Fluorescence", "Iridescence"], "src": "https://en.wikipedia.org/wiki/Bioluminescence"}
+      ]
+    },
+    {
+      "id": "core-2/plants-and-trees",
+      "title": "PLANTS AND TREES",
+      "topic": "nature",
+      "clues": [
+        {"tier": 1, "text": "Which gas do plants take in from the air to make their food?", "answer": "Carbon dioxide", "wrong": ["Oxygen", "Nitrogen", "Hydrogen"], "src": "https://en.wikipedia.org/wiki/Photosynthesis"},
+        {"tier": 2, "text": "Which tree grows acorns?", "answer": "Oak", "wrong": ["Beech", "Chestnut", "Maple"], "src": "https://en.wikipedia.org/wiki/Acorn"},
+        {"tier": 3, "text": "Which carnivorous plant snaps its leaves shut to trap insects?", "answer": "Venus flytrap", "wrong": ["Pitcher plant", "Sundew", "Bladderwort"], "src": "https://en.wikipedia.org/wiki/Venus_flytrap"},
+        {"tier": 4, "text": "What are the pollen-producing parts of a flower called?", "answer": "Stamens", "wrong": ["Pistils", "Sepals", "Petals"], "src": "https://en.wikipedia.org/wiki/Stamen"},
+        {"tier": 5, "text": "The tallest known living tree, at over 115 metres, is which kind of tree?", "answer": "Coast redwood", "wrong": ["Giant sequoia", "Douglas fir", "Mountain ash"], "src": "https://en.wikipedia.org/wiki/Hyperion_(tree)"}
+      ]
+    },
+    {
+      "id": "core-2/great-explorers",
+      "title": "GREAT EXPLORERS",
+      "topic": "history",
+      "clues": [
+        {"tier": 1, "text": "Which explorer crossed the Atlantic and reached the Americas in 1492?", "answer": "Christopher Columbus", "wrong": ["Vasco da Gama", "Amerigo Vespucci", "John Cabot"], "src": "https://en.wikipedia.org/wiki/Christopher_Columbus"},
+        {"tier": 2, "text": "Whose expedition was the first to sail all the way around the world, returning in 1522?", "answer": "Ferdinand Magellan", "wrong": ["James Cook", "Francis Drake", "Vasco da Gama"], "src": "https://en.wikipedia.org/wiki/Magellan_expedition"},
+        {"tier": 3, "text": "Who led the first expedition to reach the South Pole, in 1911?", "answer": "Roald Amundsen", "wrong": ["Robert Falcon Scott", "Ernest Shackleton", "Fridtjof Nansen"], "src": "https://en.wikipedia.org/wiki/Roald_Amundsen"},
+        {"tier": 4, "text": "Which Moroccan traveller of the 1300s wrote about his journeys across Africa and Asia?", "answer": "Ibn Battuta", "wrong": ["Marco Polo", "Ibn Khaldun", "Leo Africanus"], "src": "https://en.wikipedia.org/wiki/Ibn_Battuta"},
+        {"tier": 5, "text": "Which Chinese admiral led great treasure fleets across the Indian Ocean in the early 1400s?", "answer": "Zheng He", "wrong": ["Yi Sun-sin", "Xuanzang", "Zhang Qian"], "src": "https://en.wikipedia.org/wiki/Zheng_He"}
+      ]
+    },
+    {
+      "id": "core-2/wonders-and-monuments",
+      "title": "WONDERS AND MONUMENTS",
+      "topic": "history",
+      "clues": [
+        {"tier": 1, "text": "In which country is the Taj Mahal?", "answer": "India", "wrong": ["Pakistan", "Iran", "Bangladesh"], "src": "https://en.wikipedia.org/wiki/Taj_Mahal"},
+        {"tier": 2, "text": "What is the only one of the Seven Wonders of the Ancient World still largely standing?", "answer": "Great Pyramid of Giza", "wrong": ["Colossus of Rhodes", "Lighthouse of Alexandria", "Hanging Gardens of Babylon"], "src": "https://en.wikipedia.org/wiki/Seven_Wonders_of_the_Ancient_World"},
+        {"tier": 3, "text": "In which country is the temple complex of Angkor Wat?", "answer": "Cambodia", "wrong": ["Thailand", "Laos", "Vietnam"], "src": "https://en.wikipedia.org/wiki/Angkor_Wat"},
+        {"tier": 4, "text": "In which country is Petra, the ancient city carved into rose-red rock?", "answer": "Jordan", "wrong": ["Egypt", "Syria", "Saudi Arabia"], "src": "https://en.wikipedia.org/wiki/Petra"},
+        {"tier": 5, "text": "The best-known sections of the Great Wall of China were built under which dynasty?", "answer": "Ming", "wrong": ["Qin", "Han", "Tang"], "src": "https://en.wikipedia.org/wiki/Great_Wall_of_China"}
+      ]
+    },
+    {
+      "id": "core-2/pioneering-women",
+      "title": "PIONEERING WOMEN",
+      "topic": "people",
+      "clues": [
+        {"tier": 1, "text": "Which nurse became known as 'the Lady with the Lamp'?", "answer": "Florence Nightingale", "wrong": ["Mary Seacole", "Edith Cavell", "Clara Barton"], "src": "https://en.wikipedia.org/wiki/Florence_Nightingale"},
+        {"tier": 2, "text": "Who became the first woman to fly solo across the Atlantic, in 1932?", "answer": "Amelia Earhart", "wrong": ["Amy Johnson", "Bessie Coleman", "Harriet Quimby"], "src": "https://en.wikipedia.org/wiki/Amelia_Earhart"},
+        {"tier": 3, "text": "Which British chemist's X-ray images, including 'Photo 51', were key to finding the structure of DNA?", "answer": "Rosalind Franklin", "wrong": ["Dorothy Hodgkin", "Barbara McClintock", "Lise Meitner"], "src": "https://en.wikipedia.org/wiki/Rosalind_Franklin"},
+        {"tier": 4, "text": "In 1960, who became the world's first female prime minister?", "answer": "Sirimavo Bandaranaike", "wrong": ["Indira Gandhi", "Golda Meir", "Benazir Bhutto"], "src": "https://en.wikipedia.org/wiki/Sirimavo_Bandaranaike"},
+        {"tier": 5, "text": "In 1975, who became the first woman to reach the summit of Mount Everest?", "answer": "Junko Tabei", "wrong": ["Wanda Rutkiewicz", "Lydia Bradey", "Alison Hargreaves"], "src": "https://en.wikipedia.org/wiki/Junko_Tabei"}
+      ]
+    },
+    {
+      "id": "core-2/great-thinkers",
+      "title": "GREAT THINKERS",
+      "topic": "people",
+      "clues": [
+        {"tier": 1, "text": "Which ancient Greek mathematician has a famous theorem about right-angled triangles?", "answer": "Pythagoras", "wrong": ["Euclid", "Archimedes", "Aristotle"], "src": "https://en.wikipedia.org/wiki/Pythagorean_theorem"},
+        {"tier": 2, "text": "Which French philosopher wrote 'I think, therefore I am'?", "answer": "René Descartes", "wrong": ["Voltaire", "Jean-Paul Sartre", "Blaise Pascal"], "src": "https://en.wikipedia.org/wiki/Cogito,_ergo_sum"},
+        {"tier": 3, "text": "Which philosopher of ancient Athens was sentenced to death by drinking hemlock?", "answer": "Socrates", "wrong": ["Plato", "Aristotle", "Diogenes"], "src": "https://en.wikipedia.org/wiki/Trial_of_Socrates"},
+        {"tier": 4, "text": "Which Scottish thinker wrote 'The Wealth of Nations' in 1776?", "answer": "Adam Smith", "wrong": ["David Hume", "John Locke", "John Stuart Mill"], "src": "https://en.wikipedia.org/wiki/The_Wealth_of_Nations"},
+        {"tier": 5, "text": "Whose sayings and teachings are collected in the Chinese book known as the 'Analects'?", "answer": "Confucius", "wrong": ["Laozi", "Mencius", "Sun Tzu"], "src": "https://en.wikipedia.org/wiki/Analects"}
+      ]
+    },
+    {
+      "id": "core-2/football-world-cup",
+      "title": "THE FOOTBALL WORLD CUP",
+      "topic": "sport",
+      "clues": [
+        {"tier": 1, "text": "Which Brazilian star won the World Cup in 1958, 1962 and 1970?", "answer": "Pelé", "wrong": ["Garrincha", "Zico", "Ronaldo"], "src": "https://en.wikipedia.org/wiki/Pel%C3%A9"},
+        {"tier": 2, "text": "Which country won the 2010 men's World Cup, held in South Africa?", "answer": "Spain", "wrong": ["Netherlands", "Germany", "Brazil"], "src": "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup"},
+        {"tier": 3, "text": "Which Argentine player scored the 'Hand of God' goal at the 1986 World Cup?", "answer": "Diego Maradona", "wrong": ["Mario Kempes", "Jorge Valdano", "Gabriel Batistuta"], "src": "https://en.wikipedia.org/wiki/Diego_Maradona"},
+        {"tier": 4, "text": "Which country hosted and won the first World Cup, in 1930?", "answer": "Uruguay", "wrong": ["Brazil", "Argentina", "Italy"], "src": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"},
+        {"tier": 5, "text": "Which country won the first Women's World Cup, in 1991?", "answer": "United States", "wrong": ["Norway", "China", "Germany"], "src": "https://en.wikipedia.org/wiki/1991_FIFA_Women%27s_World_Cup"}
+      ]
+    },
+    {
+      "id": "core-2/sporting-venues",
+      "title": "SPORTING VENUES",
+      "topic": "sport",
+      "clues": [
+        {"tier": 1, "text": "In which city are the Wimbledon tennis championships played?", "answer": "London", "wrong": ["Paris", "Manchester", "Melbourne"], "src": "https://en.wikipedia.org/wiki/Wimbledon_Championships"},
+        {"tier": 2, "text": "In which city is the famous Maracanã football stadium?", "answer": "Rio de Janeiro", "wrong": ["São Paulo", "Buenos Aires", "Brasília"], "src": "https://en.wikipedia.org/wiki/Maracan%C3%A3_Stadium"},
+        {"tier": 3, "text": "Which French town hosts a famous 24-hour motor race every year?", "answer": "Le Mans", "wrong": ["Reims", "Dijon", "Nîmes"], "src": "https://en.wikipedia.org/wiki/24_Hours_of_Le_Mans"},
+        {"tier": 4, "text": "Which golf tournament is played every year at Augusta National in Georgia, USA?", "answer": "The Masters", "wrong": ["The Open", "US Open", "PGA Championship"], "src": "https://en.wikipedia.org/wiki/Masters_Tournament"},
+        {"tier": 5, "text": "In which Indian city is the famous cricket ground Eden Gardens?", "answer": "Kolkata", "wrong": ["Mumbai", "Delhi", "Chennai"], "src": "https://en.wikipedia.org/wiki/Eden_Gardens"}
+      ]
+    },
+    {
+      "id": "core-2/musical-instruments",
+      "title": "MUSICAL INSTRUMENTS",
+      "topic": "music",
+      "clues": [
+        {"tier": 1, "text": "How many strings does a standard guitar have?", "answer": "6", "wrong": ["4", "5", "7"], "src": "https://en.wikipedia.org/wiki/Guitar"},
+        {"tier": 2, "text": "Which instrument usually has 88 black and white keys?", "answer": "Piano", "wrong": ["Organ", "Harpsichord", "Accordion"], "src": "https://en.wikipedia.org/wiki/Piano"},
+        {"tier": 3, "text": "The sitar is a traditional string instrument from which country?", "answer": "India", "wrong": ["Japan", "Iran", "Turkey"], "src": "https://en.wikipedia.org/wiki/Sitar"},
+        {"tier": 4, "text": "Which double-reed woodwind instrument usually gives the orchestra its tuning note?", "answer": "Oboe", "wrong": ["Clarinet", "Bassoon", "Flute"], "src": "https://en.wikipedia.org/wiki/Oboe"},
+        {"tier": 5, "text": "Which Japanese instrument is a long zither, traditionally with 13 strings?", "answer": "Koto", "wrong": ["Shamisen", "Shakuhachi", "Biwa"], "src": "https://en.wikipedia.org/wiki/Koto_(instrument)"}
+      ]
+    },
+    {
+      "id": "core-2/stage-musicals",
+      "title": "STAGE MUSICALS",
+      "topic": "music",
+      "clues": [
+        {"tier": 1, "text": "In which musical does a masked figure haunt the Paris Opera House?", "answer": "The Phantom of the Opera", "wrong": ["Jesus Christ Superstar", "Sunset Boulevard", "Miss Saigon"], "src": "https://en.wikipedia.org/wiki/The_Phantom_of_the_Opera_(1986_musical)"},
+        {"tier": 2, "text": "The musical 'West Side Story' is based on which Shakespeare play?", "answer": "Romeo and Juliet", "wrong": ["Hamlet", "Othello", "Twelfth Night"], "src": "https://en.wikipedia.org/wiki/West_Side_Story"},
+        {"tier": 3, "text": "Which musical, based on a Victor Hugo novel, follows the ex-convict Jean Valjean?", "answer": "Les Misérables", "wrong": ["Miss Saigon", "Oliver!", "Sweeney Todd"], "src": "https://en.wikipedia.org/wiki/Les_Mis%C3%A9rables_(musical)"},
+        {"tier": 4, "text": "Which musical is set around the Kit Kat Klub in Berlin as the Nazis rise to power?", "answer": "Cabaret", "wrong": ["Chicago", "Sweet Charity", "Gypsy"], "src": "https://en.wikipedia.org/wiki/Cabaret_(musical)"},
+        {"tier": 5, "text": "Which Rodgers and Hammerstein musical is set at the royal court of Siam?", "answer": "The King and I", "wrong": ["South Pacific", "Oklahoma!", "Carousel"], "src": "https://en.wikipedia.org/wiki/The_King_and_I"}
+      ]
+    },
+    {
+      "id": "core-2/best-picture-winners",
+      "title": "BEST PICTURE WINNERS",
+      "topic": "screen",
+      "clues": [
+        {"tier": 1, "text": "Which 1997 film about a doomed ocean liner won 11 Oscars, including Best Picture?", "answer": "Titanic", "wrong": ["Good Will Hunting", "L.A. Confidential", "As Good as It Gets"], "src": "https://en.wikipedia.org/wiki/Titanic_(1997_film)"},
+        {"tier": 2, "text": "In 2020, which film became the first not in English to win the Best Picture Oscar?", "answer": "Parasite", "wrong": ["Roma", "Amour", "Life Is Beautiful"], "src": "https://en.wikipedia.org/wiki/Parasite_(2019_film)"},
+        {"tier": 3, "text": "Which 1939 epic set during the American Civil War won the Best Picture Oscar?", "answer": "Gone with the Wind", "wrong": ["The Wizard of Oz", "Stagecoach", "Wuthering Heights"], "src": "https://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)"},
+        {"tier": 4, "text": "Which 2003 film won all 11 Oscars it was nominated for, including Best Picture?", "answer": "The Return of the King", "wrong": ["Master and Commander", "Lost in Translation", "Mystic River"], "src": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King"},
+        {"tier": 5, "text": "Which silent war film won the very first Academy Award for Best Picture?", "answer": "Wings", "wrong": ["The Racket", "7th Heaven", "The Big Parade"], "src": "https://en.wikipedia.org/wiki/Wings_(1927_film)"}
+      ]
+    },
+    {
+      "id": "core-2/film-series",
+      "title": "FILM SERIES",
+      "topic": "screen",
+      "clues": [
+        {"tier": 1, "text": "Which fictional spy has the code number 007?", "answer": "James Bond", "wrong": ["Jason Bourne", "Ethan Hunt", "Jack Ryan"], "src": "https://en.wikipedia.org/wiki/James_Bond"},
+        {"tier": 2, "text": "In 'Star Wars', which villain turns out to be Luke Skywalker's father?", "answer": "Darth Vader", "wrong": ["Emperor Palpatine", "Count Dooku", "Darth Maul"], "src": "https://en.wikipedia.org/wiki/Darth_Vader"},
+        {"tier": 3, "text": "In 'The Matrix', what colour is the pill that Neo chooses to take?", "answer": "Red", "wrong": ["Blue", "Green", "White"], "src": "https://en.wikipedia.org/wiki/Red_pill_and_blue_pill"},
+        {"tier": 4, "text": "In 'Back to the Future', what speed must the DeLorean reach to travel in time?", "answer": "88 mph", "wrong": ["77 mph", "99 mph", "121 mph"], "src": "https://en.wikipedia.org/wiki/DeLorean_time_machine"},
+        {"tier": 5, "text": "On which fictional island is the dinosaur park built in 'Jurassic Park'?", "answer": "Isla Nublar", "wrong": ["Isla Sorna", "Skull Island", "Amity Island"], "src": "https://en.wikipedia.org/wiki/Jurassic_Park_(film)"}
+      ]
+    },
+    {
+      "id": "core-2/childrens-books",
+      "title": "CHILDREN'S BOOKS",
+      "topic": "books",
+      "clues": [
+        {"tier": 1, "text": "Which boy wizard has a lightning-bolt scar on his forehead?", "answer": "Harry Potter", "wrong": ["Ron Weasley", "Neville Longbottom", "Draco Malfoy"], "src": "https://en.wikipedia.org/wiki/Harry_Potter_(character)"},
+        {"tier": 2, "text": "Who wrote 'Alice's Adventures in Wonderland'?", "answer": "Lewis Carroll", "wrong": ["Roald Dahl", "J. M. Barrie", "Kenneth Grahame"], "src": "https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland"},
+        {"tier": 3, "text": "Who wrote and illustrated 'The Very Hungry Caterpillar'?", "answer": "Eric Carle", "wrong": ["Maurice Sendak", "Dr. Seuss", "Beatrix Potter"], "src": "https://en.wikipedia.org/wiki/The_Very_Hungry_Caterpillar"},
+        {"tier": 4, "text": "Who wrote 'The Little Prince', first published in 1943?", "answer": "Antoine de Saint-Exupéry", "wrong": ["Jules Verne", "Albert Camus", "Victor Hugo"], "src": "https://en.wikipedia.org/wiki/The_Little_Prince"},
+        {"tier": 5, "text": "Which Finnish author and artist created the Moomins?", "answer": "Tove Jansson", "wrong": ["Astrid Lindgren", "Selma Lagerlöf", "Hans Christian Andersen"], "src": "https://en.wikipedia.org/wiki/Tove_Jansson"}
+      ]
+    },
+    {
+      "id": "core-2/fictional-detectives",
+      "title": "FICTIONAL DETECTIVES",
+      "topic": "books",
+      "clues": [
+        {"tier": 1, "text": "Which detective lives at 221B Baker Street?", "answer": "Sherlock Holmes", "wrong": ["Inspector Morse", "Father Brown", "Philip Marlowe"], "src": "https://en.wikipedia.org/wiki/221B_Baker_Street"},
+        {"tier": 2, "text": "Which Belgian detective was created by Agatha Christie?", "answer": "Hercule Poirot", "wrong": ["Jules Maigret", "Father Brown", "Lord Peter Wimsey"], "src": "https://en.wikipedia.org/wiki/Hercule_Poirot"},
+        {"tier": 3, "text": "Which elderly amateur sleuth lives in the village of St Mary Mead?", "answer": "Miss Marple", "wrong": ["Jessica Fletcher", "Mrs Hudson", "Precious Ramotswe"], "src": "https://en.wikipedia.org/wiki/Miss_Marple"},
+        {"tier": 4, "text": "Who wrote 'The Murders in the Rue Morgue' (1841), often called the first modern detective story?", "answer": "Edgar Allan Poe", "wrong": ["Wilkie Collins", "Arthur Conan Doyle", "Charles Dickens"], "src": "https://en.wikipedia.org/wiki/The_Murders_in_the_Rue_Morgue"},
+        {"tier": 5, "text": "Which Belgian author created the French police detective Jules Maigret?", "answer": "Georges Simenon", "wrong": ["Gaston Leroux", "Maurice Leblanc", "Émile Gaboriau"], "src": "https://en.wikipedia.org/wiki/Jules_Maigret"}
+      ]
+    },
+    {
+      "id": "core-2/great-artists",
+      "title": "GREAT ARTISTS",
+      "topic": "art",
+      "clues": [
+        {"tier": 1, "text": "Who painted the ceiling of the Sistine Chapel in Rome?", "answer": "Michelangelo", "wrong": ["Raphael", "Leonardo da Vinci", "Donatello"], "src": "https://en.wikipedia.org/wiki/Sistine_Chapel_ceiling"},
+        {"tier": 2, "text": "Which Surrealist painted melting clocks in 'The Persistence of Memory'?", "answer": "Salvador Dalí", "wrong": ["René Magritte", "Max Ernst", "Joan Miró"], "src": "https://en.wikipedia.org/wiki/The_Persistence_of_Memory"},
+        {"tier": 3, "text": "Which French Impressionist painted a famous series of water lilies at Giverny?", "answer": "Claude Monet", "wrong": ["Édouard Manet", "Pierre-Auguste Renoir", "Edgar Degas"], "src": "https://en.wikipedia.org/wiki/Water_Lilies_(Monet_series)"},
+        {"tier": 4, "text": "Which Austrian painter used gold leaf in his famous work 'The Kiss'?", "answer": "Gustav Klimt", "wrong": ["Egon Schiele", "Oskar Kokoschka", "Alphonse Mucha"], "src": "https://en.wikipedia.org/wiki/The_Kiss_(Klimt)"},
+        {"tier": 5, "text": "Which Flemish painter completed the 'Ghent Altarpiece', begun with his brother Hubert?", "answer": "Jan van Eyck", "wrong": ["Pieter Bruegel", "Hieronymus Bosch", "Peter Paul Rubens"], "src": "https://en.wikipedia.org/wiki/Ghent_Altarpiece"}
+      ]
+    },
+    {
+      "id": "core-2/architecture",
+      "title": "ARCHITECTURE",
+      "topic": "art",
+      "clues": [
+        {"tier": 1, "text": "Which city is home to the Burj Khalifa skyscraper?", "answer": "Dubai", "wrong": ["Abu Dhabi", "Doha", "Riyadh"], "src": "https://en.wikipedia.org/wiki/Burj_Khalifa"},
+        {"tier": 2, "text": "Which architect designed the Sagrada Família church in Barcelona?", "answer": "Antoni Gaudí", "wrong": ["Santiago Calatrava", "Ricardo Bofill", "Rafael Moneo"], "src": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia"},
+        {"tier": 3, "text": "Which architect designed the Guggenheim Museum in Bilbao?", "answer": "Frank Gehry", "wrong": ["Renzo Piano", "Norman Foster", "Jean Nouvel"], "src": "https://en.wikipedia.org/wiki/Guggenheim_Museum_Bilbao"},
+        {"tier": 4, "text": "Which architect designed the glass pyramid at the Louvre in Paris?", "answer": "I. M. Pei", "wrong": ["Richard Rogers", "Oscar Niemeyer", "Kenzo Tange"], "src": "https://en.wikipedia.org/wiki/Louvre_Pyramid"},
+        {"tier": 5, "text": "In 2004, who became the first woman to win the Pritzker Architecture Prize?", "answer": "Zaha Hadid", "wrong": ["Kazuyo Sejima", "Lina Bo Bardi", "Denise Scott Brown"], "src": "https://en.wikipedia.org/wiki/Zaha_Hadid"}
+      ]
+    },
+    {
+      "id": "core-2/fruit-and-vegetables",
+      "title": "FRUIT AND VEGETABLES",
+      "topic": "food",
+      "clues": [
+        {"tier": 1, "text": "Which fruit is the main ingredient of guacamole?", "answer": "Avocado", "wrong": ["Mango", "Papaya", "Kiwi fruit"], "src": "https://en.wikipedia.org/wiki/Guacamole"},
+        {"tier": 2, "text": "Granny Smith, Gala and Fuji are varieties of which fruit?", "answer": "Apple", "wrong": ["Pear", "Plum", "Grape"], "src": "https://en.wikipedia.org/wiki/Granny_Smith"},
+        {"tier": 3, "text": "Which spiky Southeast Asian fruit, called the 'king of fruits', is famous for its strong smell?", "answer": "Durian", "wrong": ["Jackfruit", "Mangosteen", "Rambutan"], "src": "https://en.wikipedia.org/wiki/Durian"},
+        {"tier": 4, "text": "Apart from sugar cane, which crop is the main source of sugar?", "answer": "Sugar beet", "wrong": ["Turnip", "Parsnip", "Swede"], "src": "https://en.wikipedia.org/wiki/Sugar_beet"},
+        {"tier": 5, "text": "Cassava, a starchy root crop, is also known by which other name?", "answer": "Manioc", "wrong": ["Taro", "Yam", "Jicama"], "src": "https://en.wikipedia.org/wiki/Cassava"}
+      ]
+    },
+    {
+      "id": "core-2/sweet-treats",
+      "title": "SWEET TREATS",
+      "topic": "food",
+      "clues": [
+        {"tier": 1, "text": "Chocolate is made from the beans of which plant?", "answer": "Cacao", "wrong": ["Coffee", "Vanilla", "Carob"], "src": "https://en.wikipedia.org/wiki/Chocolate"},
+        {"tier": 2, "text": "Which Italian dessert's name means 'pick me up'?", "answer": "Tiramisu", "wrong": ["Panna cotta", "Cannoli", "Zabaglione"], "src": "https://en.wikipedia.org/wiki/Tiramisu"},
+        {"tier": 3, "text": "Japanese mochi is made mainly from which ingredient?", "answer": "Rice", "wrong": ["Wheat", "Soybeans", "Sweet potato"], "src": "https://en.wikipedia.org/wiki/Mochi"},
+        {"tier": 4, "text": "Which dessert is named after a famous Russian ballerina?", "answer": "Pavlova", "wrong": ["Peach Melba", "Charlotte russe", "Crêpe Suzette"], "src": "https://en.wikipedia.org/wiki/Pavlova"},
+        {"tier": 5, "text": "Which small shell-shaped French cake did Marcel Proust make famous?", "answer": "Madeleine", "wrong": ["Financier", "Macaron", "Éclair"], "src": "https://en.wikipedia.org/wiki/Madeleine_(cake)"}
+      ]
+    },
+    {
+      "id": "core-2/world-languages",
+      "title": "WORLD LANGUAGES",
+      "topic": "words",
+      "clues": [
+        {"tier": 1, "text": "What is the main language spoken in Brazil?", "answer": "Portuguese", "wrong": ["Spanish", "Italian", "French"], "src": "https://en.wikipedia.org/wiki/Brazilian_Portuguese"},
+        {"tier": 2, "text": "Which language has the most native speakers in the world?", "answer": "Mandarin Chinese", "wrong": ["English", "Spanish", "Hindi"], "src": "https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers"},
+        {"tier": 3, "text": "Which language is written in the Hangul alphabet?", "answer": "Korean", "wrong": ["Japanese", "Vietnamese", "Thai"], "src": "https://en.wikipedia.org/wiki/Hangul"},
+        {"tier": 4, "text": "The Basque language is spoken in northern Spain and in which other country?", "answer": "France", "wrong": ["Portugal", "Andorra", "Italy"], "src": "https://en.wikipedia.org/wiki/Basque_language"},
+        {"tier": 5, "text": "Which constructed language did L. L. Zamenhof publish in 1887?", "answer": "Esperanto", "wrong": ["Volapük", "Ido", "Interlingua"], "src": "https://en.wikipedia.org/wiki/Esperanto"}
+      ]
+    },
+    {
+      "id": "core-2/animal-group-names",
+      "title": "ANIMAL GROUP NAMES",
+      "topic": "words",
+      "clues": [
+        {"tier": 1, "text": "What is a group of lions called?", "answer": "Pride", "wrong": ["Pack", "Herd", "Flock"], "src": "https://en.wikipedia.org/wiki/List_of_English_terms_of_venery,_by_animal"},
+        {"tier": 2, "text": "What is a group of fish swimming together often called?", "answer": "School", "wrong": ["Pod", "Herd", "Colony"], "src": "https://en.wikipedia.org/wiki/Shoaling_and_schooling"},
+        {"tier": 3, "text": "A 'murmuration' is a huge, swirling flock of which bird?", "answer": "Starlings", "wrong": ["Swallows", "Sparrows", "Pigeons"], "src": "https://en.wikipedia.org/wiki/Flocking"},
+        {"tier": 4, "text": "What is a group of crows traditionally called?", "answer": "Murder", "wrong": ["Gaggle", "Charm", "Flight"], "src": "https://en.wikipedia.org/wiki/List_of_English_terms_of_venery,_by_animal"},
+        {"tier": 5, "text": "What is a group of owls traditionally called?", "answer": "Parliament", "wrong": ["Senate", "Council", "Assembly"], "src": "https://en.wikipedia.org/wiki/List_of_English_terms_of_venery,_by_animal"}
+      ]
+    },
+    {
+      "id": "core-2/shapes-and-angles",
+      "title": "SHAPES AND ANGLES",
+      "topic": "numbers",
+      "clues": [
+        {"tier": 1, "text": "How many sides does a hexagon have?", "answer": "6", "wrong": ["5", "7", "8"], "src": "https://en.wikipedia.org/wiki/Hexagon"},
+        {"tier": 2, "text": "How many degrees are there in a right angle?", "answer": "90°", "wrong": ["45°", "60°", "120°"], "src": "https://en.wikipedia.org/wiki/Right_angle"},
+        {"tier": 3, "text": "What do the three angles inside a triangle always add up to?", "answer": "180°", "wrong": ["90°", "270°", "360°"], "src": "https://en.wikipedia.org/wiki/Triangle"},
+        {"tier": 4, "text": "How many edges does a cube have?", "answer": "12", "wrong": ["6", "8", "24"], "src": "https://en.wikipedia.org/wiki/Cube"},
+        {"tier": 5, "text": "What do the interior angles of a hexagon add up to?", "answer": "720°", "wrong": ["540°", "900°", "1,080°"], "src": "https://en.wikipedia.org/wiki/Hexagon"}
+      ]
+    },
+    {
+      "id": "core-2/units-and-measures",
+      "title": "UNITS AND MEASURES",
+      "topic": "numbers",
+      "clues": [
+        {"tier": 1, "text": "How many centimetres are there in a metre?", "answer": "100", "wrong": ["10", "50", "1,000"], "src": "https://en.wikipedia.org/wiki/Centimetre"},
+        {"tier": 2, "text": "A knot is a unit of what?", "answer": "Speed", "wrong": ["Distance", "Depth", "Weight"], "src": "https://en.wikipedia.org/wiki/Knot_(unit)"},
+        {"tier": 3, "text": "Exactly how many centimetres are there in an inch?", "answer": "2.54", "wrong": ["2.45", "2.64", "3.05"], "src": "https://en.wikipedia.org/wiki/Inch"},
+        {"tier": 4, "text": "How many yards are there in a mile?", "answer": "1,760", "wrong": ["1,500", "1,650", "2,000"], "src": "https://en.wikipedia.org/wiki/Mile"},
+        {"tier": 5, "text": "How many metres are there in one nautical mile?", "answer": "1,852", "wrong": ["1,609", "1,728", "1,950"], "src": "https://en.wikipedia.org/wiki/Nautical_mile"}
+      ]
+    },
+    {
+      "id": "core-2/computers-and-the-web",
+      "title": "COMPUTERS AND THE WEB",
+      "topic": "inventions",
+      "clues": [
+        {"tier": 1, "text": "Who co-founded Microsoft with Paul Allen in 1975?", "answer": "Bill Gates", "wrong": ["Steve Jobs", "Steve Wozniak", "Larry Ellison"], "src": "https://en.wikipedia.org/wiki/Microsoft"},
+        {"tier": 2, "text": "Who invented the World Wide Web, in 1989?", "answer": "Tim Berners-Lee", "wrong": ["Vint Cerf", "Marc Andreessen", "Linus Torvalds"], "src": "https://en.wikipedia.org/wiki/Tim_Berners-Lee"},
+        {"tier": 3, "text": "Which mathematician helped to break the Enigma code at Bletchley Park?", "answer": "Alan Turing", "wrong": ["Charles Babbage", "John von Neumann", "Claude Shannon"], "src": "https://en.wikipedia.org/wiki/Alan_Turing"},
+        {"tier": 4, "text": "Which company released the first commercial microprocessor, the 4004, in 1971?", "answer": "Intel", "wrong": ["IBM", "Texas Instruments", "Motorola"], "src": "https://en.wikipedia.org/wiki/Intel_4004"},
+        {"tier": 5, "text": "What was the name of the network, first linked up in 1969, that grew into the internet?", "answer": "ARPANET", "wrong": ["NSFNET", "Usenet", "CYCLADES"], "src": "https://en.wikipedia.org/wiki/ARPANET"}
+      ]
+    },
+    {
+      "id": "core-2/planes-trains-and-cars",
+      "title": "PLANES, TRAINS AND CARS",
+      "topic": "inventions",
+      "clues": [
+        {"tier": 1, "text": "Which carmaker launched the Model T in 1908?", "answer": "Ford", "wrong": ["General Motors", "Chrysler", "Cadillac"], "src": "https://en.wikipedia.org/wiki/Ford_Model_T"},
+        {"tier": 2, "text": "Which country opened the first high-speed 'bullet train' line, in 1964?", "answer": "Japan", "wrong": ["France", "Germany", "China"], "src": "https://en.wikipedia.org/wiki/Shinkansen"},
+        {"tier": 3, "text": "Which city opened the world's first underground railway, in 1863?", "answer": "London", "wrong": ["Paris", "New York", "Budapest"], "src": "https://en.wikipedia.org/wiki/Metropolitan_Railway"},
+        {"tier": 4, "text": "Which German engineer patented his three-wheeled motor car in 1886?", "answer": "Karl Benz", "wrong": ["Gottlieb Daimler", "Rudolf Diesel", "Ferdinand Porsche"], "src": "https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen"},
+        {"tier": 5, "text": "Which British aircraft became the first jet airliner in passenger service, in 1952?", "answer": "de Havilland Comet", "wrong": ["Boeing 707", "Vickers Viscount", "Sud Aviation Caravelle"], "src": "https://en.wikipedia.org/wiki/De_Havilland_Comet"}
+      ]
+    }
+  ],
+  "finals": [
+    {"id": "core-2/final-01", "category": "PLANT FOODS", "topic": "food", "text": "Real wasabi belongs to the same plant family as which vegetable?", "answer": "Cabbage", "wrong": ["Ginger", "Onion", "Carrot"], "src": "https://en.wikipedia.org/wiki/Wasabi"},
+    {"id": "core-2/final-02", "category": "BORROWED WORDS", "topic": "words", "text": "The word 'quarantine' comes from the Italian for a period of how many days?", "answer": "40", "wrong": ["10", "14", "30"], "src": "https://en.wikipedia.org/wiki/Quarantine"},
+    {"id": "core-2/final-03", "category": "PRIME NUMBERS", "topic": "numbers", "text": "How many prime numbers are there between 1 and 20?", "answer": "8", "wrong": ["7", "9", "10"], "src": "https://en.wikipedia.org/wiki/List_of_prime_numbers"},
+    {"id": "core-2/final-04", "category": "MONEY", "topic": "inventions", "text": "In which country did paper money first come into use, more than a thousand years ago?", "answer": "China", "wrong": ["India", "Persia", "Egypt"], "src": "https://en.wikipedia.org/wiki/Banknote"},
+    {"id": "core-2/final-05", "category": "AFRICA", "topic": "geography", "text": "Which African country has three capital cities?", "answer": "South Africa", "wrong": ["Nigeria", "Kenya", "Egypt"], "src": "https://en.wikipedia.org/wiki/South_Africa"},
+    {"id": "core-2/final-06", "category": "THE AMERICAS", "topic": "history", "text": "Which city was the capital of the Inca Empire?", "answer": "Cusco", "wrong": ["Lima", "La Paz", "Arequipa"], "src": "https://en.wikipedia.org/wiki/Cusco"},
+    {"id": "core-2/final-07", "category": "MOONS", "topic": "space", "text": "Which moon of Jupiter is the most volcanically active body in the Solar System?", "answer": "Io", "wrong": ["Europa", "Ganymede", "Callisto"], "src": "https://en.wikipedia.org/wiki/Io_(moon)"},
+    {"id": "core-2/final-08", "category": "SCIENCE PIONEERS", "topic": "science", "text": "Who put forward the theory of continental drift, in 1912?", "answer": "Alfred Wegener", "wrong": ["Charles Lyell", "James Hutton", "Arthur Holmes"], "src": "https://en.wikipedia.org/wiki/Alfred_Wegener"},
+    {"id": "core-2/final-09", "category": "WINTER SPORTS", "topic": "sport", "text": "Which town hosted the first Winter Olympics, in 1924?", "answer": "Chamonix", "wrong": ["St. Moritz", "Lake Placid", "Oslo"], "src": "https://en.wikipedia.org/wiki/1924_Winter_Olympics"},
+    {"id": "core-2/final-10", "category": "ANIMAL RECORDS", "topic": "nature", "text": "Which land mammal has the longest pregnancy, lasting about 22 months?", "answer": "Elephant", "wrong": ["Giraffe", "Rhinoceros", "Hippopotamus"], "src": "https://en.wikipedia.org/wiki/Elephant"}
+  ]
+}

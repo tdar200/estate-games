@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estate AI training</title>
+<link rel="icon" href="data:,">
+<style>
+:root {
+  --felt: #0A2A1F; --line: rgba(251, 250, 244, 0.12); --ink: #FBFAF4; --muted: rgba(251, 250, 244, 0.7);
+  --faint: rgba(251, 250, 244, 0.45); --gold: #F2C14E; --teal: #4FD1C5; --good: #63D68B; --bad: #F48C7F;
+  --card: rgba(10, 34, 26, 0.8);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at 50% 0%, #1F6B4E 0%, #124733 40%, var(--felt) 100%) fixed; color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; min-height: 100vh; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 20px 16px 40px; }
+header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+h1 { margin: 0; font-size: 24px; letter-spacing: 0.08em; font-weight: 800; }
+h1 span { color: var(--gold); }
+.pill { padding: 4px 12px; border-radius: 999px; font-weight: 800; font-size: 12px; letter-spacing: 0.1em; background: rgba(251,250,244,.18); }
+.pill.live { background: var(--good); color: #0E2A1C; }
+.pill.done { background: var(--gold); color: #15191E; }
+.pill.stale { background: var(--bad); color: #2A0E0B; }
+.ago { margin-left: auto; color: var(--muted); font-size: 13px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+.card h2 { margin: 0 0 4px; font-size: 12px; letter-spacing: 0.16em; color: var(--gold); font-weight: 800; }
+.card .lede { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+.stack { display: grid; gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 16px; }
+.empty { color: var(--muted); padding: 22px 0; text-align: center; }
+
+/* right now */
+.now .kicker { font-size: 12px; letter-spacing: 0.16em; color: var(--gold); font-weight: 800; }
+.now .title { font-size: clamp(22px, 3.6vw, 34px); font-weight: 800; line-height: 1.15; margin: 6px 0 6px; }
+.now .what { color: var(--muted); margin: 0 0 14px; max-width: 70ch; }
+.bar { height: 14px; background: rgba(251, 250, 244, 0.1); border-radius: 99px; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: linear-gradient(90deg, #C9962B, var(--gold)); border-radius: 99px; transition: width 0.6s ease; }
+.now .facts { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 10px; color: var(--muted); font-size: 14px; }
+.now .facts b { color: var(--ink); }
+.alert { margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: rgba(244,140,127,.15); border: 1px solid rgba(244,140,127,.5); color: #FFD9D3; font-size: 14px; }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.step { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.step:last-child { border-bottom: 0; }
+.dot { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 14px;
+  border: 2px solid var(--faint); color: var(--faint); }
+.step.done .dot { background: var(--good); border-color: var(--good); color: #0E2A1C; }
+.step.running .dot { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 0 4px rgba(242,193,78,.18); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(242,193,78,.06); } }
+@media (prefers-reduced-motion: reduce) { .step.running .dot { animation: none; } }
+.step .t { font-weight: 800; }
+.step .t small { font-weight: 700; font-size: 11px; letter-spacing: 0.12em; margin-left: 8px; padding: 2px 8px; border-radius: 99px; vertical-align: 2px; }
+.step.done .t small { background: rgba(99,214,139,.18); color: var(--good); }
+.step.running .t small { background: rgba(242,193,78,.2); color: var(--gold); }
+.step.queued .t small { background: rgba(251,250,244,.1); color: var(--muted); }
+.step.queued .t { color: var(--muted); }
+.step .p { color: var(--muted); font-size: 14px; }
+.step .r { margin-top: 4px; font-size: 14px; }
+.step .r b { color: var(--gold); }
+
+/* scoreboard */
+.group { margin-top: 14px; }
+.group:first-child { margin-top: 0; }
+.group h3 { margin: 0 0 6px; font-size: 13px; color: var(--muted); letter-spacing: 0.06em; font-weight: 700; }
+.match { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.match:last-child { border-bottom: 0; }
+.match .head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.match .who b { font-size: 15px; }
+.match .who span { color: var(--muted); font-size: 14px; margin-left: 6px; }
+.match .val { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.match .val small { font-size: 13px; color: var(--good); font-weight: 700; margin-left: 6px; }
+.track { position: relative; height: 16px; margin: 8px 0 6px; background: rgba(251,250,244,.08); border-radius: 8px; }
+.track .range { position: absolute; top: 0; bottom: 0; background: rgba(242,193,78,.28); border-radius: 8px; }
+.track .fill { position: absolute; top: 3px; bottom: 3px; left: 0; background: var(--gold); border-radius: 6px; }
+.track .fair { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); opacity: .75; }
+.match .note { color: var(--muted); font-size: 13px; }
+.match.best .who b::after { content: "BEST"; font-size: 10px; letter-spacing: .12em; margin-left: 8px; padding: 2px 7px; border-radius: 99px; background: var(--gold); color: #15191E; vertical-align: 2px; }
+.key { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-top: 10px; }
+.key i { display: inline-block; width: 16px; height: 10px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+
+/* charts */
+svg { width: 100%; height: auto; display: block; }
+
+/* big numbers */
+.big { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.big .n { font-size: 44px; font-weight: 800; line-height: 1; }
+.big .d { color: var(--muted); }
+.cmp { display: grid; gap: 8px; margin-top: 14px; }
+.cmp .row { display: grid; grid-template-columns: 150px 1fr 52px; gap: 10px; align-items: center; font-size: 14px; }
+.cmp .row .b { height: 12px; border-radius: 6px; background: rgba(251,250,244,.08); overflow: hidden; }
+.cmp .row .b i { display: block; height: 100%; background: var(--teal); border-radius: 6px; }
+.cmp .row .b i.ghost { background: var(--faint); }
+.cmp .row span:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* learned */
+.learned { list-style: none; margin: 0; padding: 0; }
+.learned li { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.learned li:last-child { border-bottom: 0; }
+.learned .arrow { font-weight: 800; }
+.learned .up { color: var(--good); }
+.learned .down { color: var(--teal); }
+.learned .chip { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+details { margin-top: 12px; color: var(--muted); font-size: 14px; }
+details summary { cursor: pointer; color: var(--ink); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+th { text-align: left; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); font-weight: 700; padding: 5px 6px; border-bottom: 1px solid var(--line); }
+td { padding: 5px 6px; border-bottom: 1px solid var(--line); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* health */
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+.tile { background: rgba(251,250,244,.05); border-radius: 12px; padding: 10px 12px; }
+.tile .k { font-size: 11px; letter-spacing: 0.14em; color: var(--muted); font-weight: 700; }
+.tile .v { font-size: 24px; font-weight: 800; }
+.tile .d { font-size: 12px; color: var(--muted); }
+.tile.hot .v { color: var(--bad); }
+
+/* activity */
+.events { max-height: 360px; overflow: auto; font-size: 14px; }
+.ev { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.ev time { color: var(--muted); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.ev.warn { color: var(--gold); }
+.ev.error { color: var(--bad); }
+
+footer { color: var(--muted); font-size: 13px; margin-top: 16px; display: grid; gap: 4px; }
+footer b { color: var(--ink); }
+@media (max-width: 560px) {
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .cmp .row { grid-template-columns: 110px 1fr 46px; }
+  .big .n { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>ESTATE <span>AI TRAINING</span></h1>
+    <span class="pill" id="pill">CONNECTING</span>
+    <span class="ago" id="ago"></span>
+  </header>
+
+  <div class="stack">
+    <section class="card now" aria-label="Right now">
+      <div class="kicker">RIGHT NOW</div>
+      <div class="title" id="nowTitle">Connecting to the PC…</div>
+      <p class="what" id="nowWhat"></p>
+      <div class="bar" role="progressbar" aria-label="This step" aria-valuemin="0" aria-valuemax="100" id="nowBar"><i style="width:0%"></i></div>
+      <div class="facts" id="nowFacts"></div>
+      <div id="nowAlert"></div>
+    </section>
+
+    <div class="grid">
+      <section class="card" aria-label="The plan">
+        <h2>THE PLAN</h2>
+        <p class="lede">Every step the training goes through, in order.</p>
+        <ol class="steps" id="steps"></ol>
+      </section>
+
+      <section class="card" aria-label="Scoreboard">
+        <h2>SCOREBOARD · HOW OFTEN EACH BOT WINS</h2>
+        <p class="lede">With 4 players, an equally good bot wins 1 game in 4: that's the white line. Further right is better.</p>
+        <div id="score"><div class="empty">Results appear here as the tests finish.</div></div>
+        <div class="key"><span><i style="background:var(--gold)"></i>win rate</span><span><i style="background:rgba(242,193,78,.28)"></i>likely range</span><span><i style="background:var(--ink);width:2px"></i>fair share</span></div>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card" aria-label="Getting better">
+        <h2>GETTING BETTER · WIN RATE AGAINST 3 NORMAL BOTS</h2>
+        <p class="lede" id="curveLede">Checked every 5 generations over 2,000 games while it learned its strategy.</p>
+        <div id="curve"><div class="empty">No checks yet.</div></div>
+      </section>
+
+      <section class="card" aria-label="The judge">
+        <h2>THE JUDGE · NEURAL NETWORK</h2>
+        <p class="lede">Shown a game part-way through, it guesses who will win. Expert asks it before big decisions.</p>
+        <div id="judge"><div class="empty">The judge hasn't been trained yet.</div></div>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card" aria-label="What it learned">
+        <h2>WHAT IT LEARNED · BIGGEST CHANGES IN HOW IT PLAYS</h2>
+        <p class="lede">Compared with the original bot, after playing hundreds of thousands of games.</p>
+        <div id="learned"><div class="empty">Nothing learned yet.</div></div>
+      </section>
+
+      <section class="card" aria-label="PC health">
+        <h2>PC HEALTH</h2>
+        <p class="lede">The training runs on a Linux machine. CPU temperature should stay well under 85°C.</p>
+        <div class="tiles">
+          <div class="tile" id="tTemp"><div class="k">CPU TEMP</div><div class="v">–</div><div class="d">warning at 85°C</div></div>
+          <div class="tile" id="tCpu"><div class="k">CPU BUSY</div><div class="v">–</div><div class="d">–</div></div>
+          <div class="tile" id="tMem"><div class="k">MEMORY</div><div class="v">–</div><div class="d">–</div></div>
+        </div>
+        <div id="temps"></div>
+      </section>
+    </div>
+
+    <section class="card" aria-label="Grandmaster" id="gmCard" hidden>
+      <h2>GRANDMASTER · THE TOP LEVEL</h2>
+      <div id="gmSummary"></div>
+      <p class="lede" id="gmLoopLede" hidden>Its own network, improved by self-play. Each generation: league games, a new network trained on them, then a gate: the new network only replaces the best one if Grandmaster wins clearly more games with it.</p>
+      <div id="gm"></div>
+    </section>
+
+    <section class="card" aria-label="Activity">
+      <h2>ACTIVITY</h2>
+      <p class="lede">Newest first.</p>
+      <div class="events" id="events"><div class="empty">Nothing yet.</div></div>
+    </section>
+  </div>
+
+  <footer>
+    <div><b>Fair share</b>: how often a bot would win if everyone were equally good (25% with 4 players).</div>
+    <div><b>Likely range</b>: with this many games, the true win rate is almost certainly inside it. More games = narrower range.</div>
+    <div><b>Expert</b>: the new bot. <b>Hard</b>: the previous strongest. <b>Normal</b>: the original bot. Updates every 3 seconds.</div>
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => (n == null || Number.isNaN(n) ? "–" : Math.round(n).toLocaleString("en-GB"));
+const pct = (x, d = 0) => (x == null || Number.isNaN(x) ? "–" : (x * 100).toFixed(d) + "%");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1).toLowerCase() : s);
+function dur(sec) {
+  if (sec == null || !Number.isFinite(sec)) return null;
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
+  if (h) return `${h} h ${m} min`;
+  if (m) return `${m} min`;
+  return "under a minute";
+}
+const clock = (ms) => new Date(ms).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+// ---------- names in plain English ----------
+const LEVEL = { expert: "Expert", hard: "Hard", normal: "Normal", easy: "Easy" };
+const seatsOf = (m) => String(m.seats || "").split(",").map((x) => x.trim().toLowerCase()).filter(Boolean);
+function opponents(seats) {
+  const rest = seats.slice(1);
+  if (!rest.length) return "";
+  if (rest.every((x) => x === rest[0])) return `vs ${rest.length} ${LEVEL[rest[0]] || rest[0]} bot${rest.length > 1 ? "s" : ""}`;
+  return "vs " + rest.map((x) => LEVEL[x] || x).join(", ");
+}
+function subject(m) {
+  let r;
+  if ((r = /^AB horizon (\d+)/i.exec(m.name || ""))) return `Expert, looking ${r[1]} turn${r[1] === "1" ? "" : "s"} ahead`;
+  if ((r = /^AB2 net gen(\w+)/i.exec(m.name || ""))) return `Expert with judge v${r[1]}`;
+  if (/^AB opponents tuned/i.test(m.name || "")) return "Expert, imagining opponents play its learned strategy";
+  if (/^AB opponents/i.test(m.name || "")) return "Expert, imagining opponents play like Normal";
+  if ((r = /^AB (.+)$/.exec(m.name || ""))) return `Expert (${r[1]})`;
+  if (/ablation/i.test(m.name || "")) return "Hard + learned strategy, no judge";
+  const s = seatsOf(m)[0];
+  return s ? `${LEVEL[s] || s} bot` : m.name || "Bot";
+}
+function plainText(t) {
+  return String(t ?? "")
+    .replace(/\s*\(-[a-z][^)]*\)/g, "")
+    .replace(/^Evaluation started: /, "Test started: ")
+    .replace(/AB opponents tuned/g, "Expert imagining opponents play its learned strategy")
+    .replace(/AB horizon (\d+)/g, (_, n) => `Expert looking ${n} turn${n === "1" ? "" : "s"} ahead`)
+    .replace(/AB2 net gen(\w+)/g, "Expert with judge v$1")
+    .replace(/(\d+) x (Normal|Hard|Easy|Expert)/gi, (_, n, l) => `${n} ${cap(l)} bots`)
+    .replace(/(\d+) x champion/gi, "$1 copies of its best self")
+    .replace(/(\d+)\s*×\s*(NORMAL|HARD|EASY|EXPERT)/g, (_, n, l) => `${n} ${cap(l)} bots`)
+    .replace(/\b(EXPERT|HARD|NORMAL|EASY)\b/g, (l) => cap(l))
+    .replace(/\(95% CI ([\d.]+)-([\d.]+)/g, "(likely $1–$2%")
+    .replace(/, decision p50 ([\d.]+) ms, p95 ([\d.]+) ms/g, "")
+    .replace(/Value[- ]net(work)?/gi, "Judge")
+    .replace(/(held-out )?(log|val) loss [\d.]+ \(chance [\d.]+\),?\s*/g, "")
+    .replace(/,?\s*Brier [\d.]+/g, "")
+    .replace(/winner picked/g, "picks the winner")
+    .replace(/\bepoch (\d+)/gi, "study pass $1");
+}
+
+// ---------- the plan ----------
+const STEPS = [
+  { id: "tune", title: "Learn the strategy", plain: "Bots with slightly different habits play each other. Habits that win more carry on to the next generation." },
+  { id: "data", title: "Record game moments", plain: "Hundreds of thousands of games are paused part-way and saved, together with who went on to win." },
+  { id: "judge", title: "Teach the judge", plain: "A neural network studies those moments until it can tell who's winning." },
+  { id: "lookahead", title: "Tune how Expert thinks", plain: "Trying different ways for Expert to think, such as how many turns to imagine ahead before asking the judge, against 3 Hard bots." },
+  { id: "round2", title: "Round 2", plain: "Expert plays itself, the judge studies those games too, then the new judge is tested against the old one." },
+  { id: "exam", title: "Final exam", plain: "Thousands of games against Easy, Normal and Hard bots, with and without the loan rules." },
+  { id: "ship", title: "Put it in the game", plain: "Expert becomes a difficulty you can pick at the table." },
+];
+function currentStep(run) {
+  const ph = run.phase || "", text = `${run.phaseLabel || ""} ${run.message || ""}`;
+  if (ph === "tune") return "tune";
+  if (ph === "data") return /gen\s*[2-9]/i.test(text) ? "round2" : "data";
+  if (ph === "train") return /gen\s*[2-9]/i.test(text) ? "round2" : "judge";
+  if (ph === "eval") {
+    if (/AB2|net gen/i.test(text)) return "round2";
+    if (/\bAB\s/.test(text)) return "lookahead";
+    return "exam";
+  }
+  if (ph === "done") return "ship";
+  return null;
+}
+
+function validations(events) {
+  const out = [];
+  for (const e of events) {
+    const r = /Validation at generation (\d+): ([\d.]+)% vs 3 x Normal/.exec(e.text || "");
+    if (r) out.push({ gen: +r[1], rate: +r[2] / 100, at: e.at });
+  }
+  return out;
+}
+// judgeVersions maps judge version (1, 2, ...) to how often it picks the
+// winner: the final held-out check when posted, else the best study pass.
+function judgeVersions(s) {
+  const out = new Map();
+  for (const r of s.train || []) {
+    const v = /^gen(\d+)/.exec(r.net || "");
+    if (v && r.valAccuracy != null) out.set(+v[1], Math.max(out.get(+v[1]) ?? 0, r.valAccuracy));
+  }
+  for (const e of s.events || []) {
+    const r = /Value net gen(\d+)\w*: .*winner picked ([\d.]+)%/.exec(e.text || "");
+    if (r) out.set(+r[1], +r[2] / 100);
+  }
+  return out;
+}
+function judgeAccuracy(s) {
+  const v = judgeVersions(s);
+  return v.size ? v.get(Math.max(...v.keys())) : null;
+}
+function allMatchups(s) {
+  const rows = [];
+  const add = (list, source) => { for (const m of list || []) rows.push({ ...m, source }); };
+  for (const [file, v] of Object.entries(s.evalFiles || {})) add(v.matchups, file);
+  add(s.eval?.matchups, "exam");
+  const seen = new Map();
+  for (const m of rows) seen.set(`${m.source}|${m.name}`, m); // last one wins
+  return [...seen.values()];
+}
+function groupOf(m) {
+  if (/^AB2/i.test(m.name || "")) return "round2";
+  if (/^AB\s/.test(m.name || "")) return "lookahead";
+  return "exam";
+}
+
+function stepResults(s, matchups) {
+  const res = {};
+  const vals = validations(s.events || []);
+  const ledger = Object.fromEntries((s.ledger || []).map((j) => [j.job, j]));
+  if (vals.length) {
+    const best = vals.reduce((a, b) => (b.rate > a.rate ? b : a));
+    res.tune = `Best check: wins <b>${pct(best.rate)}</b> against 3 Normal bots (fair share 25%)` + (ledger.tune ? ` · ${fmt(ledger.tune.games)} games` : "");
+  }
+  const dataJob = ledger["data-gen1"];
+  if (dataJob || s.data) {
+    const pos = s.data?.set === "gen1" ? s.data.positions : null;
+    res.data = `${fmt(dataJob?.games ?? s.data?.games)} games` + (pos ? ` · ${(pos / 1e6).toFixed(1)} million moments saved` : "");
+  }
+  const acc = judgeAccuracy(s);
+  if (acc != null) res.judge = `Guesses the winner <b>${pct(acc)}</b> of the time (a blind guess gets 25%)`;
+  const look = matchups.filter((m) => groupOf(m) === "lookahead");
+  if (look.length) {
+    const best = look.reduce((a, b) => (b.winRate > a.winRate ? b : a));
+    res.lookahead = `${look.length} tried · best: ${esc(subject(best).replace("Expert, ", ""))} → wins <b>${pct(best.winRate)}</b> vs 3 Hard bots`;
+  }
+  const r2 = matchups.filter((m) => groupOf(m) === "round2");
+  if (r2.length) res.round2 = r2.map((m) => `${esc(subject(m))}: <b>${pct(m.winRate)}</b>`).join(" · ");
+  const exam = matchups.filter((m) => groupOf(m) === "exam");
+  if (exam.length) res.exam = `${exam.length} of 9 matchups done`;
+  return res;
+}
+
+function buildPlan(s, matchups) {
+  const run = s.run || {};
+  const results = stepResults(s, matchups);
+  if (Array.isArray(s.plan?.steps) && s.plan.steps.length) {
+    return s.plan.steps.map((p) => {
+      const base = STEPS.find((x) => x.id === p.id) || {};
+      return { ...base, ...p, result: p.result ? esc(p.result) : results[p.id] };
+    });
+  }
+  const cur = currentStep(run);
+  const idx = STEPS.findIndex((x) => x.id === cur);
+  return STEPS.map((st, i) => {
+    let state = "queued";
+    if (run.phase === "done") state = st.id === "ship" ? "queued" : "done";
+    else if (idx >= 0) state = i < idx ? "done" : i === idx ? "running" : "queued";
+    return { ...st, state, result: results[st.id] };
+  });
+}
+
+function renderPlan(plan) {
+  const label = { done: "DONE", running: "NOW", queued: "NEXT", skipped: "SKIPPED" };
+  $("steps").innerHTML = plan.map((st, i) => `<li class="step ${esc(st.state)}">
+      <div class="dot">${st.state === "done" ? "✓" : i + 1}</div>
+      <div>
+        <div class="t">${esc(st.title)}<small>${label[st.state] || ""}</small></div>
+        <div class="p">${esc(st.plain || "")}</div>
+        ${st.result ? `<div class="r">${st.result}</div>` : ""}
+        ${st.state === "queued" && st.estSec ? `<div class="r" style="color:var(--muted)">takes about ${dur(st.estSec)}</div>` : ""}
+      </div></li>`).join("");
+}
+
+// ---------- right now ----------
+function nowTitle(run) {
+  const ph = run.phase || "";
+  const label = run.phaseLabel || "";
+  let r;
+  if (ph === "tune") {
+    r = /gen (\d+)\s*\/\s*(\d+)/.exec(label);
+    return { title: "Learning the strategy" + (r ? ` · generation ${r[1]} of ${r[2]}` : ""), what: STEPS[0].plain };
+  }
+  if (ph === "data") return { title: /gen\s*[2-9]/i.test(label) ? "Round 2: Expert is playing itself" : "Recording game moments for the judge", what: STEPS[1].plain };
+  if (ph === "train") return { title: "Teaching the judge", what: STEPS[2].plain };
+  if (ph === "eval") {
+    const name = label.split("·").slice(1).join("·").trim() || label;
+    const ab = /^AB\s/.test(name);
+    const who = ab ? subject({ name }) + " vs 3 Hard bots" : /^AB2/.test(name) ? subject({ name }) + " vs 3 Hard bots" : plainText(name);
+    return { title: "Testing: " + who, what: ab ? STEPS[3].plain : /^AB2/.test(name) ? STEPS[4].plain : STEPS[5].plain };
+  }
+  if (ph === "done") return { title: "Training finished", what: "The results are below. Next, Expert gets added to the game as a difficulty level." };
+  return { title: label || "Waiting for the training to start", what: "" };
+}
+function taskProgress(run) {
+  let r = /([\d,]+)\s*\/\s*([\d,]+)\s*games/.exec(run.message || "");
+  if (r) return { done: +r[1].replace(/,/g, ""), total: +r[2].replace(/,/g, ""), unit: "games" };
+  r = /gen (\d+)\s*\/\s*(\d+)/.exec(run.phaseLabel || "");
+  if (r) return { done: +r[1], total: +r[2], unit: "generations" };
+  return null;
+}
+function renderNow(s, plan) {
+  const run = s.run || {};
+  const now = s.serverTime || Date.now();
+  const age = run.updatedAt ? (now - run.updatedAt) / 1000 : null;
+  const done = run.phase === "done";
+  const stale = !done && age != null && age > 150;
+  const pill = $("pill");
+  pill.textContent = done ? "FINISHED" : stale ? "NO UPDATES" : run.phase ? "LIVE" : "WAITING";
+  pill.className = "pill" + (done ? " done" : stale ? " stale" : run.phase ? " live" : "");
+  $("ago").textContent = age == null ? "" : age < 10 ? "updated just now" : `updated ${dur(age)} ago`;
+
+  const t = nowTitle(run);
+  $("nowTitle").textContent = t.title;
+  $("nowWhat").textContent = t.what;
+  const prog = taskProgress(run);
+  const p = done ? 100 : prog ? Math.min(100, (prog.done / Math.max(1, prog.total)) * 100) : 0;
+  $("nowBar").firstElementChild.style.width = p.toFixed(1) + "%";
+  $("nowBar").setAttribute("aria-valuenow", p.toFixed(0));
+
+  const facts = [];
+  if (prog && !done) facts.push(`<span><b>${fmt(prog.done)}</b> of ${fmt(prog.total)} ${prog.unit}</span>`);
+  const eta = dur(run.etaSec);
+  if (eta && !done) facts.push(`<span>this step: about <b>${eta}</b> left</span>`);
+  const idx = plan.findIndex((x) => x.state === "running");
+  if (idx >= 0) facts.push(`<span>step <b>${idx + 1}</b> of ${plan.length}</span>`);
+  const remaining = plan.filter((x) => x.state === "queued" && x.estSec).reduce((a, x) => a + x.estSec, 0);
+  if (remaining && !done) facts.push(`<span>whole run: about <b>${dur(remaining + (run.etaSec || 0))}</b> left</span>`);
+  facts.push(`<span><b>${fmt(run.gamesTotal || 0)}</b> games played in total</span>`);
+  $("nowFacts").innerHTML = facts.join("");
+  $("nowAlert").innerHTML = stale ? `<div class="alert">No update from the training for ${esc(dur(age))}. It may be busy between steps, or the PC may have stopped.</div>` : "";
+}
+
+// ---------- scoreboard ----------
+function headToHead(m) {
+  const seats = seatsOf(m);
+  const me = seats[0];
+  if (!me || !Array.isArray(m.pairs)) return "";
+  const opp = [...new Set(seats.slice(1))].filter((x) => x !== me);
+  const parts = [];
+  for (const o of opp) {
+    let w = 0, l = 0;
+    for (const p of m.pairs) {
+      if (p.winner === me && p.loser === o) w += p.count;
+      if (p.winner === o && p.loser === me) l += p.count;
+    }
+    if (w + l) parts.push(`${pct(w / (w + l))} vs ${LEVEL[o] || o}`);
+  }
+  return parts.length ? `finished ahead in ${parts.join(", ")} of head-to-heads` : "";
+}
+function renderScore(matchups) {
+  if (!matchups.length) return;
+  const groups = [
+    { id: "exam", title: "Final exam" },
+    { id: "round2", title: "Round 2: new judge vs old judge" },
+    { id: "lookahead", title: "Tuning how Expert thinks · each vs 3 Hard bots" },
+  ];
+  let html = "";
+  for (const g of groups) {
+    const list = matchups.filter((m) => groupOf(m) === g.id);
+    if (!list.length) continue;
+    const bestRate = Math.max(...list.map((m) => m.winRate ?? 0));
+    html += `<div class="group"><h3>${esc(g.title)}</h3>`;
+    for (const m of list) {
+      const n = Math.max(2, seatsOf(m).length || 4);
+      const fair = 1 / n;
+      const lo = m.ci95?.[0] ?? m.winRate, hi = m.ci95?.[1] ?? m.winRate;
+      const times = m.winRate != null ? (m.winRate / fair).toFixed(1) : null;
+      const h2h = headToHead(m);
+      const rules = m.rules && m.rules !== "classic" ? ` · ${esc(m.rules)} rules` : "";
+      html += `<div class="match${list.length > 1 && m.winRate === bestRate ? " best" : ""}">
+        <div class="head">
+          <div class="who"><b>${esc(subject(m))}</b><span>${esc(g.id === "lookahead" ? "" : opponents(seatsOf(m)))}${rules}</span></div>
+          <div class="val">${pct(m.winRate)}${times ? `<small>${times}× fair share</small>` : ""}</div>
+        </div>
+        <div class="track" title="likely ${pct(lo)}–${pct(hi)}">
+          <div class="range" style="left:${(lo * 100).toFixed(1)}%;width:${Math.max(0.5, (hi - lo) * 100).toFixed(1)}%"></div>
+          <div class="fill" style="width:${((m.winRate || 0) * 100).toFixed(1)}%"></div>
+          <div class="fair" style="left:${(fair * 100).toFixed(1)}%"></div>
+        </div>
+        <div class="note">likely ${pct(lo)}–${pct(hi)} · ${fmt(m.games)} games${h2h ? " · " + esc(h2h) : ""}</div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+  $("score").innerHTML = html;
+}
+
+// ---------- charts ----------
+function lineChart(series, { yMin, yMax, yFmt, xFmt, xLabel, refY, refLabel, xMark, xMarkLabel } = {}) {
+  const W = 640, H = 250, L = 46, R = 12, T = 14, B = 34;
+  const pts = series.flatMap((s) => s.values);
+  if (!pts.length) return null;
+  let x0 = Math.min(...pts.map((p) => p[0])), x1 = Math.max(...pts.map((p) => p[0]));
+  if (x0 === x1) x1 = x0 + 1;
+  let y0 = yMin ?? Math.min(...pts.map((p) => p[1])), y1 = yMax ?? Math.max(...pts.map((p) => p[1]));
+  if (refY != null) { y0 = Math.min(y0, refY); y1 = Math.max(y1, refY); }
+  if (y0 === y1) { y0 -= 1; y1 += 1; }
+  const sx = (x) => L + ((x - x0) / (x1 - x0)) * (W - L - R);
+  const sy = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
+  let g = "";
+  for (let i = 0; i <= 4; i += 1) {
+    const y = y0 + ((y1 - y0) * i) / 4;
+    g += `<line x1="${L}" x2="${W - R}" y1="${sy(y)}" y2="${sy(y)}" stroke="rgba(251,250,244,.08)"/>`;
+    g += `<text x="${L - 8}" y="${sy(y) + 4}" fill="rgba(251,250,244,.6)" font-size="11" text-anchor="end">${esc(yFmt ? yFmt(y) : y.toFixed(0))}</text>`;
+  }
+  for (let i = 0; i <= 5; i += 1) {
+    const x = x0 + ((x1 - x0) * i) / 5;
+    g += `<text x="${sx(x)}" y="${H - 14}" fill="rgba(251,250,244,.6)" font-size="11" text-anchor="middle">${esc(xFmt ? xFmt(x) : Math.round(x))}</text>`;
+  }
+  if (xLabel) g += `<text x="${(L + W - R) / 2}" y="${H - 1}" fill="rgba(251,250,244,.5)" font-size="11" text-anchor="middle">${esc(xLabel)}</text>`;
+  if (xMark != null && xMark > x0 && xMark < x1) {
+    g += `<line x1="${sx(xMark)}" x2="${sx(xMark)}" y1="${T}" y2="${H - B}" stroke="rgba(79,209,197,.6)" stroke-dasharray="3 4"/>`;
+    if (xMarkLabel) g += `<text x="${sx(xMark) + 6}" y="${T + 10}" fill="rgba(79,209,197,.9)" font-size="11">${esc(xMarkLabel)}</text>`;
+  }
+  if (refY != null) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${sy(refY)}" y2="${sy(refY)}" stroke="rgba(251,250,244,.6)" stroke-dasharray="6 5"/>`;
+    if (refLabel) g += `<text x="${W - R}" y="${sy(refY) - 6}" fill="rgba(251,250,244,.75)" font-size="11" text-anchor="end">${esc(refLabel)}</text>`;
+  }
+  for (const s of series) {
+    if (!s.values.length) continue;
+    const d = s.values.map((p, i) => `${i ? "L" : "M"}${sx(p[0]).toFixed(1)},${sy(p[1]).toFixed(1)}`).join("");
+    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.width || 2.5}" stroke-linejoin="round"/>`;
+    if (s.dots) for (const p of s.values) g += `<circle cx="${sx(p[0]).toFixed(1)}" cy="${sy(p[1]).toFixed(1)}" r="3.5" fill="${s.color}"><title>${esc(s.tip ? s.tip(p) : "")}</title></circle>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Chart">${g}</svg>`;
+}
+
+function renderCurve(s) {
+  const vals = validations(s.events || []);
+  if (!vals.length) return;
+  const stage2 = (s.tune || []).find((r) => r.field && r.field !== "3 x Normal");
+  const svg = lineChart([{ values: vals.map((v) => [v.gen, v.rate * 100]), color: "#F2C14E", dots: true, tip: (p) => `generation ${p[0]}: ${p[1].toFixed(1)}%` }],
+    { yMin: 0, yMax: 80, yFmt: (y) => y.toFixed(0) + "%", xLabel: "generation", refY: 25, refLabel: "fair share 25%",
+      xMark: stage2 ? stage2.gen : null, xMarkLabel: stage2 ? "also practises vs its best self" : "" });
+  const best = vals.reduce((a, b) => (b.rate > a.rate ? b : a));
+  const first = vals[0];
+  $("curveLede").textContent = `Checked every 5 generations over 2,000 games. It went from ${pct(first.rate)} at generation ${first.gen} to a best of ${pct(best.rate)} at generation ${best.gen}.`;
+  $("curve").innerHTML = svg;
+}
+
+function renderJudge(s) {
+  const acc = judgeAccuracy(s);
+  if (acc == null) return;
+  const versions = [...judgeVersions(s).entries()].sort((a, b) => a[0] - b[0]);
+  const rows = [
+    ...versions.map(([n, a]) => ({ label: versions.length > 1 ? `judge v${n}` : "the judge", a, ghost: false })),
+    { label: "blind guess", a: 0.25, ghost: true },
+  ];
+  const data = s.data || {};
+  $("judge").innerHTML = `
+    <div class="big"><span class="n">${pct(acc)}</span><span class="d">of the time it picks the eventual winner, from a game part-way through</span></div>
+    <div class="cmp">${rows.map((r) => `<div class="row"><span>${esc(r.label)}</span><div class="b"><i class="${r.ghost ? "ghost" : ""}" style="width:${(r.a * 100).toFixed(1)}%"></i></div><span>${pct(r.a)}</span></div>`).join("")}</div>
+    <p class="lede" style="margin:12px 0 0">It can't reach 100%: the dice still decide a lot after the moment it's shown.${data.positions ? ` Learned from ${(data.positions / 1e6).toFixed(1)} million game moments.` : ""}</p>`;
+}
+
+// ---------- what it learned ----------
+const COLOURS = { brown: "brown", lightBlue: "light blue", pink: "pink", orange: "orange", red: "red", yellow: "yellow", green: "green", darkBlue: "dark blue" };
+const KNOBS = {
+  acceptMargin: ["Drives a harder bargain: only accepts trades that leave it clearly ahead", "Accepts closer trades"],
+  fairnessShare: ["Demands a bigger slice of the other player's gain in a trade", "Asks for a smaller slice in trades"],
+  fairnessShare2P: ["Haggles harder when only two players are left", "Deals more readily when only two players are left"],
+  minTradeGain: ["Only proposes trades that gain it a lot", "Proposes smaller trades too"],
+  liquidityMin: ["Keeps more cash after a trade", "Lets trades run its cash lower"],
+  liquidityFactor: ["Expects others to keep more cash after trades", "Expects others to keep less cash after trades"],
+  threatShareLeader: ["Refuses to hand the leader a set", "Trades more freely with the leader"],
+  threatShare2P: ["Won't hand a set to its last opponent", "Trades sets more freely with its last opponent"],
+  leaderPremium: ["Charges the leader extra in trades", "Charges the leader less extra"],
+  tradeReserve: ["Keeps more cash when paying in trades", "Pays more cash in trades"],
+  "reserve.acquisition": ["Keeps more cash early in the game", "Spends more freely early in the game"],
+  "reserve.formation": ["Keeps more cash while sets are forming", "Spends more freely while sets are forming"],
+  "reserve.development": ["Keeps more cash while building", "Spends its cash on houses instead of sitting on it"],
+  "reserve.endgame": ["Keeps a bigger safety cushion late in the game", "Runs leaner late in the game"],
+  reserveHostileDev: ["Hoards cash when opponents build", "Doesn't panic and hoard cash when opponents build"],
+  reserveLuxury: ["Keeps extra cash when facing green or dark-blue hotels", "Keeps less extra cash near expensive hotels"],
+  reserveMin: ["Never lets its cash drop as low", "Lets its cash drop lower"],
+  completeOrange: ["Spends down hard to complete orange", "Less desperate to complete orange"],
+  completeStrong: ["Spends down hard to complete red, yellow or dark blue", "Less desperate to complete red, yellow or dark blue"],
+  auctionScale: ["Bids higher at auctions", "Bids lower at auctions"],
+  buyScale: ["Buys more of what it lands on", "Passes on more properties"],
+  baseValue: ["Values plain streets more", "Values plain streets less"],
+  evCashFactor: ["Counts expected rent more heavily", "Counts expected rent less heavily"],
+  railroadEV: ["Bids more for railroads", "Bids less for railroads"],
+  railroadCapScale: ["Pays more to collect railroads", "Pays less to collect railroads"],
+  railroadPortfolio: ["Values owning railroads more", "Values owning railroads less"],
+  utilityBase: ["Values utilities more", "Values utilities less"],
+  utilityEV: ["Bids more for utilities", "Bids less for utilities"],
+  utilityPortfolio: ["Values owning utilities more", "Values owning utilities less"],
+  denialScale: ["Spends more to block other players' sets", "Spends less to block other players' sets"],
+  leaderScale: ["Pays more attention to who's leading", "Pays less attention to who's leading"],
+  houseValue: ["Counts its houses as worth more", "Counts its houses as worth less (they sell back at half price)"],
+  mortgagedValue: ["Values mortgaged property more", "Values mortgaged property less"],
+  acquisitionOpen: ["Treats the game as 'still buying' for longer", "Moves on from the buying phase sooner"],
+  buildTierLow: ["Gets the first houses up on every set quickly", "Slower with the first houses"],
+  buildTierThree: ["Rushes to 3 houses (the biggest rent jump)", "Less rushed to reach 3 houses"],
+  buildTierHigh: ["Keener on 4th houses and hotels", "Less keen on 4th houses and hotels"],
+  shortageBonus: ["Grabs houses when the bank runs short", "Less bothered when the bank runs short of houses"],
+  hotelPenalty: ["Avoids hotels (keeps houses so others can't get them)", "Happier to build hotels"],
+  buildReserve: ["Builds more cautiously", "Builds more aggressively"],
+  unmortgageLow: ["Waits longer before paying off minor mortgages", "Pays off minor mortgages sooner"],
+  unmortgageMid: ["Waits longer before paying off mortgages on near-sets", "Pays off mortgages on near-sets sooner"],
+  unmortgageHigh: ["Waits for a bigger cushion before paying off mortgages on its best sets", "Pays off mortgages on its best sets sooner"],
+  liquidateStrong: ["Protects its best sets when raising cash", "Mortgages even strong sets when it needs cash"],
+  liquidateWeak: ["Protects its weaker sets when raising cash", "Mortgages weaker sets first when it needs cash"],
+  liquidateNear: ["Protects nearly complete sets when raising cash", "Gives up nearly complete sets more easily for cash"],
+  sellThreePenalty: ["Hangs on to its 3rd houses", "Sells 3rd houses more readily"],
+  sellHighPenalty: ["Hangs on to 4th houses and hotels", "Sells 4th houses and hotels more readily"],
+  jailOpenSpaces: ["Starts sitting in jail earlier as the board fills up", "Keeps leaving jail to buy for longer"],
+  jailHitFraction: ["Needs a more dangerous board before staying in jail", "Hides in jail when the board is even a bit dangerous"],
+  jailIncomeRatio: ["Leaves jail more, even when opponents earn more rent", "Stays in jail sooner once opponents earn more rent than it does"],
+};
+function knobText(q) {
+  const up = q.value > q.default;
+  let r;
+  if ((r = /^complete\.(\w+)$/.exec(q.name))) return `Values the full ${COLOURS[r[1]] || r[1]} set ${up ? "more" : "less"}`;
+  if ((r = /^partial\.(\w+)$/.exec(q.name))) return `Values owning part of ${COLOURS[r[1]] || r[1]} ${up ? "more" : "less"}`;
+  const t = KNOBS[q.name];
+  return t ? t[up ? 0 : 1] : `${q.name} ${up ? "raised" : "lowered"}`;
+}
+function renderLearned(s) {
+  const params = s.params?.params || [];
+  if (!params.length) return;
+  const rows = params.map((q) => {
+    const d = Number(q.default), v = Number(q.value);
+    const span = Math.abs((q.max ?? 1) - (q.min ?? 0)) || 1;
+    const rel = d ? (v - d) / Math.abs(d) : (v - d) / span;
+    return { ...q, rel, score: Math.abs(v - d) / span };
+  }).filter((q) => Math.abs(q.value - q.default) > 1e-9).sort((a, b) => b.score - a.score);
+  const top = rows.slice(0, 14);
+  const chip = (q) => q.default ? `${q.rel > 0 ? "+" : ""}${Math.round(q.rel * 100)}%` : "new";
+  const num = (x) => Number(x).toFixed(3).replace(/\.?0+$/, "");
+  $("learned").innerHTML = `<ul class="learned">${top.map((q) => `<li>
+      <span class="arrow ${q.value > q.default ? "up" : "down"}">${q.value > q.default ? "▲" : "▼"}</span>
+      <span>${esc(knobText(q))}</span><span class="chip">${chip(q)}</span></li>`).join("")}</ul>
+    <details><summary>See all ${params.length} settings</summary>
+      <table><thead><tr><th>SETTING</th><th class="num">ORIGINAL</th><th class="num">NOW</th></tr></thead><tbody>
+      ${rows.map((q) => `<tr><td>${esc(knobText(q))}<div style="color:var(--faint);font-size:11px">${esc(q.name)}</div></td><td class="num">${num(q.default)}</td><td class="num"><b>${num(q.value)}</b></td></tr>`).join("")}
+      </tbody></table></details>`;
+}
+
+// ---------- health ----------
+function renderHealth(s) {
+  const sys = s.system || {};
+  const temps = (s.temps || []).filter((t) => t.at && t.cpuTempC != null);
+  const temp = sys.cpuTempC ?? temps[temps.length - 1]?.cpuTempC;
+  const tile = (id, v, d, hot) => { const el = $(id); el.querySelector(".v").textContent = v; if (d != null) el.querySelector(".d").textContent = d; el.classList.toggle("hot", !!hot); };
+  tile("tTemp", temp != null ? Math.round(temp) + "°C" : "–", temp >= 85 ? "too hot!" : temp >= 75 ? "warm" : "healthy · warning at 85°C", temp >= 85);
+  tile("tCpu", sys.cpuPercent != null ? Math.round(sys.cpuPercent) + "%" : "–", `${sys.cores || "–"} cores`);
+  tile("tMem", sys.memUsedGB != null ? sys.memUsedGB.toFixed(0) + " GB" : "–", sys.memTotalGB != null ? `of ${sys.memTotalGB.toFixed(0)} GB` : "");
+  const now = s.serverTime || Date.now();
+  const recent = temps.filter((t) => now - t.at < 4 * 3600e3);
+  if (recent.length > 2) {
+    $("temps").innerHTML = lineChart([{ values: recent.map((t) => [(t.at - now) / 60000, t.cpuTempC]), color: "#4FD1C5", width: 2 }],
+      { yMin: 20, yMax: 100, yFmt: (y) => y.toFixed(0) + "°", xFmt: (x) => (Math.abs(x) < 0.5 ? "now" : `${Math.round(-x)} min`), xLabel: "CPU temperature, last few hours", refY: 85, refLabel: "warning 85°C" });
+  }
+}
+
+// ---------- activity ----------
+function renderEvents(s) {
+  const events = (s.events || []).slice(-60).reverse();
+  if (!events.length) return;
+  $("events").innerHTML = events.map((e) => `<div class="ev ${esc(e.level || "")}"><time>${e.at ? clock(e.at) : ""}</time><span>${esc(plainText(e.text))}</span></div>`).join("");
+}
+
+// ---------- grandmaster ----------
+function renderGM(s) {
+  const g = s.gm, sum = s.grandmaster;
+  if (!g && !sum) return;
+  $("gmCard").hidden = false;
+  if (sum) {
+    const num = (v) => (typeof v === "number" ? v.toFixed(1) : "–");
+    const res = (sum.results || []).map((r) => `<tr><td>${esc(r.label || r.id)}</td><td class="num">${num(r.value)}${esc(r.unit || "")}</td><td class="num">${num(r.low)}–${num(r.high)}</td><td class="num">${(r.games || 0).toLocaleString()}</td></tr>`).join("");
+    $("gmSummary").innerHTML = `
+      <p class="lede" style="margin:8px 0">${esc(sum.phase || "")}${sum.activity ? ` · now: ${esc(sum.activity)}` : ""}${sum.updatedAt ? ` · ${clock(sum.updatedAt)}` : ""}</p>
+      ${res ? `<table><thead><tr><th>RESULT</th><th class="num">VALUE</th><th class="num">95% INTERVAL</th><th class="num">GAMES / DEALS</th></tr></thead><tbody>${res}</tbody></table>` : ""}
+      ${(sum.notes || []).map((n) => `<p class="lede" style="margin:6px 0;font-size:13px">${esc(n)}</p>`).join("")}`;
+  }
+  if (!g) return;
+  $("gmLoopLede").hidden = false;
+  const stageWord = { data: "playing league games", train: "training the network", gate: "gate games", done: "finished" }[g.stage] || g.stage;
+  const prog = Math.round((g.progress || 0) * 100);
+  const rows = (g.history || []).map((h) => `<tr><td>gen ${h.gen}</td><td class="num">${(h.games || 0).toLocaleString()}</td><td class="num">${h.valLoss ? h.valLoss.toFixed(3) : "–"}</td><td class="num">${h.gateGames || 0}</td><td class="num">${h.newWins || 0} : ${h.oldWins || 0}</td><td class="num">${(h.newWins || 0) + (h.oldWins || 0) > 0 ? pct(h.share || 0) : "–"}</td><td>${h.accepted ? "accepted" : "rejected"}</td></tr>`).join("");
+  $("gm").innerHTML = `
+    <div class="big"><span class="n">gen ${g.gen > g.gens ? g.gens : g.gen}/${g.gens}</span><span class="d">${esc(stageWord)}${g.stage !== "done" ? ` · ${prog}%` : ""}${g.etaSec ? ` · about ${Math.round(g.etaSec / 60)} min left in this step` : ""}</span></div>
+    <p class="lede" style="margin:8px 0">${esc(g.label || "")}</p>
+    <p class="lede" style="margin:8px 0">Best network so far: ${esc(g.best || "")}</p>
+    ${rows ? `<table><thead><tr><th>GENERATION</th><th class="num">GAMES</th><th class="num">VAL LOSS</th><th class="num">GATE GAMES</th><th class="num">WINS NEW : OLD</th><th class="num">NEW SHARE</th><th>VERDICT</th></tr></thead><tbody>${rows}</tbody></table>` : ""}`;
+}
+
+function render(s) {
+  const matchups = allMatchups(s);
+  renderGM(s);
+  const plan = buildPlan(s, matchups);
+  renderNow(s, plan);
+  renderPlan(plan);
+  renderScore(matchups);
+  renderCurve(s);
+  renderJudge(s);
+  renderLearned(s);
+  renderHealth(s);
+  renderEvents(s);
+}
+
+async function tick() {
+  try {
+    const r = await fetch("/api/status", { cache: "no-store" });
+    render(await r.json());
+  } catch (e) {
+    $("pill").textContent = "OFFLINE";
+    $("pill").className = "pill stale";
+    $("ago").textContent = "can't reach the PC";
+  }
+}
+tick();
+setInterval(tick, 3000);
+</script>
+</body>
+</html>

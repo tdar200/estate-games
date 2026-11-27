@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Deed card: mortgaged and pledged",
+    "section": "Deed cards",
+    "description": "Click a mortgaged deed, or one pledged to a loan."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "settings": {
+      "diceMode": "random",
+      "rules": {
+        "loans": true,
+        "freeParkingJackpot": false,
+        "auctions": true,
+        "startingCash": 1500
+      }
+    },
+    "properties": {
+      "5": {
+        "mortgaged": true
+      }
+    },
+    "loans": [
+      {
+        "id": "loan_demo_4",
+        "lenderId": "@Sam",
+        "borrowerId": "@Maya",
+        "principal": 200,
+        "repay": 240,
+        "dueTurn": 140,
+        "collateral": [
+          21
+        ],
+        "status": "active"
+      }
+    ]
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 21
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Order settled: countdown",
+    "section": "Order roll",
+    "description": "Everyone has rolled; the order shows before the first turn."
+  },
+  "extends": "order-countdown"
+}

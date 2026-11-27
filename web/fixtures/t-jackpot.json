@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "City Park jackpot",
+    "section": "Turn: landing",
+    "description": "House rule on: land on City Park with money in the pot."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "settings": {
+      "diceMode": "random",
+      "rules": {
+        "loans": false,
+        "freeParkingJackpot": true,
+        "auctions": true,
+        "startingCash": 1500
+      }
+    },
+    "players": {
+      "Maya": {
+        "position": 15
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Maya": {
+            "position": 20,
+            "cash": 1033
+          }
+        },
+        "phase": "turn_complete",
+        "turn": {
+          "dice": [
+            2,
+            3
+          ],
+          "movements": [
+            {
+              "playerId": "@Maya",
+              "from": 15,
+              "to": 20,
+              "path": [
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
+          ]
+        },
+        "lastMove": {
+          "playerId": "@Maya",
+          "from": 15,
+          "to": 20,
+          "path": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        "log+": [
+          {
+            "text": "Maya rolled 2 + 3 = 5",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya landed on City Park",
+            "at": 1793560000000
+          },
+          {
+            "text": "Maya collected the $350 City Park jackpot",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

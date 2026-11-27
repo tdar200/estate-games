@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Square card: jail",
+    "section": "Deed cards",
+    "description": "Click a corner (PAYDAY, Jail, City Park, Busted)."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 10
+    }
+  }
+}

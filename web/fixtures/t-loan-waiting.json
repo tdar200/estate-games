@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Loan request sent: waiting on a phone",
+    "section": "Loans",
+    "description": "SEND in the loan drawer: the lender decides on their phone."
+  },
+  "extends": "loan-request",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "House rules: changed",
+    "section": "Seat setup and rules",
+    "description": "Turn loans and the City Park jackpot on, auctions off, start cash up."
+  },
+  "extends": "table-lobby",
+  "patch": {
+    "settings": {
+      "diceMode": "random",
+      "rules": {
+        "loans": true,
+        "freeParkingJackpot": true,
+        "auctions": false,
+        "startingCash": 2500
+      }
+    }
+  },
+  "ui": {
+    "open": "rules"
+  }
+}

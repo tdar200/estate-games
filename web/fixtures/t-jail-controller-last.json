@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "In jail: last try (3/3), controller",
+    "section": "Turn: jail",
+    "description": "Third turn in jail, no card."
+  },
+  "extends": "jail",
+  "seats": {
+    "Robin": "controller"
+  },
+  "patch": {
+    "players": {
+      "Robin": {
+        "jailTurns": 2,
+        "jailCards": 0
+      }
+    }
+  }
+}

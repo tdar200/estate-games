@@ -1,0 +1,162 @@
+[
+  {
+    "name": "lobby",
+    "description": "Lobby with four seats; Robin is the host",
+    "viewer": "Robin"
+  },
+  {
+    "name": "table-lobby",
+    "description": "PC table join screen with four seats",
+    "viewer": "table"
+  },
+  {
+    "name": "table-empty",
+    "description": "PC table join screen, only the host has joined",
+    "viewer": "table"
+  },
+  {
+    "name": "order",
+    "description": "Rolling for turn order; Alpha and Sam have rolled, Robin has not",
+    "viewer": "Robin"
+  },
+  {
+    "name": "order-countdown",
+    "description": "Turn order settled; three-second countdown before the first turn",
+    "viewer": "Robin"
+  },
+  {
+    "name": "roll",
+    "description": "Robin's turn, mid-game, waiting to roll",
+    "viewer": "Robin"
+  },
+  {
+    "name": "doubles",
+    "description": "Robin rolled doubles and rolls again",
+    "viewer": "Robin"
+  },
+  {
+    "name": "buy",
+    "description": "Robin landed on an unowned street and must buy or auction",
+    "viewer": "Robin"
+  },
+  {
+    "name": "auction",
+    "description": "Live auction; someone has bid and it is Robin's turn to bid",
+    "viewer": "Robin"
+  },
+  {
+    "name": "rent",
+    "description": "Robin paid rent this turn and can end the turn",
+    "viewer": "Robin"
+  },
+  {
+    "name": "turn-done",
+    "description": "Robin bought a property this turn and can end the turn",
+    "viewer": "Robin"
+  },
+  {
+    "name": "card",
+    "description": "Robin drew a Headlines card that moves the token and must confirm it",
+    "viewer": "Robin"
+  },
+  {
+    "name": "jail",
+    "description": "Robin is in jail at the start of a turn",
+    "viewer": "Robin"
+  },
+  {
+    "name": "debt",
+    "description": "Robin owes more than their cash and must raise money or go bankrupt",
+    "viewer": "Robin"
+  },
+  {
+    "name": "trade",
+    "description": "Another player offered Robin a trade",
+    "viewer": "Robin"
+  },
+  {
+    "name": "trade-sent",
+    "description": "Robin offered a trade and is waiting for the answer",
+    "viewer": "Robin"
+  },
+  {
+    "name": "waiting",
+    "description": "Alpha's turn; Robin watches from the phone",
+    "viewer": "Robin"
+  },
+  {
+    "name": "pad-turn",
+    "description": "PC table: Maya (controller seat) is about to roll",
+    "viewer": "table"
+  },
+  {
+    "name": "phone-turn",
+    "description": "PC table: Robin (phone) is deciding whether to buy",
+    "viewer": "table"
+  },
+  {
+    "name": "table-auction",
+    "description": "PC table: live auction with bids",
+    "viewer": "table"
+  },
+  {
+    "name": "pad-debt",
+    "description": "PC table: a controller seat (Maya) is in debt",
+    "viewer": "table"
+  },
+  {
+    "name": "bankrupt",
+    "description": "Someone has just gone bankrupt",
+    "viewer": "Robin"
+  },
+  {
+    "name": "victory",
+    "description": "Game over (prefers a game Robin won)",
+    "viewer": "Robin"
+  },
+  {
+    "name": "defeat",
+    "description": "Game over and Robin did not win",
+    "viewer": "Robin"
+  },
+  {
+    "name": "replay",
+    "description": "36 consecutive table states for animation QA (board/groups stored once)",
+    "viewer": "table"
+  },
+  {
+    "name": "lobby-rules",
+    "description": "Lobby with house rules set (loans on)",
+    "viewer": "Robin"
+  },
+  {
+    "name": "loan-offer",
+    "description": "Alpha offers Robin a loan (phase loan_offer)",
+    "viewer": "Robin"
+  },
+  {
+    "name": "debt-loans",
+    "description": "Debt with the loans house rule on",
+    "viewer": "Robin"
+  },
+  {
+    "name": "loan-request",
+    "description": "In debt, Robin asked Sam for a loan and waits for the answer",
+    "viewer": "Robin"
+  },
+  {
+    "name": "active-loan",
+    "description": "Robin's turn with two active loans (one owed, one owing) and a City Park pot",
+    "viewer": "Robin"
+  },
+  {
+    "name": "friends",
+    "description": "Sample GET /api/friends response",
+    "viewer": ""
+  },
+  {
+    "name": "server",
+    "description": "Sample GET /api/server response",
+    "viewer": ""
+  }
+]

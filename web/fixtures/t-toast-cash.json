@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Error: not enough cash",
+    "section": "Toasts",
+    "description": "Try an action you can't afford."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Robin": {
+        "cash": 120
+      }
+    }
+  },
+  "ui": {
+    "toast": {
+      "text": "Not enough cash",
+      "error": true
+    }
+  }
+}

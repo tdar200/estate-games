@@ -1,0 +1,389 @@
+{
+  "meta": {
+    "description": "Maya's phone at the reveal: second closest, her stake won, +8"
+  },
+  "state": {
+    "game": "closest",
+    "title": "Near Thing",
+    "code": "BLKFG",
+    "status": "playing",
+    "hostId": "p1",
+    "version": 38,
+    "phase": "reveal",
+    "now": 1795374068892,
+    "phaseEndsAt": 1795374076892,
+    "settings": {
+      "length": "quick",
+      "guessSeconds": 30,
+      "betSeconds": 25,
+      "fill": true
+    },
+    "seatLimit": 8,
+    "questionNo": 2,
+    "questionCount": 7,
+    "question": {
+      "seq": 2,
+      "no": 2,
+      "double": false,
+      "text": "How many pipes does the organ in the made-up Saint Orrin's Hall have?",
+      "unit": "pipes",
+      "format": "plain",
+      "min": 100,
+      "max": 60000,
+      "topic": "music",
+      "slots": [
+        {
+          "index": 0,
+          "value": 1800,
+          "ownerIds": [
+            "p6"
+          ],
+          "odds": 4,
+          "chips": [
+            {
+              "playerId": "p6",
+              "count": 2,
+              "stake": 1
+            },
+            {
+              "playerId": "p5",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 1300,
+          "result": ""
+        },
+        {
+          "index": 1,
+          "value": 2500,
+          "ownerIds": [
+            "p2"
+          ],
+          "odds": 3,
+          "chips": [
+            {
+              "playerId": "p2",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 600,
+          "result": ""
+        },
+        {
+          "index": 2,
+          "value": 3000,
+          "ownerIds": [
+            "p5"
+          ],
+          "odds": 2,
+          "chips": [
+            {
+              "playerId": "p2",
+              "count": 1,
+              "stake": 2
+            },
+            {
+              "playerId": "p3",
+              "count": 1,
+              "stake": 0
+            },
+            {
+              "playerId": "p1",
+              "count": 1,
+              "stake": 2
+            }
+          ],
+          "off": 100,
+          "result": "win"
+        },
+        {
+          "index": 3,
+          "value": 3600,
+          "ownerIds": [
+            "p1"
+          ],
+          "odds": 2,
+          "chips": [
+            {
+              "playerId": "p1",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 500,
+          "result": "second"
+        },
+        {
+          "index": 4,
+          "value": 4800,
+          "ownerIds": [
+            "p3"
+          ],
+          "odds": 3,
+          "chips": [
+            {
+              "playerId": "p3",
+              "count": 1,
+              "stake": 0
+            },
+            {
+              "playerId": "p5",
+              "count": 1,
+              "stake": 0
+            }
+          ],
+          "off": 1700,
+          "result": ""
+        },
+        {
+          "index": 5,
+          "value": 12000,
+          "ownerIds": [
+            "p4"
+          ],
+          "odds": 4,
+          "chips": [
+            {
+              "playerId": "p4",
+              "count": 2,
+              "stake": 0
+            }
+          ],
+          "off": 8900,
+          "result": ""
+        }
+      ],
+      "answer": 3100,
+      "fact": "The made-up organ at Saint Orrin's Hall has 3,100 pipes.",
+      "src": [
+        "https://example.org/made-up/saint-orrin",
+        "https://example.com/made-up/saint-orrin"
+      ],
+      "results": [
+        {
+          "playerId": "p1",
+          "guess": 3600,
+          "slot": 3,
+          "bonus": 1,
+          "chipPoints": 3,
+          "stakePoints": 4,
+          "delta": 8,
+          "before": 7,
+          "after": 15
+        },
+        {
+          "playerId": "p2",
+          "guess": 2500,
+          "slot": 1,
+          "bonus": 0,
+          "chipPoints": 2,
+          "stakePoints": 4,
+          "delta": 6,
+          "before": 5,
+          "after": 11
+        },
+        {
+          "playerId": "p3",
+          "guess": 4800,
+          "slot": 4,
+          "bonus": 0,
+          "chipPoints": 2,
+          "stakePoints": 0,
+          "delta": 2,
+          "before": 4,
+          "after": 6
+        },
+        {
+          "playerId": "p4",
+          "guess": 12000,
+          "slot": 5,
+          "bonus": 0,
+          "chipPoints": 0,
+          "stakePoints": 0,
+          "delta": 0,
+          "before": 4,
+          "after": 4
+        },
+        {
+          "playerId": "p5",
+          "guess": 3000,
+          "slot": 2,
+          "bonus": 3,
+          "chipPoints": 0,
+          "stakePoints": 0,
+          "delta": 3,
+          "before": 0,
+          "after": 3
+        },
+        {
+          "playerId": "p6",
+          "guess": 1800,
+          "slot": 0,
+          "bonus": 0,
+          "chipPoints": 0,
+          "stakePoints": -1,
+          "delta": -1,
+          "before": 5,
+          "after": 4
+        }
+      ],
+      "nobody": false
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "status": "playing",
+        "score": 15,
+        "closest": 1,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "status": "playing",
+        "score": 11,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "kind": "human",
+        "status": "playing",
+        "score": 6,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "kind": "human",
+        "status": "playing",
+        "score": 4,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "kind": "ai",
+        "status": "playing",
+        "score": 3,
+        "closest": 1,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "hard",
+        "autopilot": false
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "kind": "ai",
+        "status": "playing",
+        "score": 4,
+        "closest": 1,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "normal",
+        "autopilot": false
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "canGuess": false,
+      "guess": 3600,
+      "changesLeft": 1,
+      "canBet": false,
+      "chips": [
+        2,
+        3
+      ],
+      "stake": 2,
+      "stakeSlot": 2,
+      "stakeMax": 3
+    },
+    "standings": null,
+    "winnerIds": [],
+    "credits": [
+      "Made-up test questions 2, CC BY-SA 4.0"
+    ],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 7 questions, and the last one pays double"
+      },
+      {
+        "id": "l2",
+        "text": "Question 1 of 7"
+      },
+      {
+        "id": "l3",
+        "text": "The answer is 148 bridges: Maya and Orca are closest"
+      },
+      {
+        "id": "l4",
+        "text": "Question 2 of 7"
+      },
+      {
+        "id": "l5",
+        "text": "The answer is 3,100 pipes: Alpha is closest"
+      }
+    ],
+    "lastEventSeq": 39,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "closest",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "description": "Maya's phone during the line-up: her guess, 3,600, is the fourth slot"
+  },
+  "state": {
+    "game": "closest",
+    "title": "Near Thing",
+    "code": "BLKFG",
+    "status": "playing",
+    "hostId": "p1",
+    "version": 30,
+    "phase": "lineup",
+    "now": 1795374047292,
+    "phaseEndsAt": 1795374052392,
+    "settings": {
+      "length": "quick",
+      "guessSeconds": 30,
+      "betSeconds": 25,
+      "fill": true
+    },
+    "seatLimit": 8,
+    "questionNo": 2,
+    "questionCount": 7,
+    "question": {
+      "seq": 2,
+      "no": 2,
+      "double": false,
+      "text": "How many pipes does the organ in the made-up Saint Orrin's Hall have?",
+      "unit": "pipes",
+      "format": "plain",
+      "min": 100,
+      "max": 60000,
+      "topic": "music",
+      "slots": [
+        {
+          "index": 0,
+          "value": 1800,
+          "ownerIds": [
+            "p6"
+          ],
+          "odds": 4
+        },
+        {
+          "index": 1,
+          "value": 2500,
+          "ownerIds": [
+            "p2"
+          ],
+          "odds": 3
+        },
+        {
+          "index": 2,
+          "value": 3000,
+          "ownerIds": [
+            "p5"
+          ],
+          "odds": 2
+        },
+        {
+          "index": 3,
+          "value": 3600,
+          "ownerIds": [
+            "p1"
+          ],
+          "odds": 2
+        },
+        {
+          "index": 4,
+          "value": 4800,
+          "ownerIds": [
+            "p3"
+          ],
+          "odds": 3
+        },
+        {
+          "index": 5,
+          "value": 12000,
+          "ownerIds": [
+            "p4"
+          ],
+          "odds": 4
+        }
+      ]
+    },
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "status": "playing",
+        "score": 7,
+        "closest": 1,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "lighthouse",
+        "color": "#0E8C8C",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p2",
+        "name": "Kim",
+        "kind": "human",
+        "status": "playing",
+        "score": 5,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "color": "#1EA0FF",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p3",
+        "name": "Sam",
+        "kind": "human",
+        "status": "playing",
+        "score": 4,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "color": "#7A1838",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p4",
+        "name": "Jun",
+        "kind": "human",
+        "status": "playing",
+        "score": 4,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "color": "#6F7A1A",
+        "online": true,
+        "autopilot": false
+      },
+      {
+        "id": "p5",
+        "name": "Alpha",
+        "kind": "ai",
+        "status": "playing",
+        "score": 0,
+        "closest": 0,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "key",
+        "color": "#8A5CF5",
+        "online": true,
+        "difficulty": "hard",
+        "autopilot": false
+      },
+      {
+        "id": "p6",
+        "name": "Orca",
+        "kind": "ai",
+        "status": "playing",
+        "score": 5,
+        "closest": 1,
+        "guessed": false,
+        "betIn": false,
+        "input": "ai",
+        "tokenKind": "umbrella",
+        "color": "#1E2228",
+        "online": true,
+        "difficulty": "normal",
+        "autopilot": false
+      }
+    ],
+    "you": {
+      "id": "p1",
+      "canGuess": false,
+      "guess": 3600,
+      "changesLeft": 1,
+      "canBet": false,
+      "chips": null,
+      "stake": 0,
+      "stakeSlot": null,
+      "stakeMax": 3
+    },
+    "standings": null,
+    "winnerIds": [],
+    "credits": [
+      "Made-up test questions 2, CC BY-SA 4.0"
+    ],
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 7 questions, and the last one pays double"
+      },
+      {
+        "id": "l2",
+        "text": "Question 1 of 7"
+      },
+      {
+        "id": "l3",
+        "text": "The answer is 148 bridges: Maya and Orca are closest"
+      },
+      {
+        "id": "l4",
+        "text": "Question 2 of 7"
+      }
+    ],
+    "lastEventSeq": 31,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "closest",
+    "aiLevels": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false,
+      "botOffers": "normal"
+    }
+  },
+  "viewer": "Maya"
+}

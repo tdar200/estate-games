@@ -1,0 +1,426 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "playing",
+    "phase": "runout",
+    "hostId": "p1",
+    "version": 10,
+    "now": 1762160408700,
+    "settings": {
+      "style": "tournament",
+      "maxPlayers": 8,
+      "startingStack": 1500,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "off",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 0,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 0,
+      "next": null
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 1,
+    "street": "flop",
+    "board": [
+      "2c",
+      "As",
+      "9s"
+    ],
+    "pots": [
+      {
+        "amount": 1800,
+        "eligibleIds": [
+          "p2",
+          "p3",
+          "p1"
+        ]
+      },
+      {
+        "amount": 1800,
+        "eligibleIds": [
+          "p3",
+          "p1"
+        ]
+      }
+    ],
+    "totalPot": 3600,
+    "currentBet": 0,
+    "buttonSeat": 0,
+    "smallBlindSeat": 1,
+    "bigBlindSeat": 2,
+    "actorId": "",
+    "actionDeadline": 0,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 0,
+        "bet": 0,
+        "status": "allIn",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "2d",
+          "3h"
+        ],
+        "shown": true,
+        "handName": "Pair of Twos",
+        "isButton": true,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p1",
+          "street": "preflop",
+          "type": "raise",
+          "amount": 1500,
+          "to": 1500,
+          "allIn": true
+        },
+        "odds": {
+          "win": 0.134,
+          "tie": 0.4286
+        },
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 0,
+        "bet": 0,
+        "status": "allIn",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "6h",
+          "2s"
+        ],
+        "shown": true,
+        "handName": "Pair of Twos",
+        "isButton": false,
+        "isSmallBlind": true,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p2",
+          "street": "preflop",
+          "type": "call",
+          "amount": 590,
+          "to": 600,
+          "allIn": true
+        },
+        "odds": {
+          "win": 0.1761,
+          "tie": 0.4286
+        },
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 900,
+        "bet": 0,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "Jh",
+          "Td"
+        ],
+        "shown": true,
+        "handName": "Ace high",
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": true,
+        "lastAction": {
+          "playerId": "p3",
+          "street": "preflop",
+          "type": "call",
+          "amount": 1480,
+          "to": 1500
+        },
+        "odds": {
+          "win": 0.2614,
+          "tie": 0
+        },
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      }
+    ],
+    "actions": [
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "smallBlind",
+        "amount": 10,
+        "to": 10
+      },
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "bigBlind",
+        "amount": 20,
+        "to": 20
+      },
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "raise",
+        "amount": 1500,
+        "to": 1500,
+        "allIn": true
+      },
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "call",
+        "amount": 590,
+        "to": 600,
+        "allIn": true
+      },
+      {
+        "playerId": "p3",
+        "street": "preflop",
+        "type": "call",
+        "amount": 1480,
+        "to": 1500
+      }
+    ],
+    "result": null,
+    "you": {
+      "id": "p2",
+      "seat": 1,
+      "cards": [
+        "6h",
+        "2s"
+      ],
+      "handName": "Pair of Twos",
+      "strength": null,
+      "toAct": false,
+      "legal": null,
+      "canShow": false,
+      "canRebuy": false,
+      "sittingOut": false,
+      "sitOutNext": false,
+      "isHost": false
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 1,500 chips each, blinds 10/20"
+      },
+      {
+        "id": "l2",
+        "text": "Hand #1: Maya has the button"
+      },
+      {
+        "id": "l3",
+        "text": "Sam posts the small blind 10"
+      },
+      {
+        "id": "l4",
+        "text": "Redwood posts the big blind 20"
+      },
+      {
+        "id": "l5",
+        "text": "Maya raises to 1,500 and is all-in"
+      },
+      {
+        "id": "l6",
+        "text": "Sam calls 590 and is all-in"
+      },
+      {
+        "id": "l7",
+        "text": "Redwood calls 1,480"
+      },
+      {
+        "id": "l8",
+        "text": "Sam shows 6h 2s"
+      },
+      {
+        "id": "l9",
+        "text": "Redwood shows Jh Td"
+      },
+      {
+        "id": "l10",
+        "text": "Maya shows 2d 3h"
+      },
+      {
+        "id": "l11",
+        "text": "Flop: 2c As 9s"
+      }
+    ],
+    "lastEventSeq": 13,
+    "viewerId": "p2",
+    "viewerRole": "player",
+    "viewerName": "Sam",
+    "spectatorId": "",
+    "viewerIsHost": false,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    }
+  },
+  "viewer": {
+    "role": "player",
+    "playerId": "p2",
+    "name": "Sam"
+  },
+  "events": [
+    {
+      "seq": 4,
+      "type": "handStart",
+      "handNumber": 1,
+      "playerId": "p1"
+    },
+    {
+      "seq": 5,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "smallBlind",
+      "amount": 10,
+      "to": 10,
+      "street": "preflop"
+    },
+    {
+      "seq": 6,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "bigBlind",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    },
+    {
+      "seq": 7,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "raise",
+      "amount": 1500,
+      "to": 1500,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 8,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "call",
+      "amount": 590,
+      "to": 600,
+      "allIn": true,
+      "street": "preflop"
+    },
+    {
+      "seq": 9,
+      "type": "action",
+      "handNumber": 1,
+      "playerId": "p3",
+      "action": "call",
+      "amount": 1480,
+      "to": 1500,
+      "street": "preflop"
+    },
+    {
+      "seq": 10,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p2",
+      "cards": [
+        "6h",
+        "2s"
+      ]
+    },
+    {
+      "seq": 11,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p3",
+      "cards": [
+        "Jh",
+        "Td"
+      ]
+    },
+    {
+      "seq": 12,
+      "type": "reveal",
+      "handNumber": 1,
+      "playerId": "p1",
+      "cards": [
+        "2d",
+        "3h"
+      ]
+    },
+    {
+      "seq": 13,
+      "type": "deal",
+      "handNumber": 1,
+      "street": "flop",
+      "cards": [
+        "2c",
+        "As",
+        "9s"
+      ]
+    }
+  ],
+  "meta": {
+    "description": "All-in run-out on Sam's phone (the short stack)",
+    "seed": 1,
+    "hand": 1
+  }
+}

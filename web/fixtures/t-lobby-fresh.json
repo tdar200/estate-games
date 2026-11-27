@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "title": "Fresh table, nobody seated",
+    "section": "Lobby",
+    "description": "A new table before anyone joins."
+  },
+  "extends": "table-empty",
+  "patch": {
+    "players": [],
+    "hostId": null
+  }
+}

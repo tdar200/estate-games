@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Table closed",
+    "section": "Gates and connection",
+    "description": "The server forgot this table (restart): a new one is set up."
+  },
+  "extends": "pad-turn",
+  "ui": {
+    "toast": {
+      "text": "That table has closed. Setting up a new one…",
+      "error": true
+    }
+  }
+}

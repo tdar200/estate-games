@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Deed card: a street with houses",
+    "section": "Deed cards",
+    "description": "Click any square on the board (or I on a focused deed)."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "31": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 2
+      },
+      "32": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 2
+      },
+      "34": {
+        "ownerId": "@Robin",
+        "mortgaged": false,
+        "houses": 2
+      }
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 32
+    }
+  }
+}

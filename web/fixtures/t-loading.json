@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Setting up the table",
+    "section": "Start-up",
+    "description": "The first second after opening the table page."
+  },
+  "ui": {
+    "loading": "Setting up the table…"
+  }
+}

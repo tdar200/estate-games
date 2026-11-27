@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "PLAYERS: the host's controls",
+    "section": "Host: players",
+    "description": "MENU → PLAYERS (the table screen is the host): COMPUTER PLAYS / SKIP TURN / REMOVE per player."
+  },
+  "extends": "t-host-idle",
+  "ui": {
+    "open": {
+      "kind": "menu",
+      "page": "players",
+      "player": "Sam"
+    }
+  }
+}

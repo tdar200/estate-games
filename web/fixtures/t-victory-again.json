@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "PLAY AGAIN? confirm",
+    "section": "End of game",
+    "description": "PLAY AGAIN on the victory screen asks first; focus starts on NOT YET."
+  },
+  "extends": "t-victory-controller",
+  "ui": {
+    "open": {
+      "kind": "rematch"
+    }
+  }
+}

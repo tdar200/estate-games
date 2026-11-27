@@ -1,0 +1,48 @@
+name: Idea
+description: Suggest a new feature or a change to a game.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. A short, concrete description is easiest to discuss.
+  - type: dropdown
+    id: game
+    attributes:
+      label: Which game?
+      options:
+        - Estate
+        - Poker
+        - Ludo
+        - Quiz
+        - Near Thing
+        - All of them, or none (lobby, joining, server, install)
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would it make better?
+      description: The problem or moment at the table this is about.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How it would work for the players, on the TV and on the phones.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Other ways to solve it
+      description: Anything else you considered, if any.
+  - type: dropdown
+    id: help
+    attributes:
+      label: Would you like to build it?
+      options:
+        - "Yes, I'd like to open a pull request"
+        - Maybe, with some guidance
+        - "No, just suggesting"

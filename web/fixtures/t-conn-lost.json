@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Connection lost (in a game)",
+    "section": "Gates and connection",
+    "description": "The server drops: OFFLINE and a toast."
+  },
+  "extends": "pad-turn",
+  "ctx": {
+    "status": "offline"
+  },
+  "ui": {
+    "toast": {
+      "text": "Connection lost. Retrying…",
+      "error": true
+    }
+  }
+}

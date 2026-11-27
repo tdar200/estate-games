@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Moved: taking it back failed",
+    "section": "Gates and connection",
+    "description": "TAKE IT BACK when the table is gone."
+  },
+  "ui": {
+    "gate": {
+      "kind": "moved",
+      "code": "NXGNT",
+      "error": "That table has closed"
+    }
+  }
+}

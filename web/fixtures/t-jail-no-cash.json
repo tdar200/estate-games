@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "In jail: can't pay bail",
+    "section": "Turn: jail",
+    "description": "Less than $50 and no card: only ROLL works."
+  },
+  "extends": "jail",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Robin": {
+        "cash": 30,
+        "jailCards": 0
+      }
+    }
+  }
+}

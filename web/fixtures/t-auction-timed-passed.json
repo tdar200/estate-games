@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Timed auction: the seat here passed",
+    "section": "Turn: auction",
+    "description": "The controller seat passed: PASSED in the roster; the others bid on."
+  },
+  "extends": "t-auction-timed",
+  "patch": {
+    "auction": {
+      "activeIds": [
+        "@Sam",
+        "@Alpha",
+        "@Robin"
+      ],
+      "passedIds": [
+        "@Maya"
+      ]
+    },
+    "log+": [
+      {
+        "text": "Maya passed",
+        "at": 1793559999500
+      }
+    ]
+  }
+}

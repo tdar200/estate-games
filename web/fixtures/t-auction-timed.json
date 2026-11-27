@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "Timed auction: controller seat bidding",
+    "section": "Turn: auction",
+    "description": "A street goes to auction in a new game (8-second clock): A / X / Y bid +$10 / +$50 / +$100, B passes."
+  },
+  "extends": "table-auction",
+  "patch": {
+    "now": 1793560000000,
+    "rules": {
+      "loans": false,
+      "freeParkingJackpot": false,
+      "auctions": true,
+      "startingCash": 1500,
+      "auctionClock": 8
+    },
+    "players": {
+      "Robin": {
+        "position": 24,
+        "cash": 1020
+      },
+      "Sam": {
+        "cash": 1145
+      },
+      "Alpha": {
+        "cash": 442
+      },
+      "Maya": {
+        "cash": 683
+      }
+    },
+    "auction": {
+      "spaceIndex": 24,
+      "activeIds": [
+        "@Sam",
+        "@Alpha",
+        "@Maya",
+        "@Robin"
+      ],
+      "turnPos": 0,
+      "currentBid": 180,
+      "bidderId": "@Sam",
+      "returnPhase": "turn_complete",
+      "currentPlayerId": null,
+      "clockMs": 8000,
+      "endsAt": 1793560005400,
+      "bids": {
+        "player_000000000005": 180,
+        "ai_000000000003": 160
+      }
+    },
+    "log+": [
+      {
+        "text": "Galaxy Avenue entered an open auction",
+        "at": 1793559994000
+      },
+      {
+        "text": "Alpha bid $160",
+        "at": 1793559996000
+      },
+      {
+        "text": "Sam bid $180",
+        "at": 1793559997400
+      }
+    ]
+  }
+}

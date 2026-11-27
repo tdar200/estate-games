@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Bankruptcy confirm: controller seat",
+    "section": "Debt and bankruptcy",
+    "description": "Press X in debt."
+  },
+  "extends": "pad-debt",
+  "ui": {
+    "open": {
+      "kind": "bankrupt"
+    }
+  }
+}

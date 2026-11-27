@@ -1,0 +1,82 @@
+#cloud-config
+# Estate on its own small AWS server.
+#
+# provision.sh fills in __ESTATE_DOMAIN__ (your ESTATE_DOMAIN) and passes the
+# result as the server's user data, which runs once at first boot. It installs Caddy (HTTPS from Let's Encrypt and the proxy in
+# front of Estate), adds the estate system user and its systemd unit, and
+# adds 1 GB of swap. The Estate binary itself is copied later by update.sh;
+# the unit waits for it (ConditionPathExists).
+#
+# The game is hidden from search engines: every response says noindex and
+# robots.txt disallows everything. Anyone with the link can still play. Drop
+# the X-Robots-Tag line and the robots.txt parts if you want it listed.
+package_update: true
+package_upgrade: true
+packages:
+  - caddy
+swap:
+  filename: /swapfile
+  size: 1G
+write_files:
+  - path: /etc/systemd/system/estate.service
+    permissions: "0644"
+    content: |
+      [Unit]
+      Description=Estate games server (__ESTATE_DOMAIN__)
+      Documentation=https://github.com/tdar200/estate-games
+      After=network-online.target
+      Wants=network-online.target
+      ConditionPathExists=/opt/estate/estate
+
+      [Service]
+      Type=simple
+      User=estate
+      Group=estate
+      Environment=ESTATE_ADDR=127.0.0.1:3210
+      Environment=ESTATE_DATA=/var/lib/estate
+      Environment=ESTATE_PUBLIC_URL=https://__ESTATE_DOMAIN__
+      ExecStart=/opt/estate/estate serve --no-open
+      Restart=on-failure
+      RestartSec=2
+      MemoryMax=320M
+      NoNewPrivileges=yes
+      ProtectSystem=strict
+      ProtectHome=yes
+      PrivateTmp=yes
+      PrivateDevices=yes
+      ReadWritePaths=/var/lib/estate
+      CapabilityBoundingSet=
+      RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+      LockPersonality=yes
+      ProtectKernelTunables=yes
+      ProtectKernelModules=yes
+      ProtectControlGroups=yes
+
+      [Install]
+      WantedBy=multi-user.target
+  - path: /etc/caddy/Caddyfile
+    permissions: "0644"
+    content: |
+      __ESTATE_DOMAIN__ {
+      	encode zstd gzip
+      	header X-Robots-Tag "noindex, nofollow"
+      	handle /robots.txt {
+      		root * /etc/caddy/estate-static
+      		file_server
+      	}
+      	handle {
+      		reverse_proxy 127.0.0.1:3210
+      	}
+      }
+  - path: /etc/caddy/estate-static/robots.txt
+    permissions: "0644"
+    content: |
+      User-agent: *
+      Disallow: /
+runcmd:
+  - id -u estate >/dev/null 2>&1 || useradd --system --home-dir /var/lib/estate --shell /usr/sbin/nologin estate
+  - install -d -o estate -g estate -m 0750 /var/lib/estate
+  - install -d -m 0755 /opt/estate
+  - systemctl daemon-reload
+  - systemctl enable estate.service
+  - systemctl restart caddy

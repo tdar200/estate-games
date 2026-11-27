@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Counter-offer: a computer answers your offer with its price",
+    "section": "Trade",
+    "description": "Alpha declined Maya's $302 + Reservoir for Crown Avenue and countered at its own price (0.10.1)."
+  },
+  "extends": "trade",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "properties": {
+      "28": { "ownerId": "@Maya", "houses": 0, "mortgaged": false },
+      "39": { "ownerId": "@Alpha", "houses": 0, "mortgaged": false }
+    },
+    "trade": {
+      "id": "trade_counter",
+      "proposerId": "@Alpha",
+      "targetId": "@Maya",
+      "offer": { "cash": 0, "properties": [39] },
+      "request": { "cash": 650, "properties": [28] },
+      "counterTo": "trade_offer",
+      "counterRound": 1,
+      "original": { "offer": { "cash": 302, "properties": [28] }, "request": { "cash": 0, "properties": [39] } }
+    },
+    "log+": [
+      { "text": "Alpha countered Maya's offer" },
+      { "text": "Alpha: I'd do it for $650 + Reservoir." }
+    ]
+  }
+}

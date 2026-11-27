@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "BUY?: keyboard seat",
+    "section": "Turn: buying",
+    "description": "Land on an unowned street."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

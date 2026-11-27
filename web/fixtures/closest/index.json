@@ -1,0 +1,122 @@
+[
+  {
+    "name": "closest-lobby-table",
+    "description": "Lobby on the table screen: Maya's phone (host), three more phones and two computers (Hard, Normal); Quick game, 30 s to guess, 25 s to bet",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-lobby-phone",
+    "description": "Lobby on Maya's phone: she hosts, the setting chips and START",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-intro-table",
+    "description": "The game starts: 7 questions, the last one pays double",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-guess-table",
+    "description": "Question 2: \"How many pipes does the organ in the made-up Saint Orrin's Hall have?\"; Kim, Alpha and Sam have guessed (who, not what), 22 s left",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-guess-phone",
+    "description": "Maya's phone with the number pad open (100 to 60,000 pipes)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-guessed-phone",
+    "description": "Maya has locked in 3,600 (one change left); only Jun is still to guess, so the timer has dropped to 10 s",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-lineup-table",
+    "description": "Everyone has guessed: the six guesses line up low to high as slots, paying 4 3 2 2 3 4",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-lineup-phone",
+    "description": "Maya's phone during the line-up: her guess, 3,600, is the fourth slot",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-bet-table",
+    "description": "The bets: Kim, Orca and Sam are in (where, secret), 19 s left",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-bet-phone",
+    "description": "Maya's phone: six slots, both chips start on her own guess, a stake of 0 to 3",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-betin-phone",
+    "description": "Maya has bet: a chip on 3,000 with 2 points staked, a chip on her own 3,600; only Jun is left, 10 s",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-chips-table",
+    "description": "Every chip lands at once: one disc per player in their colour, ×2 for both chips, stakes shown",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-reveal-table",
+    "description": "The answer is 3,100 pipes: Alpha's 3,000 is closest (off by 100) and Maya's 3,600 second; the payouts and the fact",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-reveal-phone",
+    "description": "Maya's phone at the reveal: second closest, her stake won, +8",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-guess-year-phone",
+    "description": "Maya's pad on a year question: \"In what year was the made-up Port Ashby lighthouse first lit?\" (no thousands separator, no unit)",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-reveal-tie-table",
+    "description": "A tie: the answer is 1786, and Maya's 1780 and Kim's 1792 are both off by 6, so both win (no second place)",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-reveal-nobody-table",
+    "description": "Nobody guessed: straight to the answer and the fact, no points",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-reveal-oneslot-table",
+    "description": "One slot (Kim and Orca both guessed 400): no betting, and it wins",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-last-guess-table",
+    "description": "The last question, paying double: \"How many tiles make up the made-up mosaic floor at Corran Abbey?\"; 23 s left",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-finished-table",
+    "description": "Game over: Maya wins on 51; PLAY AGAIN and NEW TABLE",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-finished-phone",
+    "description": "Maya's phone at the end: place 1 of 6",
+    "viewer": "Maya"
+  },
+  {
+    "name": "closest-lineup-big-table",
+    "description": "The widest line: eight different 7-digit guesses, 1,200,000 to 9,900,000, paying 5 4 3 2 2 3 4 5",
+    "viewer": "table"
+  },
+  {
+    "name": "closest-bet-8-phone",
+    "description": "Ava's phone with eight slots to bet on and a stake of 0 to 3",
+    "viewer": "Ava"
+  },
+  {
+    "name": "closest-chips-pile-table",
+    "description": "The biggest pile: all eight players put both chips and a stake (1 to 3) on Eli's 5,000",
+    "viewer": "table"
+  }
+]

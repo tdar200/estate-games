@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "BUY?: a phone player decides",
+    "section": "Turn: buying",
+    "description": "A phone player landed on an unowned street."
+  },
+  "extends": "phone-turn"
+}

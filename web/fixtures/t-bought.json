@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Bought",
+    "section": "Turn: buying",
+    "description": "Press BUY."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "then": [
+    {
+      "patch": {
+        "phase": "turn_complete",
+        "pendingPurchase": null,
+        "players": {
+          "Robin": {
+            "cash": 970
+          }
+        },
+        "properties": {
+          "19": {
+            "ownerId": "@Robin",
+            "mortgaged": false,
+            "houses": 0
+          }
+        },
+        "lastLanding": {
+          "playerId": "@Robin",
+          "spaceIndex": 19,
+          "kind": "purchase",
+          "amount": 200
+        },
+        "log+": [
+          {
+            "text": "Robin bought Central Road for $200",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

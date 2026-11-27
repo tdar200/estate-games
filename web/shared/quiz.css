@@ -1,0 +1,551 @@
+/* The quiz, in Estate's "classic premium": the felt, felt-glass board cells with ivory values, deed-card
+   category headers in the property-group colours, ivory clue cards, Oswald caps, gold for what you
+   can do now. Shared by the table screen (/, .qz-tv on the 1600 × 900 stage) and the phone (/play,
+   .app[data-game="quiz"], .qzp).
+
+   Sizes (docs/QUIZ-API.md §9). The stage is scaled ×1.2 at 1080p, so stage px floors are: clue
+   ≥ 40 (here 50–54), choices ≥ 30 (36), board values ≥ 48 (56), category titles ≥ 24 (26), and
+   nothing under 20. The phone: nothing under 14 px; answer buttons ≥ 64 px tall. */
+
+/* ============================================================== Picker, tags */
+.gtype--quiz { background: #1166B4; color: #FFFFFF; }
+.art-quiz { display: flex; align-items: center; justify-content: center; }
+.art-quiz__svg { width: 86%; height: 86%; filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35)); transform: rotate(5deg); }
+.gpick--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* Phones: two by two, art beside the name. */
+.app .gpick--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.app .gpick--4 .gtile:not(.gtile--col) { flex-direction: row; text-align: left; gap: 8px; padding: 8px 10px; min-height: 56px; }
+.app .gpick--4 .gtile:not(.gtile--col) .gtile__art { width: 38px; height: 38px; }
+.app .gpick--4 .gtile:not(.gtile--col) .gtile__name { font-size: 19px; }
+.pk-tv__lobby .gpick--4 .gtile { padding: 10px 14px; gap: 12px; min-height: 88px; }
+.pk-tv__lobby .gpick--4 .gtile__art { width: 62px; height: 62px; }
+.pk-tv__lobby .gpick--4 .gtile__name { font-size: 30px; }
+
+/* ============================================================== Table screen */
+.qz-tv { --qz-gap: 14px; color: var(--cream); }
+.qz-tv .pk-tv__head { gap: 16px; }
+.qz-tv .table-code { align-self: center; padding: 6px 16px; gap: 10px; }
+.qz-tv .table-code__label { font-size: 20px; }
+.qz-tv .table-code__value { font-size: 32px; }
+.qz-tv .side__conn { font-size: 20px; }
+.qz-tv .side__conn-text:empty { display: none; }
+.qz-tv .icon-btn { width: 48px; height: 48px; }
+.qz-tv .gtype { font-size: 20px; line-height: 30px; padding: 2px 10px 2px 8px; gap: 6px; border-radius: 6px; }
+.qz-tv .gtype svg { width: 20px; height: 20px; }
+.qz-tv .chip-btn { font-size: 20px; }
+.qz-tv .ready-btn { font-size: 28px; height: 62px; }
+
+.qz-head__round { display: flex; flex-direction: column; line-height: 1.05; white-space: nowrap; }
+.qz-head__round b { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: 0.06em; color: var(--cream); }
+.qz-head__round small { font-size: 20px; font-weight: 800; letter-spacing: 0.1em; color: var(--mist); }
+.qz-line {
+  margin: 0 auto; display: inline-flex; align-items: center; gap: 12px; min-width: 0; max-width: 760px; min-height: 60px; padding: 6px 28px; border-radius: 40px;
+  background: rgba(6, 22, 16, 0.86); border: 3px solid var(--glass-line-2); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+.qz-line.has-who { border-color: var(--pc); padding-left: 8px; }
+.qz-line b { font-family: var(--font-display); font-size: 30px; font-weight: 600; letter-spacing: 0.06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qz-timer { display: inline-flex; align-items: baseline; gap: 2px; min-width: 84px; justify-content: center; padding: 4px 14px; border-radius: 12px; background: rgba(6, 22, 16, 0.86); border: 2px solid var(--gold-line); font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+.qz-timer b { font-size: 36px; font-weight: 700; color: var(--gold-soft); line-height: 1; }
+.qz-timer small { font-size: 20px; font-weight: 700; color: var(--mist); }
+.qz-timer.is-low { border-color: var(--red); }
+.qz-timer.is-low b { color: var(--red-soft); }
+
+.qz-body { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; padding: 4px 30px 6px; }
+
+/* The board: six columns, a deed-card header over five value cells */
+.qz-board { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--qz-gap); }
+.qz-col { display: grid; grid-template-rows: 112px repeat(5, minmax(0, 1fr)); gap: 10px; min-width: 0; }
+.qz-cat {
+  position: relative; display: flex; flex-direction: column; min-width: 0; border-radius: 6px; overflow: hidden;
+  background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+.qz-cat__bar { flex: 0 0 22px; background: var(--cat); border-bottom: 2px solid var(--ink); }
+/* Titles are sized per card to fit (quiz-table.js TITLE_BOXES holds these boxes: change both
+   together); a word too long for a line at the floor size breaks inside it. */
+.qz-cat__title {
+  flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 2px 10px; text-align: center;
+  font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.08; text-transform: uppercase; overflow-wrap: anywhere;
+}
+.qz-cat--big { width: 100%; height: 100%; }
+.qz-cat--big .qz-cat__bar { flex-basis: 34px; }
+.qz-cat--big .qz-cat__title { font-size: 34px; padding: 8px 14px; }
+/* Value cells are felt-glass tiles (like the plates) with ivory numbers and their category's
+   colour along the top: never a blue screen with yellow money (docs §9). */
+.qz-cell {
+  position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; border-radius: 6px;
+  background: linear-gradient(180deg, rgba(10, 34, 25, 0.92), rgba(5, 20, 14, 0.92)); border: 2px solid rgba(244, 241, 230, 0.22);
+  box-shadow: inset 0 6px 0 var(--cat), 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+.qz-cell__value { font-family: var(--font-display); font-size: 56px; font-weight: 700; letter-spacing: 0.02em; line-height: 1; color: var(--ivory); font-variant-numeric: tabular-nums; text-shadow: 0 3px 0 rgba(0, 0, 0, 0.45); }
+.qz-cell.is-played { background: rgba(6, 22, 16, 0.35); border: 2px dashed rgba(244, 241, 230, 0.16); box-shadow: none; }
+.qz-cell.is-played.is-gold { border: 2px solid rgba(242, 193, 78, 0.55); background: rgba(242, 193, 78, 0.1); }
+.qz-cell__gold { font-size: 44px; line-height: 1; color: var(--gold); text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4); }
+.qz-cell.is-picked { background: var(--gold); border-color: var(--ink); box-shadow: 0 0 0 4px rgba(242, 193, 78, 0.45), 0 10px 24px rgba(0, 0, 0, 0.45); animation: qzPick 0.9s ease-in-out infinite; }
+.qz-cell.is-picked .qz-cell__value { color: var(--ink); text-shadow: none; }
+.qz-cell.is-picked.is-gold .qz-cell__gold { color: var(--ink); text-shadow: none; }
+@keyframes qzPick { 0%, 100% { transform: none; } 50% { transform: scale(1.04); } }
+
+/* The clue */
+.qz-clue {
+  flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 18px; margin: 0 auto; width: 100%; max-width: 1440px;
+  padding: 22px 34px 20px; border-radius: 10px; background: var(--ivory); color: var(--ink); border: 3px solid var(--ink);
+  box-shadow: inset 0 10px 0 var(--cat), 0 24px 50px rgba(0, 0, 0, 0.45); animation: pkUp 0.28s var(--ease-out) both;
+}
+.qz-clue.is-final { box-shadow: inset 0 10px 0 var(--gold), 0 0 0 4px rgba(242, 193, 78, 0.35), 0 24px 50px rgba(0, 0, 0, 0.45); }
+.qz-clue__meta { display: flex; align-items: center; gap: 16px; padding-top: 6px; flex-wrap: wrap; }
+.qz-tag { display: inline-flex; align-items: center; gap: 10px; min-height: 42px; padding: 4px 16px 4px 6px; border-radius: 8px; background: var(--ink); color: var(--cream); font-family: var(--font-display); font-size: 26px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.qz-tag i { width: 30px; height: 30px; border-radius: 5px; background: var(--cat); border: 2px solid rgba(255, 255, 255, 0.8); }
+.qz-clue__value { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+.qz-goldtag { display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px; border-radius: 8px; background: var(--gold); color: var(--ink); font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: 0.06em; }
+.qz-clue__text { margin: 0; font-family: var(--font-body); font-size: 56px; font-weight: 700; line-height: 1.18; letter-spacing: -0.005em; color: var(--ink); text-wrap: balance; }
+.qz-clue__text.is-long { font-size: 48px; }
+.qz-clue.is-open .qz-clue__text { font-size: 48px; }
+.qz-clue.is-open .qz-clue__text.is-long { font-size: 42px; }
+
+.qz-bar { position: relative; display: block; height: 16px; border-radius: 8px; overflow: hidden; background: rgba(21, 25, 30, 0.12); box-shadow: inset 0 0 0 1.5px rgba(21, 25, 30, 0.2); }
+.qz-bar > i { position: absolute; inset: 0; transform-origin: left center; background: linear-gradient(90deg, var(--ink), #3A4652); transition: transform 260ms linear; }
+.qz-bar--read { height: 18px; }
+.qz-bar--time > i { background: linear-gradient(90deg, var(--gold-deep), var(--gold)); }
+
+.qz-choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin-top: auto; }
+.qz-choice {
+  position: relative; display: flex; align-items: center; gap: 18px; min-height: 92px; min-width: 0; padding: 10px 22px 10px 12px; border-radius: 10px;
+  background: #FFFFFF; border: 3px solid var(--ink); box-shadow: 0 5px 0 rgba(21, 25, 30, 0.85);
+  animation: qzOpen 0.7s ease-out both;
+}
+@keyframes qzOpen { 0% { box-shadow: 0 0 0 10px rgba(242, 193, 78, 0.85), 0 5px 0 rgba(21, 25, 30, 0.85); } 100% { box-shadow: 0 0 0 0 rgba(242, 193, 78, 0), 0 5px 0 rgba(21, 25, 30, 0.85); } }
+.qz-choice__letter {
+  flex: 0 0 auto; width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--ivory); font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1;
+}
+.qz-choice__text { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 38px; font-weight: 600; letter-spacing: 0.02em; line-height: 1.25; color: var(--ink); overflow-wrap: anywhere; }
+/* While reading: four empty places, so the eye knows where the answers will be. */
+.qz-choices.is-waiting .qz-choice { background: transparent; border: 3px dashed rgba(21, 25, 30, 0.22); box-shadow: none; animation: none; }
+.qz-choices.is-waiting .qz-choice__letter { background: rgba(21, 25, 30, 0.12); color: rgba(21, 25, 30, 0.45); }
+.qz-choice__tick { flex: 0 0 auto; display: flex; width: 50px; height: 50px; border-radius: 50%; align-items: center; justify-content: center; background: #1FAE57; color: #FFFFFF; }
+.qz-choice__tick .ico, .qz-choice__tick svg { width: 32px; height: 32px; }
+.qz-choice__who { flex: 0 0 auto; display: flex; gap: 2px; }
+.qz-choices.is-reveal .qz-choice { animation: none; }
+.qz-choice.is-right { background: #E6F6EA; border-color: #157A3C; box-shadow: 0 0 0 5px rgba(31, 174, 87, 0.5), 0 5px 0 #157A3C; }
+.qz-choice.is-right .qz-choice__letter { background: #157A3C; color: #FFFFFF; }
+.qz-choice.is-wrong { opacity: 0.55; box-shadow: none; }
+
+.qz-clue__foot { display: flex; align-items: center; gap: 22px; min-height: 52px; }
+.qz-foot__hint { margin: 0 auto; font-family: var(--font-display); font-size: 26px; font-weight: 600; letter-spacing: 0.08em; color: var(--muted-2); }
+.qz-foot__hint b { display: inline-block; min-width: 1.2em; text-align: center; color: var(--ink); font-size: 30px; }
+.qz-answered { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.qz-answered__label { font-size: 22px; font-weight: 800; letter-spacing: 0.1em; color: var(--muted-2); white-space: nowrap; }
+.qz-answered__label b { font-family: var(--font-display); font-size: 30px; color: var(--ink); }
+.qz-dots { display: flex; gap: 8px; flex-wrap: wrap; }
+.qz-dot { display: flex; padding: 3px; border-radius: 50%; background: var(--pc); box-shadow: 0 0 0 2px var(--ink); animation: pkPopC 0.25s var(--ease-out) both; }
+.qz-count-down { margin-left: auto; display: flex; align-items: center; gap: 14px; flex: 0 1 520px; min-width: 260px; }
+.qz-count-down .qz-bar { flex: 1 1 auto; height: 18px; }
+.qz-count-down b { font-family: var(--font-display); font-size: 44px; font-weight: 700; color: var(--ink); min-width: 1.4em; text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
+.qz-count-down.is-low b { color: var(--red-deep); }
+.qz-count-down.is-low .qz-bar > i { background: var(--red); }
+.qz-clue__foot--reveal { flex-wrap: wrap; gap: 12px; }
+.qz-res { display: inline-flex; align-items: center; gap: 10px; padding: 4px 16px 4px 4px; border-radius: 30px; background: #FFFFFF; border: 2px solid var(--ink); animation: pkPopC 0.3s var(--ease-out) both; }
+.qz-res b { font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: 0.04em; }
+.qz-res span { font-family: var(--font-display); font-size: 26px; font-weight: 700; }
+.qz-res.is-won { background: #1FAE57; border-color: #157A3C; color: #FFFFFF; }
+.qz-res.is-lost span { color: var(--red-deep); }
+.qz-res.is-late { opacity: 0.8; }
+.qz-res.is-late span { font-size: 20px; color: var(--muted-2); letter-spacing: 0.06em; }
+.qz-res__none { font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: var(--muted-2); }
+
+/* Plates: one per player along the bottom */
+.qz-plates { list-style: none; margin: 0; padding: 12px 30px 16px; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 12px; }
+.qz-plate {
+  position: relative; display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 8px 12px 8px 10px; border-radius: 12px;
+  background: rgba(8, 26, 19, 0.8); border: 2px solid var(--glass-line-2); box-shadow: inset 6px 0 0 var(--pc), 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.qz-plate__top { display: flex; align-items: center; gap: 8px; min-width: 0; padding-left: 4px; }
+.qz-plate__top .token-svg { flex: 0 0 auto; }
+.qz-plate__name { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: 0.04em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qz-plate__check { flex: 0 0 auto; display: flex; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; background: var(--gold); color: var(--ink); }
+.qz-plate__check .ico, .qz-plate__check svg { width: 20px; height: 20px; }
+.qz-plate__bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding-left: 4px; min-width: 0; }
+.qz-plate__score { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.qz-plate__score.is-neg { color: var(--neg); }
+/* The plate's word (PICKING, LOCKED IN, LATE…) sits on its top edge like a tab, so the score
+   keeps the whole width with eight players. */
+.qz-plate__tag {
+  position: absolute; top: -15px; right: 10px; max-width: calc(100% - 20px); height: 30px; padding: 0 10px; border-radius: 15px;
+  display: flex; align-items: center; background: rgba(6, 22, 16, 0.96); border: 2px solid var(--glass-line-2);
+  font-size: 20px; font-weight: 800; letter-spacing: 0.06em; color: var(--mist); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.qz-plate__delta { font-family: var(--font-display); font-size: 30px; font-weight: 700; line-height: 1; animation: pkPopC 0.3s var(--ease-out) both; }
+.qz-plate__delta.is-win { color: var(--pos); }
+.qz-plate__delta.is-lose { color: var(--neg); }
+.qz-plate.is-chooser { border-color: var(--gold); background: rgba(10, 34, 25, 0.95); box-shadow: inset 6px 0 0 var(--pc), 0 0 0 3px rgba(242, 193, 78, 0.3), 0 10px 24px rgba(0, 0, 0, 0.4); }
+.qz-plate.is-chooser .qz-plate__tag { background: var(--gold); border-color: var(--gold-deep); color: var(--ink); }
+.qz-plate.is-locked { border-color: rgba(242, 193, 78, 0.7); }
+.qz-plate.is-locked .qz-plate__tag { border-color: var(--gold); color: var(--gold-soft); }
+.qz-plate.is-win { border-color: #1FAE57; background: rgba(20, 70, 40, 0.92); }
+.qz-plate.is-lose { border-color: rgba(245, 154, 154, 0.7); }
+.qz-plate.is-dim, .qz-plate.is-left { opacity: 0.5; }
+
+/* Intro: the round title, then the six categories one by one */
+.qz-intro { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.qz-intro__title { font-family: var(--font-display); font-size: 84px; font-weight: 700; letter-spacing: 0.08em; line-height: 1; color: var(--gold-soft); text-shadow: 0 4px 0 rgba(0, 0, 0, 0.35); animation: pkUp 0.4s var(--ease-out) both; }
+.qz-intro__sub { font-size: 26px; font-weight: 700; letter-spacing: 0.12em; color: var(--mist); text-transform: uppercase; }
+.qz-intro__cats { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 226px); gap: 18px; }
+.qz-intro__cats li { height: 190px; animation: qzCatIn 0.5s var(--ease-out) var(--d, 0ms) both; }
+@keyframes qzCatIn { from { opacity: 0; transform: translateY(40px) rotate(-3deg) scale(0.9); } to { opacity: 1; transform: none; } }
+
+/* Gold square and the bet, over the board */
+.qz-over { position: absolute; inset: 0; z-index: 4; display: flex; align-items: center; justify-content: center; background: rgba(4, 14, 10, 0.55); animation: pkFade 0.25s ease both; }
+.qz-goldcard {
+  width: 760px; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 30px 40px 34px; border-radius: 14px; text-align: center;
+  background: radial-gradient(circle at 50% 20%, #FFF1B8 0%, #F2C14E 50%, #C9952A 100%); color: var(--ink); border: 4px solid #6B4A0E;
+  box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.25), 0 30px 70px rgba(0, 0, 0, 0.6); animation: qzGoldIn 0.55s var(--ease-out) both;
+}
+@keyframes qzGoldIn { 0% { transform: scale(0.6) rotate(-8deg); opacity: 0; } 60% { transform: scale(1.05) rotate(1deg); opacity: 1; } 100% { transform: none; } }
+.qz-goldcard__star { font-size: 90px; line-height: 0.9; color: #6B4A0E; }
+.qz-goldcard__title { font-family: var(--font-display); font-size: 64px; font-weight: 700; letter-spacing: 0.08em; line-height: 1; }
+.qz-goldcard__who { display: inline-flex; align-items: center; gap: 12px; padding: 6px 22px 6px 8px; border-radius: 40px; background: rgba(255, 255, 255, 0.7); border: 3px solid var(--pc); }
+.qz-goldcard__who b { font-family: var(--font-display); font-size: 36px; font-weight: 700; letter-spacing: 0.05em; }
+.qz-goldcard__line { font-size: 26px; font-weight: 600; line-height: 1.3; color: #3A2806; }
+.qz-goldcard--bet .qz-goldcard__title { font-size: 36px; }
+.qz-goldcard__range { font-family: var(--font-display); font-size: 60px; font-weight: 700; letter-spacing: 0.02em; line-height: 1; }
+.qz-goldcard__time { font-family: var(--font-display); font-size: 30px; font-weight: 700; padding: 2px 16px; border-radius: 8px; background: var(--ink); color: var(--gold); }
+
+/* Round end */
+.qz-roundend { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 10px; }
+.qz-roundend__title { font-family: var(--font-display); font-size: 64px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold-soft); }
+.qz-roundend__sub { font-size: 26px; font-weight: 800; letter-spacing: 0.12em; color: var(--mist); }
+.qz-ranks { list-style: none; margin: 18px 0 0; padding: 0; width: 1080px; display: flex; flex-direction: column; gap: 10px; }
+.qz-rank { display: grid; grid-template-columns: 70px 44px 220px minmax(0, 1fr) 150px; align-items: center; gap: 16px; padding: 8px 18px; border-radius: 12px; background: rgba(8, 26, 19, 0.8); border: 2px solid var(--glass-line-2); box-shadow: inset 6px 0 0 var(--pc); animation: pkUp 0.3s var(--ease-out) both; }
+.qz-rank__place { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: var(--gold-soft); }
+.qz-rank__name { font-family: var(--font-display); font-size: 30px; font-weight: 600; letter-spacing: 0.04em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qz-rank__bar { height: 22px; border-radius: 11px; background: rgba(244, 241, 230, 0.1); overflow: hidden; }
+.qz-rank__bar i { display: block; height: 100%; width: calc(var(--w) * 100%); background: var(--pc); border-radius: 11px; }
+.qz-rank__score { font-family: var(--font-display); font-size: 36px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.qz-rank__score.is-neg { color: var(--neg); }
+
+/* The final: its category and the bets coming in */
+.qz-final-intro { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+.qz-final-intro__eyebrow { font-size: 26px; font-weight: 800; letter-spacing: 0.18em; color: var(--gold-soft); }
+.qz-final-intro .qz-cat--big { width: 820px; height: 220px; animation: qzCatIn 0.6s var(--ease-out) both; }
+.qz-final-intro .qz-cat--big .qz-cat__title { font-size: 64px; }
+.qz-final-intro__line { margin: 0; max-width: 980px; text-align: center; font-size: 28px; font-weight: 600; line-height: 1.35; color: var(--cream); text-wrap: balance; }
+.qz-betsin { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.qz-betsin__label { font-size: 24px; font-weight: 800; letter-spacing: 0.12em; color: var(--mist); }
+.qz-betsin__label b { font-family: var(--font-display); font-size: 34px; color: var(--cream); }
+.qz-betsin .qz-dots { justify-content: center; gap: 12px; }
+.qz-betsin__who { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 6px 18px 6px 6px; border-radius: 40px; background: rgba(8, 26, 19, 0.8); border: 2px dashed var(--glass-line-2); opacity: 0.6; }
+.qz-betsin__who b { font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: 0.04em; }
+.qz-betsin__who.is-in { opacity: 1; border: 2px solid var(--gold); }
+.qz-betsin__who i { display: flex; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; background: var(--gold); color: var(--ink); }
+.qz-betsin__who i svg, .qz-betsin__who i .ico { width: 20px; height: 20px; }
+
+/* The final revealed, lowest score first */
+.qz-freveal { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 16px; }
+.qz-freveal__head { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 26px; border-radius: 10px; background: var(--ivory); color: var(--ink); border: 3px solid var(--ink); box-shadow: inset 0 8px 0 var(--gold), 0 18px 40px rgba(0, 0, 0, 0.4); }
+.qz-freveal__text { margin: 0; font-size: 40px; font-weight: 700; line-height: 1.2; }
+.qz-freveal__answer { display: inline-flex; align-items: center; gap: 14px; padding: 6px 22px 6px 6px; border-radius: 40px; background: #E6F6EA; border: 3px solid #157A3C; font-family: var(--font-display); font-size: 36px; font-weight: 700; }
+.qz-freveal__answer .qz-choice__letter { width: 52px; height: 52px; font-size: 30px; background: #157A3C; color: #FFFFFF; }
+.qz-frs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.qz-fr { display: grid; grid-template-columns: 44px 210px minmax(0, 1fr) 50px 150px 260px; align-items: center; gap: 16px; min-height: 60px; padding: 6px 18px; border-radius: 12px; background: rgba(8, 26, 19, 0.82); border: 2px solid var(--glass-line-2); box-shadow: inset 6px 0 0 var(--pc); }
+.qz-fr__name { font-family: var(--font-display); font-size: 28px; font-weight: 600; letter-spacing: 0.04em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qz-fr__choice { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--mist); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qz-fr__mark { font-size: 36px; font-weight: 800; text-align: center; line-height: 1; }
+.qz-fr__bet { font-family: var(--font-display); font-size: 30px; font-weight: 700; text-align: right; }
+.qz-fr__score { font-family: var(--font-display); font-size: 34px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.qz-fr__score s { font-size: 24px; font-weight: 500; color: var(--mist); margin-right: 8px; text-decoration-thickness: 2px; }
+.qz-fr__wait { grid-column: 3 / 6; font-size: 30px; color: var(--mist); }
+.qz-fr.is-waiting { opacity: 0.6; }
+.qz-fr.is-right .qz-fr__mark, .qz-fr.is-right .qz-fr__bet { color: var(--pos); }
+.qz-fr.is-wrong .qz-fr__mark, .qz-fr.is-wrong .qz-fr__bet { color: var(--neg); }
+.qz-fr.is-latest { border-color: var(--gold); animation: pkUp 0.35s var(--ease-out) both; }
+/* Seven or eight players: every row and the question still fit at 1080p (the leaders come last). */
+.qz-freveal--full { gap: 12px; }
+.qz-freveal--full .qz-freveal__head { gap: 10px; padding: 14px 24px; }
+.qz-freveal--full .qz-freveal__text { font-size: 34px; }
+.qz-freveal--full .qz-freveal__answer { font-size: 30px; padding: 4px 20px 4px 4px; }
+.qz-freveal--full .qz-freveal__answer .qz-choice__letter { width: 44px; height: 44px; font-size: 26px; }
+.qz-freveal--full .qz-frs { gap: 6px; }
+.qz-freveal--full .qz-fr { min-height: 50px; padding: 2px 18px; }
+.qz-freveal--full .qz-fr__name { font-size: 26px; }
+.qz-freveal--full .qz-fr__choice { font-size: 24px; }
+.qz-freveal--full .qz-fr__mark { font-size: 30px; }
+.qz-freveal--full .qz-fr__bet, .qz-freveal--full .qz-fr__wait { font-size: 26px; }
+.qz-freveal--full .qz-fr__score { font-size: 30px; }
+
+/* Finished */
+.qz-done { flex: 0 1 auto; align-self: center; width: 980px; margin: auto; display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: var(--ivory); color: var(--ink); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55); animation: pkUp 0.35s var(--ease-out) both; max-height: 100%; }
+.qz-done__eyebrow { padding-top: 16px; background: var(--navy); text-align: center; font-size: 20px; font-weight: 800; letter-spacing: 0.2em; color: var(--gold-soft); }
+.qz-done__title { padding: 2px 24px 14px; background: var(--navy); text-align: center; font-family: var(--font-display); font-size: 52px; font-weight: 700; letter-spacing: 0.05em; color: var(--ivory); }
+.qz-done__list { list-style: none; margin: 0; padding: 6px 28px; overflow: hidden; }
+.qz-done__row { display: grid; grid-template-columns: 70px 48px minmax(0, 1fr) auto 150px; align-items: center; gap: 16px; padding: 8px 8px; border-bottom: 1px solid var(--rule); }
+.qz-done__row:last-child { border-bottom: 0; }
+.qz-done__row.is-win { background: #FDF3D2; box-shadow: inset 5px 0 0 var(--gold); }
+.qz-done__place { font-family: var(--font-display); font-size: 32px; font-weight: 700; }
+.qz-done__name { font-family: var(--font-display); font-size: 32px; font-weight: 600; letter-spacing: 0.04em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qz-done__how { font-size: 20px; font-weight: 800; letter-spacing: 0.06em; color: var(--muted-2); white-space: nowrap; }
+.qz-done__score { font-family: var(--font-display); font-size: 38px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.qz-done__score.is-neg { color: var(--red-deep); }
+.qz-done__btns { display: flex; gap: 14px; padding: 12px 28px 22px; margin-top: auto; }
+.qz-done__btns .big-btn { flex: 1; min-height: 62px; font-size: 26px; }
+
+/* Lobby */
+.qz-tv__lobby .pk-tv__right { gap: 14px; }
+.qz-tv .qr-card__head { font-size: 28px; }
+.qz-tv .qr-card__link { font-size: 20px; }
+.qz-tv .reach { font-size: 20px; }
+.qz-tv .qr__note { font-size: 20px; }
+.qz-tv .resume-form__label { font-size: 20px; }
+.qz-tv .resume-form__label span { display: none; }
+.qz-tv .resume-form__input { font-size: 22px; width: 120px; }
+.qz-tv .resume-form__error { font-size: 20px; }
+.qz-seats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.qz-seat {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 132px; padding: 8px; border-radius: 14px;
+  background: rgba(8, 26, 19, 0.72); border: 1.5px solid var(--glass-line-2); box-shadow: inset 0 -5px 0 var(--pc, transparent);
+}
+.qz-seat b { font-family: var(--font-display); font-size: 26px; letter-spacing: 0.05em; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qz-seat__dev { padding: 0 8px; border-radius: 5px; background: rgba(244, 241, 230, 0.14); font-size: 20px; font-weight: 800; letter-spacing: 0.08em; color: var(--mist); }
+.qz-seat .seat__remove { position: absolute; top: 4px; right: 6px; font-size: 24px; }
+.qz-seat.is-open { border-style: dashed; color: var(--mist); }
+.qz-seat__plus { font-size: 44px; line-height: 1; }
+.qz-seat__phone .ico, .qz-seat__phone svg { width: 34px; height: 34px; }
+.qz-seat small { font-size: 20px; font-weight: 800; letter-spacing: 0.1em; }
+.qz-seat.is-hint { border-color: var(--gold-line); color: var(--gold-soft); }
+.qz-phones { margin: 0; display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 12px; background: rgba(8, 26, 19, 0.6); border: 1px solid var(--glass-line-2); font-size: 21px; line-height: 1.35; color: var(--mist); }
+.qz-phones b { color: var(--cream); }
+.qz-phones > .ico, .qz-phones > svg { flex: 0 0 auto; width: 34px; height: 34px; color: var(--gold-soft); }
+.qz-chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.qz-chip {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; min-height: 84px; padding: 6px 10px; border-radius: 10px; text-align: center;
+  background: rgba(8, 26, 19, 0.6); border: 1.5px solid rgba(242, 193, 78, 0.45); color: var(--cream); font: inherit;
+}
+.qz-chip > span { font-size: 20px; font-weight: 800; letter-spacing: 0.12em; color: var(--mist); }
+.qz-chip > b { font-family: var(--font-display); font-size: 30px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.1; }
+.qz-chip > small { font-size: 20px; color: var(--mist); }
+.qz-chip.is-custom { border-color: var(--gold); background: rgba(242, 193, 78, 0.12); }
+button.qz-chip:hover, button.qz-chip:focus-visible { border-color: var(--gold); outline: none; }
+.qz-tv__foot { gap: 14px; }
+.qz-count { margin-right: auto; font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--mist); letter-spacing: 0.06em; }
+.qz-note { font-size: 22px; color: var(--mist); }
+
+/* How to play (table overlay) */
+.qz-tvhelp { width: 1000px; }
+.qz-tvhelp .dialog__head { font-size: 28px; height: 64px; flex-basis: 64px; }
+.qz-tvhelp__body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 30px; align-items: start; }
+.on-light .qhow { margin: 0; padding-left: 28px; display: flex; flex-direction: column; gap: 10px; font-size: 21px; line-height: 1.38; color: var(--ink-soft); }
+.on-light .qhow li::marker { color: var(--gold-deep); font-weight: 800; }
+.qz-tvhelp__side .set-head { font-size: 20px; margin: 0 0 6px; }
+.qz-tvhelp__side p { margin: 0 0 16px; font-size: 21px; line-height: 1.4; color: var(--ink-soft); }
+.qcredits { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.on-light .qcredits { font-size: 20px; line-height: 1.35; color: var(--muted-2); }
+.qz-tvhelp .big-btn { font-size: 24px; }
+
+/* ============================================================== Phone */
+.app[data-game="quiz"] .main { gap: 10px; }
+.app[data-game="quiz"] .gtype { font-size: 14px; line-height: 20px; }
+.app[data-game="quiz"] .gtype svg { width: 14px; height: 14px; }
+.app[data-game="quiz"] .bar__table { font-size: 14px; }
+.app[data-game="quiz"] .codecard__code span { font-size: 14px; }
+.app[data-game="quiz"] .btn__detail { font-size: 14px; }
+.app[data-game="quiz"] .note, .app[data-game="quiz"] .link-box span { font-size: 14px; }
+.app[data-game="quiz"] .medal__eyebrow { font-size: 14px; }
+.app[data-game="quiz"] .codecard__btns { flex-wrap: wrap; }
+
+.qzp-top { gap: 10px; }
+.qzp-me { display: inline-flex; align-items: center; gap: 6px; padding: 2px 12px 2px 3px; border-radius: 20px; background: rgba(8, 26, 19, 0.8); border: 2px solid var(--pc); }
+.qzp-me__score { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.qzp-me__score.is-neg { color: var(--neg); }
+.qzp-watching { font-size: 14px; font-weight: 800; letter-spacing: 0.1em; color: var(--mist); }
+/* "ROUND 1" over "12 LEFT": two short lines fit beside a big score and MORE at 360 px. */
+.qzp-round { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.15; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: var(--mist); }
+.qzp-round > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qzp-round > span + span { color: var(--cream); }
+.qzp-more { flex: 0 0 auto; }
+
+.qzp { display: flex; flex-direction: column; gap: 12px; flex: 1 1 auto; min-width: 0; }
+.qzp-head { display: flex; align-items: center; gap: 10px; min-height: 40px; }
+.qzp-head__line { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: 0.05em; color: var(--cream); }
+.qzp-timer { flex: 0 0 auto; padding: 2px 10px; border-radius: 8px; background: rgba(8, 26, 19, 0.85); border: 1.5px solid var(--gold-line); font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.qzp-timer.is-low { border-color: var(--red); color: var(--red-soft); }
+.qzp-hint { margin: 0; font-size: 15px; line-height: 1.4; color: var(--mist); text-align: center; text-wrap: balance; }
+
+/* Lobby */
+.qzp-seats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.qzp-seat { position: relative; min-width: 0; min-height: 48px; display: flex; align-items: center; gap: 7px; padding: 4px 6px 4px 8px; border-radius: 8px; background: rgba(8, 26, 19, 0.72); border: 1px solid var(--glass-line-2); box-shadow: inset 4px 0 0 var(--pc); }
+.qzp-seat.is-me { border-color: var(--gold); background: rgba(242, 193, 78, 0.13); }
+.qzp-seat .token-svg { flex: 0 0 auto; }
+.qzp-seat__who { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+.qzp-seat__name { max-width: 100%; min-width: 0; line-height: 1.15; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-display); font-size: 16px; font-weight: 500; letter-spacing: 0.02em; }
+.qzp-seat.is-me .qzp-seat__name { color: var(--gold-soft); }
+.qzp-seat__level { flex: 0 0 auto; padding: 0 4px; line-height: 1.25; border-radius: 4px; background: rgba(244, 241, 230, 0.14); font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: var(--mist); }
+.qzp-seat__remove { flex: 0 0 auto; width: 40px; height: 40px; margin: 0 -6px 0 -4px; border: 0; background: transparent; color: var(--mist); font-size: 22px; border-radius: 6px; }
+.qzp-note { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 1.35; color: var(--mist); }
+.qzp-note .ic { flex: 0 0 auto; color: var(--gold-soft); }
+.qzp-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.qzp-chip { min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; padding: 4px 6px; border-radius: 8px; background: rgba(8, 26, 19, 0.6); border: 1px solid rgba(242, 193, 78, 0.45); color: var(--cream); font: inherit; text-align: center; }
+.qzp-chip > span { font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: var(--mist); }
+.qzp-chip > b { font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.04em; white-space: nowrap; }
+.qzp-chip.is-custom { border-color: var(--gold); background: rgba(242, 193, 78, 0.12); }
+.qzp-chosen { font-size: 14px; }
+
+/* The board on the phone: a row per category, five value buttons each */
+.qzp-board { display: flex; flex-direction: column; gap: 8px; }
+.qzp-row { display: flex; flex-direction: column; gap: 4px; }
+.qzp-row__title { display: flex; align-items: center; gap: 6px; min-width: 0; font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: 0.06em; line-height: 1.15; text-transform: uppercase; color: var(--cream); overflow-wrap: anywhere; }
+.qzp-row__title i { flex: 0 0 auto; width: 16px; height: 16px; border-radius: 3px; background: var(--cat); border: 1.5px solid rgba(255, 255, 255, 0.75); }
+.qzp-row__cells { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+.qzp-cell {
+  min-width: 0; min-height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 7px;
+  background: linear-gradient(180deg, rgba(10, 34, 25, 0.95), rgba(5, 20, 14, 0.95)); border: 1.5px solid rgba(244, 241, 230, 0.24); box-shadow: inset 0 4px 0 var(--cat);
+  font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--ivory); font-variant-numeric: tabular-nums; padding: 0;
+}
+.qzp-cell.is-played { background: transparent; border: 1.5px dashed rgba(244, 241, 230, 0.16); box-shadow: none; }
+.qzp-cell__gold { color: var(--gold); font-size: 18px; }
+.qzp-board.is-live .qzp-cell { min-height: 54px; font-size: 21px; border-color: rgba(244, 241, 230, 0.4); }
+button.qzp-cell:active { background: var(--gold); color: var(--ink); }
+.qzp-board:not(.is-live) { opacity: 0.85; }
+
+/* Intro, gold, final */
+.qzp-big { margin-top: 10px; text-align: center; font-family: var(--font-display); font-size: 34px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold-soft); }
+.qzp-sub { text-align: center; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; color: var(--mist); text-transform: uppercase; text-wrap: balance; }
+.qzp-intro { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.qzp-intro__cat { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 6px 12px; border-radius: 8px; background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.15; text-transform: uppercase; overflow-wrap: anywhere; box-shadow: inset 8px 0 0 var(--cat); padding-left: 18px; animation: liftIn 0.3s var(--ease-out) both; }
+.qzp-intro__cat i { display: none; }
+.qzp-goldcard, .qzp-finalcard {
+  margin: 16px 0 0; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 22px 16px; border-radius: 12px; text-align: center;
+  background: radial-gradient(circle at 50% 20%, #FFF1B8 0%, #F2C14E 50%, #C9952A 100%); color: var(--ink); border: 3px solid #6B4A0E; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  animation: qzGoldIn 0.5s var(--ease-out) both;
+}
+.qzp-goldcard__star { font-size: 56px; line-height: 0.9; color: #6B4A0E; }
+.qzp-goldcard b, .qzp-finalcard b { max-width: 100%; font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.15; overflow-wrap: anywhere; }
+.qzp-goldcard span:not(.qzp-goldcard__star) { max-width: 100%; font-size: 16px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; text-wrap: balance; }
+.qzp-finalcard__eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.18em; }
+.qzp-final__status { margin: 0; text-align: center; font-size: 16px; line-height: 1.4; color: var(--cream); text-wrap: balance; }
+.qzp-card { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px; background: rgba(8, 26, 19, 0.75); border: 1px solid var(--glass-line-2); }
+.qzp-card--gold { border-color: var(--gold); }
+.qzp-card__eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.1em; color: var(--gold-soft); }
+.qzp-card b { font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: 0.04em; }
+.qzp-card span:last-child { font-size: 14px; color: var(--mist); }
+
+/* Bets: stepper, MIN / HALF / MAX, BET */
+.qzp-betbox { display: flex; flex-direction: column; gap: 12px; padding: 16px 14px; border-radius: 12px; background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4); }
+.qzp-betbox.is-gold { box-shadow: inset 0 8px 0 var(--gold), 0 14px 30px rgba(0, 0, 0, 0.4); padding-top: 22px; }
+.qzp-betbox__title { text-align: center; font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.qzp-betbox__lead { margin: 0; text-align: center; font-size: 15px; line-height: 1.4; color: var(--ink-soft); }
+.qzp-stepper { display: grid; grid-template-columns: 64px minmax(0, 1fr) 64px; align-items: center; gap: 10px; }
+.qzp-step { height: 64px; border-radius: 12px; border: 2px solid var(--ink); background: #FFFFFF; color: var(--ink); font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1; padding: 0; }
+.qzp-step:disabled { opacity: 0.35; }
+.qzp-step:active:not(:disabled) { background: var(--gold); }
+.qzp-amount { text-align: center; font-family: var(--font-display); font-size: 46px; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.qzp-presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.qzp-preset { min-height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; border-radius: 10px; border: 1.5px solid var(--rule-2); background: #FFFFFF; color: var(--ink); font: inherit; padding: 2px; }
+.qzp-preset span { font-size: 14px; font-weight: 800; letter-spacing: 0.1em; color: var(--muted); }
+.qzp-preset b { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
+.qzp-preset.is-on { border: 2px solid var(--ink); background: #FDF3D2; box-shadow: inset 0 0 0 2px var(--gold); }
+.qzp-betgo { min-height: 60px; }
+.qzp-betgo .btn__label { font-size: 22px; }
+.qzp-betbox__range { text-align: center; font-size: 14px; font-weight: 700; color: var(--muted); }
+
+/* The clue: reading, answering */
+.qzp-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+.qzp-tag { min-width: 0; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 4px; border-radius: 6px; background: rgba(8, 26, 19, 0.85); border: 1px solid var(--glass-line-2); font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.qzp-tag span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qzp-tag i { flex: 0 0 auto; width: 18px; height: 18px; border-radius: 4px; background: var(--cat); border: 1.5px solid rgba(255, 255, 255, 0.75); }
+.qzp-value { flex: 0 0 auto; font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--gold-soft); }
+.qzp-clue { margin: 0; padding: 14px 14px; border-radius: 10px; background: var(--ivory); color: var(--ink); border: 2px solid var(--ink); font-size: 21px; font-weight: 700; line-height: 1.32; }
+.qzp-clue.is-long { font-size: 19px; }
+.qzp-clue.is-compact { font-size: 17px; padding: 10px 12px; line-height: 1.3; }
+.qzp-clue.is-dim { background: rgba(251, 250, 244, 0.86); font-size: 15px; font-weight: 600; }
+.qzp-bar { position: relative; display: block; height: 12px; border-radius: 6px; overflow: hidden; background: rgba(244, 241, 230, 0.14); }
+.qzp-bar > i { position: absolute; inset: 0; transform-origin: left center; background: linear-gradient(90deg, #6F8FCB, #CFE0FF); transition: transform 260ms linear; }
+.qzp-bar--time > i { background: linear-gradient(90deg, var(--gold-deep), var(--gold)); }
+.qzp-time { display: flex; align-items: center; gap: 10px; }
+.qzp-time .qzp-bar { flex: 1 1 auto; }
+.qzp-time b { min-width: 1.6em; text-align: right; font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--gold-soft); font-variant-numeric: tabular-nums; line-height: 1; }
+.qzp-time.is-low b { color: var(--red-soft); }
+.qzp-time.is-low .qzp-bar > i { background: var(--red); }
+
+/* The four answers: full width, A to D, fixed places, letter + text */
+.qzp-choices { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+.qzp-choice {
+  width: 100%; min-height: 72px; display: flex; align-items: center; gap: 12px; padding: 8px 14px 8px 8px; border-radius: 12px; text-align: left;
+  background: #FFFFFF; color: var(--ink); border: 2px solid var(--ink); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.55);
+  font: inherit; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+.qzp-choice__letter {
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--ivory); font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1;
+}
+.qzp-choice__text { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: 0.02em; line-height: 1.15; overflow-wrap: anywhere; }
+button.qzp-choice:active { background: var(--gold); transform: translateY(2px); box-shadow: 0 2px 0 rgba(0, 0, 0, 0.55); }
+.qzp-choices.is-fresh .qzp-choice { animation: qzpOpen 0.7s ease-out both; }
+@keyframes qzpOpen { 0% { box-shadow: 0 0 0 6px rgba(242, 193, 78, 0.95), 0 4px 0 rgba(0, 0, 0, 0.55); background: #FFF6D8; } 100% { box-shadow: 0 0 0 0 rgba(242, 193, 78, 0), 0 4px 0 rgba(0, 0, 0, 0.55); background: #FFFFFF; } }
+.app[data-screen="qz-answer"] .qzp-bar.qzp-bar--time { height: 14px; }
+.qzp-choice.is-static { min-height: 56px; opacity: 0.75; box-shadow: none; }
+.qzp-choice.is-static .qzp-choice__letter { width: 38px; height: 38px; font-size: 22px; }
+.qzp-choice.is-static .qzp-choice__text { font-size: 18px; }
+.qzp-slots { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+.qzp-slot { min-height: 72px; display: flex; align-items: center; padding: 8px; border-radius: 12px; border: 2px dashed rgba(244, 241, 230, 0.22); }
+.qzp-slot .qzp-choice__letter { background: rgba(244, 241, 230, 0.1); color: rgba(244, 241, 230, 0.5); }
+.qzp-why { margin: 0; text-align: center; font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.06em; color: var(--gold-soft); }
+
+/* Locked in */
+.qzp-locked { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 14px; border-radius: 14px; background: rgba(8, 26, 19, 0.85); border: 3px solid var(--gold); box-shadow: 0 0 0 4px rgba(242, 193, 78, 0.18); animation: pkPopC 0.2s var(--ease-out) both; }
+.qzp-locked__eyebrow { font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: 0.12em; color: var(--gold); }
+.qzp-locked__pick { display: flex; align-items: center; gap: 12px; max-width: 100%; }
+.qzp-locked__pick b { min-width: 0; font-family: var(--font-display); font-size: 26px; font-weight: 600; letter-spacing: 0.02em; overflow-wrap: anywhere; }
+.qzp-locked__bet { font-size: 15px; font-weight: 700; color: var(--gold-soft); }
+.qzp-locked__wait { font-size: 15px; color: var(--mist); }
+.qzp-others { display: flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap; font-size: 14px; font-weight: 800; letter-spacing: 0.1em; color: var(--mist); }
+.qzp-others span { margin-right: 6px; }
+
+/* Reveal */
+.qzp-result { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 12px; border-radius: 12px; border: 3px solid; animation: pkPopC 0.25s var(--ease-out) both; }
+.qzp-result b { font-family: var(--font-display); font-size: 32px; font-weight: 700; letter-spacing: 0.08em; line-height: 1.05; text-align: center; }
+.qzp-result span { font-family: var(--font-display); font-size: 22px; font-weight: 600; text-align: center; }
+.qzp-result.is-right { background: #1FAE57; border-color: #157A3C; color: #FFFFFF; }
+.qzp-result.is-wrong { background: #7A1F24; border-color: var(--red-soft); color: #FFFFFF; }
+.qzp-result.is-late { background: rgba(8, 26, 19, 0.85); border-color: var(--glass-line-2); color: var(--cream); }
+.qzp-answer { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 12px; background: #E6F6EA; color: var(--ink); border: 2px solid #157A3C; }
+.qzp-answer__label { font-size: 14px; font-weight: 800; letter-spacing: 0.12em; color: #157A3C; }
+.qzp-answer__pick { display: flex; align-items: center; gap: 10px; }
+.qzp-answer__pick .qzp-choice__letter { background: #157A3C; color: #FFFFFF; }
+.qzp-answer__pick b { min-width: 0; font-family: var(--font-display); font-size: 24px; font-weight: 600; overflow-wrap: anywhere; }
+.qzp-winner { margin: 0; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; font-size: 15px; color: var(--cream); text-align: center; }
+.qzp-winner b { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.04em; }
+
+/* Scores */
+.qzp-ranks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.qzp-rank { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 4px 12px 4px 8px; border-radius: 10px; background: rgba(8, 26, 19, 0.75); border: 1px solid var(--glass-line-2); box-shadow: inset 4px 0 0 var(--pc); }
+.qzp-rank.is-me { border-color: var(--gold); }
+.qzp-rank__place { width: 40px; font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--gold-soft); }
+.qzp-rank__name { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.03em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qzp-rank__score { font-family: var(--font-display); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.qzp-rank__score.is-neg { color: var(--neg); }
+.qzp-frs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.qzp-fr { display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 4px 12px 4px 8px; border-radius: 10px; background: rgba(8, 26, 19, 0.75); box-shadow: inset 4px 0 0 var(--pc); }
+.qzp-fr b { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: 17px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qzp-fr__mark { font-size: 20px; font-weight: 800; }
+.qzp-fr.is-right .qzp-fr__mark { color: var(--pos); }
+.qzp-fr.is-wrong .qzp-fr__mark { color: var(--neg); }
+.qzp-fr__score { min-width: 64px; text-align: right; font-family: var(--font-display); font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.qzp-title { color: var(--cream); }
+.qzp-endlist { margin-top: 4px; }
+
+/* Sheets */
+.qzp-sheet .tableline span { font-size: 14px; }
+.qzp-sheet .sheet__text { text-wrap: balance; }
+.qzp-part { display: inline-block; }
+.qzp-sheet .gtype { font-size: 14px; line-height: 20px; }
+.qzp-help .qhow { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.45; color: var(--mist-2); }
+.qzp-help .qhow b { color: var(--cream); }
+.qzp-help .qhow li::marker { color: var(--gold-soft); font-weight: 800; }
+.qzp-help__head { margin: 6px 0 0; font-size: 14px; font-weight: 800; letter-spacing: 0.14em; color: var(--mist); }
+.qzp-help .qcredits { font-size: 14px; line-height: 1.4; color: var(--mist); }
+
+/* ============================================================== Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .qz-tv *, .app[data-game="quiz"] * { animation: none !important; transition: none !important; }
+}
+[data-motion="reduce"] .qz-tv *, [data-motion="reduce"] .app[data-game="quiz"] * { animation: none !important; transition: none !important; }

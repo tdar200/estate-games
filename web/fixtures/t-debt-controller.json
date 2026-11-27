@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Debt: controller seat",
+    "section": "Debt and bankruptcy",
+    "description": "A controller seat owes rent it can't cover."
+  },
+  "extends": "pad-debt"
+}

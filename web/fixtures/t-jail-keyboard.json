@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "In jail: keyboard seat (roll, pay, card)",
+    "section": "Turn: jail",
+    "description": "A keyboard seat starts a turn in jail with jail passes."
+  },
+  "extends": "jail",
+  "seats": {
+    "Robin": "keyboard"
+  }
+}

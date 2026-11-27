@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "After a bankruptcy: OUT plates",
+    "section": "Debt and bankruptcy",
+    "description": "Play on after someone went out."
+  },
+  "extends": "bankrupt"
+}

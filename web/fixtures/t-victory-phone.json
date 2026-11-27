@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Victory: a phone player wins",
+    "section": "End of game",
+    "description": "The last player standing."
+  },
+  "extends": "victory"
+}

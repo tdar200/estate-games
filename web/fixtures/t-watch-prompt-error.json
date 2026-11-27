@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Watch a game: wrong code",
+    "section": "Start-up",
+    "description": "Type a room code that doesn't exist on the watch prompt."
+  },
+  "ui": {
+    "watchPrompt": "Room ZZZZZ does not exist"
+  }
+}

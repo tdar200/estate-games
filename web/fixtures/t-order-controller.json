@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "Roll for order: controller seat",
+    "section": "Order roll",
+    "description": "After START, the controller seat has to roll (phones roll on their phones)."
+  },
+  "extends": "order"
+}

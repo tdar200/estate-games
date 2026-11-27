@@ -1,0 +1,354 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "playing",
+    "phase": "betting",
+    "hostId": "p1",
+    "version": 4,
+    "now": 1762160400000,
+    "settings": {
+      "style": "tournament",
+      "maxPlayers": 8,
+      "startingStack": 1500,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "auto",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 0,
+      "rebuyLevels": 0,
+      "actionSeconds": 20,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": false
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 1762160880000,
+      "next": {
+        "smallBlind": 15,
+        "bigBlind": 30,
+        "ante": 0,
+        "minutes": 8
+      }
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 15,
+        "bigBlind": 30,
+        "ante": 0,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 20,
+        "bigBlind": 40,
+        "ante": 5,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 25,
+        "bigBlind": 50,
+        "ante": 6,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 30,
+        "bigBlind": 60,
+        "ante": 6,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 40,
+        "bigBlind": 80,
+        "ante": 10,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 50,
+        "bigBlind": 100,
+        "ante": 12,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 75,
+        "bigBlind": 150,
+        "ante": 15,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 100,
+        "bigBlind": 200,
+        "ante": 25,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 150,
+        "bigBlind": 300,
+        "ante": 30,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 200,
+        "bigBlind": 400,
+        "ante": 50,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 250,
+        "bigBlind": 500,
+        "ante": 60,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 300,
+        "bigBlind": 600,
+        "ante": 75,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 400,
+        "bigBlind": 800,
+        "ante": 100,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 500,
+        "bigBlind": 1000,
+        "ante": 120,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 750,
+        "bigBlind": 1500,
+        "ante": 150,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 1,
+    "street": "preflop",
+    "board": [],
+    "pots": [],
+    "totalPot": 30,
+    "currentBet": 20,
+    "buttonSeat": 0,
+    "smallBlindSeat": 0,
+    "bigBlindSeat": 1,
+    "actorId": "p1",
+    "actionDeadline": 1762160420000,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 1490,
+        "bet": 10,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": [
+          "Js",
+          "5h"
+        ],
+        "shown": false,
+        "isButton": true,
+        "isSmallBlind": true,
+        "isBigBlind": false,
+        "lastAction": {
+          "playerId": "p1",
+          "street": "preflop",
+          "type": "smallBlind",
+          "amount": 10,
+          "to": 10
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 1480,
+        "bet": 20,
+        "status": "active",
+        "inHand": true,
+        "hasCards": true,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": true,
+        "lastAction": {
+          "playerId": "p2",
+          "street": "preflop",
+          "type": "bigBlind",
+          "amount": 20,
+          "to": 20
+        },
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      }
+    ],
+    "actions": [
+      {
+        "playerId": "p1",
+        "street": "preflop",
+        "type": "smallBlind",
+        "amount": 10,
+        "to": 10
+      },
+      {
+        "playerId": "p2",
+        "street": "preflop",
+        "type": "bigBlind",
+        "amount": 20,
+        "to": 20
+      }
+    ],
+    "result": null,
+    "you": {
+      "id": "p1",
+      "seat": 0,
+      "cards": [
+        "Js",
+        "5h"
+      ],
+      "handName": "Jack-Five offsuit",
+      "strength": 0.45,
+      "toAct": true,
+      "legal": {
+        "fold": true,
+        "check": false,
+        "call": 10,
+        "raise": {
+          "isBet": false,
+          "min": 40,
+          "max": 1500,
+          "presets": [
+            {
+              "label": "Min",
+              "to": 40
+            },
+            {
+              "label": "¾ pot",
+              "to": 50
+            },
+            {
+              "label": "Pot",
+              "to": 60
+            },
+            {
+              "label": "All-in",
+              "to": 1500
+            }
+          ]
+        },
+        "allIn": 1500
+      },
+      "canShow": false,
+      "canRebuy": false,
+      "sittingOut": false,
+      "sitOutNext": false,
+      "isHost": true
+    },
+    "winnerId": "",
+    "standings": null,
+    "log": [
+      {
+        "id": "l1",
+        "text": "The game starts: 1,500 chips each, blinds 10/20"
+      },
+      {
+        "id": "l2",
+        "text": "Hand #1: Maya has the button"
+      },
+      {
+        "id": "l3",
+        "text": "Maya posts the small blind 10"
+      },
+      {
+        "id": "l4",
+        "text": "Sam posts the big blind 20"
+      }
+    ],
+    "lastEventSeq": 5,
+    "viewerId": "p1",
+    "viewerRole": "player",
+    "viewerName": "Maya",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    }
+  },
+  "viewer": {
+    "role": "player",
+    "playerId": "p1",
+    "name": "Maya"
+  },
+  "events": [
+    {
+      "seq": 3,
+      "type": "handStart",
+      "handNumber": 1,
+      "playerId": "p1"
+    },
+    {
+      "seq": 4,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p1",
+      "action": "smallBlind",
+      "amount": 10,
+      "to": 10,
+      "street": "preflop"
+    },
+    {
+      "seq": 5,
+      "type": "post",
+      "handNumber": 1,
+      "playerId": "p2",
+      "action": "bigBlind",
+      "amount": 20,
+      "to": 20,
+      "street": "preflop"
+    }
+  ],
+  "meta": {
+    "description": "Heads-up on Maya's phone, her turn",
+    "seed": 7,
+    "hand": 1
+  }
+}

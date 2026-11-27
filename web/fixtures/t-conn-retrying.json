@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "Reconnecting (in a game)",
+    "section": "Gates and connection",
+    "description": "Still offline after the toast: OFFLINE stays until the link is back."
+  },
+  "extends": "pad-turn",
+  "ctx": {
+    "status": "offline"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "After SEE THE BOARD",
+    "section": "End of game",
+    "description": "Close the victory screen: the final board and standings, PLAY AGAIN on the card."
+  },
+  "extends": "victory",
+  "ui": {
+    "close": true
+  }
+}

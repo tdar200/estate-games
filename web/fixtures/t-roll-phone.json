@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "A phone player's turn",
+    "section": "Turn: roll",
+    "description": "Someone on a phone is about to roll: the card shows their phone and dots."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "currentPlayerId": "@Robin",
+    "currentIndex": 3,
+    "turn": {
+      "playerId": "@Robin"
+    }
+  }
+}

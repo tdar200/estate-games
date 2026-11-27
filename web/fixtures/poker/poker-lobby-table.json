@@ -1,0 +1,323 @@
+{
+  "state": {
+    "game": "poker",
+    "code": "KQ7TD",
+    "status": "lobby",
+    "phase": "lobby",
+    "hostId": "p1",
+    "version": 7,
+    "now": 1762160400000,
+    "settings": {
+      "style": "tournament",
+      "maxPlayers": 8,
+      "startingStack": 1500,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "blindSchedule": "auto",
+      "targetMinutes": 60,
+      "antes": true,
+      "rebuys": 1,
+      "rebuyLevels": 0,
+      "actionSeconds": 30,
+      "timeBankSeconds": 30,
+      "lateJoin": true,
+      "fourColorDeck": true
+    },
+    "seatLimit": 8,
+    "level": {
+      "index": 0,
+      "smallBlind": 10,
+      "bigBlind": 20,
+      "ante": 0,
+      "endsAt": 0,
+      "next": {
+        "smallBlind": 15,
+        "bigBlind": 30,
+        "ante": 0,
+        "minutes": 8
+      }
+    },
+    "schedule": [
+      {
+        "smallBlind": 10,
+        "bigBlind": 20,
+        "ante": 0,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 15,
+        "bigBlind": 30,
+        "ante": 0,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 20,
+        "bigBlind": 40,
+        "ante": 5,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 30,
+        "bigBlind": 60,
+        "ante": 6,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 50,
+        "bigBlind": 100,
+        "ante": 12,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 75,
+        "bigBlind": 150,
+        "ante": 15,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 100,
+        "bigBlind": 200,
+        "ante": 25,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 150,
+        "bigBlind": 300,
+        "ante": 30,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 250,
+        "bigBlind": 500,
+        "ante": 60,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 400,
+        "bigBlind": 800,
+        "ante": 100,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 600,
+        "bigBlind": 1200,
+        "ante": 150,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 750,
+        "bigBlind": 1500,
+        "ante": 150,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 1500,
+        "bigBlind": 3000,
+        "ante": 300,
+        "minutes": 8
+      },
+      {
+        "smallBlind": 2000,
+        "bigBlind": 4000,
+        "ante": 500,
+        "minutes": 0
+      }
+    ],
+    "handNumber": 0,
+    "street": "",
+    "board": [],
+    "pots": [],
+    "totalPot": 0,
+    "currentBet": 0,
+    "buttonSeat": -1,
+    "smallBlindSeat": -1,
+    "bigBlindSeat": -1,
+    "actorId": "",
+    "actionDeadline": 0,
+    "actionTimeBank": false,
+    "nextHandAt": 0,
+    "players": [
+      {
+        "id": "p1",
+        "name": "Maya",
+        "kind": "human",
+        "seat": 0,
+        "stack": 1500,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "rocket",
+        "online": true
+      },
+      {
+        "id": "p2",
+        "name": "Sam",
+        "kind": "human",
+        "seat": 1,
+        "stack": 1500,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "teapot",
+        "online": true
+      },
+      {
+        "id": "p3",
+        "name": "Redwood",
+        "kind": "ai",
+        "seat": 2,
+        "stack": 1500,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "lighthouse",
+        "online": true,
+        "difficulty": "normal"
+      },
+      {
+        "id": "p4",
+        "name": "Priya",
+        "kind": "human",
+        "seat": 3,
+        "stack": 1500,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "phone",
+        "tokenKind": "bicycle",
+        "online": false
+      },
+      {
+        "id": "p5",
+        "name": "Skylark",
+        "kind": "ai",
+        "seat": 4,
+        "stack": 1500,
+        "bet": 0,
+        "status": "waiting",
+        "inHand": false,
+        "hasCards": false,
+        "cards": null,
+        "shown": false,
+        "isButton": false,
+        "isSmallBlind": false,
+        "isBigBlind": false,
+        "lastAction": null,
+        "odds": null,
+        "rebuys": 0,
+        "timeBank": 30,
+        "boughtIn": 1500,
+        "input": "ai",
+        "tokenKind": "key",
+        "online": true,
+        "difficulty": "easy"
+      }
+    ],
+    "actions": [],
+    "result": null,
+    "you": null,
+    "winnerId": "",
+    "standings": null,
+    "log": [],
+    "lastEventSeq": 5,
+    "viewerId": "",
+    "viewerRole": "table",
+    "viewerName": "",
+    "spectatorId": "",
+    "viewerIsHost": true,
+    "spectators": [],
+    "gameType": "poker",
+    "aiLevels": [
+      "easy",
+      "normal"
+    ],
+    "roomSettings": {
+      "computerSpeed": "normal",
+      "listed": false
+    },
+    "localSeats": []
+  },
+  "viewer": {
+    "role": "table"
+  },
+  "events": [
+    {
+      "seq": 1,
+      "type": "join",
+      "playerId": "p1"
+    },
+    {
+      "seq": 2,
+      "type": "join",
+      "playerId": "p2"
+    },
+    {
+      "seq": 3,
+      "type": "join",
+      "playerId": "p3"
+    },
+    {
+      "seq": 4,
+      "type": "join",
+      "playerId": "p4"
+    },
+    {
+      "seq": 5,
+      "type": "join",
+      "playerId": "p5"
+    }
+  ],
+  "meta": {
+    "description": "Lobby with five seats (two computer players), four-colour deck on; Priya's phone is offline",
+    "seed": 1,
+    "hand": 0
+  }
+}

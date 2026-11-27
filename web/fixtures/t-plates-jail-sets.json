@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Plates: jail, sets and deed counts",
+    "section": "Plates and board",
+    "description": "Players with full sets, one in jail."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "players": {
+      "Sam": {
+        "inJail": true,
+        "position": 10,
+        "jailTurns": 1
+      }
+    },
+    "properties": {
+      "37": {
+        "ownerId": "@Alpha",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "39": {
+        "ownerId": "@Alpha",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  }
+}

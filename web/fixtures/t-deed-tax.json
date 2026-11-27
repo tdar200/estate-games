@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Square card: tax",
+    "section": "Deed cards",
+    "description": "Click a tax square."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "deed",
+      "index": 4
+    }
+  }
+}

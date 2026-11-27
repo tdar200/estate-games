@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Auction: keyboard seat bidding",
+    "section": "Turn: auction",
+    "description": "A street goes to auction; it's the keyboard seat's bid."
+  },
+  "extends": "table-auction",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "auction": {
+      "currentPlayerId": "@Maya"
+    }
+  }
+}

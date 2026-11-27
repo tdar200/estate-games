@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Leave table confirm",
+    "section": "Menu, settings and sound",
+    "description": "MENU → LEAVE TABLE."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "leave"
+    }
+  }
+}

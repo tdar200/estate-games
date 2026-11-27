@@ -1,0 +1,22 @@
+{
+  "id": "test-2",
+  "title": "Engine test pack with an attribution",
+  "version": 1,
+  "license": "CC BY-SA 4.0",
+  "attribution": "Test inventions adapted from an example source (CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/), changed",
+  "categories": [
+    {
+      "id": "test-2/inventions",
+      "title": "INVENTIONS",
+      "topic": "inventions",
+      "clues": [
+        {"tier": 1, "text": "Which machine is Alexander Graham Bell best known for?", "answer": "Telephone", "wrong": ["Television", "Radio", "Phonograph"], "src": "https://en.wikipedia.org/wiki/Alexander_Graham_Bell"},
+        {"tier": 2, "text": "Which brothers made the first powered aeroplane flight?", "answer": "The Wright brothers", "wrong": ["The Lumière brothers", "The Grimm brothers", "The Marx brothers"], "src": "https://en.wikipedia.org/wiki/Wright_brothers"},
+        {"tier": 3, "text": "What did Johannes Gutenberg bring to Europe around 1440?", "answer": "Printing press", "wrong": ["Steam engine", "Telescope", "Compass"], "src": "https://en.wikipedia.org/wiki/Printing_press"},
+        {"tier": 4, "text": "Which Scottish inventor showed a working television in 1926?", "answer": "John Logie Baird", "wrong": ["James Watt", "Alexander Fleming", "Robert Watson-Watt"], "src": "https://en.wikipedia.org/wiki/John_Logie_Baird"},
+        {"tier": 5, "text": "What did Alessandro Volta invent in 1800?", "answer": "Electric battery", "wrong": ["Light bulb", "Telegraph", "Dynamo"], "src": "https://en.wikipedia.org/wiki/Voltaic_pile"}
+      ]
+    }
+  ],
+  "finals": []
+}

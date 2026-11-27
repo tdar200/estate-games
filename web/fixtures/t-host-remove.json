@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "PLAYERS: REMOVE confirm",
+    "section": "Host: players",
+    "description": "REMOVE on a player's row: deeds, houses and cash go to the bank, the seat closes."
+  },
+  "extends": "t-host-idle",
+  "patch": {
+    "properties": {
+      "6": {
+        "ownerId": "@Sam",
+        "mortgaged": false,
+        "houses": 2
+      },
+      "8": {
+        "ownerId": "@Sam",
+        "mortgaged": false,
+        "houses": 2
+      },
+      "9": {
+        "ownerId": "@Sam",
+        "mortgaged": false,
+        "houses": 2
+      }
+    }
+  },
+  "ui": {
+    "open": {
+      "kind": "remove",
+      "player": "Sam"
+    }
+  }
+}

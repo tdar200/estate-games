@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Robot stand-in plays for an offline player",
+    "section": "Turn: roll",
+    "description": "An offline phone's turn when the server lets the computer play for them."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "currentPlayerId": "@Sam",
+    "currentIndex": 0,
+    "turn": {
+      "playerId": "@Sam"
+    },
+    "players": {
+      "Sam": {
+        "online": false,
+        "autopilot": true
+      }
+    }
+  }
+}

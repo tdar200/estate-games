@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "HOW TO PLAY",
+    "section": "Menu, settings and sound",
+    "description": "MENU → HOW TO PLAY."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "menu",
+      "page": "help"
+    }
+  }
+}

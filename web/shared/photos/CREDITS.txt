@@ -1,0 +1,65 @@
+ESTATE: PHOTO CREDITS
+
+The TV table uses these photographs from Wikimedia Commons. Each was cropped, resized and
+recompressed for the screen (the wood was also darkened). The originals and their licences are at
+the links below; each photo here is shared under the same licence as its original.
+
+/shared/photos/d-oldtown.jpg  (Old Town deeds)
+  Cobbled street - Gamla stan (24740034422).jpg
+  By Jorge Láscar from Melbourne, Australia, CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/)
+  https://commons.wikimedia.org/wiki/File:Cobbled_street_-_Gamla_stan_%2824740034422%29.jpg
+
+/shared/photos/d-waterfront.jpg  (Waterfront deeds)
+  TØNSBERG Norway 2026-06-10 SAGA OSEBERG viking ship replica boats piers gummibåt Vikingodden Havn brygge harbour Byfjorden Sykkel- og gangbru pedestrian bridge Kaldnes brygge IMG 6836.jpg
+  By Wolfmann, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+  https://commons.wikimedia.org/wiki/File:T%C3%98NSBERG_Norway_2026-06-10_SAGA_OSEBERG_viking_ship_replica_boats_piers_gummib%C3%A5t_Vikingodden_Havn_brygge_harbour_Byfjorden_Sykkel-_og_gangbru_pedestrian_bridge_Kaldnes_brygge_IMG_6836.jpg
+
+/shared/photos/d-arts.jpg  (Arts District deeds)
+  Just Be Nice street art in Camden Town, London, UK.jpg
+  By Alisakakvsegda, CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+  https://commons.wikimedia.org/wiki/File:Just_Be_Nice_street_art_in_Camden_Town%2C_London%2C_UK.jpg
+
+/shared/photos/d-business.jpg  (Business District deeds)
+  Sydney (AU), View from Sydney Tower, State Street -- 2019 -- 3156.jpg
+  By Dietmar Rabich, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+  https://commons.wikimedia.org/wiki/File:Sydney_%28AU%29%2C_View_from_Sydney_Tower%2C_State_Street_--_2019_--_3156.jpg
+
+/shared/photos/d-central.jpg  (Central District deeds)
+  Piccadilly Circus Tube Station West Entrance 2020.jpg
+  By Julian Herzog (Website), CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+  https://commons.wikimedia.org/wiki/File:Piccadilly_Circus_Tube_Station_West_Entrance_2020.jpg
+
+/shared/photos/d-sunshine.jpg  (Sunshine District deeds)
+  Colourful beach huts - geograph.org.uk - 6233734.jpg
+  By Jonathan Billinger, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0/)
+  https://commons.wikimedia.org/wiki/File:Colourful_beach_huts_-_geograph.org.uk_-_6233734.jpg
+
+/shared/photos/d-green.jpg  (Green District deeds)
+  Bz crang main autumn.jpg
+  By Andrei Stroe, CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5/)
+  https://commons.wikimedia.org/wiki/File:Bz_crang_main_autumn.jpg
+
+/shared/photos/d-skyline.jpg  (Skyline District deeds)
+  Skyline of the Central Business District of Singapore with Esplanade Bridge in the evening.jpg
+  By Basile Morin, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+  https://commons.wikimedia.org/wiki/File:Skyline_of_the_Central_Business_District_of_Singapore_with_Esplanade_Bridge_in_the_evening.jpg
+
+/shared/photos/wood.jpg  (table background)
+  Old wooden dark board (54901780396).jpg
+  By AS Photography from Poland, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+  https://commons.wikimedia.org/wiki/File:Old_wooden_dark_board_%2854901780396%29.jpg
+
+/shared/photos/s-station.jpg  (station deeds)
+  Northampton railway station MMB 09 350164.jpg
+  By mattbuck (category), CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+  https://commons.wikimedia.org/wiki/File:Northampton_railway_station_MMB_09_350164.jpg
+
+/shared/photos/s-power.jpg  (Power Station deed)
+  Battersea Power Station, Nine Elms, London.jpg
+  By David Samuel, User:Hellodavey1902, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+  https://commons.wikimedia.org/wiki/File:Battersea_Power_Station%2C_Nine_Elms%2C_London.jpg
+
+/shared/photos/s-water.jpg  (Reservoir deed)
+  Jumbo water tower, Colchester 01.JPG
+  By The wub, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+  https://commons.wikimedia.org/wiki/File:Jumbo_water_tower%2C_Colchester_01.JPG

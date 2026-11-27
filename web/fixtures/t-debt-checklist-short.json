@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Debt checklist: ticks short, PAY off",
+    "section": "Debt and bankruptcy",
+    "description": "Untick a deed in the debt checklist: STILL TO FIND shows what's missing and PAY waits."
+  },
+  "extends": "pad-debt",
+  "ui": {
+    "open": {
+      "kind": "ticks",
+      "ticks": [
+        "mortgage:24"
+      ]
+    }
+  }
+}

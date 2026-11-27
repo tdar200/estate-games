@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Auction: can't afford the next bid",
+    "section": "Turn: auction",
+    "description": "The bid is above the seat's cash: BID is off."
+  },
+  "extends": "table-auction",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "cash": 60
+      }
+    },
+    "auction": {
+      "currentPlayerId": "@Maya"
+    }
+  }
+}

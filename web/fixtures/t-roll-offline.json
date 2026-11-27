@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "An offline player's turn",
+    "section": "Turn: roll",
+    "description": "A phone dropped off and it's their turn: wifi-off on the plate and the card."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "currentPlayerId": "@Sam",
+    "currentIndex": 0,
+    "turn": {
+      "playerId": "@Sam"
+    },
+    "players": {
+      "Sam": {
+        "online": false
+      }
+    }
+  }
+}

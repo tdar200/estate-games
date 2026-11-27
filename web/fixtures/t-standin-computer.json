@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Stand-in: COMPUTER PLAYS FOR SAM",
+    "section": "Host: players",
+    "description": "The computer plays for a person (away 30 s, idle 2 min, or the host's COMPUTER PLAYS)."
+  },
+  "extends": "pad-turn",
+  "patch": {
+    "now": 1793560000000,
+    "currentPlayerId": "@Sam",
+    "phase": "awaiting_roll",
+    "players": {
+      "Robin": {
+        "cash": 1020
+      },
+      "Sam": {
+        "cash": 1145,
+        "position": 0,
+        "autopilot": true,
+        "standIn": {
+          "since": 1793559960000,
+          "logId": "",
+          "cash": 1195,
+          "by": "idle"
+        }
+      },
+      "Alpha": {
+        "cash": 442
+      },
+      "Maya": {
+        "cash": 683
+      }
+    },
+    "log+": [
+      {
+        "text": "Maya paid Alpha rent",
+        "at": 1793559896000
+      },
+      {
+        "text": "Sam's turn",
+        "at": 1793559900000
+      }
+    ]
+  }
+}

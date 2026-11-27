@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "ROLL with BUILD offered",
+    "section": "Turn: roll",
+    "description": "A keyboard seat with a full set and cash: BUILD sits next to ROLL."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Maya": {
+        "cash": 1400
+      }
+    },
+    "properties": {
+      "16": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "18": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      },
+      "19": {
+        "ownerId": "@Maya",
+        "mortgaged": false,
+        "houses": 0
+      }
+    }
+  }
+}

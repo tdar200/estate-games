@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "BUY?: auctions off (PASS)",
+    "section": "Turn: buying",
+    "description": "House rule: no auctions."
+  },
+  "extends": "buy",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "settings": {
+      "diceMode": "random",
+      "rules": {
+        "loans": false,
+        "freeParkingJackpot": false,
+        "auctions": false,
+        "startingCash": 1500
+      }
+    }
+  }
+}

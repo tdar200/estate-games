@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "RESUME A TABLE: typing a code",
+    "section": "Lobby",
+    "description": "Click the RESUME A TABLE box and type."
+  },
+  "extends": "table-lobby",
+  "ui": {
+    "type": {
+      "#resume-code": "NXG"
+    },
+    "focus": "#resume-code"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "id": "test-1",
+  "title": "Engine test pack",
+  "version": 1,
+  "license": "own",
+  "attribution": "",
+  "categories": [
+    {
+      "id": "test-1/oceans",
+      "title": "OCEANS AND SEAS",
+      "topic": "geography",
+      "clues": [
+        {"tier": 1, "text": "Which is the largest ocean on Earth?", "answer": "Pacific", "wrong": ["Atlantic", "Indian", "Arctic"], "src": "https://en.wikipedia.org/wiki/Pacific_Ocean"},
+        {"tier": 2, "text": "Which sea lies between southern Europe and North Africa?", "answer": "Mediterranean Sea", "wrong": ["Caribbean Sea", "Baltic Sea", "Arabian Sea"], "src": "https://en.wikipedia.org/wiki/Mediterranean_Sea"},
+        {"tier": 3, "text": "Which is the smallest of the five oceans?", "answer": "Arctic", "wrong": ["Indian", "Southern", "Atlantic"], "src": "https://en.wikipedia.org/wiki/Arctic_Ocean"},
+        {"tier": 4, "text": "Which sea is so salty that swimmers float on it with ease?", "answer": "Dead Sea", "wrong": ["Black Sea", "North Sea", "Red Sea"], "src": "https://en.wikipedia.org/wiki/Dead_Sea"},
+        {"tier": 5, "text": "Which strait separates Asia from North America?", "answer": "Bering Strait", "wrong": ["Strait of Malacca", "Strait of Hormuz", "Bass Strait"], "src": "https://en.wikipedia.org/wiki/Bering_Strait"}
+      ]
+    },
+    {
+      "id": "test-1/countries",
+      "title": "COUNTRIES",
+      "topic": "geography",
+      "clues": [
+        {"tier": 1, "text": "Which country is shaped like a boot?", "answer": "Italy", "wrong": ["Spain", "Greece", "Portugal"], "src": "https://en.wikipedia.org/wiki/Italy"},
+        {"tier": 2, "text": "In which country is the city of Marrakesh?", "answer": "Morocco", "wrong": ["Tunisia", "Algeria", "Egypt"], "src": "https://en.wikipedia.org/wiki/Marrakesh"},
+        {"tier": 3, "text": "Which country has the longest coastline in the world?", "answer": "Canada", "wrong": ["Russia", "Norway", "Australia"], "src": "https://en.wikipedia.org/wiki/List_of_countries_by_length_of_coastline"},
+        {"tier": 4, "text": "Which country is famous for its fjords?", "answer": "Norway", "wrong": ["Denmark", "Finland", "Poland"], "src": "https://en.wikipedia.org/wiki/Fjords_of_Norway"},
+        {"tier": 5, "text": "Which country is completely surrounded by South Africa?", "answer": "Lesotho", "wrong": ["Eswatini", "Botswana", "Namibia"], "src": "https://en.wikipedia.org/wiki/Lesotho"}
+      ]
+    },
+    {
+      "id": "test-1/chemistry",
+      "title": "CHEMISTRY",
+      "topic": "science",
+      "clues": [
+        {"tier": 1, "text": "What is the chemical formula for water?", "answer": "H2O", "wrong": ["CO2", "O2", "NaCl"], "src": "https://en.wikipedia.org/wiki/Water"},
+        {"tier": 2, "text": "Which gas do plants take in to make their food?", "answer": "Carbon dioxide", "wrong": ["Oxygen", "Nitrogen", "Hydrogen"], "src": "https://en.wikipedia.org/wiki/Photosynthesis"},
+        {"tier": 3, "text": "What is the chemical symbol for gold?", "answer": "Au", "wrong": ["Ag", "Gd", "Go"], "src": "https://en.wikipedia.org/wiki/Gold"},
+        {"tier": 4, "text": "What is the lightest chemical element?", "answer": "Hydrogen", "wrong": ["Helium", "Lithium", "Carbon"], "src": "https://en.wikipedia.org/wiki/Hydrogen"},
+        {"tier": 5, "text": "Which gas makes up most of the air we breathe?", "answer": "Nitrogen", "wrong": ["Oxygen", "Argon", "Carbon dioxide"], "src": "https://en.wikipedia.org/wiki/Atmosphere_of_Earth"}
+      ]
+    },
+    {
+      "id": "test-1/planets",
+      "title": "STARS AND PLANETS",
+      "topic": "space",
+      "clues": [
+        {"tier": 1, "text": "Which planet do we live on?", "answer": "Earth", "wrong": ["Mars", "Venus", "Jupiter"], "src": "https://en.wikipedia.org/wiki/Earth"},
+        {"tier": 2, "text": "Which is the largest planet in the solar system?", "answer": "Jupiter", "wrong": ["Saturn", "Neptune", "Uranus"], "src": "https://en.wikipedia.org/wiki/Jupiter"},
+        {"tier": 3, "text": "Which planet is closest to the Sun?", "answer": "Mercury", "wrong": ["Venus", "Mars", "Pluto"], "src": "https://en.wikipedia.org/wiki/Mercury_(planet)"},
+        {"tier": 4, "text": "What is the name of our galaxy?", "answer": "Milky Way", "wrong": ["Andromeda", "Whirlpool", "Sombrero"], "src": "https://en.wikipedia.org/wiki/Milky_Way"},
+        {"tier": 5, "text": "Which planet has the large moon Titan?", "answer": "Saturn", "wrong": ["Jupiter", "Uranus", "Neptune"], "src": "https://en.wikipedia.org/wiki/Titan_(moon)"}
+      ]
+    },
+    {
+      "id": "test-1/animals",
+      "title": "ANIMAL KINGDOM",
+      "topic": "nature",
+      "clues": [
+        {"tier": 1, "text": "How many legs does a spider have?", "answer": "Eight", "wrong": ["Six", "Ten", "Twelve"], "src": "https://en.wikipedia.org/wiki/Spider"},
+        {"tier": 2, "text": "What is the largest animal that has ever lived?", "answer": "Blue whale", "wrong": ["African elephant", "Whale shark", "Sperm whale"], "src": "https://en.wikipedia.org/wiki/Blue_whale"},
+        {"tier": 3, "text": "Which big cat has a mane?", "answer": "Lion", "wrong": ["Tiger", "Leopard", "Cheetah"], "src": "https://en.wikipedia.org/wiki/Lion"},
+        {"tier": 4, "text": "Which bird is the fastest in a dive?", "answer": "Peregrine falcon", "wrong": ["Golden eagle", "Common swift", "Osprey"], "src": "https://en.wikipedia.org/wiki/Peregrine_falcon"},
+        {"tier": 5, "text": "What is a group of crows called?", "answer": "A murder", "wrong": ["A parliament", "A pride", "A pod"], "src": "https://en.wikipedia.org/wiki/List_of_animal_names"}
+      ]
+    },
+    {
+      "id": "test-1/history",
+      "title": "WORLD HISTORY",
+      "topic": "history",
+      "clues": [
+        {"tier": 1, "text": "Which long wall was built across northern China?", "answer": "Great Wall", "wrong": ["Hadrian's Wall", "Berlin Wall", "Antonine Wall"], "src": "https://en.wikipedia.org/wiki/Great_Wall_of_China"},
+        {"tier": 2, "text": "In which year did the Second World War end?", "answer": "1945", "wrong": ["1939", "1918", "1950"], "src": "https://en.wikipedia.org/wiki/World_War_II"},
+        {"tier": 3, "text": "Who was the first person to walk on the Moon?", "answer": "Neil Armstrong", "wrong": ["Buzz Aldrin", "Yuri Gagarin", "John Glenn"], "src": "https://en.wikipedia.org/wiki/Neil_Armstrong"},
+        {"tier": 4, "text": "Which ship sank on its first voyage in 1912?", "answer": "Titanic", "wrong": ["Lusitania", "Britannic", "Endurance"], "src": "https://en.wikipedia.org/wiki/Titanic"},
+        {"tier": 5, "text": "Which Roman city was buried by Mount Vesuvius in AD 79?", "answer": "Pompeii", "wrong": ["Ostia", "Ravenna", "Verona"], "src": "https://en.wikipedia.org/wiki/Pompeii"}
+      ]
+    },
+    {
+      "id": "test-1/ball-games",
+      "title": "BALL GAMES",
+      "topic": "sport",
+      "clues": [
+        {"tier": 1, "text": "How many players does a football team have on the pitch?", "answer": "Eleven", "wrong": ["Nine", "Ten", "Twelve"], "src": "https://en.wikipedia.org/wiki/Association_football"},
+        {"tier": 2, "text": "In which sport do players score a try?", "answer": "Rugby", "wrong": ["Cricket", "Tennis", "Golf"], "src": "https://en.wikipedia.org/wiki/Try_(rugby)"},
+        {"tier": 3, "text": "How many points is a basketball shot from beyond the arc worth?", "answer": "Three", "wrong": ["Two", "Four", "Five"], "src": "https://en.wikipedia.org/wiki/Three-point_field_goal"},
+        {"tier": 4, "text": "In tennis, what is a score of zero called?", "answer": "Love", "wrong": ["Nil", "Duck", "Blank"], "src": "https://en.wikipedia.org/wiki/Tennis_scoring_system"},
+        {"tier": 5, "text": "Which country won the first football World Cup, in 1930?", "answer": "Uruguay", "wrong": ["Brazil", "Argentina", "Italy"], "src": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"}
+      ]
+    },
+    {
+      "id": "test-1/instruments",
+      "title": "MUSICAL INSTRUMENTS",
+      "topic": "music",
+      "clues": [
+        {"tier": 1, "text": "How many strings does a standard guitar have?", "answer": "Six", "wrong": ["Four", "Five", "Eight"], "src": "https://en.wikipedia.org/wiki/Guitar"},
+        {"tier": 2, "text": "Which instrument usually has 88 keys?", "answer": "Piano", "wrong": ["Organ", "Accordion", "Harp"], "src": "https://en.wikipedia.org/wiki/Piano"},
+        {"tier": 3, "text": "Which is the largest instrument of the violin family?", "answer": "Double bass", "wrong": ["Cello", "Viola", "Violin"], "src": "https://en.wikipedia.org/wiki/Double_bass"},
+        {"tier": 4, "text": "What kind of instrument is a tabla?", "answer": "Drum", "wrong": ["Flute", "Lute", "Horn"], "src": "https://en.wikipedia.org/wiki/Tabla"},
+        {"tier": 5, "text": "Which brass instrument uses a slide to change its notes?", "answer": "Trombone", "wrong": ["Trumpet", "Tuba", "French horn"], "src": "https://en.wikipedia.org/wiki/Trombone"}
+      ]
+    },
+    {
+      "id": "test-1/books",
+      "title": "FAMOUS BOOKS",
+      "topic": "books",
+      "clues": [
+        {"tier": 1, "text": "Who wrote Romeo and Juliet?", "answer": "William Shakespeare", "wrong": ["Charles Dickens", "Jane Austen", "Homer"], "src": "https://en.wikipedia.org/wiki/Romeo_and_Juliet"},
+        {"tier": 2, "text": "Which island adventure features the pirate Long John Silver?", "answer": "Treasure Island", "wrong": ["Robinson Crusoe", "Peter Pan", "Kidnapped"], "src": "https://en.wikipedia.org/wiki/Treasure_Island"},
+        {"tier": 3, "text": "Who wrote Pride and Prejudice?", "answer": "Jane Austen", "wrong": ["Emily Brontë", "Mary Shelley", "George Eliot"], "src": "https://en.wikipedia.org/wiki/Pride_and_Prejudice"},
+        {"tier": 4, "text": "In which novel does Captain Ahab chase a white whale?", "answer": "Moby-Dick", "wrong": ["Twenty Thousand Leagues", "The Old Man and the Sea", "Jaws"], "src": "https://en.wikipedia.org/wiki/Moby-Dick"},
+        {"tier": 5, "text": "Who wrote One Hundred Years of Solitude?", "answer": "Gabriel García Márquez", "wrong": ["Jorge Luis Borges", "Pablo Neruda", "Mario Vargas Llosa"], "src": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude"}
+      ]
+    },
+    {
+      "id": "test-1/painters",
+      "title": "PAINTERS",
+      "topic": "art",
+      "clues": [
+        {"tier": 1, "text": "Who painted the Mona Lisa?", "answer": "Leonardo da Vinci", "wrong": ["Pablo Picasso", "Claude Monet", "Rembrandt"], "src": "https://en.wikipedia.org/wiki/Mona_Lisa"},
+        {"tier": 2, "text": "Which Dutch painter made a famous series of sunflower pictures?", "answer": "Vincent van Gogh", "wrong": ["Johannes Vermeer", "Piet Mondrian", "Frans Hals"], "src": "https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)"},
+        {"tier": 3, "text": "Who painted the ceiling of the Sistine Chapel?", "answer": "Michelangelo", "wrong": ["Raphael", "Donatello", "Botticelli"], "src": "https://en.wikipedia.org/wiki/Sistine_Chapel_ceiling"},
+        {"tier": 4, "text": "Which Spanish artist was a founder of Cubism?", "answer": "Pablo Picasso", "wrong": ["Salvador Dalí", "Joan Miró", "Francisco Goya"], "src": "https://en.wikipedia.org/wiki/Cubism"},
+        {"tier": 5, "text": "Who painted The Persistence of Memory, with its melting clocks?", "answer": "Salvador Dalí", "wrong": ["René Magritte", "Max Ernst", "Joan Miró"], "src": "https://en.wikipedia.org/wiki/The_Persistence_of_Memory"}
+      ]
+    },
+    {
+      "id": "test-1/fruit-and-veg",
+      "title": "FRUIT AND VEG",
+      "topic": "food",
+      "clues": [
+        {"tier": 1, "text": "Which long yellow fruit do monkeys famously love?", "answer": "Banana", "wrong": ["Lemon", "Mango", "Pear"], "src": "https://en.wikipedia.org/wiki/Banana"},
+        {"tier": 2, "text": "Which vegetable can make your eyes water when you cut it?", "answer": "Onion", "wrong": ["Carrot", "Potato", "Celery"], "src": "https://en.wikipedia.org/wiki/Onion"},
+        {"tier": 3, "text": "Guacamole is made mainly from which fruit?", "answer": "Avocado", "wrong": ["Lime", "Tomato", "Pepper"], "src": "https://en.wikipedia.org/wiki/Guacamole"},
+        {"tier": 4, "text": "Which spice comes from the dried threads of a crocus flower?", "answer": "Saffron", "wrong": ["Turmeric", "Paprika", "Cumin"], "src": "https://en.wikipedia.org/wiki/Saffron"},
+        {"tier": 5, "text": "Which nut is ground to make marzipan?", "answer": "Almond", "wrong": ["Walnut", "Hazelnut", "Cashew"], "src": "https://en.wikipedia.org/wiki/Marzipan"}
+      ]
+    },
+    {
+      "id": "test-1/word-play",
+      "title": "WORD PLAY",
+      "topic": "words",
+      "clues": [
+        {"tier": 1, "text": "What is the opposite of hot?", "answer": "Cold", "wrong": ["Warm", "Wet", "Dry"], "src": "https://en.wiktionary.org/wiki/hot"},
+        {"tier": 2, "text": "How many letters are in the English alphabet?", "answer": "26", "wrong": ["24", "25", "28"], "src": "https://en.wikipedia.org/wiki/English_alphabet"},
+        {"tier": 3, "text": "What do we call a word that means the same as another word?", "answer": "Synonym", "wrong": ["Antonym", "Homonym", "Acronym"], "src": "https://en.wikipedia.org/wiki/Synonym"},
+        {"tier": 4, "text": "What do we call a word that reads the same backwards, like level?", "answer": "Palindrome", "wrong": ["Anagram", "Acronym", "Oxymoron"], "src": "https://en.wikipedia.org/wiki/Palindrome"},
+        {"tier": 5, "text": "What Latin phrase does the abbreviation e.g. stand for?", "answer": "Exempli gratia", "wrong": ["Id est", "Et cetera", "Nota bene"], "src": "https://en.wiktionary.org/wiki/e.g."}
+      ]
+    },
+    {
+      "id": "test-1/numbers",
+      "title": "NUMBERS",
+      "topic": "numbers",
+      "clues": [
+        {"tier": 1, "text": "How many days are there in a week?", "answer": "Seven", "wrong": ["Five", "Six", "Eight"], "src": "https://en.wikipedia.org/wiki/Week"},
+        {"tier": 2, "text": "How many sides does a hexagon have?", "answer": "6", "wrong": ["5", "7", "8"], "src": "https://en.wikipedia.org/wiki/Hexagon"},
+        {"tier": 3, "text": "What is 12 times 12?", "answer": "144", "wrong": ["124", "132", "156"], "src": "https://en.wikipedia.org/wiki/144_(number)"},
+        {"tier": 4, "text": "What number does the Roman numeral L stand for?", "answer": "50", "wrong": ["100", "500", "1000"], "src": "https://en.wikipedia.org/wiki/Roman_numerals"},
+        {"tier": 5, "text": "What is the square root of 169?", "answer": "13", "wrong": ["11", "12", "14"], "src": "https://en.wikipedia.org/wiki/Square_root"}
+      ]
+    }
+  ],
+  "finals": [
+    {"id": "test-1/final-rivers", "category": "GREAT RIVERS", "topic": "geography", "text": "Which river flows through more countries than any other?", "answer": "Danube", "wrong": ["Nile", "Rhine", "Amazon"], "src": "https://en.wikipedia.org/wiki/Danube"},
+    {"id": "test-1/final-web", "category": "INVENTIONS", "topic": "inventions", "text": "Who invented the World Wide Web in 1989?", "answer": "Tim Berners-Lee", "wrong": ["Vint Cerf", "Bill Gates", "Alan Turing"], "src": "https://en.wikipedia.org/wiki/Tim_Berners-Lee"},
+    {"id": "test-1/final-body", "category": "THE HUMAN BODY", "topic": "science", "text": "What is the largest organ of the human body?", "answer": "Skin", "wrong": ["Liver", "Brain", "Lungs"], "src": "https://en.wikipedia.org/wiki/Skin"}
+  ]
+}

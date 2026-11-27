@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "title": "Loan repaid when due",
+    "section": "Loans",
+    "description": "A loan comes due at the start of the borrower's turn with enough cash: it is repaid."
+  },
+  "extends": "active-loan",
+  "seats": {
+    "Robin": "keyboard"
+  },
+  "patch": {
+    "players": {
+      "Robin": {
+        "cash": 520
+      }
+    }
+  },
+  "then": [
+    {
+      "patch": {
+        "players": {
+          "Robin": {
+            "cash": 40
+          },
+          "Alpha": {
+            "cash": 922
+          }
+        },
+        "loans": [
+          {
+            "id": "loan_000000000001",
+            "lenderId": "ai_000000000003",
+            "borrowerId": "player_000000000001",
+            "principal": 400,
+            "repay": 480,
+            "dueTurn": 14,
+            "collateral": [
+              19
+            ],
+            "status": "repaid"
+          },
+          {
+            "id": "loan_000000000002",
+            "lenderId": "player_000000000001",
+            "borrowerId": "player_000000000005",
+            "principal": 200,
+            "repay": 240,
+            "dueTurn": 16,
+            "collateral": [],
+            "status": "active"
+          },
+          {
+            "id": "loan_000000000003",
+            "lenderId": "player_000000000005",
+            "borrowerId": "ai_000000000003",
+            "principal": 100,
+            "repay": 120,
+            "dueTurn": 9,
+            "collateral": [],
+            "status": "repaid"
+          }
+        ],
+        "log+": [
+          {
+            "text": "Robin repaid Alpha $480 (loan due)",
+            "at": 1793560000000
+          }
+        ]
+      }
+    }
+  ]
+}

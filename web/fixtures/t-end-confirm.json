@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "End game confirm (richest player wins)",
+    "section": "Menu, settings and sound",
+    "description": "MENU → END GAME (the table or the host)."
+  },
+  "extends": "pad-turn",
+  "seats": {
+    "Maya": "keyboard"
+  },
+  "ui": {
+    "open": {
+      "kind": "end"
+    }
+  }
+}
