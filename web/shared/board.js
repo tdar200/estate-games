@@ -45,7 +45,7 @@
 //   board.onSquareTap((index) => openDeedSheet(index));
 // Demo of all of the above at 360/390/430 px: /shared/board-demo.html
 
-import { GROUP_COLORS, escapeHtml, money, playerById, spacePhoto } from "./format.js";
+import { GROUP_COLORS, GROUP_INK, escapeHtml, money, playerById, spacePhoto } from "./format.js";
 import { propState, rentLabel } from "./insights.js";
 import { hopToken, prefersReducedMotion } from "./motion.js";
 import { inkOn, playerColor, tokenGlyphSvg, tokenKindOf, tokenSvg } from "./tokens.js";
@@ -669,12 +669,11 @@ export class Board {
 }
 
 // Mini deed for the board centre or the phone (rent table + price). `eyebrow: ""` drops the line.
-export function deedHtml(state, index, { eyebrow = "TITLE DEED", rows = "short", nowLevel = null, className = "" } = {}) {
+export function deedHtml(state, index, { eyebrow = "DEED", rows = "short", nowLevel = null, className = "" } = {}) {
   const space = state.board[index];
   if (!space) return "";
   const color = space.type === "property" ? GROUP_COLORS[space.group] : "#FBFAF4";
-  const darkHead = ["brown", "pink", "red", "green", "darkBlue"].includes(space.group);
-  const ink = darkHead ? "#FFFFFF" : "#15191E";
+  const ink = space.type === "property" ? GROUP_INK[space.group] || "#FFFFFF" : "#15191E";
   let body = "";
   if (space.type === "property") {
     const list = rows === "full"
@@ -706,7 +705,7 @@ export function miniDeedHtml(state, index, { selected = false, locked = false, b
   const space = state.board[index];
   if (!space) return "";
   const color = space.type === "property" ? GROUP_COLORS[space.group] : space.type === "railroad" ? "#2B323A" : "#5B6470";
-  const ink = space.type === "property" && ["lightBlue", "orange", "yellow"].includes(space.group) ? "#15191E" : "#FFFFFF";
+  const ink = space.type === "property" ? GROUP_INK[space.group] || "#FFFFFF" : "#FFFFFF";
   const prop = propState(state, index);
   let label = "price";
   let right = money(space.price);

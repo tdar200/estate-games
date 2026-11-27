@@ -945,7 +945,7 @@ test("trade modal: one page with holdings by set, mini-map, the focused deed's c
   assert.match(html, /minimap__svg/);
   assert.match(html, /deed-card/, "the focused deed's card");
   assert.match(html, /impact__side is-you/);
-  assert.match(html, /Completes your ORANGE set/);
+  assert.match(html, /Completes your GREEN set/);
   assert.match(html, /data-cmd="trade-send"(?![^>]*disabled)/);
   assert.doesNotMatch(html, /undefined|NaN/);
 });
@@ -1099,7 +1099,7 @@ test("deed card: your mortgaged deed shows UNMORTGAGE with interest for your sea
   assert.match(html, /class="deed-view__row"/);
   assert.match(html, /data-deed-act="\{&quot;type&quot;:&quot;unmortgage&quot;,&quot;spaceIndex&quot;:39\}" data-seat="seat_[^"]+" data-deed-action="unmortgage">/);
   assert.match(html, /UNMORTGAGE<\/span><span class="deed-act__detail">−\$220 with interest/);
-  assert.match(html, /data-deed-action="build" disabled>[\s\S]*?<p class="deed-act__why" data-why="build">Unmortgage the dark blue set first<\/p>/);
+  assert.match(html, /data-deed-action="build" disabled>[\s\S]*?<p class="deed-act__why" data-why="build">Unmortgage the red set first<\/p>/);
   assert.match(html, /data-cmd="deed-trade" data-arg="39"[^>]*data-deed-action="trade">/);
   assert.match(html, /data-cmd="deed-not-selling" data-arg="39:true"/);
   const seatId = state.localSeats.find((seat) => seat.playerId === robin.id).seatId;
@@ -1115,8 +1115,8 @@ test("deed card: a built set sells evenly; MORTGAGE and TRADE greyed until the h
   assert.match(html, /data-deed-act="\{&quot;type&quot;:&quot;sell_building&quot;,&quot;spaceIndex&quot;:39\}"[^>]*data-deed-action="sell">/);
   assert.match(html, /SELL A HOUSE<\/span><span class="deed-act__detail">\+\$100/);
   assert.match(html, /data-why="build">Build evenly: next on /);
-  assert.match(html, /data-why="mortgage">Sell the buildings on the dark blue set first/);
-  assert.match(html, /data-why="trade">Sell the buildings on the dark blue set first/);
+  assert.match(html, /data-why="mortgage">Sell the buildings on the red set first/);
+  assert.match(html, /data-why="trade">Sell the buildings on the red set first/);
   const low = views.deedViewHtml(state, 37, {});
   assert.match(low, /class="big-btn big-btn--small deed-act big-btn--primary"[^>]*data-deed-action="build">/, "BUILD live on the low street");
 });

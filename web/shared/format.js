@@ -1,22 +1,22 @@
 // Formatting helpers shared by the table and phone apps. Pure: no DOM access.
 
 export const GROUP_COLORS = {
-  brown: "#8A4B2A",
-  lightBlue: "#A9DCF2",
-  pink: "#D3368C",
-  orange: "#F7941D",
-  red: "#E8232A",
-  yellow: "#FDE21B",
-  green: "#1FAE57",
-  darkBlue: "#1166B4",
+  brown: "#A9DCF2",
+  lightBlue: "#D3368C",
+  pink: "#FDE21B",
+  orange: "#1FAE57",
+  red: "#8A4B2A",
+  yellow: "#F7941D",
+  green: "#1166B4",
+  darkBlue: "#E8232A",
 };
 
 // Text colour that reads on each group colour (headers in the phone property tab).
 export const GROUP_INK = {
-  brown: "#FFFFFF",
-  lightBlue: "#15191E",
-  pink: "#FFFFFF",
-  orange: "#15191E",
+  brown: "#15191E",
+  lightBlue: "#FFFFFF",
+  pink: "#15191E",
+  orange: "#FFFFFF",
   red: "#FFFFFF",
   yellow: "#15191E",
   green: "#FFFFFF",
@@ -24,14 +24,14 @@ export const GROUP_INK = {
 };
 
 export const COLOUR_WORDS = {
-  brown: "brown",
-  lightBlue: "light blue",
-  pink: "pink",
-  orange: "orange",
-  red: "red",
-  yellow: "yellow",
-  green: "green",
-  darkBlue: "dark blue",
+  brown: "light blue",
+  lightBlue: "pink",
+  pink: "yellow",
+  orange: "green",
+  red: "brown",
+  yellow: "orange",
+  green: "dark blue",
+  darkBlue: "red",
 };
 
 const MINUS = "−";

@@ -333,3 +333,18 @@
 .deed-card--sm .deed-card__costs { padding: 4px 10px; }
 .deed-card--sm .deed-card__set { padding: 4px 10px 8px; }
 .deed-card--sm .deed-card__head { padding: 6px 10px 8px; }
+
+.jailbox { background: #34424C !important; }
+.jailbox__label { color: #F2EEE4 !important; }
+.jailbox .jailbox__bars, .board--compact .jailbox__bars, .game__board .jailbox .jailbox__bars {
+  inset: auto; left: 50%; top: 52%; width: 26%; height: auto; aspect-ratio: 1.15; transform: translate(-50%, -30%);
+  background: #E2B33C; border-radius: 3px; opacity: 1; box-shadow: none;
+}
+.jailbox .jailbox__bars::before {
+  content: ""; position: absolute; left: 20%; right: 20%; bottom: 96%; height: 62%;
+  border: 3px solid #C9CFD2; border-bottom: 0; border-radius: 999px 999px 0 0;
+}
+.jailbox .jailbox__bars::after {
+  content: ""; position: absolute; left: 50%; top: 34%; width: 14%; height: 34%; transform: translateX(-50%);
+  background: #34424C; border-radius: 999px;
+}

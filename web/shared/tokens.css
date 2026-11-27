@@ -44,14 +44,14 @@
   --hotel: #E5353B;
   --hotel-dark: #A81E23;
 
-  --g-brown: #8A4B2A;
-  --g-lightBlue: #A9DCF2;
-  --g-pink: #D3368C;
-  --g-orange: #F7941D;
-  --g-red: #E8232A;
-  --g-yellow: #FDE21B;
-  --g-green: #1FAE57;
-  --g-darkBlue: #1166B4;
+  --g-brown: #A9DCF2;
+  --g-lightBlue: #D3368C;
+  --g-pink: #FDE21B;
+  --g-orange: #1FAE57;
+  --g-red: #8A4B2A;
+  --g-yellow: #F7941D;
+  --g-green: #1166B4;
+  --g-darkBlue: #E8232A;
 
   /* Player palette: one colour per token (source of truth: web/shared/palette.json, which the
      server reads; JS twin TOKEN_COLORS in tokens.js; web/tests/board.check.mjs keeps all three

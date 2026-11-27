@@ -5,7 +5,7 @@
 
 import { cellPosition, deedHtml } from "../shared/board.js";
 import {
-  GROUP_COLORS, aiLevelLabel, colourWord, counterChanges, deviceLabel, escapeHtml, inputOf, lastReply, money, playerById, possessive, quoteState, signedMoney, spacePhoto, upper,
+  GROUP_COLORS, GROUP_INK, aiLevelLabel, colourWord, counterChanges, deviceLabel, escapeHtml, inputOf, lastReply, money, playerById, possessive, quoteState, signedMoney, spacePhoto, upper,
 } from "../shared/format.js";
 import {
   buildOptions, canManage, cardPreview, dealBalance, debtPlan, fullSets, groupIndexes, mortgageValue, nextBuild,
@@ -1371,7 +1371,7 @@ export function stageHtml(state, ctx = {}) {
     <div class="auc-stage__title">${ICONS.hammer}<span>AUCTION</span></div>
     <div class="auc-stage__mid">
       <div class="auc-deed"${photo ? ` data-photo="${photo}"` : ""} data-deed-info="${auction.spaceIndex}">
-        <div class="auc-deed__head" style="background:${band};color:${inkOn(band)}"><span class="auc-deed__eyebrow">TITLE DEED</span><span class="auc-deed__name">${e(upper(space.name))}</span></div>
+        <div class="auc-deed__head" style="background:${band};color:${inkOn(band)}"><span class="auc-deed__eyebrow">DEED</span><span class="auc-deed__name">${e(upper(space.name))}</span></div>
         <span class="auc-deed__list">LIST ${money(space.price)}</span>
       </div>
       ${auctionClockHtml(auction, now)}
@@ -1562,7 +1562,7 @@ export function propertyModel(state, playerId) {
     return {
       key: block.key, kind: block.kind,
       title: property ? upper(colourWord(block.key)) : block.kind === "railroad" ? "RAILROADS" : "UTILITIES",
-      colour, ink: property && ["lightBlue", "orange", "yellow"].includes(block.key) ? "#15191E" : "#FFFFFF",
+      colour, ink: property ? GROUP_INK[block.key] || "#FFFFFF" : "#FFFFFF",
       owned: block.indexes.length, size: block.size, full, progress: full && property ? "FULL SET" : `${block.indexes.length} OF ${block.size}`, deeds,
     };
   });

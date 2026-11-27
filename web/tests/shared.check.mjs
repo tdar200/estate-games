@@ -111,7 +111,7 @@ test("insights: risk line matches the design copy", () => {
   const state = makeState(designOwn, designPlayers);
   const line = ins.riskLine(state, "t");
   assert.equal(line.tone, "warn");
-  assert.equal(line.text, "22% chance of landing on Alpha's red set (rent up to $1,100). You can cover it.");
+  assert.equal(line.text, "22% chance of landing on Alpha's brown set (rent up to $1,100). You can cover it.");
   assert.deepEqual(line.squares.sort((a, b) => a - b), [21, 23, 24]);
 
   const jailed = makeState(designOwn, [P("t", "Robin", 1240, 10, { inJail: true }), ...designPlayers.slice(1)]);
@@ -132,14 +132,14 @@ test("insights: least-rent-loss debt plan reproduces the design plan", () => {
   assert.equal(plan.total, 460);
   assert.ok(plan.exact && plan.enough);
   assert.deepEqual(plan.steps.map((step) => step.label), [
-    "Sell all 4 brown houses",
-    "Mortgage both brown streets",
-    "Sell 2 houses from each orange street",
+    "Sell all 4 light blue houses",
+    "Mortgage both light blue streets",
+    "Sell 2 houses from each green street",
   ]);
   assert.deepEqual(plan.steps.map((step) => step.amount), [100, 60, 300]);
-  assert.equal(plan.steps[0].cost, "Brown rent drops to $4 and $8");
-  assert.equal(plan.steps[1].cost, "No brown rent until you pay back $66");
-  assert.equal(plan.steps[2].cost, "Orange rent drops to $70–80");
+  assert.equal(plan.steps[0].cost, "Light blue rent drops to $4 and $8");
+  assert.equal(plan.steps[1].cost, "No light blue rent until you pay back $66");
+  assert.equal(plan.steps[2].cost, "Green rent drops to $70–80");
   // Actions are valid in order: houses go evenly, mortgages only after the group is bare.
   let sim = structuredClone(state);
   for (const action of plan.actions) {
@@ -194,7 +194,7 @@ test("insights: purchase insight", () => {
   const state = makeState({ ...designOwn, 26: ["s"] }, designPlayers);
   const block = ins.purchaseInsight(state, "t", 27);
   assert.equal(block.strong, "Blocks a set.");
-  assert.equal(block.text, "Sam owns Sea Breeze Road; without Coral Street, Sam can never complete yellow.");
+  assert.equal(block.text, "Sam owns Sea Breeze Road; without Coral Street, Sam can never complete orange.");
   const complete = ins.purchaseInsight(makeState({ 37: ["t"] }, designPlayers), "t", 39);
   assert.equal(complete.strong, "Completes your set.");
   assert.match(ins.purchaseInsight(state, "t", 25).strong, /Railroad 1 of 4/);
@@ -204,10 +204,10 @@ test("insights: trade effects", () => {
   const state = makeState(designOwn, designPlayers);
   const trade = { proposerId: "t", targetId: "a", offer: { cash: 300, properties: [] }, request: { cash: 0, properties: [9] } };
   const effects = ins.tradeEffects(state, trade, "t");
-  assert.equal(effects[0].strong, "Breaks Alpha's light blue set,");
+  assert.equal(effects[0].strong, "Breaks Alpha's pink set,");
   assert.equal(effects[0].text, "so Alpha can't build there any more.");
   const completing = ins.tradeEffects(makeState({ 37: ["t"], 39: ["a"] }, designPlayers), { proposerId: "t", targetId: "a", offer: { cash: 200, properties: [] }, request: { cash: 0, properties: [39] } }, "t");
-  assert.equal(completing[0].strong, "Completes your dark blue set,");
+  assert.equal(completing[0].strong, "Completes your red set,");
   assert.deepEqual(ins.tradeable(state, "t"), []); // every Robin street group has houses
 });
 
@@ -338,15 +338,15 @@ test("tradeImpact: cash, net worth, sets made and broken, rent changes, blocked 
   assert.equal(impact.proposer.cashAfter, impact.proposer.cashBefore - 50);
   assert.equal(impact.target.cashAfter, impact.target.cashBefore + 50);
   assert.deepEqual(impact.proposer.setsCompleted.map((set) => set.group), ["orange"]);
-  assert.ok(impact.proposer.verdicts.includes("Completes your ORANGE set"));
+  assert.ok(impact.proposer.verdicts.includes("Completes your GREEN set"));
   const orange = impact.proposer.rentChanges.find((change) => change.key === "orange");
   assert.ok(orange && orange.after > orange.before, "orange rent goes up");
-  assert.match(orange.text, /^Orange rent \$\d+ → \$\d+$/);
+  assert.match(orange.text, /^Green rent \$\d+ → \$\d+$/);
   assert.equal(impact.proposer.worthAfter, ins.netWorth(impact.after, id("Maya")));
   // Breaking a set: Robin gives away a green street.
   const breaks = ins.tradeImpact(state, { proposerId: id("Robin"), targetId: id("Sam"), offer: { cash: 0, properties: [31] }, request: { cash: 100, properties: [] } });
   assert.ok(breaks.proposer.setsBroken.some((set) => set.group === "green"));
-  assert.ok(breaks.proposer.verdicts.some((line) => /^Breaks Robin.s GREEN set$/.test(line)));
+  assert.ok(breaks.proposer.verdicts.some((line) => /^Breaks Robin.s DARK BLUE set$/.test(line)));
   // Railroads change hands: counts before and after.
   const rails = ins.tradeImpact(state, { proposerId: id("Sam"), targetId: id("Maya"), offer: { cash: 10, properties: [] }, request: { cash: 0, properties: [5] } });
   assert.deepEqual(rails.proposer.railroads, { before: 0, after: 1 });
@@ -541,7 +541,7 @@ test("deed actions: your own mortgaged deed → UNMORTGAGE with interest; build 
   assert.deepEqual(byId.unmortgage.act, { type: "unmortgage", spaceIndex: 1 });
   assert.equal(byId.unmortgage.detail, "−$33 with interest");
   assert.equal(byId.build.disabled, true);
-  assert.match(byId.build.reason, /^Unmortgage the brown set first$/);
+  assert.match(byId.build.reason, /^Unmortgage the light blue set first$/);
   assert.equal(byId.trade.disabled, false);
   assert.equal(byId.trade.cmd, "deed-trade");
   // Too little cash, in debt, and not your turn each grey UNMORTGAGE with the engine's reason.
@@ -563,8 +563,8 @@ test("deed actions: a built set → build and sell evenly, no mortgage or trade 
   const high = Object.fromEntries(deedActions(state, "t", 3).actions.map((a) => [a.id, a]));
   assert.equal(high.build.reason, `Build evenly: next on ${BOARD[1].name}`);
   assert.deepEqual([high.sell.disabled, high.sell.detail, high.sell.act.type], [false, "+$25", "sell_building"]);
-  assert.equal(high.mortgage.reason, "Sell the buildings on the brown set first");
-  assert.equal(high.trade.reason, "Sell the buildings on the brown set first");
+  assert.equal(high.mortgage.reason, "Sell the buildings on the light blue set first");
+  assert.equal(high.trade.reason, "Sell the buildings on the light blue set first");
   const low = Object.fromEntries(deedActions(state, "t", 1).actions.map((a) => [a.id, a]));
   assert.deepEqual([low.build.disabled, low.build.label, low.build.detail], [false, "BUILD A HOUSE", "−$50"]);
   assert.equal(low.sell.reason, `Sell evenly: first from ${BOARD[3].name}`);
@@ -577,7 +577,7 @@ test("deed actions: a built set → build and sell evenly, no mortgage or trade 
   assert.equal(deedActions(top, "t", 1).actions[0].label, "SELL THE HOTEL");
   // Not owning the whole set: BUILD greyed with why.
   const half = makeState({ 1: ["t", 0] }, players, { currentPlayerId: "t" });
-  assert.equal(deedActions(half, "t", 1).actions.find((a) => a.id === "build").reason, "Own all of the brown set to build");
+  assert.equal(deedActions(half, "t", 1).actions.find((a) => a.id === "build").reason, "Own all of the light blue set to build");
 });
 
 test("deed actions: someone else's deed → ASK TO BUY…; unowned → BUY only while you stand on it", async () => {
