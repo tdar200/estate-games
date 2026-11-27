@@ -117,6 +117,9 @@ and please follow the [Code of Conduct](CODE_OF_CONDUCT.md). To report a securit
   authors and links are in [web/shared/photos/CREDITS.txt](web/shared/photos/CREDITS.txt).
 - **Fonts:** Oswald, Inter, Barlow and Barlow Condensed, under the SIL Open Font License 1.1. See
   [web/shared/fonts/README.md](web/shared/fonts/README.md).
+- **Icons:** most icons in `public/icons.svg` are from [Lucide](https://lucide.dev) (ISC, with the
+  icons it took from Feather under MIT), some adapted; the rest are drawn to match. See
+  [public/LICENSE-lucide.txt](public/LICENSE-lucide.txt).
 - **Go libraries:** [coder/websocket](https://github.com/coder/websocket) and
   [rsc.io/qr](https://pkg.go.dev/rsc.io/qr), see `go.mod`.
 
@@ -125,5 +128,5 @@ publisher.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). The photos, fonts and the forked poker code keep their own licences,
-listed above.
+MIT, see [LICENSE](LICENSE). The photos, fonts, icons and the forked poker code keep their own
+licences, listed above.
