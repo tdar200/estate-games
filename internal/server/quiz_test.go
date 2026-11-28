@@ -509,7 +509,7 @@ func TestQuizNewTableRemembersTheScreen(t *testing.T) {
 	h := newHarness(t, withQuiz(t, 4), opts)
 	tv := h.device("TV", "rocket", "198.51.100.191")
 	kim := h.device("Kim", "teapot", "198.51.100.192")
-	play := func(h *harness) []string {
+	play := func(h *harness) (string, []string) {
 		t.Helper()
 		tb := h.post("/api/tables", map[string]any{"gameType": "quiz"}, tv.opt())
 		expectStatus(t, tb, http.StatusCreated)
@@ -517,20 +517,25 @@ func TestQuizNewTableRemembersTheScreen(t *testing.T) {
 		expectStatus(t, h.post("/api/rooms/"+code+"/join", map[string]any{"name": "Kim"}, kim.opt()), http.StatusOK)
 		expectStatus(t, h.post("/api/rooms/"+code+"/ai", map[string]any{"token": token, "difficulty": "easy"}), http.StatusOK)
 		expectStatus(t, h.act(code, token, map[string]any{"type": "start"}), http.StatusOK)
-		return quizBoardIDs(h, code)
+		return code, quizBoardIDs(h, code)
 	}
-	first := play(h)
-	second := play(h)
+	firstCode, first := play(h)
+	_, second := play(h)
 	for _, id := range second {
 		if slices.Contains(first, id) {
 			t.Fatalf("a new table on the same screen dealt %s again: %v then %v", id, first, second)
 		}
 	}
+	// The first table is still open and its game goes on (a timer, a bot):
+	// that must not take the screen's memory back to before the second table.
+	h.srv.mu.Lock()
+	h.srv.commit(h.srv.rooms[firstCode])
+	h.srv.mu.Unlock()
 	if err := h.srv.Close(); err != nil {
 		t.Fatal(err)
 	}
 	h2 := newHarness(t, withQuiz(t, 4), opts)
-	third := play(h2)
+	_, third := play(h2)
 	for _, id := range third {
 		if slices.Contains(second, id) {
 			t.Fatalf("after a restart the screen's last board came back (%s): %v then %v", id, second, third)

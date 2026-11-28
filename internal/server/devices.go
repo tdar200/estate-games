@@ -57,6 +57,9 @@ type deviceRecord struct {
 	// Played is what the quiz and Near Thing games this device hosted have
 	// asked, by game type, least recently played first (played.go).
 	Played map[string][]string `json:"played,omitempty"`
+	// PlayedBy is, by game type, the table whose game started last: only it
+	// saves into Played, so an older table still open doesn't undo a newer one.
+	PlayedBy map[string]string `json:"playedBy,omitempty"`
 }
 
 // friendLink is one side of a friendship ("people you've played with").

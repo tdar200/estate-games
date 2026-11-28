@@ -18,6 +18,9 @@ import (
 // The device that made the room (the table screen, or the host's phone for a
 // phone game) now keeps the memory in its device record (estate.json): it is
 // merged into the game when the game starts, and saved back as it plays.
+// Only the table whose game started last saves (PlayedBy): an older table
+// left open on the same device keeps playing from its own memory, but can't
+// take the device's back to before the newer one.
 
 // maxPlayedMemory bounds one device's memory per game type (the packs have
 // fewer ids than this; a longer memory only drops the stalest).
@@ -60,6 +63,13 @@ func (s *Server) seedPlayed(r *room, action json.RawMessage) {
 	if pg == nil || pg.started() || actionType(action) != "start" {
 		return
 	}
+	if d.PlayedBy[r.gameType] != r.code {
+		if d.PlayedBy == nil {
+			d.PlayedBy = map[string]string{}
+		}
+		d.PlayedBy[r.gameType] = r.code
+		s.markDirty()
+	}
 	mine := d.Played[r.gameType]
 	if len(mine) == 0 {
 		return
@@ -74,7 +84,7 @@ func (s *Server) seedPlayed(r *room, action json.RawMessage) {
 // game has asked) is the device's memory.
 func (s *Server) savePlayed(r *room) {
 	pg, d := s.playedMemory(r)
-	if pg == nil || !pg.started() {
+	if pg == nil || !pg.started() || d.PlayedBy[r.gameType] != r.code {
 		return
 	}
 	ids := pg.played()

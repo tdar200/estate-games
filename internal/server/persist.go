@@ -65,7 +65,7 @@ func openPersister(dir string, delay time.Duration, logger *log.Logger) (*persis
 	return p, devices, nil
 }
 
-// markDirty schedules a save. snapshot is called later without locks held.
+// markDirty schedules a save. snapshot is called later, without the caller's locks held.
 func (p *persister) markDirty(snapshot func() ([]byte, error)) {
 	p.mu.Lock()
 	defer p.mu.Unlock()
@@ -77,6 +77,8 @@ func (p *persister) markDirty(snapshot func() ([]byte, error)) {
 }
 
 func (p *persister) saveNow() {
+	p.writeMu.Lock()
+	defer p.writeMu.Unlock()
 	p.mu.Lock()
 	p.timer = nil
 	if !p.dirty {
@@ -94,8 +96,11 @@ func (p *persister) saveNow() {
 	}
 }
 
-// flush writes pending changes immediately.
+// flush writes pending changes immediately. A timer's save already under way
+// finishes first, so the file is complete when flush returns (Close).
 func (p *persister) flush(snapshot func() ([]byte, error)) error {
+	p.writeMu.Lock()
+	defer p.writeMu.Unlock()
 	p.mu.Lock()
 	if p.timer != nil {
 		p.timer.Stop()
@@ -110,6 +115,10 @@ func (p *persister) flush(snapshot func() ([]byte, error)) error {
 	return p.write(snapshot)
 }
 
+// write saves a fresh snapshot. Requires writeMu, which saveNow and flush hold
+// from taking the dirty flag to the rename: saves land in order, a newer one
+// is never undone by an older, and flush never returns while one is writing.
+// (Lock order: writeMu, then mu or the server's lock, which snapshot takes.)
 func (p *persister) write(snapshot func() ([]byte, error)) error {
 	if snapshot == nil {
 		return nil
@@ -118,8 +127,6 @@ func (p *persister) write(snapshot func() ([]byte, error)) error {
 	if err != nil {
 		return err
 	}
-	p.writeMu.Lock()
-	defer p.writeMu.Unlock()
 	return writeFileAtomic(p.path, data)
 }
 
