@@ -2946,6 +2946,7 @@ function startSession(session, initialState) {
   storage.set(SESSION_KEY, session);
   ui.state = null;
   ui.queue = [];
+  ui.pendingEvents = [];
   ui.overlay = null;
   ui.gate = null;
   ui.prevCash = new Map();

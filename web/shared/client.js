@@ -286,8 +286,8 @@ export class EstateClient {
 }
 
 // Live updates for one room session. Tries the WebSocket first (party server only); on failure or
-// on the old server it polls GET …/state every `pollMs`. `onEvent` receives WS animation events;
-// they always arrive just before the state they belong to.
+// on the old server it polls GET …/state every `pollMs`. `onEvent` receives the socket's animation
+// events for a state just before `onState` gets that state; a state already seen drops its events.
 // How long the connection may be gone before the screens say so and stop taking taps, and the
 // shorter wait after an action failed to reach the server.
 export const OFFLINE_GRACE_MS = 4_000;
@@ -328,6 +328,9 @@ export class LiveRoom {
     // Socket actions waiting for their actionResult: id → {resolve, reject, timer}.
     this.actionId = 0;
     this.pending = new Map();
+    // Animation events from the socket, held until the state they belong to (the server sends a
+    // change's events, then its state).
+    this.socketEvents = [];
     this.onVisible = () => {
       if (!globalThis.document?.hidden) this.wake();
     };
@@ -365,14 +368,27 @@ export class LiveRoom {
     }
   }
 
-  // Feed a state that came back from an action (or anywhere else).
-  accept(state) {
+  // Feed a state that came back from an action (or anywhere else), with the socket's animation
+  // events for it. A state this screen already has is dropped with its events: an action's reply
+  // often gets here before the socket does, and its events, kept, rode on the next state and
+  // played the same move again.
+  accept(state, events = []) {
     if (!state) return;
     if (this.version !== null && typeof state.version === "number" && state.version === this.version) return;
     this.version = state.version ?? null;
     this.clock.seen(Number(state.now));
     this.setPingRate(pingInterval(state));
+    for (const event of events) this.onEvent(event);
     this.onState(state);
+  }
+
+  // One message from the room socket.
+  receive(data) {
+    if (data?.type === "pong") this.clock.pong(data);
+    else if (data?.type === "actionResult") this.settle(data);
+    else if (data?.type === "event" && data.event) this.socketEvents.push(data.event);
+    else if (data?.type === "state" && data.state) this.accept(data.state, this.socketEvents.splice(0));
+    else if (data?.type === "error" && /session|does not exist|removed you/i.test(data.error || "")) this.onFatal(new ApiError(data.error, 401));
   }
 
   // Ping (with the clock-sync fields) on the open socket. False when there is none.
@@ -478,16 +494,13 @@ export class LiveRoom {
       } catch {
         return;
       }
-      if (data?.type === "pong") this.clock.pong(data);
-      else if (data?.type === "actionResult") this.settle(data);
-      else if (data?.type === "event" && data.event) this.onEvent(data.event);
-      else if (data?.type === "state" && data.state) this.accept(data.state);
-      else if (data?.type === "error" && /session|does not exist|removed you/i.test(data.error || "")) this.onFatal(new ApiError(data.error, 401));
+      if (this.socket === socket) this.receive(data);
     };
     socket.onclose = () => {
       clearInterval(this.pingTimer);
       clearInterval(this.watchTimer);
       this.socket = null;
+      this.socketEvents = [];
       this.failPending("The connection closed.");
       if (this.stopped) return;
       this.startPolling();
@@ -506,6 +519,7 @@ export class LiveRoom {
     socket.onmessage = null;
     try { socket.close(); } catch { /* already gone */ }
     this.socket = null;
+    this.socketEvents = [];
     this.failPending("The connection dropped.");
     if (this.stopped) return;
     this.softOffline();

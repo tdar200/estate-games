@@ -8,7 +8,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { EstateClient } from "../shared/client.js";
+import { EstateClient, LiveRoom } from "../shared/client.js";
 import * as fmt from "../shared/format.js";
 import * as ins from "../shared/insights.js";
 
@@ -636,4 +636,66 @@ test("a new table names the one it replaces, and only when there is one", async 
     ["POST", "/api/tables", { gameType: "ludo" }],
     ["POST", "/api/tables", { gameType: "estate" }],
   ]);
+});
+
+test("room socket: a change's events go with its state; a state already here drops them (no replayed move)", () => {
+  const seen = [];
+  const room = new LiveRoom({}, {
+    code: "AB12C",
+    token: "t",
+    onState: (state) => seen.push(`state ${state.version}`),
+    onEvent: (event) => seen.push(`event ${event.type}`),
+  });
+  const now = Date.now();
+  // A keyboard seat's action: the POST's reply (version 16) gets here before the socket does.
+  room.accept({ version: 16, now });
+  // Then the socket: the move's events and the same state, which is dropped with them.
+  room.receive({ type: "event", event: { type: "dice", playerId: "p1", dice: [1, 2] } });
+  room.receive({ type: "event", event: { type: "move", playerId: "p1", path: [2, 3, 4, 5] } });
+  room.receive({ type: "state", state: { version: 16, now } });
+  // The next change (END TURN): only its own events come with it, not the move again.
+  room.receive({ type: "event", event: { type: "buy", playerId: "p1", spaceIndex: 5 } });
+  room.receive({ type: "state", state: { version: 17, now } });
+  assert.deepEqual(seen, ["state 16", "event buy", "state 17"]);
+  // The socket first, then the reply: the events play once and the reply is dropped.
+  room.receive({ type: "event", event: { type: "move", playerId: "p2", path: [7, 8] } });
+  room.receive({ type: "state", state: { version: 18, now } });
+  room.accept({ version: 18, now });
+  assert.deepEqual(seen.slice(3), ["event move", "state 18"]);
+  clearInterval(room.pingTimer);
+});
+
+test("room socket: events left by a duplicate, a closed socket or a replaced socket never reach a later state", () => {
+  const seen = [];
+  const room = new LiveRoom({}, {
+    code: "AB12C",
+    token: "t",
+    onState: (state) => seen.push(`state ${state.version}`),
+    onEvent: (event) => seen.push(`event ${event.type}`),
+  });
+  const now = Date.now();
+  room.accept({ version: 20, now });
+  // Part of a change's events, then the POST's reply, then the socket's copy of that state.
+  room.receive({ type: "event", event: { type: "dice", playerId: "p1", dice: [3, 3] } });
+  room.accept({ version: 21, now });
+  room.receive({ type: "event", event: { type: "move", playerId: "p1", path: [4, 5, 6, 7, 8, 9, 10] } });
+  room.receive({ type: "state", state: { version: 21, now } });
+  room.accept({ version: 22, now });
+  assert.deepEqual(seen, ["state 20", "state 21", "state 22"]);
+  // A socket that closes between a change's events and its state: the next state carries nothing.
+  const socket = { readyState: 1, close() {} };
+  room.socket = socket;
+  room.receive({ type: "event", event: { type: "move", playerId: "p2", path: [1, 2] } });
+  room.stopped = true; // no retry timers in a test
+  room.dropSocket(socket);
+  room.accept({ version: 23, now });
+  assert.deepEqual(seen.slice(3), ["state 23"]);
+  // Events with no state (the server failed to build one) go with the next state, once.
+  room.receive({ type: "event", event: { type: "pay", from: "p1", to: null, amount: 100 } });
+  room.receive({ type: "state", state: { version: 24, now } });
+  room.receive({ type: "state", state: { version: 25, now } });
+  assert.deepEqual(seen.slice(4), ["event pay", "state 24", "state 25"]);
+  clearInterval(room.pingTimer);
+  clearInterval(room.watchTimer);
+  clearTimeout(room.offlineTimer);
 });

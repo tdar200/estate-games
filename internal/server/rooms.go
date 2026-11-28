@@ -511,10 +511,12 @@ func (s *Server) commit(r *room) {
 	}
 	if r.isQuiz() {
 		s.commitQuiz(r)
+		s.savePlayed(r)
 		return
 	}
 	if r.isClosest() {
 		s.commitClosest(r)
+		s.savePlayed(r)
 		return
 	}
 	now := s.now()
