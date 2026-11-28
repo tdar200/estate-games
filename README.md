@@ -135,7 +135,7 @@ game with [docs/ADDING-A-GAME.md](docs/ADDING-A-GAME.md).
 - **Go libraries:** [coder/websocket](https://github.com/coder/websocket) and
   [rsc.io/qr](https://pkg.go.dev/rsc.io/qr), see `go.mod`.
 
-Estate was built with a lot of help from Claude Code, an AI coding tool.
+Built with Claude.
 
 Estate is an independent project. It is not affiliated with or endorsed by any tabletop game
 publisher.
