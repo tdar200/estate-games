@@ -394,6 +394,7 @@ func (s *Server) sweepOnce(lastPrune *time.Time) (closed bool) {
 		if now.Sub(*lastPrune) >= time.Minute {
 			*lastPrune = now
 			s.pruneRooms(now)
+			s.pruneDevices(now)
 		}
 		for _, r := range s.rooms {
 			s.sweepRoom(r, now)

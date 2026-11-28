@@ -67,6 +67,7 @@ func (s *Server) recordable(r *room) (*engineGame, bool) {
 // applyAction performs an action for actor and records it. Every action of a
 // person or a computer in an Estate room goes through here.
 func (s *Server) applyAction(r *room, actor string, action json.RawMessage, src stepSource) error {
+	s.seedPlayed(r, action) // quiz and Near Thing: deal from the screen's memory
 	eg, ok := s.recordable(r)
 	if !ok {
 		return r.game.PerformAction(actor, action)

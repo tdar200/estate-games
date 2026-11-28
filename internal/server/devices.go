@@ -54,6 +54,12 @@ type deviceRecord struct {
 	LastSeenAt int64                  `json:"lastSeenAt"`
 	Friends    map[string]*friendLink `json:"friends,omitempty"`
 	Recent     []*recentTable         `json:"recent,omitempty"`
+	// Played is what the quiz and Near Thing games this device hosted have
+	// asked, by game type, least recently played first (played.go).
+	Played map[string][]string `json:"played,omitempty"`
+	// PlayedBy is, by game type, the table whose game started last: only it
+	// saves into Played, so an older table still open doesn't undo a newer one.
+	PlayedBy map[string]string `json:"playedBy,omitempty"`
 }
 
 // friendLink is one side of a friendship ("people you've played with").
@@ -178,6 +184,55 @@ func (s *Server) makeRoomForDevice() error {
 	}
 	s.markDirty()
 	return nil
+}
+
+// deviceRetention is how long a device record (nickname, token, colour,
+// friends, recent tables, quiz memory) is kept after the device was last seen.
+// The privacy notice (web/privacy/index.html) states it.
+const deviceRetention = 365 * 24 * time.Hour
+
+// pruneDevices deletes the device records not seen for deviceRetention (unless
+// connected or seated now), and the friend links other devices keep to them.
+// Requires s.mu.
+func (s *Server) pruneDevices(now time.Time) {
+	cutoff := now.Add(-deviceRetention).UnixMilli()
+	var seated map[string]bool
+	var gone []string
+	for id, d := range s.devices {
+		if d.LastSeenAt >= cutoff || len(s.deviceConns[id]) > 0 {
+			continue
+		}
+		if seated == nil {
+			seated = map[string]bool{}
+			for _, r := range s.rooms {
+				for _, pair := range r.seatedDevices() {
+					seated[pair[0]] = true
+				}
+			}
+		}
+		if seated[id] {
+			continue
+		}
+		delete(s.devices, id)
+		delete(s.friendSig, id)
+		gone = append(gone, id)
+	}
+	if len(gone) == 0 {
+		return
+	}
+	for id, d := range s.devices {
+		dropped := false
+		for _, old := range gone {
+			if d.Friends[old] != nil {
+				delete(d.Friends, old)
+				dropped = true
+			}
+		}
+		if dropped {
+			delete(s.friendSig, id) // its friends list changed
+		}
+	}
+	s.markDirty()
 }
 
 func (s *Server) registerDevice(body *jsBody) (map[string]string, error) {
