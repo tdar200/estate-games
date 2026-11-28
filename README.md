@@ -6,6 +6,8 @@ One small Go program runs five games, with Estate, a property-trading board game
 **Play it free at [games.walnutpos.com](https://games.walnutpos.com)**: open it on a TV or laptop and scan
 the code with your phone. No sign-up. Or run your own copy (see [Quick start](#quick-start)).
 
+![A phone joins by the code, rolls and buys, and the TV plays it out](docs/assets/demo.gif)
+
 ![The TV during a timed auction](docs/assets/tv-auction.jpg)
 
 <p>
