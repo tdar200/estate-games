@@ -3,6 +3,9 @@
 Estate is a party game server for game night: the TV shows the board, and everyone plays on their own phone.
 One small Go program runs five games, with Estate, a property-trading board game, as the main one.
 
+**Play it free at [games.walnutpos.com](https://games.walnutpos.com)**: open it on a TV or laptop and scan
+the code with your phone. No sign-up. Or run your own copy (see [Quick start](#quick-start)).
+
 ![The TV during a timed auction](docs/assets/tv-auction.jpg)
 
 <p>
@@ -32,7 +35,10 @@ One small Go program runs five games, with Estate, a property-trading board game
 
 ## Quick start
 
-You need [Go](https://go.dev/dl/) 1.27.3 or newer (see `go.mod`).
+No Go? Download a ready-made program for Windows, Mac or Linux from
+[Releases](https://github.com/tdar200/estate-games/releases), then run it.
+
+To build it yourself you need [Go](https://go.dev/dl/) 1.27.3 or newer (see `go.mod`).
 
 ```sh
 go build ./cmd/estate
@@ -98,6 +104,7 @@ rate limits built in (see [docs/API.md](docs/API.md), "Limits and overload prote
 - [docs/POKER-API.md](docs/POKER-API.md), [docs/LUDO-API.md](docs/LUDO-API.md),
   [docs/QUIZ-API.md](docs/QUIZ-API.md), [docs/CLOSEST-API.md](docs/CLOSEST-API.md): one file per game
 - [docs/GAME-RECORDS.md](docs/GAME-RECORDS.md): the game record format and replays
+- [docs/ADDING-A-GAME.md](docs/ADDING-A-GAME.md): every place a new game touches, using Near Thing as the model
 - [docs/ai](docs/ai): how the strongest Estate computer players were built
 
 ## Contributing
@@ -105,6 +112,10 @@ rate limits built in (see [docs/API.md](docs/API.md), "Limits and overload prote
 Bug reports, ideas and pull requests are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md),
 and please follow the [Code of Conduct](CODE_OF_CONDUCT.md). To report a security problem, see
 [SECURITY.md](SECURITY.md).
+
+Good places to start: issues labelled
+[good first issue](https://github.com/tdar200/estate-games/labels/good%20first%20issue), or a new
+game with [docs/ADDING-A-GAME.md](docs/ADDING-A-GAME.md).
 
 ## Credits
 
@@ -123,6 +134,8 @@ and please follow the [Code of Conduct](CODE_OF_CONDUCT.md). To report a securit
   [public/LICENSE-lucide.txt](public/LICENSE-lucide.txt).
 - **Go libraries:** [coder/websocket](https://github.com/coder/websocket) and
   [rsc.io/qr](https://pkg.go.dev/rsc.io/qr), see `go.mod`.
+
+Estate was built with a lot of help from Claude Code, an AI coding tool.
 
 Estate is an independent project. It is not affiliated with or endorsed by any tabletop game
 publisher.
